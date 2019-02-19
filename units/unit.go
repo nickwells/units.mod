@@ -1,62 +1,49 @@
 package units
 
-// Unit is the type of a unit. Only certain units are valid and you can check
-// this using the IsValid func. The constants define the only valid units and
-// should be used wherever possible
+import "errors"
+
+// Unit is the type of a unit, it records the base unit and a description.
+// The base unit is the unit in terms of which any multiples are defined.
 type Unit struct {
-	Name string
-	Type string
+	BaseUnitName string
+	Description  string
 }
 
-var (
-	// NoUnit represents a typeless unit
-	NoUnit = Unit{
-		Name: "",
-		Type: "dimensionless value",
-	}
-	// Second represents the base unit of time
-	Second = Unit{
-		Name: "second",
-		Type: "unit of time",
-	}
-	// Byte represents the base unit of computer memory
-	Byte = Unit{
-		Name: "byte",
-		Type: "unit of data",
-	}
-	// Metre represents the base unit of distance
-	Metre = Unit{
-		Name: "metre",
-		Type: "unit of distance",
-	}
-	// SquareMetre represents the base unit of area
-	SquareMetre = Unit{
-		Name: "square metre",
-		Type: "unit of area",
-	}
-	// CubicMetre represents the base unit of volume
-	CubicMetre = Unit{
-		Name: "cubic metre",
-		Type: "unit of volume",
-	}
-	// Gram represents the base unit of mass
-	Gram = Unit{
-		Name: "gram",
-		Type: "unit of mass",
-	}
+// UnitDetails bundles together the Unit and the associated collection of
+// named alternative units
+type UnitDetails struct {
+	U    Unit
+	AltU map[string]Mult
+}
+
+// These constants should be used when retrieving unit details
+const (
+	Dimensionless = "dimensionless"
+	Time          = "time"
+	Data          = "data"
+	Distance      = "distance"
+	Length        = "distance"
+	Area          = "area"
+	Volume        = "volume"
+	Mass          = "mass"
 )
 
-var validUnits = map[Unit]bool{
-	NoUnit:      true,
-	Second:      true,
-	Byte:        true,
-	Metre:       true,
-	SquareMetre: true,
-	CubicMetre:  true,
-	Gram:        true,
+var validUnits = map[string]UnitDetails{
+	Dimensionless: {NoUnit, NoUnitNames},
+	Time:          {UnitOfTime, TimeNames},
+	Data:          {UnitOfData, DataNames},
+	Distance:      {UnitOfDistance, DistanceNames},
+	Area:          {UnitOfArea, AreaNames},
+	Volume:        {UnitOfVolume, VolumeNames},
+	Mass:          {UnitOfMass, MassNames},
 }
 
-// IsValid will test the validity of the supplied unit
-func IsValid(u Unit) bool {
-	return validUnits[u]
+// GetUnitDetails retrieves the unit details. The error value will be non-nil
+// if the name is not recognised.
+func GetUnitDetails(name string) (UnitDetails, error) {
+	u, ok := validUnits[name]
+	if !ok {
+		return UnitDetails{}, errors.New("no such unit type '" + name + "'")
+	}
+	return u, nil
 }

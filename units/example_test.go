@@ -6,12 +6,12 @@ import (
 	"github.com/nickwells/units.mod/units"
 )
 
-// ExampleMult demonstrates the usage of the Mult type
-func ExampleMult() {
+// ExampleGetMult demonstrates the usage of the Mult type
+func ExampleGetMult() {
 	var metres = 1
 
 	name := "inch"
-	multToInch, err := units.GetMult(name)
+	multToInch, err := units.GetMult(units.Length, name)
 	if err != nil {
 		fmt.Printf("Couldn't find a mult called '%s': %s\n", name, err)
 	}

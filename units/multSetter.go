@@ -18,9 +18,9 @@ type MultCheckFunc func(Mult) error
 // Mult value. You can also supply a check function that will validate the
 // Value.
 type MultSetter struct {
-	Value    *Mult
-	BaseUnit Unit
-	Checks   []MultCheckFunc
+	Value  *Mult
+	UD     UnitDetails
+	Checks []MultCheckFunc
 }
 
 // ValueReq returns Mandatory indicating that some value must follow
@@ -43,7 +43,7 @@ func (s MultSetter) suggestAltVal(val string) string {
 		strdist.CaseBlindCosineFinder.FindNStrLike(3, val, s.validNames()...)
 
 	if len(matches) > 0 {
-		suggestedNames = ". Did you mean: " +
+		suggestedNames = " Did you mean: " +
 			strings.Join(matches, " or ") +
 			"?"
 	}
@@ -56,18 +56,11 @@ func (s MultSetter) suggestAltVal(val string) string {
 // error. Only if the value is parsed successfully and no checks are violated
 // is the Value set.
 func (s MultSetter) SetWithVal(_ string, paramVal string) error {
-	v, ok := umNames[paramVal]
+	v, ok := s.UD.AltU[paramVal]
 	if !ok {
 
-		return fmt.Errorf("'%s' is not a recognised unit%s",
-			paramVal, s.suggestAltVal(paramVal))
-	}
-	if v.BaseUnit != s.BaseUnit {
-		return fmt.Errorf("'%s' is a valid unit but has the wrong type"+
-			" (is a %s, should be some %s)%s",
-			paramVal,
-			v.BaseUnit.Type, s.BaseUnit.Type,
-			s.suggestAltVal(paramVal))
+		return fmt.Errorf("'%s' is not a recognised %s.%s",
+			paramVal, s.UD.U.Description, s.suggestAltVal(paramVal))
 	}
 
 	if len(s.Checks) != 0 {
@@ -91,10 +84,8 @@ func (s MultSetter) SetWithVal(_ string, paramVal string) error {
 func (s MultSetter) validNames() []string {
 	var names []string
 
-	for k, v := range umNames {
-		if v.BaseUnit.Type == s.BaseUnit.Type {
-			names = append(names, k)
-		}
+	for k := range s.UD.AltU {
+		names = append(names, k)
 	}
 
 	return names
@@ -104,17 +95,11 @@ func (s MultSetter) validNames() []string {
 func (s MultSetter) AllowedValues() string {
 	var names = s.validNames()
 	if len(names) == 0 {
-		if !IsValid(s.BaseUnit) {
-			return "the unit type: '" +
-				s.BaseUnit.Name + "' is not a valid unit"
-		}
 		return "there are no valid conversions for this unit type: " +
-			s.BaseUnit.Name
+			s.UD.U.BaseUnitName
 	}
 
-	sort.Slice(names, func(i, j int) bool {
-		return umNames[names[i]].Val < umNames[names[j]].Val
-	})
+	sort.Strings(names)
 	rval := ""
 	sep := ""
 	for _, name := range names {
@@ -141,16 +126,14 @@ func (s MultSetter) CheckSetter(name string) {
 		panic(name +
 			": MultSetter Check failed: the Value to be set is nil")
 	}
-	if !IsValid(s.BaseUnit) {
+	if s.UD.AltU == nil {
 		panic(name +
-			": MultSetter Check failed: the unit type: '" +
-			s.BaseUnit.Name + "' is not a valid unit")
+			": MultSetter Check failed: there are no valid alternative units")
 	}
 	for _, check := range s.Checks {
 		if check == nil {
 			panic(name +
-				": MultSetter Check failed:" +
-				" one of the check functions is nil")
+				": MultSetter Check failed: one of the check functions is nil")
 		}
 	}
 }

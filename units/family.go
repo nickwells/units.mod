@@ -2,11 +2,17 @@ package units
 
 import "errors"
 
-// Family records details of a family of units such as units of area or units of mass, it records the name of the base unit and a description.
-// The base unit is the unit in terms of which any conversion factors are defined.
+// Family records details of a family of units such as units of area or units
+// of mass, it records the name of the base unit and a description.  The base
+// unit is the unit in terms of which any conversion factors are defined.
 type Family struct {
 	BaseUnitName string
 	Description  string
+}
+
+// String returns a string representation of the Family object
+func (f Family) String() string {
+	return f.BaseUnitName + " (a " + f.Description + ")"
 }
 
 // UnitDetails bundles together the Family and the associated collection of

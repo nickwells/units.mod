@@ -23,27 +23,28 @@ var UnitOfData = Family{
 }
 
 // ByteUnit is a suitable default value for a UnitOfData
-var ByteUnit = Unit{1, UnitOfData, "B", UnitOfData.BaseUnitName}
+var ByteUnit = Unit{0, 0, 1, UnitOfData, "B", UnitOfData.BaseUnitName, "bytes"}
 
+// DataNames maps names to units of data
 var DataNames = map[string]Unit{
-	"bit":    {0.125, UnitOfData, "bit", "bit"},
-	"nibble": {0.5, UnitOfData, "nibble", "nibble"},
+	"bit":    {0, 0, 0.125, UnitOfData, "bit", "bit", "bits"},
+	"nibble": {0, 0, 0.5, UnitOfData, "nibble", "nibble", "nibbles"},
 	"byte":   ByteUnit,
-	"KB":     {k, UnitOfData, "KB", "kilobyte"},
-	"MB":     {_M, UnitOfData, "MB", "megabyte"},
-	"GB":     {_G, UnitOfData, "GB", "gigabyte"},
-	"TB":     {_T, UnitOfData, "TB", "terabyte"},
-	"PB":     {_P, UnitOfData, "PB", "petabyte"},
-	"EB":     {_E, UnitOfData, "EB", "exabyte"},
-	"ZB":     {_Z, UnitOfData, "ZB", "zettabyte"},
-	"YB":     {_Y, UnitOfData, "YB", "yottabyte"},
+	"KB":     {0, 0, k, UnitOfData, "KB", "kilobyte", "kilobytes"},
+	"MB":     {0, 0, _M, UnitOfData, "MB", "megabyte", "megabytes"},
+	"GB":     {0, 0, _G, UnitOfData, "GB", "gigabyte", "gigabytes"},
+	"TB":     {0, 0, _T, UnitOfData, "TB", "terabyte", "terabytes"},
+	"PB":     {0, 0, _P, UnitOfData, "PB", "petabyte", "petabytes"},
+	"EB":     {0, 0, _E, UnitOfData, "EB", "exabyte", "exabytes"},
+	"ZB":     {0, 0, _Z, UnitOfData, "ZB", "zettabyte", "zettabytes"},
+	"YB":     {0, 0, _Y, UnitOfData, "YB", "yottabyte", "yottabytes"},
 
-	"KiB": {ki, UnitOfData, "KiB", "kibibyte"},
-	"MiB": {mi, UnitOfData, "MiB", "mebibyte"},
-	"GiB": {gi, UnitOfData, "GiB", "gibibyte"},
-	"TiB": {ti, UnitOfData, "TiB", "tebibyte"},
-	"PiB": {pi, UnitOfData, "PiB", "pebibyte"},
-	"EiB": {ei, UnitOfData, "EiB", "exbibyte"},
-	"ZiB": {zi, UnitOfData, "ZiB", "zebibyte"},
-	"YiB": {yi, UnitOfData, "YiB", "yobibyte"},
+	"KiB": {0, 0, ki, UnitOfData, "KiB", "kibibyte", "kibibytes"},
+	"MiB": {0, 0, mi, UnitOfData, "MiB", "mebibyte", "mebibytes"},
+	"GiB": {0, 0, gi, UnitOfData, "GiB", "gibibyte", "gibibytes"},
+	"TiB": {0, 0, ti, UnitOfData, "TiB", "tebibyte", "tebibytes"},
+	"PiB": {0, 0, pi, UnitOfData, "PiB", "pebibyte", "pebibytes"},
+	"EiB": {0, 0, ei, UnitOfData, "EiB", "exbibyte", "exbibytes"},
+	"ZiB": {0, 0, zi, UnitOfData, "ZiB", "zebibyte", "zebibytes"},
+	"YiB": {0, 0, yi, UnitOfData, "YiB", "yobibyte", "yobibytes"},
 }

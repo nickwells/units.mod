@@ -8,14 +8,18 @@ import (
 
 // Unit represents a unit of measure
 //
-// There are conversion details that allow you to convert to and from
-// the base units for the unit family. There are descriptive strings for
-// display giving abbreviated and full names of the unit.
+// There are conversion details that allow you to convert to and from the
+// base units for the unit family. There are descriptive strings for display
+// giving abbreviated and full names of the unit.
 type Unit struct {
-	Factor      float64
-	Fam      Family
-	Abbrev   string
-	Name  string
+	ConvPreAdd  float64
+	ConvPostAdd float64
+	ConvFactor  float64
+
+	Fam        Family
+	Abbrev     string
+	Name       string
+	NamePlural string
 }
 
 var (
@@ -45,9 +49,9 @@ var (
 )
 
 // GetUnit returns a Unit of the given type and unit name, a non-nil error is
-// returned if the familyName or unitName is not found. It is recommended that
-// the constant values for familyName should be used to reduce the liklihood of
-// runtime errors.
+// returned if the familyName or unitName is not found. It is recommended
+// that the constant values for familyName should be used to reduce the
+// liklihood of runtime errors.
 func GetUnit(familyName, unitName string) (Unit, error) {
 	var u Unit
 

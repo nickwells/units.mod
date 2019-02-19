@@ -1,8 +1,8 @@
 /*
 
-The units package represents valid units of measure (the Unit type) and
-families of related units (the Family type). It also provides a UnitSetter type
-that satisfies the param.Setter interface. This can be used to specify a Unit
+Package units represents valid units of measure (the Unit type) and families
+of related units (the Family type). It also provides a UnitSetter type that
+satisfies the param.Setter interface. This can be used to specify a Unit
 through a command line parameter.
 
 The Unit type can be used to convert between a value expressed in the base

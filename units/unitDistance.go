@@ -6,15 +6,15 @@ const (
 )
 
 // UnitOfDistance represents the base unit of distance
-var UnitOfDistance = Unit{
+var UnitOfDistance = Family{
 	BaseUnitName: "metre",
 	Description:  "unit of distance",
 }
 
-// MetreMult is a suitable default value for a Mult of UnitOfDistance
-var MetreMult = Mult{1, UnitOfDistance, "m", UnitOfDistance.BaseUnitName}
+// MetreUnit is a suitable default value for a UnitOfDistance
+var MetreUnit = Unit{1, UnitOfDistance, "m", UnitOfDistance.BaseUnitName}
 
-var DistanceNames = map[string]Mult{
+var DistanceNames = map[string]Unit{
 	"ym":    {y, UnitOfDistance, "ym", "yoctometre"},
 	"zm":    {z, UnitOfDistance, "zm", "zeptometre"},
 	"am":    {a, UnitOfDistance, "am", "attometre"},
@@ -25,7 +25,7 @@ var DistanceNames = map[string]Mult{
 	"mm":    {m, UnitOfDistance, "mm", "millimetre"},
 	"cm":    {c, UnitOfDistance, "cm", "centimetre"},
 	"dm":    {d, UnitOfDistance, "dm", "decimetre"},
-	"metre": MetreMult,
+	"metre": MetreUnit,
 	"dam":   {da, UnitOfDistance, "dam", "decametre"},
 	"hm":    {h, UnitOfDistance, "hm", "hectometre"},
 	"km":    {k, UnitOfDistance, "km", "kilometre"},

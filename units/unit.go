@@ -1,49 +1,65 @@
 package units
 
-import "errors"
-
-// Unit is the type of a unit, it records the base unit and a description.
-// The base unit is the unit in terms of which any multiples are defined.
-type Unit struct {
-	BaseUnitName string
-	Description  string
-}
-
-// UnitDetails bundles together the Unit and the associated collection of
-// named alternative units
-type UnitDetails struct {
-	U    Unit
-	AltU map[string]Mult
-}
-
-// These constants should be used when retrieving unit details
-const (
-	Dimensionless = "dimensionless"
-	Time          = "time"
-	Data          = "data"
-	Distance      = "distance"
-	Length        = "distance"
-	Area          = "area"
-	Volume        = "volume"
-	Mass          = "mass"
+import (
+	"errors"
+	"fmt"
+	"math"
 )
 
-var validUnits = map[string]UnitDetails{
-	Dimensionless: {NoUnit, NoUnitNames},
-	Time:          {UnitOfTime, TimeNames},
-	Data:          {UnitOfData, DataNames},
-	Distance:      {UnitOfDistance, DistanceNames},
-	Area:          {UnitOfArea, AreaNames},
-	Volume:        {UnitOfVolume, VolumeNames},
-	Mass:          {UnitOfMass, MassNames},
+// Unit represents a unit of measure
+//
+// There are conversion details that allow you to convert to and from
+// the base units for the unit family. There are descriptive strings for
+// display giving abbreviated and full names of the unit.
+type Unit struct {
+	Factor      float64
+	Fam      Family
+	Abbrev   string
+	Name  string
 }
 
-// GetUnitDetails retrieves the unit details. The error value will be non-nil
-// if the name is not recognised.
-func GetUnitDetails(name string) (UnitDetails, error) {
-	u, ok := validUnits[name]
+var (
+	k  = 1000.0
+	_M = math.Pow(1000, 2)
+	_G = math.Pow(1000, 3)
+	_T = math.Pow(1000, 4)
+	_P = math.Pow(1000, 5)
+	_E = math.Pow(1000, 6)
+	_Z = math.Pow(1000, 7)
+	_Y = math.Pow(1000, 8)
+
+	h  = 100.0
+	da = 10.0
+
+	d = 0.1
+	c = 0.01
+
+	m = 1.0 / math.Pow(1000, 1)
+	u = 1.0 / math.Pow(1000, 2)
+	n = 1.0 / math.Pow(1000, 3)
+	p = 1.0 / math.Pow(1000, 4)
+	f = 1.0 / math.Pow(1000, 5)
+	a = 1.0 / math.Pow(1000, 6)
+	z = 1.0 / math.Pow(1000, 7)
+	y = 1.0 / math.Pow(1000, 8)
+)
+
+// GetUnit returns a Unit of the given type and unit name, a non-nil error is
+// returned if the familyName or unitName is not found. It is recommended that
+// the constant values for familyName should be used to reduce the liklihood of
+// runtime errors.
+func GetUnit(familyName, unitName string) (Unit, error) {
+	var u Unit
+
+	ud, ok := validUnits[familyName]
 	if !ok {
-		return UnitDetails{}, errors.New("no such unit type '" + name + "'")
+		return u, errors.New("no such unit type '" + familyName + "'")
+	}
+	u, ok = ud.AltU[unitName]
+	if !ok {
+		return u,
+			fmt.Errorf("there is no %s with a name of '%s'",
+				ud.Fam.Description, unitName)
 	}
 	return u, nil
 }

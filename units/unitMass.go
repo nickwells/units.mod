@@ -1,13 +1,13 @@
 package units
 
 // UnitOfMass represents the base unit of mass
-var UnitOfMass = Unit{
+var UnitOfMass = Family{
 	BaseUnitName: "gram",
 	Description:  "unit of mass",
 }
 
-// GramMult is a suitable default value for a Mult of UnitOfMass
-var GramMult = Mult{1, UnitOfMass, "g", UnitOfMass.BaseUnitName}
+// GramUnit is a suitable default value for a UnitOfMass
+var GramUnit = Unit{1, UnitOfMass, "g", UnitOfMass.BaseUnitName}
 
 const (
 	grainToGram = 0.06479891
@@ -15,7 +15,7 @@ const (
 	poundToGram = ounceToGram * 16
 )
 
-var MassNames = map[string]Mult{
+var MassNames = map[string]Unit{
 	"yg":        {y, UnitOfMass, "yg", "yoctogram"},
 	"zg":        {z, UnitOfMass, "zg", "zeptogram"},
 	"ag":        {a, UnitOfMass, "ag", "attogram"},
@@ -26,7 +26,7 @@ var MassNames = map[string]Mult{
 	"mg":        {m, UnitOfMass, "mg", "milligram"},
 	"cg":        {c, UnitOfMass, "cg", "centigram"},
 	"dg":        {d, UnitOfMass, "dg", "decigram"},
-	"gram":      GramMult,
+	"gram":      GramUnit,
 	"dag":       {da, UnitOfMass, "dag", "decagram"},
 	"hg":        {h, UnitOfMass, "hg", "hectogram"},
 	"kg":        {k, UnitOfMass, "kg", "kilogram"},

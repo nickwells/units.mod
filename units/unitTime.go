@@ -1,15 +1,15 @@
 package units
 
 // UnitOfTime represents the base unit of time
-var UnitOfTime = Unit{
+var UnitOfTime = Family{
 	BaseUnitName: "second",
 	Description:  "unit of time",
 }
 
-// SecondMult is a suitable default value for a Mult of UnitOfTime
-var SecondMult = Mult{1, UnitOfTime, "sec", UnitOfTime.BaseUnitName}
+// SecondUnit is a suitable default value for a UnitOfTime
+var SecondUnit = Unit{1, UnitOfTime, "sec", UnitOfTime.BaseUnitName}
 
-var TimeNames = map[string]Mult{
+var TimeNames = map[string]Unit{
 	"ysec":   {y, UnitOfTime, "ysec", "yoctosecond"},
 	"zsec":   {z, UnitOfTime, "zsec", "zeptosecond"},
 	"asec":   {a, UnitOfTime, "asec", "attosecond"},
@@ -20,8 +20,8 @@ var TimeNames = map[string]Mult{
 	"msec":   {m, UnitOfTime, "msec", "millisecond"},
 	"csec":   {c, UnitOfTime, "csec", "centisecond"},
 	"dsec":   {d, UnitOfTime, "dsec", "decisecond"},
-	"sec":    SecondMult,
-	"second": SecondMult,
+	"sec":    SecondUnit,
+	"second": SecondUnit,
 	"minute": {60, UnitOfTime, "min", "minute"},
 	"hour":   {60 * 60, UnitOfTime, "hr", "hour"},
 	"day":    {60 * 60 * 24, UnitOfTime, "day", "day"},

@@ -13,18 +13,22 @@ const (
 )
 
 // UnitOfData represents the base unit of data
-var UnitOfData = Unit{
+//
+// For units of data the names follow the metric and IEC naming
+// conventions so MB refers to a megabyte or 1000^2 bytes and MiB refers
+// to a mebibyte or 1024^2 bytes
+var UnitOfData = Family{
 	BaseUnitName: "byte",
 	Description:  "unit of data",
 }
 
-// ByteMult is a suitable default value for a Mult of UnitOfData
-var ByteMult = Mult{1, UnitOfData, "B", UnitOfData.BaseUnitName}
+// ByteUnit is a suitable default value for a UnitOfData
+var ByteUnit = Unit{1, UnitOfData, "B", UnitOfData.BaseUnitName}
 
-var DataNames = map[string]Mult{
+var DataNames = map[string]Unit{
 	"bit":    {0.125, UnitOfData, "bit", "bit"},
 	"nibble": {0.5, UnitOfData, "nibble", "nibble"},
-	"byte":   ByteMult,
+	"byte":   ByteUnit,
 	"KB":     {k, UnitOfData, "KB", "kilobyte"},
 	"MB":     {_M, UnitOfData, "MB", "megabyte"},
 	"GB":     {_G, UnitOfData, "GB", "gigabyte"},

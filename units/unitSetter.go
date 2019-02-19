@@ -10,34 +10,34 @@ import (
 	"github.com/nickwells/strdist.mod/strdist"
 )
 
-// MultCheckFunc is the type of the check function for this setter. It takes
-// a Mult parameter and returns an error (or nil)
-type MultCheckFunc func(Mult) error
+// UnitCheckFunc is the type of the check function for this setter. It takes
+// a Unit parameter and returns an error (or nil)
+type UnitCheckFunc func(Unit) error
 
-// MultSetter allows you to specify a parameter that can be used to set a
-// Mult value. You can also supply a check function that will validate the
+// UnitSetter allows you to specify a parameter that can be used to set a
+// Unit value. You can also supply a check function that will validate the
 // Value.
-type MultSetter struct {
-	Value  *Mult
+type UnitSetter struct {
+	Value  *Unit
 	UD     UnitDetails
-	Checks []MultCheckFunc
+	Checks []UnitCheckFunc
 }
 
 // ValueReq returns Mandatory indicating that some value must follow
 // the parameter
-func (s MultSetter) ValueReq() param.ValueReq {
+func (s UnitSetter) ValueReq() param.ValueReq {
 	return param.Mandatory
 }
 
 // Set (called when there is no following value) returns an error
-func (s MultSetter) Set(_ string) error {
+func (s UnitSetter) Set(_ string) error {
 	return errors.New("no value given (it should be followed by a unit name)")
 }
 
 // suggestAltVal will suggest a possible alternative value for the parameter
 // value. It will find those strings in the set of possible values that are
 // closest to the given value
-func (s MultSetter) suggestAltVal(val string) string {
+func (s UnitSetter) suggestAltVal(val string) string {
 	suggestedNames := ""
 	matches :=
 		strdist.CaseBlindCosineFinder.FindNStrLike(3, val, s.validNames()...)
@@ -51,16 +51,16 @@ func (s MultSetter) suggestAltVal(val string) string {
 }
 
 // SetWithVal (called when a value follows the parameter) checks that the
-// value can be found in the map of Mults, if it cannot it returns an
+// value can be found in the map of Units, if it cannot it returns an
 // error. If there are checks and any check is violated it returns an
 // error. Only if the value is parsed successfully and no checks are violated
 // is the Value set.
-func (s MultSetter) SetWithVal(_ string, paramVal string) error {
+func (s UnitSetter) SetWithVal(_ string, paramVal string) error {
 	v, ok := s.UD.AltU[paramVal]
 	if !ok {
 
 		return fmt.Errorf("'%s' is not a recognised %s.%s",
-			paramVal, s.UD.U.Description, s.suggestAltVal(paramVal))
+			paramVal, s.UD.Fam.Description, s.suggestAltVal(paramVal))
 	}
 
 	if len(s.Checks) != 0 {
@@ -81,7 +81,7 @@ func (s MultSetter) SetWithVal(_ string, paramVal string) error {
 }
 
 // allowedValNames returns slice containing the names of allowed values
-func (s MultSetter) validNames() []string {
+func (s UnitSetter) validNames() []string {
 	var names []string
 
 	for k := range s.UD.AltU {
@@ -92,11 +92,11 @@ func (s MultSetter) validNames() []string {
 }
 
 // AllowedValues returns a string describing the allowed values
-func (s MultSetter) AllowedValues() string {
+func (s UnitSetter) AllowedValues() string {
 	var names = s.validNames()
 	if len(names) == 0 {
 		return "there are no valid conversions for this unit type: " +
-			s.UD.U.BaseUnitName
+			s.UD.Fam.BaseUnitName
 	}
 
 	sort.Strings(names)
@@ -114,26 +114,26 @@ func (s MultSetter) AllowedValues() string {
 }
 
 // CurrentValue returns the current setting of the parameter value
-func (s MultSetter) CurrentValue() string {
-	return s.Value.AltUnit
+func (s UnitSetter) CurrentValue() string {
+	return s.Value.Name
 }
 
 // CheckSetter panics if the setter has not been properly created - if the
 // Value is nil, if the base unit is invalid or if one of the check functions
 // is nil.
-func (s MultSetter) CheckSetter(name string) {
+func (s UnitSetter) CheckSetter(name string) {
 	if s.Value == nil {
 		panic(name +
-			": MultSetter Check failed: the Value to be set is nil")
+			": UnitSetter Check failed: the Value to be set is nil")
 	}
 	if s.UD.AltU == nil {
 		panic(name +
-			": MultSetter Check failed: there are no valid alternative units")
+			": UnitSetter Check failed: there are no valid alternative units")
 	}
 	for _, check := range s.Checks {
 		if check == nil {
 			panic(name +
-				": MultSetter Check failed: one of the check functions is nil")
+				": UnitSetter Check failed: one of the check functions is nil")
 		}
 	}
 }

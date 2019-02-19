@@ -9,23 +9,23 @@ const (
 )
 
 // UnitOfVolume represents the base unit of volume
-var UnitOfVolume = Unit{
+var UnitOfVolume = Family{
 	BaseUnitName: "cubic metre",
 	Description:  "unit of volume",
 }
 
-// CubicMetreMult is a suitable default value for a Mult of UnitOfVolume
-var CubicMetreMult = Mult{1, UnitOfVolume, "m\u00B3", UnitOfVolume.BaseUnitName}
+// CubicMetreUnit is a suitable default value for a UnitOfVolume
+var CubicMetreUnit = Unit{1, UnitOfVolume, "m\u00B3", UnitOfVolume.BaseUnitName}
 
-// LitreMult is an alternative suitable default value for a Mult of UnitOfVolume
-var LitreMult = Mult{1e-3, UnitOfVolume, "l", "litre"}
+// LitreUnit is an alternative suitable default value for a UnitOfVolume
+var LitreUnit = Unit{1e-3, UnitOfVolume, "l", "litre"}
 
-var VolumeNames = map[string]Mult{
+var VolumeNames = map[string]Unit{
 	"cc":               {m * 1e-3, UnitOfVolume, "cc", "cubic centimetre"},
 	"cubic-centimetre": {m * 1e-3, UnitOfVolume, "cc", "cubic centimetre"},
 	"cubic centimetre": {m * 1e-3, UnitOfVolume, "cc", "cubic centimetre"},
-	"cubic-metre":      CubicMetreMult,
-	"cubic metre":      CubicMetreMult,
+	"cubic-metre":      CubicMetreUnit,
+	"cubic metre":      CubicMetreUnit,
 	"cubic-kilometre":  {_G, UnitOfVolume, "km\u00B3", "cubic kilometre"},
 	"cubic kilometre":  {_G, UnitOfVolume, "km\u00B3", "cubic kilometre"},
 
@@ -39,8 +39,8 @@ var VolumeNames = map[string]Mult{
 	"ml":    {m * 1e-3, UnitOfVolume, "ml", "millilitre"},
 	"cl":    {c * 1e-3, UnitOfVolume, "cl", "centilitre"},
 	"dl":    {d * 1e-3, UnitOfVolume, "dl", "decilitre"},
-	"litre": LitreMult,
-	"liter": LitreMult, // for American users
+	"litre": LitreUnit,
+	"liter": LitreUnit, // for American users
 	"dal":   {da * 1e-3, UnitOfVolume, "dal", "decalitre"},
 	"hl":    {h * 1e-3, UnitOfVolume, "hl", "hectolitre"},
 	"kl":    {k * 1e-3, UnitOfVolume, "kl", "kilolitre"},

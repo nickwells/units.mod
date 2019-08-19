@@ -22,6 +22,7 @@ var LitreUnit = Unit{0, 0, 1e-3, UnitOfVolume, "l", "litre", "litres"}
 
 // VolumeNames maps names to units of volume
 var VolumeNames = map[string]Unit{
+	// metric
 	"cc":               {0, 0, m * 1e-3, UnitOfVolume, "cc", "cubic centimetre", "cubic centimetres"},
 	"cubic-centimetre": {0, 0, m * 1e-3, UnitOfVolume, "cc", "cubic centimetre", "cubic centimetres"},
 	"cubic centimetre": {0, 0, m * 1e-3, UnitOfVolume, "cc", "cubic centimetre", "cubic centimetres"},
@@ -41,7 +42,8 @@ var VolumeNames = map[string]Unit{
 	"cl":    {0, 0, c * 1e-3, UnitOfVolume, "cl", "centilitre", "centilitres"},
 	"dl":    {0, 0, d * 1e-3, UnitOfVolume, "dl", "decilitre", "decilitres"},
 	"litre": LitreUnit,
-	"liter": LitreUnit, // for American users
+	// for American users
+	"liter": LitreUnit, // nolint:misspell
 	"dal":   {0, 0, da * 1e-3, UnitOfVolume, "dal", "decalitre", "decalitres"},
 	"hl":    {0, 0, h * 1e-3, UnitOfVolume, "hl", "hectolitre", "hectolitres"},
 	"kl":    {0, 0, k * 1e-3, UnitOfVolume, "kl", "kilolitre", "kilolitres"},
@@ -53,6 +55,7 @@ var VolumeNames = map[string]Unit{
 	"Zl":    {0, 0, _Z * 1e-3, UnitOfVolume, "Zl", "zettalitre", "zettalitres"},
 	"Yl":    {0, 0, _Y * 1e-3, UnitOfVolume, "Yl", "yottalitre", "yottalitres"},
 
+	// bottle
 	"bottle-wine": {0, 0, bottleToCubicMetre, UnitOfVolume, "bottle", "bottle (wine)", "bottles (wine)"},
 	"magnum": {0, 0, bottleToCubicMetre * 2, UnitOfVolume,
 		"Magnum", "Magnum (wine)", "Magnums (wine)"},
@@ -75,6 +78,7 @@ var VolumeNames = map[string]Unit{
 	"nebuchadnezzar": {0, 0, bottleToCubicMetre * 20, UnitOfVolume,
 		"Nebuchadnezzar", "Nebuchadnezzar (wine)", "Nebuchadnezzars (wine)"},
 
+	// Imperial / US
 	"minim": {0, 0, fluidOzToCubicMetre / 480, UnitOfVolume,
 		"min", "minim", "minims"},
 	"fluid-scruple": {0, 0, fluidOzToCubicMetre / 24, UnitOfVolume,

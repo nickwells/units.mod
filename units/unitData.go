@@ -39,6 +39,7 @@ var DataNames = map[string]Unit{
 	"ZB":     {0, 0, _Z, UnitOfData, "ZB", "zettabyte", "zettabytes"},
 	"YB":     {0, 0, _Y, UnitOfData, "YB", "yottabyte", "yottabytes"},
 
+	// powers of 2 (1024 = 2^10)
 	"KiB": {0, 0, ki, UnitOfData, "KiB", "kibibyte", "kibibytes"},
 	"MiB": {0, 0, mi, UnitOfData, "MiB", "mebibyte", "mebibytes"},
 	"GiB": {0, 0, gi, UnitOfData, "GiB", "gibibyte", "gibibytes"},

@@ -22,7 +22,7 @@ func ConvertFromBaseUnits(v float64, to Unit) (float64, error) {
 		return v,
 			fmt.Errorf("Bad units - a zero conversion factor")
 	}
-	return ((v - to.ConvPostAdd) / to.ConvFactor) + to.ConvPreAdd,
+	return ((v + to.ConvPreAdd) / to.ConvFactor) + to.ConvPostAdd,
 		nil
 }
 
@@ -34,7 +34,7 @@ func ConvertToBaseUnits(v float64, from Unit) (float64, error) {
 		return v,
 			fmt.Errorf("Bad units - a zero conversion factor")
 	}
-	return ((v + from.ConvPreAdd) * from.ConvFactor) + from.ConvPostAdd,
+	return ((v - from.ConvPostAdd) * from.ConvFactor) - from.ConvPreAdd,
 		nil
 }
 

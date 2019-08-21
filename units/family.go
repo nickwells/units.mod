@@ -32,6 +32,8 @@ const (
 	Area          = "area"
 	Volume        = "volume"
 	Mass          = "mass"
+	Temperature   = "temperature"
+	Angle         = "angle"
 )
 
 var validUnits = map[string]UnitDetails{
@@ -42,6 +44,8 @@ var validUnits = map[string]UnitDetails{
 	Area:          {UnitOfArea, AreaNames},
 	Volume:        {UnitOfVolume, VolumeNames},
 	Mass:          {UnitOfMass, MassNames},
+	Temperature:   {UnitOfTemperature, TemperatureNames},
+	Angle:         {UnitOfAngle, AngleNames},
 }
 
 // GetUnitDetails retrieves the unit details. The error value will be non-nil

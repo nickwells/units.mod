@@ -3,6 +3,7 @@ package units
 const (
 	inchToMetre = 0.0254
 	yardToMetre = inchToMetre * 12 * 3
+	lightSecond = 2.99792458e8
 )
 
 // UnitOfDistance represents the base unit of distance
@@ -16,6 +17,7 @@ var MetreUnit = Unit{0, 0, 1, UnitOfDistance, "m", UnitOfDistance.BaseUnitName, 
 
 // DistanceNames maps names to units of distance
 var DistanceNames = map[string]Unit{
+	// metric
 	"ym":    {0, 0, y, UnitOfDistance, "ym", "yoctometre", "yoctometres"},
 	"zm":    {0, 0, z, UnitOfDistance, "zm", "zeptometre", "zeptometres"},
 	"am":    {0, 0, a, UnitOfDistance, "am", "attometre", "attometres"},
@@ -38,6 +40,7 @@ var DistanceNames = map[string]Unit{
 	"Zm":    {0, 0, _Z, UnitOfDistance, "Zm", "zettametre", "zettametres"},
 	"Ym":    {0, 0, _Y, UnitOfDistance, "Ym", "yottametre", "yottametres"},
 
+	// Imperial / US
 	"inch":          {0, 0, inchToMetre, UnitOfDistance, "in", "inch", "inches"},
 	"foot":          {0, 0, inchToMetre * 12, UnitOfDistance, "ft", "foot", "feet"},
 	"hand":          {0, 0, inchToMetre * 4, UnitOfDistance, "hand", "hand", "hands"},
@@ -50,14 +53,20 @@ var DistanceNames = map[string]Unit{
 	"league":        {0, 0, yardToMetre * 1760 * 3, UnitOfDistance, "lea", "league", "leagues"},
 
 	"fathom":           {0, 0, yardToMetre * 2, UnitOfDistance, "ftm", "fathom", "fathoms"},
-	"nautical-mile":    {0, 0, 6080 * inchToMetre * 12, UnitOfDistance, "nautical mile", "nautical mile", "nautical miles"},
-	"admiralty-fathom": {0, 0, 6080 * inchToMetre * 12 / 1000, UnitOfDistance, "adm ftm", "Admiralty fathom", "Admiralty fathoms"},
+	"nautical-mile":    {0, 0, 1852, UnitOfDistance, "M", "nautical mile", "nautical miles"},
+	"admiralty-fathom": {0, 0, 6080 * yardToMetre / 3000, UnitOfDistance, "adm ftm", "Admiralty fathom", "Admiralty fathoms"},
 
+	// regional
+	"scots mile": {0, 0, yardToMetre * 1976, UnitOfDistance, "Scots mile", "Scots mile", "Scots miles"},
+	"irish mile": {0, 0, yardToMetre * 2240, UnitOfDistance, "Irish mile", "Irish mile", "Irish miles"},
+
+	// astronomical
 	"astro-unit":   {0, 0, 1.49597871e11, UnitOfDistance, "AU", "Astronomical Unit", "Astronomical Units"},
 	"parsec":       {0, 0, 3.08567758767931e16, UnitOfDistance, "pc", "parsec", "parsecs"},
-	"light-year":   {0, 0, 9.460528405106e15, UnitOfDistance, "ly", "light year", "light years"},
-	"light-second": {0, 0, 2.99792458e8, UnitOfDistance, "ls", "light second", "light seconds"},
+	"light-year":   {0, 0, lightSecond * 86400 * 365.25, UnitOfDistance, "ly", "light year", "light years"},
+	"light-second": {0, 0, lightSecond, UnitOfDistance, "ls", "light second", "light seconds"},
 
+	// printing
 	"point": {0, 0, 0.0003528, UnitOfDistance, "pt", "point", "points"},
 	"pica":  {0, 0, 0.0042336, UnitOfDistance, "pc", "pica", "pica"},
 }

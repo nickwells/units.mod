@@ -16,7 +16,12 @@ const (
 )
 
 // MassNames maps names to units of mass
+//
+// Note that the SI unit of weight is the kilogram not the gram. I have used
+// the gram so as to avoid having to divide all the multiples by 1000 or else
+// having all the multiples offset by one
 var MassNames = map[string]Unit{
+	// SI
 	"yg":        {0, 0, y, UnitOfMass, "yg", "yoctogram", "yoctograms"},
 	"zg":        {0, 0, z, UnitOfMass, "zg", "zeptogram", "zeptograms"},
 	"ag":        {0, 0, a, UnitOfMass, "ag", "attogram", "attograms"},
@@ -42,12 +47,14 @@ var MassNames = map[string]Unit{
 	"Zg":        {0, 0, _Z, UnitOfMass, "Zg", "zettagram", "zettagrams"},
 	"Yg":        {0, 0, _Y, UnitOfMass, "Yg", "yottagram", "yottagrams"},
 
+	// apothecaries weights
 	"grain":      {0, 0, grainToGram, UnitOfMass, "gr", "grain", "grains"},
 	"troy-ounce": {0, 0, grainToGram * 480, UnitOfMass, "t oz", "troy ounce", "troy ounces"},
 	"scruple":    {0, 0, grainToGram * 20, UnitOfMass, "scruple", "scruple", "scruples"},
 	"dram":       {0, 0, grainToGram * 60, UnitOfMass, "dr", "dram", "drams"},
 	"drachm":     {0, 0, grainToGram * 60, UnitOfMass, "dr", "drachm", "drachms"},
 
+	// Imperial / US
 	"ounce":         {0, 0, ounceToGram, UnitOfMass, "oz", "ounce", "ounces"},
 	"pound":         {0, 0, poundToGram, UnitOfMass, "lb", "pound", "pounds"},
 	"stone":         {0, 0, poundToGram * 14, UnitOfMass, "st", "stone", "stones"},
@@ -57,6 +64,8 @@ var MassNames = map[string]Unit{
 	"imperial-ton": {0, 0, poundToGram * 112 * 20, UnitOfMass, "t", "imperial ton", "imperial tons"},
 	"short-ton":    {0, 0, poundToGram * 2000, UnitOfMass, "short ton", "short ton", "short tons"},
 
-	"earth-mass": {0, 0, 5.9722e27, UnitOfMass, "M\u2295", "Earth Mass", "Earth Masses"},
-	"solar-mass": {0, 0, 1.98847e33, UnitOfMass, "M\u2299", "Solar Mass", "Solar Masses"},
+	// astronomical
+	"earth-mass": {0, 0, 5.9722e27, UnitOfMass, "M⊕", "Earth Mass", "Earth Masses"},
+	"solar-mass": {0, 0, 1.98847e33, UnitOfMass, "M⊙", "Solar Mass", "Solar Masses"},
+	"lunar-mass": {0, 0, 7.342e25, UnitOfMass, "ML", "Lunar Mass", "Lunar Masses"},
 }

@@ -57,3 +57,13 @@ func GetUnitDetails(name string) (UnitDetails, error) {
 	}
 	return ud, nil
 }
+
+// GetUnitDetailsOrPanic retrieves the unit details. It will panic if the
+// name is not recognised.
+func GetUnitDetailsOrPanic(name string) UnitDetails {
+	ud, err := GetUnitDetails(name)
+	if err != nil {
+		panic(err)
+	}
+	return ud
+}

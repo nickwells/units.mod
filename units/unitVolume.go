@@ -79,6 +79,19 @@ var VolumeNames = map[string]Unit{
 		"Nebuchadnezzar", "Nebuchadnezzar (wine)", "Nebuchadnezzars (wine)"},
 
 	// Imperial / US
+	"cubic-inch": {0, 0, (inchToMetre * inchToMetre * inchToMetre), UnitOfVolume,
+		"in\u00B3", "cubic inch", "cubic inches"},
+	"cubic inch": {0, 0, (inchToMetre * inchToMetre * inchToMetre), UnitOfVolume,
+		"in\u00B3", "cubic inch", "cubic inches"},
+	"cubic-foot": {0, 0, (footToMetre * footToMetre * footToMetre), UnitOfVolume,
+		"ft\u00B3", "cubic foot", "cubic feet"},
+	"cubic foot": {0, 0, (footToMetre * footToMetre * footToMetre), UnitOfVolume,
+		"ft\u00B3", "cubic foot", "cubic feet"},
+	"cubic-yard": {0, 0, (yardToMetre * yardToMetre * yardToMetre), UnitOfVolume,
+		"yd\u00B3", "cubic yard", "cubic yards"},
+	"cubic yard": {0, 0, (yardToMetre * yardToMetre * yardToMetre), UnitOfVolume,
+		"yd\u00B3", "cubic yard", "cubic yards"},
+
 	"minim": {0, 0, fluidOzToCubicMetre / 480, UnitOfVolume,
 		"min", "minim", "minims"},
 	"fluid-scruple": {0, 0, fluidOzToCubicMetre / 24, UnitOfVolume,

@@ -4,6 +4,7 @@ const (
 	inchToMetre = 0.0254
 	footToMetre = inchToMetre * 12
 	yardToMetre = footToMetre * 3
+	rodToMetre  = yardToMetre * 5.5
 	lightSecond = 2.99792458e8
 )
 
@@ -43,12 +44,14 @@ var DistanceNames = map[string]Unit{
 
 	// Imperial / US
 	"inch":          {0, 0, inchToMetre, UnitOfDistance, "in", "inch", "inches"},
-	"foot":          {0, 0, inchToMetre * 12, UnitOfDistance, "ft", "foot", "feet"},
 	"hand":          {0, 0, inchToMetre * 4, UnitOfDistance, "hand", "hand", "hands"},
+	"foot":          {0, 0, footToMetre, UnitOfDistance, "ft", "foot", "feet"},
 	"yard":          {0, 0, yardToMetre, UnitOfDistance, "yd", "yard", "yards"},
-	"rod":           {0, 0, yardToMetre * 5.5, UnitOfDistance, "rod", "rod", "rods"},
-	"chain":         {0, 0, yardToMetre * 22, UnitOfDistance, "ch", "chain", "chains"},
-	"furlong":       {0, 0, yardToMetre * 220, UnitOfDistance, "fur", "furlong", "furlongs"},
+	"rod":           {0, 0, rodToMetre, UnitOfDistance, "rod", "rod", "rods"},
+	"pole":          {0, 0, rodToMetre, UnitOfDistance, "pole", "pole", "poles"},
+	"perch":         {0, 0, rodToMetre, UnitOfDistance, "perch", "perch", "perch"},
+	"chain":         {0, 0, rodToMetre * 4, UnitOfDistance, "ch", "chain", "chains"},
+	"furlong":       {0, 0, rodToMetre * 40, UnitOfDistance, "fur", "furlong", "furlongs"},
 	"mile":          {0, 0, yardToMetre * 1760, UnitOfDistance, "mi", "mile", "miles"},
 	"swimming-mile": {0, 0, yardToMetre * 1650, UnitOfDistance, "swim-mi", "swimming mile", "swimming miles"},
 	"league":        {0, 0, yardToMetre * 1760 * 3, UnitOfDistance, "lea", "league", "leagues"},

@@ -10,10 +10,10 @@ var UnitOfAngle = Family{
 	Description:  "unit of angular measure",
 }
 
-// DegCUnit is a suitable default value for a UnitOfAngle
+// AngularUnitRadian is a suitable default value for a UnitOfAngle
 var AngularUnitRadian = Unit{0, 0, 1, UnitOfAngle, "rad", UnitOfAngle.BaseUnitName, "radians"}
 
-// AngleNames maps names to units of temperature
+// AngleNames maps names to units of anglular measure
 var AngleNames = map[string]Unit{
 	// SI
 	"radian":      AngularUnitRadian,

@@ -13,76 +13,98 @@ func TestTemperature(t *testing.T) {
 		testhelper.ID
 		testhelper.ExpErr
 		degC float64
-		degF float64
-		K    float64
+		vals map[units.Unit]float64
 	}{
 		{
 			ID:   testhelper.MkID("0℃"),
 			degC: 0,
-			degF: 32,
-			K:    237.15,
+			vals: map[units.Unit]float64{
+				units.DegFUnit:  32,
+				units.DegRaUnit: 491.67,
+				units.DegRoUnit: 7.5,
+				units.DegKUnit:  273.15,
+				units.DegNUnit:  0,
+				units.DegDUnit:  150,
+			},
 		},
 		{
 			ID:   testhelper.MkID("100℃"),
 			degC: 100,
-			degF: 212,
-			K:    337.15,
+			vals: map[units.Unit]float64{
+				units.DegFUnit:  212,
+				units.DegRaUnit: 671.67,
+				units.DegRoUnit: 60,
+				units.DegKUnit:  373.15,
+				units.DegNUnit:  33.0,
+				units.DegDUnit:  0,
+			},
+		},
+		{
+			ID:   testhelper.MkID("absolute zero"),
+			degC: -273.15,
+			vals: map[units.Unit]float64{
+				units.DegFUnit:  -459.67,
+				units.DegRaUnit: 0,
+				units.DegRoUnit: -135.90375,
+				units.DegKUnit:  0,
+				units.DegNUnit:  -90.1395,
+				units.DegDUnit:  559.725,
+			},
+		},
+		{
+			ID: testhelper.MkID("bad unit family"),
+			ExpErr: testhelper.MkExpErr(
+				"Mismatched unit families." +
+					" Cannot convert units from" +
+					" degree Celsius (a unit of temperature)" +
+					" to gram (a unit of mass)"),
+			degC: 99,
+			vals: map[units.Unit]float64{
+				units.GramUnit: 0,
+			},
+		},
+		{
+			ID:     testhelper.MkID("bad unit - zero conversion factor"),
+			ExpErr: testhelper.MkExpErr("Bad units - a zero conversion factor"),
+			degC:   99,
+			vals: map[units.Unit]float64{
+				{0, 0, 0, units.UnitOfTemperature,
+					"Bad", "Bad singular", "Bad plural"}: 0,
+			},
 		},
 	}
 
 	for _, tc := range testCases {
 		vc := units.ValWithUnit{Val: tc.degC, U: units.DegCUnit}
+		for altUnit, v := range tc.vals {
+			unitVal, err := vc.Convert(altUnit)
+			testhelper.CheckExpErr(t, err, tc)
+			if err != nil {
+				continue
+			}
+			if !mathutil.AlmostEqual(unitVal.Val, v, 0.000001) {
+				t.Log(tc.IDStr())
+				t.Logf("\t:    Given %6.2f℃\n", tc.degC)
+				t.Logf("\t: Expected %6.2f%s\n", v, altUnit.Abbrev)
+				t.Logf("\t:      Got %6.2f%s\n", unitVal.Val, altUnit.Abbrev)
+				t.Errorf("\t: bad conversion from degrees Celsius to %s\n",
+					altUnit.NamePlural)
+			}
+			vAlt := units.ValWithUnit{Val: v, U: altUnit}
 
-		vf, err := vc.Convert(units.DegFUnit)
-		testhelper.CheckExpErr(t, err, tc)
-		if err != nil {
-			continue
-		}
-		if !mathutil.AlmostEqual(vf.Val, tc.degF, 0.000001) {
-			t.Log(tc.IDStr())
-			t.Logf("\t:    Given %6.2f℃\n", tc.degC)
-			t.Logf("\t: Expected %6.2f℉\n", tc.degF)
-			t.Logf("\t:      Got %6.2f℉\n", vf.Val)
-			t.Errorf("\t: bad conversion from C to F\n")
-		}
-
-		vk, err := vc.Convert(units.DegKUnit)
-		testhelper.CheckExpErr(t, err, tc)
-		if err != nil {
-			continue
-		}
-		if !mathutil.AlmostEqual(vk.Val, tc.K, 0.000001) {
-			t.Log(tc.IDStr())
-			t.Logf("\t:    Given %6.2f℃\n", tc.degC)
-			t.Logf("\t: Expected %6.2fK\n", tc.K)
-			t.Logf("\t:      Got %6.2fK\n", vk.Val)
-			t.Errorf("\t: bad conversion from C to K\n")
-		}
-
-		vc, err = vf.Convert(units.DegCUnit)
-		testhelper.CheckExpErr(t, err, tc)
-		if err != nil {
-			continue
-		}
-		if !mathutil.AlmostEqual(vc.Val, tc.degC, 0.000001) {
-			t.Log(tc.IDStr())
-			t.Logf("\t:    Given %6.2f℉\n", vf.Val)
-			t.Logf("\t: Expected %6.2f℃\n", tc.degC)
-			t.Logf("\t:      Got %6.2f℃\n", vc.Val)
-			t.Errorf("\t: bad conversion from F back to C\n")
-		}
-
-		vc, err = vk.Convert(units.DegCUnit)
-		testhelper.CheckExpErr(t, err, tc)
-		if err != nil {
-			continue
-		}
-		if !mathutil.AlmostEqual(vc.Val, tc.degC, 0.000001) {
-			t.Log(tc.IDStr())
-			t.Logf("\t:    Given %6.2fK\n", vk.Val)
-			t.Logf("\t: Expected %6.2f℃\n", tc.degC)
-			t.Logf("\t:      Got %6.2f℃\n", vc.Val)
-			t.Errorf("\t: bad conversion from K back to C\n")
+			vCelsius, err := vAlt.Convert(units.DegCUnit)
+			testhelper.CheckExpErr(t, err, tc)
+			if err != nil {
+				continue
+			}
+			if !mathutil.AlmostEqual(vCelsius.Val, tc.degC, 0.000001) {
+				t.Log(tc.IDStr())
+				t.Logf("\t:    Given %6.2f%s\n", v, altUnit.Abbrev)
+				t.Logf("\t: Expected %6.2f℃\n", tc.degC)
+				t.Logf("\t:      Got %6.2f℃\n", vCelsius.Val)
+				t.Errorf("\t: bad conversion from %s back to degrees Celsius\n",
+					altUnit.NamePlural)
+			}
 		}
 	}
 }

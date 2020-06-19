@@ -34,6 +34,7 @@ var DistanceNames = map[string]Unit{
 	"dam":   {0, 0, da, UnitOfDistance, "dam", "decametre", "decametres"},
 	"hm":    {0, 0, h, UnitOfDistance, "hm", "hectometre", "hectometres"},
 	"km":    {0, 0, k, UnitOfDistance, "km", "kilometre", "kilometres"},
+	"klick": {0, 0, k, UnitOfDistance, "klick", "klick", "klicks"}, // US Army term
 	"Mm":    {0, 0, _M, UnitOfDistance, "Mm", "megametre", "megametres"},
 	"Gm":    {0, 0, _G, UnitOfDistance, "Gm", "gigametre", "gigametres"},
 	"Tm":    {0, 0, _T, UnitOfDistance, "Tm", "terametre", "terametres"},

@@ -69,7 +69,7 @@ func TestTemperature(t *testing.T) {
 			degC:   99,
 			vals: map[units.Unit]float64{
 				{0, 0, 0, units.UnitOfTemperature,
-					"Bad", "Bad singular", "Bad plural"}: 0,
+					"Bad", "Bad singular", "Bad plural", "Description"}: 0,
 			},
 		},
 	}

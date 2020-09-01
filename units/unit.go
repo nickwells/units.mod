@@ -20,6 +20,8 @@ type Unit struct {
 	Abbrev     string
 	Name       string
 	NamePlural string
+
+	Notes string
 }
 
 var (
@@ -48,8 +50,8 @@ var (
 	y = 1.0 / math.Pow(1000, 8)
 )
 
-// GetUnit returns a Unit of the given type and unit name, a non-nil error is
-// returned if the familyName or unitName is not found. It is recommended
+// GetUnit returns a Unit of the given family and unit name, a non-nil error
+// is returned if the familyName or unitName is not found. It is recommended
 // that the constant values for familyName should be used to reduce the
 // liklihood of runtime errors.
 func GetUnit(familyName, unitName string) (Unit, error) {
@@ -62,8 +64,18 @@ func GetUnit(familyName, unitName string) (Unit, error) {
 	u, ok = ud.AltU[unitName]
 	if !ok {
 		return u,
-			fmt.Errorf("there is no %s with a name of '%s'",
+			fmt.Errorf("there is no %s with a name of %q",
 				ud.Fam.Description, unitName)
 	}
 	return u, nil
+}
+
+// GetUnitOrPanic will call GetUnit and check the error returned. If the
+// error is non-nil it will panic, otherwise it will return the Unit
+func GetUnitOrPanic(familyName, unitName string) Unit {
+	u, err := GetUnit(familyName, unitName)
+	if err != nil {
+		panic(err)
+	}
+	return u
 }

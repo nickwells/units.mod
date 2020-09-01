@@ -24,24 +24,18 @@ func ExampleGetUnit() {
 }
 
 // ExampleValWithUnit_Convert demonstrates the use of the ValWithUnit.Convert
-// function
+// function. Note that we use the ...OrPanic variants to streamline the
+// code. In this example we know that the various units exist and are
+// well-formed - it is a programming error if any of the calls fail (such as
+// a typo in the unit name).
 func ExampleValWithUnit_Convert() {
-	inch, err := units.GetUnit(units.Length, "inch")
-	if err != nil {
-		fmt.Printf("Couldn't find a length unit called 'inch': %s\n", err)
-	}
-	foot, err := units.GetUnit(units.Length, "foot")
-	if err != nil {
-		fmt.Printf("Couldn't find a length unit called 'foot': %s\n", err)
-	}
-	var vInInches = units.ValWithUnit{
-		Val: 12.0,
-		U:   inch,
-	}
-	vInFeet, err := vInInches.Convert(foot)
-	if err != nil {
-		fmt.Printf("Couldn't convert units to 'foot': %s\n", err)
-	}
+	inch := units.GetUnitOrPanic(units.Length, "inch")
+	foot := units.GetUnitOrPanic(units.Length, "foot")
+
+	var vInInches = units.ValWithUnit{12.0, inch}
+
+	vInFeet := vInInches.ConvertOrPanic(foot)
+
 	fmt.Printf("%s = %s\n", vInInches, vInFeet)
-	// Output: 12.00000 inch = 1.00000 foot
+	// Output: 12 inches = 1 foot
 }

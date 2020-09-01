@@ -1,6 +1,9 @@
 package units
 
-import "errors"
+import (
+	"errors"
+	"sort"
+)
 
 // Family records details of a family of units such as units of area or units
 // of mass, it records the name of the base unit and a description.  The base
@@ -28,12 +31,13 @@ const (
 	Time          = "time"
 	Data          = "data"
 	Distance      = "distance"
-	Length        = "distance"
+	Length        = "distance" // synonym
 	Area          = "area"
 	Volume        = "volume"
 	Mass          = "mass"
 	Temperature   = "temperature"
 	Angle         = "angle"
+	Energy        = "energy"
 )
 
 var validUnits = map[string]UnitDetails{
@@ -46,6 +50,7 @@ var validUnits = map[string]UnitDetails{
 	Mass:          {UnitOfMass, MassNames},
 	Temperature:   {UnitOfTemperature, TemperatureNames},
 	Angle:         {UnitOfAngle, AngleNames},
+	Energy:        {UnitOfEnergy, EnergyNames},
 }
 
 // GetUnitDetails retrieves the unit details. The error value will be non-nil
@@ -66,4 +71,16 @@ func GetUnitDetailsOrPanic(name string) UnitDetails {
 		panic(err)
 	}
 	return ud
+}
+
+// GetFamilyNames returns a sorted slice holding the allowed names of unit
+// types
+func GetFamilyNames() []string {
+	names := make([]string, 0, len(validUnits))
+	for name := range validUnits {
+		names = append(names, name)
+	}
+
+	sort.Strings(names)
+	return names
 }

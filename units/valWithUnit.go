@@ -1,6 +1,10 @@
 package units
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/nickwells/mathutil.mod/mathutil"
+)
 
 // ValWithUnit associates a value with a unit, it is expected that the value
 // is a measure expressed in the given units
@@ -11,7 +15,10 @@ type ValWithUnit struct {
 
 // String returns a string form of the ValWithUnit
 func (v ValWithUnit) String() string {
-	return fmt.Sprintf("%.5f %s", v.Val, v.U.Name)
+	if mathutil.AlmostEqual(v.Val, 1.0, 0.000001) {
+		return "1 " + v.U.Name
+	}
+	return fmt.Sprintf("%.5g %s", v.Val, v.U.NamePlural)
 }
 
 // ConvertFromBaseUnits converts a value expressed in the base Units into
@@ -62,4 +69,14 @@ func (v ValWithUnit) Convert(u Unit) (ValWithUnit, error) {
 		Val: newVal,
 		U:   u,
 	}, nil
+}
+
+// ConvertOrPanic will call Convert and if the error returned is not nil it
+// will panic, otherwise it will return the ValWithUnit value
+func (v ValWithUnit) ConvertOrPanic(u Unit) ValWithUnit {
+	convertedVal, err := v.Convert(u)
+	if err != nil {
+		panic(err)
+	}
+	return convertedVal
 }

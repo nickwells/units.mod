@@ -43,46 +43,90 @@ var DimensionlessNames = map[string]Unit{
 		"M", "million", "million", ""},
 	"billion": {0, 0, _G,
 		Numeric,
-		"B", "billion", "billion", ""},
+		"B", "billion", "billion",
+		"Note that this reflects the, now universal, meaning of" +
+			" 1000 million." +
+			" Be aware that some older texts, especially in the UK" +
+			" might use this to mean a million squared which was the" +
+			" original usage in England. If the text also uses" +
+			" milliard then this is most likely to mean a million" +
+			" million (what is now generally referred to as a trillion)."},
 	"trillion": {0, 0, _T,
 		Numeric,
-		"Tr", "trillion", "trillion", ""},
+		"Tr", "trillion", "trillion",
+		"Note that this reflects the, now universal, meaning of" +
+			" 1000 billion." +
+			" Be aware that some older texts, especially in the UK" +
+			" might use this to mean a million cubed which was the" +
+			" original usage in England."},
 	"quadrillion": {0, 0, _P,
 		Numeric,
-		"Qu", "quadrillion", "quadrillion", ""},
+		"Qu", "quadrillion", "quadrillion",
+		"Note that this reflects the, now universal, meaning of" +
+			" 1000 trillion." +
+			" Be aware that some older texts, especially in the UK" +
+			" might use this to mean a million to the power of four" +
+			" which was the original usage in England."},
 	"milliard": {0, 0, 1e6 * 1000,
 		Numeric,
-		"milliard", "milliard", "milliard", ""},
+		"milliard", "milliard", "milliard",
+		"an English (UK) term for a thousand million," +
+			" now obsolete, it has been superseded by" +
+			" the US meaning of billion."},
+	"billion (UK)": {0, 0, 1e12,
+		Numeric,
+		"B (UK)", "billion (UK)", "billion (UK)",
+		"Note that this reflects the, now obsolete, meaning of" +
+			" a million squared." +
+			" Be aware that some older texts, especially in the UK" +
+			" might use this to mean a million squared which was the" +
+			" original usage in England. You will need to judge by" +
+			" context whether the original or inflated meaning is" +
+			" intended."},
 	"billiard": {0, 0, 1e12 * 1000,
 		Numeric,
-		"billiard", "billiard", "billiard", ""},
+		"billiard", "billiard", "billiard",
+		"an English (UK) term for a thousand (UK) billion," +
+			" now obsolete, it has been superseded by" +
+			" the US meaning of quadrillion."},
+	"trillion (UK)": {0, 0, 1e18,
+		Numeric,
+		"Tr (UK)", "trillion (UK)", "trillion (UK)",
+		"Note that this reflects the, now obsolete, meaning of" +
+			" a million cubed." +
+			" Be aware that some older texts, especially in the UK" +
+			" might use trillion to mean a million cubed which was the" +
+			" original usage in the UK. You will need to judge by" +
+			" context whether the original or inflated meaning is intended."},
 	"trilliard": {0, 0, 1e18 * 1000,
 		Numeric,
-		"trilliard", "trilliard", "trilliard", ""},
+		"trilliard", "trilliard", "trilliard",
+		"an English (UK) term for a thousand (UK) trillion," +
+			" now obsolete."},
 
 	"lakh": {0, 0, 1e5,
 		Numeric,
 		"lakh", "lakh", "lakh",
-		"Indian: 1,00,000"},
+		"Indian: 1,00,000."},
 	"crore": {0, 0, 1e7,
 		Numeric,
 		"crore", "crore", "crore",
-		"Indian: 1,00,00,000"},
+		"Indian: 1,00,00,000."},
 
 	"pony": {0, 0, 25,
 		Numeric,
 		"pony", "pony", "ponies",
-		"UK slang: £25"},
+		"UK slang: £25."},
 	"monkey": {0, 0, 500,
 		Numeric,
 		"monkey", "monkey", "monkeys",
-		"UK slang: £500"},
+		"UK slang: £500."},
 	"grand": {0, 0, k,
 		Numeric,
 		"grand", "grand", "grand",
-		"UK slang: £1000"},
+		"UK slang: £1000."},
 	"yard": {0, 0, 1e6 * 1000,
 		Numeric,
 		"yard", "yard", "yards",
-		"Financial slang: a billion pounds/dollars/etc (from milliard)"},
+		"Financial slang: a billion pounds/dollars/etc (from milliard)."},
 }

@@ -85,7 +85,7 @@ var DegDUnit = Unit{-100, 0, -2.0 / 3.0,
 		" It has the unusual property of hotter temperatures" +
 		" having a lower value than colder ones. It runs from 0" +
 		" at the boiling point of water to 150 at the freezing" +
-		" point"}
+		" point."}
 
 // TemperatureNames maps names to units of temperature
 var TemperatureNames = map[string]Unit{

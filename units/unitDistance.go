@@ -278,4 +278,33 @@ var DistanceNames = map[string]Unit{
 		UnitOfDistance,
 		"pc", "pica", "pica",
 		"a printing term."},
+
+	// Colloquial
+	"20ft shipping container": {0, 0, (19 * footToMetre) + (10.5 * inchToMetre),
+		UnitOfDistance,
+		"TEU",
+		"length of a 20ft shipping container",
+		"lengths of a 20ft shipping container",
+		"a colloquial term referencing the length of a standard 20 foot" +
+			" shipping container" +
+			" presumably to give an impression of scale." +
+			" The TEU abbreviation stands for Twenty foot Equivalent Unit." +
+			" Note that a 20 foot shipping container is not 20 feet long" +
+			" (but a 40 foot container is 40 feet long)."},
+	"bus": {0, 0, 8.38,
+		UnitOfDistance,
+		"bus",
+		"length of a bus",
+		"lengths of a bus",
+		"a colloquial term referencing the length of a bus." +
+			" The bus used for this value is" +
+			" an AEC Routemaster standard, double-decker bus" +
+			" as used by London Transport between 1956 and 2005."},
+	"Eiffel Tower": {0, 0, 324,
+		UnitOfDistance,
+		"Eiffel",
+		"Eiffel Tower",
+		"Eiffel Towers",
+		"a colloquial term referencing the height of the Eiffel Tower." +
+			" The value given is to the tip of the tower."},
 }

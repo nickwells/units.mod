@@ -323,4 +323,15 @@ var VolumeNames = map[string]Unit{
 		UnitOfVolume,
 		"US dry pint", "US dry pint", "US dry pints",
 		"a US Customary measure of volume, typically for dry goods."},
+
+	// Colloquial
+	"20ft shipping container": {0, 0, 33.14,
+		UnitOfVolume,
+		"vol. of a TEU",
+		"volume of a 20ft shipping container",
+		"volumes of a 20ft shipping container",
+		"a colloquial term referencing the volume of a standard 20 foot" +
+			" shipping container" +
+			" presumably to give an impression of scale." +
+			" The TEU abbreviation stands for Twenty foot Equivalent Unit."},
 }

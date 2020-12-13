@@ -147,11 +147,23 @@ var DistanceNames = map[string]Unit{
 		"ft (Roman)", "foot (Roman)", "feet (Roman)",
 		"a Roman measure of length. There are several alternative lengths" +
 			" but the one used here is a popular value."},
+	"foot (Parisian)": {0, 0, 0.325,
+		UnitOfDistance,
+		"ft (Parisian)", "foot (Parisian)", "feet (Parisian)",
+		"a French measure of length."},
+	"foot (metric)": {0, 0, 0.3,
+		UnitOfDistance,
+		"ft (metric)", "foot (metric)", "feet (metric)",
+		"a measure of length - ISO 2848."},
 	"US survey foot": {0, 0, 1200.0 / 3937.0,
 		UnitOfDistance,
 		"ft", "foot", "feet",
 		"a US Customary unit of length, longer than a standard foot" +
 			" by approximately 2 parts in a million."},
+	"Indian survey foot": {0, 0, 0.3047996,
+		UnitOfDistance,
+		"ft", "foot", "feet",
+		"an Indian unit of length."},
 	"yard": {0, 0, yardToMetre,
 		UnitOfDistance,
 		"yd", "yard", "yards",
@@ -268,6 +280,11 @@ var DistanceNames = map[string]Unit{
 		"ls", "light second", "light seconds",
 		"the distance travelled by light in a vacuum" +
 			" in one second."},
+	"phoot": {0, 0, lightSecond * 1e-9,
+		UnitOfDistance,
+		"phoot", "phoot", "pheet",
+		"the distance travelled by light in a vacuum" +
+			" in one nanosecond. Also known as Mermin's foot."},
 
 	// printing
 	"point": {0, 0, pointToMetre,

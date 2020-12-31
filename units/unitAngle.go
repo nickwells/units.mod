@@ -39,3 +39,5 @@ var AngleNames = map[string]Unit{
 		"″", "arc second", "arc seconds",
 		"a unit in which angles are measured."},
 }
+
+var angleAliases = map[string]Alias{}

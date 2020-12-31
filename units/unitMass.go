@@ -10,7 +10,7 @@ var UnitOfMass = Family{
 var GramUnit = Unit{0, 0, 1,
 	UnitOfMass,
 	"g", UnitOfMass.BaseUnitName, "grams",
-	"a metric measure of mass."}
+	"a metric measure of mass. Note that the SI unit is the kilogram."}
 
 const (
 	grainToGram = 0.06479891
@@ -167,3 +167,5 @@ var MassNames = map[string]Unit{
 		"ML", "Lunar Mass", "Lunar Masses",
 		"an astronomical measure of mass, used to give a sense of scale."},
 }
+
+var massAliases = map[string]Alias{}

@@ -2,6 +2,7 @@ package units
 
 import (
 	"errors"
+	"fmt"
 	"sort"
 )
 
@@ -18,11 +19,20 @@ func (f Family) String() string {
 	return f.BaseUnitName + " (a " + f.Description + ")"
 }
 
+// Alias records details about a particular Alias
+type Alias struct {
+	// UnitName is the name of the unit that this is aliasing
+	UnitName string
+	// Notes describes the alias itself
+	Notes string
+}
+
 // UnitDetails bundles together the Family and the associated collection of
 // named alternative units
 type UnitDetails struct {
-	Fam  Family
-	AltU map[string]Unit
+	Fam     Family
+	AltU    map[string]Unit
+	Aliases map[string]Alias
 }
 
 // These constants should be used when retrieving unit details
@@ -41,16 +51,51 @@ const (
 )
 
 var validUnits = map[string]UnitDetails{
-	Dimensionless: {Numeric, DimensionlessNames},
-	Time:          {UnitOfTime, TimeNames},
-	Data:          {UnitOfData, DataNames},
-	Distance:      {UnitOfDistance, DistanceNames},
-	Area:          {UnitOfArea, AreaNames},
-	Volume:        {UnitOfVolume, VolumeNames},
-	Mass:          {UnitOfMass, MassNames},
-	Temperature:   {UnitOfTemperature, TemperatureNames},
-	Angle:         {UnitOfAngle, AngleNames},
-	Energy:        {UnitOfEnergy, EnergyNames},
+	Dimensionless: {Numeric, DimensionlessNames, dimensionlessAliases},
+	Time:          {UnitOfTime, TimeNames, timeAliases},
+	Data:          {UnitOfData, DataNames, dataAliases},
+	Distance:      {UnitOfDistance, DistanceNames, distanceAliases},
+	Area:          {UnitOfArea, AreaNames, areaAliases},
+	Volume:        {UnitOfVolume, VolumeNames, volumeAliases},
+	Mass:          {UnitOfMass, MassNames, massAliases},
+	Temperature:   {UnitOfTemperature, TemperatureNames, temperatureAliases},
+	Angle:         {UnitOfAngle, AngleNames, angleAliases},
+	Energy:        {UnitOfEnergy, EnergyNames, energyAliases},
+}
+
+// reverseAlias holds a list of aliases for the family/unit entry
+var reverseAlias = make(map[string]map[string][]string)
+
+func init() {
+	for f, ud := range validUnits {
+		reverseAlias[f] = make(map[string][]string)
+		for aliasName, alias := range ud.Aliases {
+			if _, ok := ud.AltU[aliasName]; ok {
+				panic(fmt.Errorf(
+					"unit family %q: alias %q"+
+						" already exists in the map uf unit names",
+					f, aliasName))
+			}
+			if _, ok := ud.AltU[alias.UnitName]; !ok {
+				panic(fmt.Errorf(
+					"unit family %q: alias %q references unit %q"+
+						" which does not exist in the map uf unit names",
+					f, aliasName, alias))
+			}
+
+			reverseAlias[f][alias.UnitName] =
+				append(reverseAlias[f][alias.UnitName], aliasName)
+		}
+	}
+}
+
+// GetAliases returns all the aliases for the given family/unit
+func GetAliases(fName, uName string) []string {
+	ua, ok := reverseAlias[fName]
+	if !ok {
+		return []string{}
+	}
+	return ua[uName]
 }
 
 // GetUnitDetails retrieves the unit details. The error value will be non-nil

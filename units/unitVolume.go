@@ -32,28 +32,7 @@ var LitreUnit = Unit{0, 0, 1e-3,
 // VolumeNames maps names to units of volume
 var VolumeNames = map[string]Unit{
 	// metric
-	"cc": {0, 0, m * 1e-3,
-		UnitOfVolume,
-		"cc", "cubic centimetre", "cubic centimetres",
-		"a metric measure of volume."},
-	"cubic-centimetre": {0, 0, m * 1e-3,
-		UnitOfVolume,
-		"cc", "cubic centimetre", "cubic centimetres",
-		"a metric measure of volume."},
-	"cubic centimetre": {0, 0, m * 1e-3,
-		UnitOfVolume,
-		"cc", "cubic centimetre", "cubic centimetres",
-		"a metric measure of volume."},
-	"cubic-metre": CubicMetreUnit,
 	"cubic metre": CubicMetreUnit,
-	"cubic-kilometre": {0, 0, _G,
-		UnitOfVolume,
-		"km\u00B3", "cubic kilometre", "cubic kilometres",
-		"a metric measure of volume."},
-	"cubic kilometre": {0, 0, _G,
-		UnitOfVolume,
-		"km\u00B3", "cubic kilometre", "cubic kilometres",
-		"a metric measure of volume."},
 
 	"yl": {0, 0, y * 1e-3,
 		UnitOfVolume,
@@ -86,8 +65,6 @@ var VolumeNames = map[string]Unit{
 		UnitOfVolume,
 		"dl", "decilitre", "decilitres", "a metric measure of volume."},
 	"litre": LitreUnit,
-	// for American users
-	"liter": LitreUnit, // nolint:misspell
 	"dal": {0, 0, da * 1e-3,
 		UnitOfVolume,
 		"dal", "decalitre", "decalitres", "a metric measure of volume."},
@@ -170,25 +147,13 @@ var VolumeNames = map[string]Unit{
 			" trade."},
 
 	// Imperial / US
-	"cubic-inch": {0, 0, cubicInchToCubicMetre,
-		UnitOfVolume,
-		"in\u00B3", "cubic inch", "cubic inches",
-		"an imperial measure of volume."},
 	"cubic inch": {0, 0, cubicInchToCubicMetre,
 		UnitOfVolume,
 		"in\u00B3", "cubic inch", "cubic inches",
 		"an imperial measure of volume."},
-	"cubic-foot": {0, 0, cubicFootToCubicMetre,
-		UnitOfVolume,
-		"ft\u00B3", "cubic foot", "cubic feet",
-		"an imperial measure of volume."},
 	"cubic foot": {0, 0, cubicFootToCubicMetre,
 		UnitOfVolume,
 		"ft\u00B3", "cubic foot", "cubic feet",
-		"an imperial measure of volume."},
-	"cubic-yard": {0, 0, cubicYardToCubicMetre,
-		UnitOfVolume,
-		"yd\u00B3", "cubic yard", "cubic yards",
 		"an imperial measure of volume."},
 	"cubic yard": {0, 0, cubicYardToCubicMetre,
 		UnitOfVolume,
@@ -334,4 +299,23 @@ var VolumeNames = map[string]Unit{
 			" shipping container" +
 			" presumably to give an impression of scale." +
 			" The TEU abbreviation stands for Twenty foot Equivalent Unit."},
+}
+
+var volumeAliases = map[string]Alias{
+	"cc":               {"ml", ""},
+	"cubic-centimetre": {"ml", ""},
+	"cubic centimetre": {"ml", ""},
+	"cubic-centimeter": {"ml", "US spelling"},
+	"cubic centimeter": {"ml", "US spelling"},
+	"cubic-metre":      {"cubic metre", ""},
+	"cubic-meter":      {"cubic metre", "US spelling"},
+	"cubic meter":      {"cubic metre", "US spelling"},
+	"cubic kilometre":  {"Tl", ""},
+	"cubic-kilometre":  {"Tl", ""},
+	"cubic-kilometer":  {"Tl", "US spelling"},
+	"cubic kilometer":  {"Tl", "US spelling"},
+	"liter":            {"litre", "US spelling"},
+	"cubic-inch":       {"cubic inch", ""},
+	"cubic-foot":       {"cubic foot", ""},
+	"cubic-yard":       {"cubic yard", ""},
 }

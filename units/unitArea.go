@@ -20,7 +20,6 @@ var SquareMetreUnit = Unit{0, 0, 1,
 // AreaNames maps names to units of area
 var AreaNames = map[string]Unit{
 	// metric
-	"square-metre": SquareMetreUnit,
 	"square metre": SquareMetreUnit,
 	"are": {0, 0, 1e2,
 		UnitOfArea,
@@ -34,27 +33,15 @@ var AreaNames = map[string]Unit{
 		UnitOfArea,
 		"ha", "hectare", "hectares",
 		"a non-SI metric measure of area."},
-	"square-kilometre": {0, 0, 1e6,
-		UnitOfArea,
-		"km\u00B2", "square kilometre", "square kilometres",
-		"a metric measure of area."},
 	"square kilometre": {0, 0, 1e6,
 		UnitOfArea,
 		"km\u00B2", "square kilometre", "square kilometres",
 		"a metric measure of area."},
 
 	// Imperial / US
-	"square-yard": {0, 0, yard2ToMetre2,
-		UnitOfArea,
-		"yd\u00B2", "square yard", "square yards",
-		"an imperial measure of area."},
 	"square yard": {0, 0, yard2ToMetre2,
 		UnitOfArea,
 		"yd\u00B2", "square yard", "square yards",
-		"an imperial measure of area."},
-	"square-mile": {0, 0, yard2ToMetre2 * 1760 * 1760,
-		UnitOfArea,
-		"mi\u00B2", "square mile", "square miles",
 		"an imperial measure of area."},
 	"square mile": {0, 0, yard2ToMetre2 * 1760 * 1760,
 		UnitOfArea,
@@ -109,4 +96,15 @@ var AreaNames = map[string]Unit{
 		"times the size of Wales", "times the size of Wales",
 		"a colloquial measure of area, used primarily to" +
 			" give an impression of size."},
+}
+
+var areaAliases = map[string]Alias{
+	"square-metre":     {"square metre", ""},
+	"square-meter":     {"square metre", "US spelling"},
+	"square meter":     {"square metre", "US spelling"},
+	"square-kilometre": {"square kilometre", ""},
+	"square-kilometer": {"square kilometre", "US spelling"},
+	"square kilometer": {"square kilometre", "US spelling"},
+	"square-mile":      {"square mile", ""},
+	"square-yard":      {"square yard", ""},
 }

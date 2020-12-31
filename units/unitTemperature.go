@@ -50,8 +50,10 @@ var DegRoUnit = Unit{0, 7.5, 40.0 / 21.0,
 	"°Rø", "degree Rømer", "degrees Rømer",
 	"a measure of temperature. It is named after the Danish astronomer" +
 		"  Ole Christensen Rømer." +
-		" No longer used." +
-		" It has the freezing point of water at 7.5 degrees" +
+		"\n\n" +
+		"No longer used." +
+		"\n\n" +
+		"It has the freezing point of water at 7.5 degrees" +
 		" and the boiling point of water at 60 degrees." +
 		" Both using pure water at sea level."}
 
@@ -60,16 +62,20 @@ var DegReUnit = Unit{0, 0, 4.0 / 5.0,
 	"°Ré", "degree Réaumur", "degrees Réaumur",
 	"a measure of temperature It is named after" +
 		" René Antoine Ferchault de Réaumur." +
-		" No longer used." +
-		" It has the freezing point of water at 0 degrees" +
+		"\n\n" +
+		"No longer used." +
+		"\n\n" +
+		"It has the freezing point of water at 0 degrees" +
 		" and the boiling point of water at 80 degrees."}
 
 var DegNUnit = Unit{0, 0, 100.0 / 33.0,
 	UnitOfTemperature,
 	"°N", "degree Newton", "degrees Newton",
 	"a measure of temperature devised by Isaac Newton." +
-		" No longer used." +
-		" It has the freezing point of water at 0 degrees" +
+		"\n\n" +
+		"No longer used." +
+		"\n\n" +
+		"It has the freezing point of water at 0 degrees" +
 		" and the boiling point of water at 33 degrees." +
 		" It is poorly defined and no unambiguous" +
 		" conversion to other scales is possible but the" +
@@ -81,47 +87,52 @@ var DegDUnit = Unit{-100, 0, -2.0 / 3.0,
 	UnitOfTemperature,
 	"°D", "degree Delisle", "degrees Delisle",
 	"a measure of temperature invented by Joseph-Nicolas Delisle." +
-		" No longer used." +
-		" It has the unusual property of hotter temperatures" +
+		"\n\n" +
+		"No longer used." +
+		"\n\n" +
+		"It has the unusual property of hotter temperatures" +
 		" having a lower value than colder ones. It runs from 0" +
 		" at the boiling point of water to 150 at the freezing" +
 		" point."}
 
 // TemperatureNames maps names to units of temperature
 var TemperatureNames = map[string]Unit{
-	"C":              DegCUnit,
-	"Celsius":        DegCUnit,
-	"degree Celsius": DegCUnit,
-	"Centigrade":     DegCUnit,
+	"C":  DegCUnit,
+	"F":  DegFUnit,
+	"K":  DegKUnit,
+	"Ra": DegRaUnit,
+	"Ro": DegRoUnit,
+	"Re": DegReUnit,
+	"N":  DegNUnit,
+	"D":  DegDUnit,
+}
 
-	"F":                 DegFUnit,
-	"Fahrenheit":        DegFUnit,
-	"degree Fahrenheit": DegFUnit,
+var temperatureAliases = map[string]Alias{
+	"Celsius":        {"C", ""},
+	"degree Celsius": {"C", ""},
+	"Centigrade":     {"C", ""},
 
-	"K":             DegKUnit,
-	"Kelvin":        DegKUnit,
-	"degree Kelvin": DegKUnit,
+	"Fahrenheit":        {"F", ""},
+	"degree Fahrenheit": {"F", ""},
 
-	"Ra":             DegRaUnit,
-	"Rankine":        DegRaUnit,
-	"degree Rankine": DegRaUnit,
+	"Kelvin":        {"K", ""},
+	"degree Kelvin": {"K", ""},
 
-	"Ro":           DegRoUnit,
-	"Romer":        DegRoUnit,
-	"degree Romer": DegRoUnit,
-	"Rømer":        DegRoUnit,
-	"Roemer":       DegRoUnit,
+	"Rankine":        {"Ra", ""},
+	"degree Rankine": {"Ra", ""},
 
-	"Re":             DegReUnit,
-	"Réaumur":        DegReUnit,
-	"Reaumur":        DegReUnit,
-	"degree Reaumur": DegReUnit,
+	"Romer":        {"Ro", ""},
+	"degree Romer": {"Ro", ""},
+	"Rømer":        {"Ro", ""},
+	"Roemer":       {"Ro", ""},
 
-	"N":             DegNUnit,
-	"Newton":        DegNUnit,
-	"degree Newton": DegNUnit,
+	"Réaumur":        {"Re", ""},
+	"Reaumur":        {"Re", ""},
+	"degree Reaumur": {"Re", ""},
 
-	"D":              DegDUnit,
-	"Delisle":        DegDUnit,
-	"degree Delisle": DegDUnit,
+	"Newton":        {"N", ""},
+	"degree Newton": {"N", ""},
+
+	"Delisle":        {"D", ""},
+	"degree Delisle": {"D", ""},
 }

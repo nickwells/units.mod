@@ -61,6 +61,10 @@ func GetUnit(familyName, unitName string) (Unit, error) {
 	if !ok {
 		return u, errors.New("no such unit type '" + familyName + "'")
 	}
+	alias, ok := ud.Aliases[unitName]
+	if ok {
+		unitName = alias.UnitName
+	}
 	u, ok = ud.AltU[unitName]
 	if !ok {
 		return u,

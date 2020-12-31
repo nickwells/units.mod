@@ -132,10 +132,6 @@ var EnergyNames = map[string]Unit{
 		UnitOfEnergy,
 		"cal", "calorie", "calories",
 		"a measure of energy (deprecated - use kcal)."},
-	"calorie": {0, 0, calorieToJoule,
-		UnitOfEnergy,
-		"cal", "calorie", "calories",
-		"a measure of energy (deprecated - use kilocalorie)."},
 	"kcal": {0, 0, calorieToJoule * 1000,
 		UnitOfEnergy,
 		"kcal", "kilocalorie", "kilocalories",
@@ -145,10 +141,6 @@ var EnergyNames = map[string]Unit{
 			" raise the temperature of a kilogram of water" +
 			" by one degree Celsius." +
 			" It is sometimes known as the large calorie."},
-	"kilocalorie": {0, 0, calorieToJoule * 1000,
-		UnitOfEnergy,
-		"kcal", "kilocalorie", "kilocalories",
-		"a measure of energy (see kcal)."},
 
 	"foot-pound": {0, 0, footPoundToJoule,
 		UnitOfEnergy,
@@ -161,11 +153,8 @@ var EnergyNames = map[string]Unit{
 	"BTU": {0, 0, BtuToJoule,
 		UnitOfEnergy,
 		"Btu", "British thermal unit", "British thermal units",
-		"an imperial measure of energy."},
-	"Btu": {0, 0, BtuToJoule,
-		UnitOfEnergy,
-		"Btu", "British thermal unit", "British thermal units",
-		"an imperial measure of energy."},
+		"an imperial measure of energy." +
+			" This uses the ISO 31-4 conversion to Joules"},
 	"therm": {0, 0, BtuToJoule * 1e5,
 		UnitOfEnergy,
 		"therm", "therm", "therms",
@@ -176,4 +165,12 @@ var EnergyNames = map[string]Unit{
 		"ton of TNT", "ton of TNT", "tons of TNT",
 		"a coloquial measure of energy typically used to describe" +
 			" the yield of atomic weapons"},
+}
+
+var energyAliases = map[string]Alias{
+	"calorie":       {"cal", ""},
+	"kilocalorie":   {"kcal", ""},
+	"kilocal":       {"kcal", ""},
+	"large calorie": {"kcal", ""},
+	"Btu":           {"BTU", ""},
 }

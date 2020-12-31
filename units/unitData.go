@@ -34,7 +34,7 @@ var DataNames = map[string]Unit{
 		UnitOfData,
 		"bit", "bit", "bits",
 		"a bit is a single binary digit taking a value of either 0 or 1." +
-			" It is indivisible."},
+			" It is one eighth of a byte and is indivisible."},
 	"nibble": {0, 0, 0.5,
 		UnitOfData,
 		"nibble", "nibble", "nibbles",
@@ -108,3 +108,5 @@ var DataNames = map[string]Unit{
 		"YiB", "yobibyte", "yobibytes",
 		"a traditional computing measure (in powers of 2^10)."},
 }
+
+var dataAliases = map[string]Alias{}

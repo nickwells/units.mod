@@ -125,8 +125,12 @@ var DimensionlessNames = map[string]Unit{
 		Numeric,
 		"grand", "grand", "grand",
 		"UK slang: £1000."},
-	"yard": {0, 0, 1e6 * 1000,
-		Numeric,
-		"yard", "yard", "yards",
-		"Financial slang: a billion pounds/dollars/etc (from milliard)."},
+}
+
+var dimensionlessAliases = map[string]Alias{
+	"yard": {
+		"milliard",
+		"Financial slang meaning a billion pounds/dollars/etc." +
+			" It is a contraction of milliard",
+	},
 }

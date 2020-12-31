@@ -15,8 +15,11 @@ type ValWithUnit struct {
 
 // String returns a string form of the ValWithUnit
 func (v ValWithUnit) String() string {
-	if mathutil.AlmostEqual(v.Val, 1.0, 0.000001) {
+	if mathutil.AlmostEqual(v.Val, 1.0, 0.0000001) {
 		return "1 " + v.U.Name
+	}
+	if mathutil.AlmostEqual(v.Val, 0.0, 0.0000001) {
+		return "0 " + v.U.NamePlural
 	}
 	return fmt.Sprintf("%.5g %s", v.Val, v.U.NamePlural)
 }

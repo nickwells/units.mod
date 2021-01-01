@@ -56,7 +56,7 @@ func TestTemperature(t *testing.T) {
 			ExpErr: testhelper.MkExpErr(
 				"Mismatched unit families." +
 					" Cannot convert units from" +
-					" degree Celsius (a unit of temperature)" +
+					" C (a unit of temperature)" +
 					" to gram (a unit of mass)"),
 			degC: 99,
 			vals: map[units.Unit]float64{

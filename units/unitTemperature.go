@@ -2,7 +2,7 @@ package units
 
 // UnitOfTemperature represents the base unit of temperature
 var UnitOfTemperature = Family{
-	BaseUnitName: "degree Celsius",
+	BaseUnitName: "C",
 	Description:  "unit of temperature",
 }
 

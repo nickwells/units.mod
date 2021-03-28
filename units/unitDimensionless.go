@@ -38,6 +38,12 @@ var DimensionlessNames = map[string]Unit{
 	"Z":     {0, 0, _Z, Numeric, "Z", "zetta", "zetta", ""},
 	"Y":     {0, 0, _Y, Numeric, "Y", "yotta", "yotta", ""},
 
+	"myriad": {0, 0, 10000,
+		Numeric,
+		"myriad", "myriad", "myriads",
+		"historically, ten thousand but latterly meaning" +
+			" a countless number of things"},
+
 	"million": {0, 0, _M,
 		Numeric,
 		"M", "million", "million", ""},

@@ -65,6 +65,10 @@ var MassNames = map[string]Unit{
 	"kg": {0, 0, k,
 		UnitOfMass,
 		"kg", "kilogram", "kilograms", "a metric measure of mass."},
+	"myg": {0, 0, 10000,
+		UnitOfMass,
+		"myg", "myriagram", "myriagrams",
+		"an obsolete metric measure of mass."},
 	"Mg": {0, 0, _M,
 		UnitOfMass,
 		"Mg", "megagram", "megagrams", "a metric measure of mass."},
@@ -168,4 +172,9 @@ var MassNames = map[string]Unit{
 		"an astronomical measure of mass, used to give a sense of scale."},
 }
 
-var massAliases = map[string]Alias{}
+var massAliases = map[string]Alias{
+	"g":        {"gram", ""},
+	"kilogram": {"kg", ""},
+	"oz":       {"ounce", ""},
+	"lb":       {"pound", ""},
+}

@@ -68,8 +68,12 @@ func TestTemperature(t *testing.T) {
 			ExpErr: testhelper.MkExpErr("Bad units - a zero conversion factor"),
 			degC:   99,
 			vals: map[units.Unit]float64{
-				{0, 0, 0, units.UnitOfTemperature,
-					"Bad", "Bad singular", "Bad plural", "Description"}: 0,
+				{
+					0, 0, 0,
+					units.UnitOfTemperature,
+					"Bad", "Bad singular", "Bad plural",
+					"Description",
+				}: 0,
 			},
 		},
 	}

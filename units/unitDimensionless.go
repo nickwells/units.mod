@@ -38,16 +38,21 @@ var DimensionlessNames = map[string]Unit{
 	"Z":     {0, 0, _Z, Numeric, "Z", "zetta", "zetta", ""},
 	"Y":     {0, 0, _Y, Numeric, "Y", "yotta", "yotta", ""},
 
-	"myriad": {0, 0, 10000,
+	"myriad": {
+		0, 0, 10000,
 		Numeric,
 		"myriad", "myriad", "myriads",
 		"historically, ten thousand but latterly meaning" +
-			" a countless number of things"},
+			" a countless number of things",
+	},
 
-	"million": {0, 0, _M,
+	"million": {
+		0, 0, _M,
 		Numeric,
-		"M", "million", "million", ""},
-	"billion": {0, 0, _G,
+		"M", "million", "million", "",
+	},
+	"billion": {
+		0, 0, _G,
 		Numeric,
 		"B", "billion", "billion",
 		"Note that this reflects the, now universal, meaning of" +
@@ -56,30 +61,38 @@ var DimensionlessNames = map[string]Unit{
 			" might use this to mean a million squared which was the" +
 			" original usage in England. If the text also uses" +
 			" milliard then this is most likely to mean a million" +
-			" million (what is now generally referred to as a trillion)."},
-	"trillion": {0, 0, _T,
+			" million (what is now generally referred to as a trillion).",
+	},
+	"trillion": {
+		0, 0, _T,
 		Numeric,
 		"Tr", "trillion", "trillion",
 		"Note that this reflects the, now universal, meaning of" +
 			" 1000 billion." +
 			" Be aware that some older texts, especially in the UK" +
 			" might use this to mean a million cubed which was the" +
-			" original usage in England."},
-	"quadrillion": {0, 0, _P,
+			" original usage in England.",
+	},
+	"quadrillion": {
+		0, 0, _P,
 		Numeric,
 		"Qu", "quadrillion", "quadrillion",
 		"Note that this reflects the, now universal, meaning of" +
 			" 1000 trillion." +
 			" Be aware that some older texts, especially in the UK" +
 			" might use this to mean a million to the power of four" +
-			" which was the original usage in England."},
-	"milliard": {0, 0, 1e6 * 1000,
+			" which was the original usage in England.",
+	},
+	"milliard": {
+		0, 0, 1e6 * 1000,
 		Numeric,
 		"milliard", "milliard", "milliard",
 		"an English (UK) term for a thousand million," +
 			" now obsolete, it has been superseded by" +
-			" the US meaning of billion."},
-	"billion (UK)": {0, 0, 1e12,
+			" the US meaning of billion.",
+	},
+	"billion (UK)": {
+		0, 0, 1e12,
 		Numeric,
 		"B (UK)", "billion (UK)", "billion (UK)",
 		"Note that this reflects the, now obsolete, meaning of" +
@@ -88,14 +101,18 @@ var DimensionlessNames = map[string]Unit{
 			" might use this to mean a million squared which was the" +
 			" original usage in England. You will need to judge by" +
 			" context whether the original or inflated meaning is" +
-			" intended."},
-	"billiard": {0, 0, 1e12 * 1000,
+			" intended.",
+	},
+	"billiard": {
+		0, 0, 1e12 * 1000,
 		Numeric,
 		"billiard", "billiard", "billiard",
 		"an English (UK) term for a thousand (UK) billion," +
 			" now obsolete, it has been superseded by" +
-			" the US meaning of quadrillion."},
-	"trillion (UK)": {0, 0, 1e18,
+			" the US meaning of quadrillion.",
+	},
+	"trillion (UK)": {
+		0, 0, 1e18,
 		Numeric,
 		"Tr (UK)", "trillion (UK)", "trillion (UK)",
 		"Note that this reflects the, now obsolete, meaning of" +
@@ -103,34 +120,47 @@ var DimensionlessNames = map[string]Unit{
 			" Be aware that some older texts, especially in the UK" +
 			" might use trillion to mean a million cubed which was the" +
 			" original usage in the UK. You will need to judge by" +
-			" context whether the original or inflated meaning is intended."},
-	"trilliard": {0, 0, 1e18 * 1000,
+			" context whether the original or inflated meaning is intended.",
+	},
+	"trilliard": {
+		0, 0, 1e18 * 1000,
 		Numeric,
 		"trilliard", "trilliard", "trilliard",
 		"an English (UK) term for a thousand (UK) trillion," +
-			" now obsolete."},
+			" now obsolete.",
+	},
 
-	"lakh": {0, 0, 1e5,
+	"lakh": {
+		0, 0, 1e5,
 		Numeric,
 		"lakh", "lakh", "lakh",
-		"Indian: 1,00,000."},
-	"crore": {0, 0, 1e7,
+		"Indian: 1,00,000.",
+	},
+	"crore": {
+		0, 0, 1e7,
 		Numeric,
 		"crore", "crore", "crore",
-		"Indian: 1,00,00,000."},
+		"Indian: 1,00,00,000.",
+	},
 
-	"pony": {0, 0, 25,
+	"pony": {
+		0, 0, 25,
 		Numeric,
 		"pony", "pony", "ponies",
-		"UK slang: £25."},
-	"monkey": {0, 0, 500,
+		"UK slang: £25.",
+	},
+	"monkey": {
+		0, 0, 500,
 		Numeric,
 		"monkey", "monkey", "monkeys",
-		"UK slang: £500."},
-	"grand": {0, 0, k,
+		"UK slang: £500.",
+	},
+	"grand": {
+		0, 0, k,
 		Numeric,
 		"grand", "grand", "grand",
-		"UK slang: £1000."},
+		"UK slang: £1000.",
+	},
 }
 
 var dimensionlessAliases = map[string]Alias{

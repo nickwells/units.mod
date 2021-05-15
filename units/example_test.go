@@ -8,7 +8,7 @@ import (
 
 // ExampleGetUnit demonstrates the usage of the GetUnit function
 func ExampleGetUnit() {
-	var metres = 1
+	metres := 1
 
 	inch, err := units.GetUnit(units.Length, "inch")
 	if err != nil {
@@ -32,7 +32,7 @@ func ExampleValWithUnit_Convert() {
 	inch := units.GetUnitOrPanic(units.Length, "inch")
 	foot := units.GetUnitOrPanic(units.Length, "foot")
 
-	var vInInches = units.ValWithUnit{12.0, inch}
+	vInInches := units.ValWithUnit{12.0, inch}
 
 	vInFeet := vInInches.ConvertOrPanic(foot)
 

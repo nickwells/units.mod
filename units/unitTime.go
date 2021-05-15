@@ -9,7 +9,8 @@ var UnitOfTime = Family{
 // SecondUnit is a suitable default value for a UnitOfTime
 var SecondUnit = Unit{
 	0, 0, 1,
-	UnitOfTime, "sec", UnitOfTime.BaseUnitName, "seconds", "",
+	UnitOfTime,
+	"sec", UnitOfTime.BaseUnitName, "seconds", "",
 }
 
 // TimeNames maps names to units of time
@@ -27,24 +28,40 @@ var TimeNames = map[string]Unit{
 	"second": SecondUnit,
 	"minute": {0, 0, 60, UnitOfTime, "min", "minute", "minutes", ""},
 	"hour":   {0, 0, 60 * 60, UnitOfTime, "hr", "hour", "hours", ""},
-	"day": {0, 0, 60 * 60 * 24, UnitOfTime, "day", "day", "days",
+	"day": {
+		0, 0, 60 * 60 * 24,
+		UnitOfTime,
+		"day", "day", "days",
 		"An Ephemeris day." +
 			" A solar day varies in length and tends to lengthen" +
-			" due to tidal effects."},
+			" due to tidal effects.",
+	},
 	"week": {0, 0, 60 * 60 * 24 * 7, UnitOfTime, "week", "week", "weeks", ""},
-	"fortnight": {0, 0, 60 * 60 * 24 * 14, UnitOfTime,
-		"fortnight", "fortnight", "fortnights", ""},
-	"Julian year": {0, 0, 365.25 * 86400, UnitOfTime,
+	"fortnight": {
+		0, 0, 60 * 60 * 24 * 14,
+		UnitOfTime,
+		"fortnight", "fortnight", "fortnights", "",
+	},
+	"Julian year": {
+		0, 0, 365.25 * 86400,
+		UnitOfTime,
 		"Julian Year", "Julian Year", "Julian Years",
-		"365.25 days. A non-SI unit for use in astronomy"},
-	"Gregorian year": {0, 0, 365.2425 * 86400, UnitOfTime,
+		"365.25 days. A non-SI unit for use in astronomy",
+	},
+	"Gregorian year": {
+		0, 0, 365.2425 * 86400,
+		UnitOfTime,
 		"Gregorian Year", "Gregorian Year", "Gregorian Years",
 		"Introduced by Pope Gregory XIII in October 1582." +
-			" Commonly used as the basis of the Gregorian calendar."},
-	"Siderial year": {0, 0, 365.256363004 * 86400, UnitOfTime,
+			" Commonly used as the basis of the Gregorian calendar.",
+	},
+	"Siderial year": {
+		0, 0, 365.256363004 * 86400,
+		UnitOfTime,
 		"Siderial Year", "Siderial Year", "Siderial Years",
 		"The time taken for the Earth to orbit the Sun" +
-			" with respect to the fixed stars"},
+			" with respect to the fixed stars",
+	},
 	"dasec": {0, 0, da, UnitOfTime, "dasec", "decasecond", "decaseconds", ""},
 	"hsec":  {0, 0, h, UnitOfTime, "hsec", "hectosecond", "hectoseconds", ""},
 	"ksec":  {0, 0, k, UnitOfTime, "ksec", "kilosecond", "kiloseconds", ""},

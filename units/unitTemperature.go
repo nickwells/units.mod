@@ -17,6 +17,7 @@ var DegCUnit = Unit{
 		" It is named to honour the Swedish astronomer Anders Celsius." +
 		" It was formerly known as the Centigrade scale" +
 		" with units of 'centigrade'.",
+	"",
 }
 
 var DegKUnit = Unit{
@@ -29,6 +30,7 @@ var DegKUnit = Unit{
 		" It is named to honour" +
 		" the Glasgow university engineer and physicist" +
 		" William Thomson, 1st Baron Kelvin.",
+	"",
 }
 
 var DegFUnit = Unit{
@@ -40,6 +42,7 @@ var DegFUnit = Unit{
 		" It has the freezing point of water at 32 degrees" +
 		" and the boiling point of water at 212 degrees." +
 		" Both using pure water at sea level.",
+	"",
 }
 
 // The following are antique measures of historical interest only (like
@@ -55,6 +58,7 @@ var DegRaUnit = Unit{
 		" It is named to honour" +
 		" the Glasgow university engineer and physicist" +
 		" William John Macquorn Rankine.",
+	"",
 }
 
 var DegRoUnit = Unit{
@@ -69,6 +73,7 @@ var DegRoUnit = Unit{
 		"It has the freezing point of water at 7.5 degrees" +
 		" and the boiling point of water at 60 degrees." +
 		" Both using pure water at sea level.",
+	"",
 }
 
 var DegReUnit = Unit{
@@ -82,6 +87,7 @@ var DegReUnit = Unit{
 		"\n\n" +
 		"It has the freezing point of water at 0 degrees" +
 		" and the boiling point of water at 80 degrees.",
+	"",
 }
 
 var DegNUnit = Unit{
@@ -97,6 +103,7 @@ var DegNUnit = Unit{
 		" It is poorly defined and no unambiguous" +
 		" conversion to other scales is possible but the" +
 		" figures used refer to points given by Newton.",
+	"",
 }
 
 // DegDUnit grows in the opposite direction to all the other units so that
@@ -113,6 +120,7 @@ var DegDUnit = Unit{
 		" having a lower value than colder ones. It runs from 0" +
 		" at the boiling point of water to 150 at the freezing" +
 		" point.",
+	"",
 }
 
 // TemperatureNames maps names to units of temperature

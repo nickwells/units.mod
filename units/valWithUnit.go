@@ -15,13 +15,22 @@ type ValWithUnit struct {
 
 // String returns a string form of the ValWithUnit
 func (v ValWithUnit) String() string {
-	if mathutil.AlmostEqual(v.Val, 1.0, 0.0000001) {
-		return "1 " + v.U.Name
+	singularName := v.U.Name
+	pluralName := v.U.NamePlural
+	if v.U.aliasName != "" {
+		singularName += " (" + v.U.aliasName + ")"
+		pluralName += " (" + v.U.aliasName + ")"
 	}
-	if mathutil.AlmostEqual(v.Val, 0.0, 0.0000001) {
-		return "0 " + v.U.NamePlural
+
+	epsilon := 0.0000001
+
+	if mathutil.AlmostEqual(v.Val, 1.0, epsilon) {
+		return "1 " + singularName
 	}
-	return fmt.Sprintf("%.5g %s", v.Val, v.U.NamePlural)
+	if mathutil.AlmostEqual(v.Val, 0.0, epsilon) {
+		return "0 " + pluralName
+	}
+	return fmt.Sprintf("%.5g %s", v.Val, pluralName)
 }
 
 // ConvertFromBaseUnits converts a value expressed in the base Units into

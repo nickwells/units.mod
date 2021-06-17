@@ -11,6 +11,9 @@ import (
 // There are conversion details that allow you to convert to and from the
 // base units for the unit family. There are descriptive strings for display
 // giving abbreviated and full names of the unit.
+//
+// The aliasName will only be set when the unit has been found through an
+// alias rather than the canonical name.
 type Unit struct {
 	ConvPreAdd  float64
 	ConvPostAdd float64
@@ -20,8 +23,8 @@ type Unit struct {
 	Abbrev     string
 	Name       string
 	NamePlural string
-
-	Notes string
+	Notes      string
+	aliasName  string
 }
 
 var (
@@ -62,7 +65,9 @@ func GetUnit(familyName, unitName string) (Unit, error) {
 		return u, errors.New("no such unit type '" + familyName + "'")
 	}
 	alias, ok := ud.Aliases[unitName]
+	var aliasName string
 	if ok {
+		aliasName = unitName
 		unitName = alias.UnitName
 	}
 	u, ok = ud.AltU[unitName]
@@ -71,6 +76,7 @@ func GetUnit(familyName, unitName string) (Unit, error) {
 			fmt.Errorf("there is no %s with a name of %q",
 				ud.Fam.Description, unitName)
 	}
+	u.aliasName = aliasName
 	return u, nil
 }
 

@@ -128,31 +128,39 @@ var TemperatureNames = map[string]Unit{
 }
 
 var temperatureAliases = map[string]Alias{
-	"Celsius":        {"C", ""},
-	"degree Celsius": {"C", ""},
-	"Centigrade":     {"C", ""},
+	"Celsius":         {"C", ""},
+	"degree Celsius":  {"C", ""},
+	"degrees Celsius": {"C", "plural"},
+	"Centigrade":      {"C", ""},
 
-	"Fahrenheit":        {"F", ""},
-	"degree Fahrenheit": {"F", ""},
+	"Fahrenheit":         {"F", ""},
+	"degree Fahrenheit":  {"F", ""},
+	"degrees Fahrenheit": {"F", "plural"},
 
-	"Kelvin":        {"K", ""},
-	"degree Kelvin": {"K", ""},
+	"Kelvin":         {"K", ""},
+	"degree Kelvin":  {"K", ""},
+	"degrees Kelvin": {"K", "plural"},
 
-	"Rankine":        {"Ra", ""},
-	"degree Rankine": {"Ra", ""},
+	"Rankine":         {"Ra", ""},
+	"degree Rankine":  {"Ra", ""},
+	"degrees Rankine": {"Ra", "plural"},
 
-	"Romer":        {"Ro", ""},
-	"degree Romer": {"Ro", ""},
-	"Rømer":        {"Ro", ""},
-	"Roemer":       {"Ro", ""},
+	"Romer":         {"Ro", ""},
+	"degree Romer":  {"Ro", ""},
+	"degrees Romer": {"Ro", "plural"},
+	"Rømer":         {"Ro", ""},
+	"Roemer":        {"Ro", ""},
 
-	"Réaumur":        {"Re", ""},
-	"Reaumur":        {"Re", ""},
-	"degree Reaumur": {"Re", ""},
+	"Réaumur":         {"Re", ""},
+	"Reaumur":         {"Re", ""},
+	"degree Reaumur":  {"Re", ""},
+	"degrees Reaumur": {"Re", "plural"},
 
-	"Newton":        {"N", ""},
-	"degree Newton": {"N", ""},
+	"Newton":         {"N", ""},
+	"degree Newton":  {"N", ""},
+	"degrees Newton": {"N", "plural"},
 
-	"Delisle":        {"D", ""},
-	"degree Delisle": {"D", ""},
+	"Delisle":         {"D", ""},
+	"degree Delisle":  {"D", ""},
+	"degrees Delisle": {"D", "plural"},
 }

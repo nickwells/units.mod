@@ -411,12 +411,31 @@ var DistanceNames = map[string]Unit{
 }
 
 var distanceAliases = map[string]Alias{
-	"perch":     {"rod", "sometimes also a unit of area or volume"},
-	"pole":      {"rod", ""},
-	"AU":        {"astro-unit", ""},
-	"m":         {"metre", ""},
-	"meter":     {"metre", "US spelling"},
-	"kilometre": {"km", ""},
-	"kilometer": {"km", "US spelling"},
-	"klick":     {"km", "US Army term for kilometre"},
+	"perch": {"rod", "sometimes also a unit of area or volume"},
+	"pole":  {"rod", ""},
+
+	"AU":          {"astro-unit", ""},
+	"parsecs":     {"parsec", "plural"},
+	"light-years": {"light-year", "plural"},
+	"light year":  {"light-year", "no hyphen"},
+	"light years": {"light-year", "no hyphen, plural"},
+
+	"m":      {"metre", ""},
+	"metres": {"metre", "plural"},
+	"meter":  {"metre", "US spelling"},
+	"meters": {"metre", "US spelling, plural"},
+
+	"kilometre":  {"km", ""},
+	"kilometres": {"km", "plural"},
+	"kilometer":  {"km", "US spelling"},
+	"kilometers": {"km", "US spelling, plural"},
+	"klick":      {"km", "US Army term for kilometre"},
+	"klicks":     {"km", "US Army term for kilometre, plural"},
+
+	"inches":   {"inch", "plural"},
+	"feet":     {"foot", "plural"},
+	"yards":    {"yard", "plural"},
+	"miles":    {"mile", "plural"},
+	"furlongs": {"furlong", "plural"},
+	"leagues":  {"league", "plural"},
 }

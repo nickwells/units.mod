@@ -141,12 +141,30 @@ var AreaNames = map[string]Unit{
 }
 
 var areaAliases = map[string]Alias{
-	"square-metre":     {"square metre", ""},
-	"square-meter":     {"square metre", "US spelling"},
-	"square meter":     {"square metre", "US spelling"},
-	"square-kilometre": {"square kilometre", ""},
-	"square-kilometer": {"square kilometre", "US spelling"},
-	"square kilometer": {"square kilometre", "US spelling"},
-	"square-mile":      {"square mile", ""},
-	"square-yard":      {"square yard", ""},
+	"square metres": {"square metre", "plural"},
+	"square-metre":  {"square metre", "hyphenated"},
+	"square-metres": {"square metre", "hyphenated, plural"},
+	"square-meter":  {"square metre", "US spelling, hyphenated"},
+	"square meter":  {"square metre", "US spelling"},
+	"square-meters": {"square metre", "US spelling, hyphenated, plural"},
+	"square meters": {"square metre", "US spelling, plural"},
+
+	"square kilometres": {"square kilometre", "plural"},
+	"square-kilometre":  {"square kilometre", "hyphenated"},
+	"square-kilometer":  {"square kilometre", "US spelling, hyphenated"},
+	"square kilometer":  {"square kilometre", "US spelling"},
+	"square-kilometres": {"square kilometre", "hyphenated, plural"},
+	"square-kilometers": {"square kilometre", "US spelling, hyphenated, plural"},
+	"square kilometers": {"square kilometre", "US spelling, plural"},
+
+	"square miles": {"square mile", "plural"},
+	"square-mile":  {"square mile", "hyphenated"},
+	"square-miles": {"square mile", "hyphenated, plural"},
+
+	"square yards": {"square yard", "plural"},
+	"square-yard":  {"square yard", "hyphenated"},
+	"square-yards": {"square yard", "hyphenated, plural"},
+
+	"acres":    {"acre", "plural"},
+	"hectares": {"hectare", "plural"},
 }

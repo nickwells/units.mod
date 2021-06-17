@@ -114,24 +114,12 @@ var MassNames = map[string]Unit{
 		"an obsolete metric measure of mass.",
 		"",
 	},
-	"Mg": {
-		0, 0, _M,
-		UnitOfMass,
-		"Mg", "megagram", "megagrams", "a metric measure of mass.",
-		"",
-	},
 	"tonne": {
 		0, 0, _M,
 		UnitOfMass,
 		"T", "tonne", "tonnes",
 		"a metric measure of mass." +
 			" Also known (in the US as the 'metric ton').",
-		"",
-	},
-	"Gg": {
-		0, 0, _G,
-		UnitOfMass,
-		"Gg", "gigagram", "gigagrams", "a metric measure of mass.",
 		"",
 	},
 	"kilotonne": {
@@ -239,17 +227,14 @@ var MassNames = map[string]Unit{
 	"hundredweight": {
 		0, 0, poundToGram * 112,
 		UnitOfMass,
-		"cwt", "hundredweight", "hundredweights",
-		"an imperial measure of mass." +
-			" Also known as the 'imperial hundredweight'" +
-			" or 'long hundredweight'.",
+		"cwt", "hundredweight", "hundredweight",
+		"an imperial measure of mass.",
 		"",
 	},
 	"short-hundredweight": {
 		0, 0, poundToGram * 100, UnitOfMass,
-		"cwt (short)", "short hundredweight", "short hundredweights",
-		"a US customary measure of mass." +
-			" Also known as the 'cental'.",
+		"cwt (short)", "short hundredweight", "short hundredweight",
+		"a US customary measure of mass.",
 		"",
 	},
 	"imperial-ton": {
@@ -292,10 +277,36 @@ var MassNames = map[string]Unit{
 	},
 }
 
-// TODO: Add aliases (and remove some duplicates above)
 var massAliases = map[string]Alias{
-	"g":        {"gram", ""},
-	"kilogram": {"kg", ""},
-	"oz":       {"ounce", ""},
-	"lb":       {"pound", ""},
+	"microgram":  {"ug", ""},
+	"micrograms": {"ug", "plural"},
+
+	"milligram":  {"mg", ""},
+	"milligrams": {"mg", "plural"},
+
+	"g":     {"gram", ""},
+	"grams": {"gram", "plural"},
+
+	"kilogram":  {"kg", ""},
+	"kilograms": {"kg", "plural"},
+
+	"Mg":         {"tonne", "megagram"},
+	"tonnes":     {"tonne", "plural"},
+	"metric ton": {"tonne", "US name"},
+
+	"Gg":         {"kilotonne", "gigagram"},
+	"kilotonnes": {"kilotonne", "plural"},
+
+	"oz":                     {"ounce", ""},
+	"ounces":                 {"ounce", "plural"},
+	"lb":                     {"pound", ""},
+	"pounds":                 {"pound", "plural"},
+	"cwt":                    {"hundredweight", "abbreviation"},
+	"imperial hundredweight": {"hundredweight", "US name"},
+	"imperial-hundredweight": {"hundredweight", "US name, hyphenated"},
+	"long hundredweight":     {"hundredweight", "US name"},
+	"long-hundredweight":     {"hundredweight", "US name, hyphenated"},
+	"cental":                 {"short-hundredweight", ""},
+	"long ton":               {"imperial-ton", "US name"},
+	"long-ton":               {"imperial-ton", "US name, hyphenated"},
 }

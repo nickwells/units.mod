@@ -100,7 +100,6 @@ var EnergyNames = map[string]Unit{
 		"a metric measure of energy.",
 		"",
 	},
-	"J":     JouleUnit,
 	"joule": JouleUnit,
 	"daJ": {
 		0, 0, da,
@@ -219,6 +218,7 @@ var EnergyNames = map[string]Unit{
 		"",
 	},
 
+	// Imperial / US
 	"foot-pound": {
 		0, 0, footPoundToJoule,
 		UnitOfEnergy,
@@ -249,6 +249,7 @@ var EnergyNames = map[string]Unit{
 		"",
 	},
 
+	// Coloquial
 	"tonOfTNT": {
 		0, 0, calorieToJoule * 1e9,
 		UnitOfEnergy,
@@ -259,11 +260,16 @@ var EnergyNames = map[string]Unit{
 	},
 }
 
-// TODO: Add aliases (for plurals etc)
 var energyAliases = map[string]Alias{
 	"calorie":       {"cal", ""},
+	"calories":      {"cal", "plural"},
 	"kilocalorie":   {"kcal", ""},
+	"kilocalories":  {"kcal", "plural"},
 	"kilocal":       {"kcal", ""},
 	"large calorie": {"kcal", ""},
-	"Btu":           {"BTU", ""},
+
+	"Btu": {"BTU", ""},
+
+	"J":      {"joule", ""},
+	"joules": {"joule", "plural"},
 }

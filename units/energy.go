@@ -182,7 +182,7 @@ var EnergyNames = map[string]Unit{
 	},
 
 	"erg": {
-		0, 0, 1e7,
+		0, 0, 1e-7,
 		UnitOfEnergy,
 		"erg", "erg", "ergs",
 		"a measure of energy proposed by" +
@@ -190,11 +190,12 @@ var EnergyNames = map[string]Unit{
 		"",
 	},
 	"foe": {
-		0, 0, 1e-44,
+		0, 0, 1e44,
 		UnitOfEnergy,
 		"foe", "foe", "foes",
 		"a measure of energy equivalent to 10^51 ergs," +
-			" the energy released by a supernova.",
+			" the approximate energy released by a supernova." +
+			" It was introduced by Gerald E. Brown.",
 		"",
 	},
 
@@ -270,6 +271,11 @@ var energyAliases = map[string]Alias{
 
 	"Btu": {"BTU", ""},
 
+	"bethe": {"foe",
+		"An alternative proposed by Steven Weinberg, after Hans Bethe"},
+
 	"J":      {"joule", ""},
 	"joules": {"joule", "plural"},
+	"Joule":  {"joule", "with initial capital"},
+	"Joules": {"joule", "with initial capital, plural"},
 }

@@ -44,6 +44,8 @@ const (
 	Length        = "distance" // synonym
 	Area          = "area"
 	Volume        = "volume"
+	Velocity      = "velocity"
+	Speed         = "velocity" // synonym
 	Mass          = "mass"
 	Temperature   = "temperature"
 	Angle         = "angle"
@@ -57,6 +59,7 @@ var validUnits = map[string]UnitDetails{
 	Distance:      {UnitOfDistance, DistanceNames, distanceAliases},
 	Area:          {UnitOfArea, AreaNames, areaAliases},
 	Volume:        {UnitOfVolume, VolumeNames, volumeAliases},
+	Velocity:      {UnitOfVelocity, VelocityNames, velocityAliases},
 	Mass:          {UnitOfMass, MassNames, massAliases},
 	Temperature:   {UnitOfTemperature, TemperatureNames, temperatureAliases},
 	Angle:         {UnitOfAngle, AngleNames, angleAliases},

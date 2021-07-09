@@ -76,13 +76,13 @@ func init() {
 			if _, ok := ud.AltU[aliasName]; ok {
 				panic(fmt.Errorf(
 					"unit family %q: alias %q"+
-						" already exists in the map uf unit names",
+						" already exists in the map of unit names",
 					f, aliasName))
 			}
 			if _, ok := ud.AltU[alias.UnitName]; !ok {
 				panic(fmt.Errorf(
 					"unit family %q: alias %q references unit %q"+
-						" which does not exist in the map uf unit names",
+						" which does not exist in the map of unit names",
 					f, aliasName, alias))
 			}
 

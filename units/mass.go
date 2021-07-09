@@ -202,6 +202,26 @@ var MassNames = map[string]Unit{
 		"",
 	},
 
+	// Physics
+	"electronvolt": {
+		0, 0, electronVoltToJoule / (speedOfLight * speedOfLight),
+		UnitOfMass,
+		"eV", "electron volt", "electron volts",
+		"derived from the unit of energy by" +
+			" dividing by the speed of light squared (using e = mc^2).",
+		"",
+	},
+	"gigaelectronvolt": {
+		0, 0, _G * electronVoltToJoule / (speedOfLight * speedOfLight),
+		UnitOfMass,
+		"GeV", "giga electron volt", "giga electron volts",
+		"see the description of the electron volt as a unit of mass." +
+			" Note that, in general, the masses of all hadrons are" +
+			" of the order of one giga electron volt which makes this" +
+			" a convenient unit of mass for particle physics.",
+		"",
+	},
+
 	// Imperial / US
 	"ounce": {
 		0, 0, ounceToGram,
@@ -309,4 +329,15 @@ var massAliases = map[string]Alias{
 	"cental":                 {"short-hundredweight", ""},
 	"long ton":               {"imperial-ton", "US name"},
 	"long-ton":               {"imperial-ton", "US name, hyphenated"},
+
+	"eV":                  {"electronvolt", "abbreviation"},
+	"electron-volt":       {"electronvolt", ""},
+	"electron-volts":      {"electronvolt", "plural"},
+	"electron volt":       {"electronvolt", ""},
+	"electron volts":      {"electronvolt", "plural"},
+	"GeV":                 {"gigaelectronvolt", "abbreviation"},
+	"giga-electron-volt":  {"gigaelectronvolt", ""},
+	"giga-electron-volts": {"gigaelectronvolt", "plural"},
+	"giga electron volt":  {"gigaelectronvolt", ""},
+	"giga electron volts": {"gigaelectronvolt", "plural"},
 }

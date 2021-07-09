@@ -1,11 +1,14 @@
 package units
 
 const (
-	inchToMetre  = 0.0254
-	footToMetre  = inchToMetre * 12
-	yardToMetre  = footToMetre * 3
-	rodToMetre   = yardToMetre * 5.5
-	lightSecond  = 2.99792458e8
+	inchToMetre = 0.0254
+	footToMetre = inchToMetre * 12
+	yardToMetre = footToMetre * 3
+	rodToMetre  = yardToMetre * 5.5
+
+	lightSecond  = 2.99792458e8 // speedOfLight * 1 second
+	speedOfLight = lightSecond  // metres / second
+
 	pointToMetre = 0.0003528
 )
 

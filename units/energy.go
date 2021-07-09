@@ -20,6 +20,8 @@ const (
 	footPoundToJoule   = 1.3558179483314004
 	footPoundalToJoule = 0.0421401100938048
 
+	electronVoltToJoule = 1.602176634e-19
+
 	// Note that there are many different variants of the British thermal
 	// unit with conversion ratios to Joules varying between 1054.3503 (for
 	// the Thermochemical variant) and 1059.67 (using the calorie value of
@@ -219,6 +221,17 @@ var EnergyNames = map[string]Unit{
 		"",
 	},
 
+	// Physics
+	"electronvolt": {
+		0, 0, electronVoltToJoule,
+		UnitOfEnergy,
+		"eV", "electron volt", "electron volts",
+		"The kinetic energy gained by a single electron" +
+			" accelerating from rest through" +
+			" an electric potential difference of one volt.",
+		"",
+	},
+
 	// Imperial / US
 	"foot-pound": {
 		0, 0, footPoundToJoule,
@@ -271,11 +284,19 @@ var energyAliases = map[string]Alias{
 
 	"Btu": {"BTU", ""},
 
-	"bethe": {"foe",
-		"An alternative proposed by Steven Weinberg, after Hans Bethe"},
+	"bethe": {
+		"foe",
+		"An alternative proposed by Steven Weinberg, after Hans Bethe",
+	},
 
-	"J":      {"joule", ""},
+	"J":      {"joule", "abbreviation"},
 	"joules": {"joule", "plural"},
 	"Joule":  {"joule", "with initial capital"},
 	"Joules": {"joule", "with initial capital, plural"},
+
+	"eV":             {"electronvolt", "abbreviation"},
+	"electron-volt":  {"electronvolt", ""},
+	"electron-volts": {"electronvolt", "plural"},
+	"electron volt":  {"electronvolt", ""},
+	"electron volts": {"electronvolt", "plural"},
 }

@@ -7,15 +7,21 @@ import (
 )
 
 func TestValWithUnit_String(t *testing.T) {
-	var dfltUnit = Unit{
+	dfltUnit := Unit{
 		0, 0, 1,
-		Family{"base unit name", "unit family description"},
+		Family{
+			"base unit name",
+			"unit family description",
+		},
 		"u", "unit", "units", "unit notes",
 		"",
 	}
-	var aliasUnit = Unit{
+	aliasUnit := Unit{
 		0, 0, 1,
-		Family{"base unit name", "unit family description"},
+		Family{
+			"base unit name",
+			"unit family description",
+		},
 		"u", "unit", "units", "unit notes",
 		"alias",
 	}
@@ -89,21 +95,30 @@ func TestValWithUnit_String(t *testing.T) {
 }
 
 func TestConvertToAndFromBaseUnits(t *testing.T) {
-	var unit_0_0_1 = Unit{
+	unit0_0_1 := Unit{
 		0, 0, 1,
-		Family{"base unit name", "unit family description"},
+		Family{
+			"base unit name",
+			"unit family description",
+		},
 		"u", "unit", "units", "unit notes",
 		"",
 	}
-	var unit_1_2_3 = Unit{
+	unit1_2_3 := Unit{
 		1, 2, 3,
-		Family{"base unit name", "unit family description"},
+		Family{
+			"base unit name",
+			"unit family description",
+		},
 		"u", "unit", "units", "unit notes",
 		"",
 	}
-	var badUnit = Unit{
+	badUnit := Unit{
 		0, 0, 0,
-		Family{"base unit name", "unit family description"},
+		Family{
+			"base unit name",
+			"unit family description",
+		},
 		"u", "unit", "units", "unit notes",
 		"",
 	}
@@ -116,12 +131,12 @@ func TestConvertToAndFromBaseUnits(t *testing.T) {
 		{
 			ID: testhelper.MkID("no change conversion"),
 			v:  42,
-			u:  unit_0_0_1,
+			u:  unit0_0_1,
 		},
 		{
 			ID: testhelper.MkID("full conversion"),
 			v:  41,
-			u:  unit_1_2_3,
+			u:  unit1_2_3,
 		},
 		{
 			ID:     testhelper.MkID("bad unit"),
@@ -143,21 +158,30 @@ func TestConvertToAndFromBaseUnits(t *testing.T) {
 }
 
 func TestValWithUnit_Convert(t *testing.T) {
-	var unit_0_0_1 = Unit{
+	unit0_0_1 := Unit{
 		0, 0, 1,
-		Family{"base unit name", "unit family description"},
+		Family{
+			"base unit name",
+			"unit family description",
+		},
 		"u", "unit", "units", "unit notes",
 		"",
 	}
-	var unit_1_2_3 = Unit{
+	unit1_2_3 := Unit{
 		1, 2, 3,
-		Family{"base unit name", "unit family description"},
+		Family{
+			"base unit name",
+			"unit family description",
+		},
 		"u", "unit", "units", "unit notes",
 		"",
 	}
-	var badUnit = Unit{
+	badUnit := Unit{
 		0, 0, 0,
-		Family{"base unit name", "unit family description"},
+		Family{
+			"base unit name",
+			"unit family description",
+		},
 		"u", "unit", "units", "unit notes",
 		"",
 	}
@@ -172,9 +196,9 @@ func TestValWithUnit_Convert(t *testing.T) {
 			ID: testhelper.MkID("..."),
 			vwu: ValWithUnit{
 				Val: 0,
-				U:   unit_0_0_1,
+				U:   unit0_0_1,
 			},
-			toUnit: unit_1_2_3,
+			toUnit: unit1_2_3,
 			expVal: 2.0 + 1.0/3.0,
 		},
 		{
@@ -183,7 +207,7 @@ func TestValWithUnit_Convert(t *testing.T) {
 				Val: 0,
 				U:   badUnit,
 			},
-			toUnit: unit_1_2_3,
+			toUnit: unit1_2_3,
 			expVal: 0,
 			ExpErr: testhelper.MkExpErr("Bad units - a zero conversion factor"),
 		},
@@ -191,7 +215,7 @@ func TestValWithUnit_Convert(t *testing.T) {
 			ID: testhelper.MkID("..."),
 			vwu: ValWithUnit{
 				Val: 0,
-				U:   unit_0_0_1,
+				U:   unit0_0_1,
 			},
 			toUnit: badUnit,
 			expVal: 0,

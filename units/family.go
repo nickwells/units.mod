@@ -1,7 +1,6 @@
 package units
 
 import (
-	"errors"
 	"fmt"
 	"sort"
 )
@@ -66,6 +65,13 @@ var validUnits = map[string]UnitDetails{
 	Energy:        {UnitOfEnergy, EnergyNames, energyAliases},
 }
 
+var familyAlias = map[string]string{
+	"length": Distance,
+	"len":    Distance,
+	"speed":  Velocity,
+	"temp":   Temperature,
+}
+
 // reverseAlias holds a list of aliases for the family/unit entry
 var reverseAlias = make(map[string]map[string][]string)
 
@@ -96,7 +102,14 @@ func init() {
 func GetAliases(fName, uName string) []string {
 	ua, ok := reverseAlias[fName]
 	if !ok {
-		return []string{}
+		alias, ok := familyAlias[fName]
+		if !ok {
+			return []string{}
+		}
+		ua, ok = reverseAlias[alias]
+		if !ok {
+			return []string{}
+		}
 	}
 	return ua[uName]
 }
@@ -106,7 +119,15 @@ func GetAliases(fName, uName string) []string {
 func GetUnitDetails(name string) (UnitDetails, error) {
 	ud, ok := validUnits[name]
 	if !ok {
-		return UnitDetails{}, errors.New("no such unit type '" + name + "'")
+		alias, ok := familyAlias[name]
+		if !ok {
+			return ud, fmt.Errorf("no such unit type %q", name)
+		}
+		ud, ok = validUnits[alias]
+		if !ok {
+			return ud, fmt.Errorf("no such unit type %q (alias for %q)",
+				name, alias)
+		}
 	}
 	return ud, nil
 }

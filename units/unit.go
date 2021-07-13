@@ -1,7 +1,6 @@
 package units
 
 import (
-	"errors"
 	"fmt"
 	"math"
 )
@@ -58,19 +57,18 @@ var (
 // that the constant values for familyName should be used to reduce the
 // liklihood of runtime errors.
 func GetUnit(familyName, unitName string) (Unit, error) {
-	var u Unit
-
-	ud, ok := validUnits[familyName]
-	if !ok {
-		return u, errors.New("no such unit type '" + familyName + "'")
+	ud, err := GetUnitDetails(familyName)
+	if err != nil {
+		return Unit{}, err
 	}
+
 	alias, ok := ud.Aliases[unitName]
 	var aliasName string
 	if ok {
 		aliasName = unitName
 		unitName = alias.UnitName
 	}
-	u, ok = ud.AltU[unitName]
+	u, ok := ud.AltU[unitName]
 	if !ok {
 		return u,
 			fmt.Errorf("there is no %s with a name of %q",

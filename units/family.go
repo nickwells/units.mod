@@ -79,21 +79,8 @@ func init() {
 	for f, ud := range validUnits {
 		reverseAlias[f] = make(map[string][]string)
 		for aliasName, alias := range ud.Aliases {
-			if _, ok := ud.AltU[aliasName]; ok {
-				panic(fmt.Errorf(
-					"unit family %q: alias %q"+
-						" already exists in the map of unit names",
-					f, aliasName))
-			}
-			if _, ok := ud.AltU[alias.UnitName]; !ok {
-				panic(fmt.Errorf(
-					"unit family %q: alias %q references unit %q"+
-						" which does not exist in the map of unit names",
-					f, aliasName, alias))
-			}
-
-			reverseAlias[f][alias.UnitName] =
-				append(reverseAlias[f][alias.UnitName], aliasName)
+			uName := alias.UnitName
+			reverseAlias[f][uName] = append(reverseAlias[f][uName], aliasName)
 		}
 	}
 }

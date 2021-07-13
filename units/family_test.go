@@ -15,3 +15,23 @@ func TestValidUnits(t *testing.T) {
 		}
 	}
 }
+
+func TestAliasValues(t *testing.T) {
+	for f, ud := range validUnits {
+		reverseAlias[f] = make(map[string][]string)
+		for aliasName, alias := range ud.Aliases {
+			if _, ok := ud.AltU[aliasName]; ok {
+				t.Errorf(
+					"unit family %q: alias %q"+
+						" already exists in the map of unit names",
+					f, aliasName)
+			}
+			if _, ok := ud.AltU[alias.UnitName]; !ok {
+				t.Errorf(
+					"unit family %q: alias %q references unit %q"+
+						" which does not exist in the map of unit names",
+					f, aliasName, alias)
+			}
+		}
+	}
+}

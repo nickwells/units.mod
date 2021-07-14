@@ -41,7 +41,8 @@ var TimeNames = map[string]Unit{
 		0, 0, 60 * 60 * 24 * 7,
 		UnitOfTime,
 		"week", "week", "weeks", "",
-		""},
+		"",
+	},
 	"fortnight": {
 		0, 0, 60 * 60 * 24 * 14,
 		UnitOfTime,

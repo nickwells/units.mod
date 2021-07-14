@@ -37,7 +37,11 @@ var TimeNames = map[string]Unit{
 			" due to tidal effects.",
 		"",
 	},
-	"week": {0, 0, 60 * 60 * 24 * 7, UnitOfTime, "week", "week", "weeks", "", ""},
+	"week": {
+		0, 0, 60 * 60 * 24 * 7,
+		UnitOfTime,
+		"week", "week", "weeks", "",
+		""},
 	"fortnight": {
 		0, 0, 60 * 60 * 24 * 14,
 		UnitOfTime,
@@ -80,6 +84,24 @@ var TimeNames = map[string]Unit{
 }
 
 var timeAliases = map[string]Alias{
-	"year": {"Gregorian year", ""},
-	"sec":  {"second", ""},
+	"sec":     {"second", ""},
+	"seconds": {"second", "plural"},
+	"secs":    {"second", "plural"},
+
+	"min":     {"minute", ""},
+	"minutes": {"minute", "plural"},
+	"mins":    {"minute", "plural"},
+
+	"hr":    {"hour", ""},
+	"hours": {"hour", "plural"},
+	"hrs":   {"hour", "plural"},
+
+	"days": {"day", "plural"},
+
+	"weeks": {"week", "plural"},
+
+	"fortnights": {"fortnight", "plural"},
+
+	"year":  {"Gregorian year", ""},
+	"years": {"Gregorian year", "plural"},
 }

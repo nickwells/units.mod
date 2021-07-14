@@ -52,13 +52,13 @@ var velocityAliases = map[string]Alias{
 	"mph":        {"milesPerHour", "abbreviation"},
 	"m/h":        {"milesPerHour", "abbreviation"},
 	"miles/hour": {"milesPerHour", "abbreviation"},
-	"kmph":       {"kilometresPerHour", "abbreviation"},
-	"km/h":       {"kilometresPerHour", "abbreviation"},
 
 	"metrePerSecond":  {"metresPerSecond", "singular"},
 	"metersPerSecond": {"metresPerSecond", "US spelling"},
 	"meterPerSecond":  {"metresPerSecond", "US spelling, singular"},
 
+	"kmph":              {"kilometresPerHour", "abbreviation"},
+	"km/h":              {"kilometresPerHour", "abbreviation"},
 	"kilometrePerHour":  {"kilometresPerHour", "singular"},
 	"kilometersPerHour": {"kilometresPerHour", "US spelling"},
 	"kilometerPerHour":  {"kilometresPerHour", "US spelling, singular"},

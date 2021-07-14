@@ -68,7 +68,7 @@ var DistanceNames = map[string]Unit{
 	"um": {
 		0, 0, u,
 		UnitOfDistance,
-		"um", "micrometre", "micrometres", "a metric measure of distance.",
+		"µm", "micrometre", "micrometres", "a metric measure of distance.",
 		"",
 	},
 	"mm": {
@@ -485,6 +485,16 @@ var distanceAliases = map[string]Alias{
 	"metres": {"metre", "plural"},
 	"meter":  {"metre", "US spelling"},
 	"meters": {"metre", "US spelling, plural"},
+
+	"centimetre":  {"cm", ""},
+	"centimeter":  {"cm", "US spelling"},
+	"centimetres": {"cm", "plural"},
+	"centimeters": {"cm", "US spelling, plural"},
+
+	"millimetre":  {"mm", ""},
+	"millimeter":  {"mm", "US spelling"},
+	"millimetres": {"mm", "plural"},
+	"millimeters": {"mm", "US spelling, plural"},
 
 	"kilometre":  {"km", ""},
 	"kilometres": {"km", "plural"},

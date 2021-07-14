@@ -67,7 +67,7 @@ var MassNames = map[string]Unit{
 	"ug": {
 		0, 0, u,
 		UnitOfMass,
-		"ug", "microgram", "micrograms", "a metric measure of mass.",
+		"µg", "microgram", "micrograms", "a metric measure of mass.",
 		"",
 	},
 	"mg": {
@@ -317,24 +317,29 @@ var massAliases = map[string]Alias{
 	"Gg":         {"kilotonne", "gigagram"},
 	"kilotonnes": {"kilotonne", "plural"},
 
-	"oz":                     {"ounce", ""},
-	"ounces":                 {"ounce", "plural"},
-	"lb":                     {"pound", ""},
-	"pounds":                 {"pound", "plural"},
+	"oz":     {"ounce", ""},
+	"ounces": {"ounce", "plural"},
+
+	"lb":     {"pound", ""},
+	"pounds": {"pound", "plural"},
+
 	"cwt":                    {"hundredweight", "abbreviation"},
 	"imperial hundredweight": {"hundredweight", "US name"},
 	"imperial-hundredweight": {"hundredweight", "US name, hyphenated"},
 	"long hundredweight":     {"hundredweight", "US name"},
 	"long-hundredweight":     {"hundredweight", "US name, hyphenated"},
-	"cental":                 {"short-hundredweight", ""},
-	"long ton":               {"imperial-ton", "US name"},
-	"long-ton":               {"imperial-ton", "US name, hyphenated"},
 
-	"eV":                  {"electronvolt", "abbreviation"},
-	"electron-volt":       {"electronvolt", ""},
-	"electron-volts":      {"electronvolt", "plural"},
-	"electron volt":       {"electronvolt", ""},
-	"electron volts":      {"electronvolt", "plural"},
+	"cental": {"short-hundredweight", ""},
+
+	"long ton": {"imperial-ton", "US name"},
+	"long-ton": {"imperial-ton", "US name, hyphenated"},
+
+	"eV":             {"electronvolt", "abbreviation"},
+	"electron-volt":  {"electronvolt", ""},
+	"electron-volts": {"electronvolt", "plural"},
+	"electron volt":  {"electronvolt", ""},
+	"electron volts": {"electronvolt", "plural"},
+
 	"GeV":                 {"gigaelectronvolt", "abbreviation"},
 	"giga-electron-volt":  {"gigaelectronvolt", ""},
 	"giga-electron-volts": {"gigaelectronvolt", "plural"},

@@ -16,6 +16,12 @@ func TestValidUnits(t *testing.T) {
 				t.Logf("\t:   Actual family: %q\n", unitVal.Fam.Description)
 				t.Errorf("\t: wrong family")
 			}
+
+			if unitVal.ConvFactor == 0 {
+				t.Log("Bad entry in the validUnits map")
+				t.Errorf("\t: %q: %q has a zero conversion factor",
+					famName, unitName)
+			}
 		}
 	}
 }

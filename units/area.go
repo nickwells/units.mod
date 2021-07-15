@@ -9,6 +9,7 @@ const (
 var UnitOfArea = Family{
 	BaseUnitName: "square metre",
 	Description:  "unit of area",
+	Name:         Area,
 }
 
 // SquareMetreUnit is a suitable default value for a UnitOfArea

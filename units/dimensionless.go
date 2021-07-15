@@ -4,6 +4,7 @@ package units
 var Numeric = Family{
 	BaseUnitName: "",
 	Description:  "dimensionless value",
+	Name:         Dimensionless,
 }
 
 // DimensionlessUnit is a suitable default value for a Unit of Numeric

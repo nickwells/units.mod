@@ -4,6 +4,7 @@ package units
 var UnitOfTemperature = Family{
 	BaseUnitName: "C",
 	Description:  "unit of temperature",
+	Name:         Temperature,
 }
 
 const absZero = 273.15

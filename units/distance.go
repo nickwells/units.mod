@@ -16,6 +16,7 @@ const (
 var UnitOfDistance = Family{
 	BaseUnitName: "metre",
 	Description:  "unit of distance",
+	Name:         Distance,
 }
 
 // MetreUnit is a suitable default value for a UnitOfDistance

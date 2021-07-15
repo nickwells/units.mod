@@ -4,6 +4,7 @@ package units
 var UnitOfTime = Family{
 	BaseUnitName: "second",
 	Description:  "unit of time",
+	Name:         Time,
 }
 
 // SecondUnit is a suitable default value for a UnitOfTime

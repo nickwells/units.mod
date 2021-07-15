@@ -15,6 +15,7 @@ const (
 var UnitOfVolume = Family{
 	BaseUnitName: "cubic metre",
 	Description:  "unit of volume",
+	Name:         Volume,
 }
 
 // CubicMetreUnit is a suitable default value for a UnitOfVolume

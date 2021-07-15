@@ -4,6 +4,7 @@ package units
 var UnitOfEnergy = Family{
 	BaseUnitName: "joule",
 	Description:  "unit of energy",
+	Name:         Energy,
 }
 
 // JouleUnit is a suitable default value for a UnitOfEnergy

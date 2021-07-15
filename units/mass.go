@@ -4,6 +4,7 @@ package units
 var UnitOfMass = Family{
 	BaseUnitName: "gram",
 	Description:  "unit of mass",
+	Name:         Mass,
 }
 
 // GramUnit is a suitable default value for a UnitOfMass

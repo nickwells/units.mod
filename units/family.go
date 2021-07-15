@@ -11,6 +11,8 @@ import (
 type Family struct {
 	BaseUnitName string
 	Description  string
+	Name         string
+	aliasName    string
 }
 
 // String returns a string representation of the Family object
@@ -106,15 +108,16 @@ func GetAliases(fName, uName string) []string {
 func GetUnitDetails(name string) (UnitDetails, error) {
 	ud, ok := validUnits[name]
 	if !ok {
-		alias, ok := familyAlias[name]
+		fName, ok := familyAlias[name]
 		if !ok {
 			return ud, fmt.Errorf("no such unit type %q", name)
 		}
-		ud, ok = validUnits[alias]
+		ud, ok = validUnits[fName]
 		if !ok {
 			return ud, fmt.Errorf("no such unit type %q (alias for %q)",
-				name, alias)
+				name, fName)
 		}
+		ud.Fam.aliasName = name
 	}
 	return ud, nil
 }

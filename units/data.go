@@ -20,6 +20,7 @@ const (
 var UnitOfData = Family{
 	BaseUnitName: "byte",
 	Description:  "unit of data",
+	Name:         Data,
 }
 
 // ByteUnit is a suitable default value for a UnitOfData

@@ -6,25 +6,40 @@ import (
 	"github.com/nickwells/testhelper.mod/testhelper"
 )
 
-func TestValWithUnit_String(t *testing.T) {
-	dfltUnit := Unit{
+var (
+	dfltFamily = Family{
+		"base unit name",
+		"unit family description",
+		"family", "",
+	}
+
+	unit0_0_1 = Unit{
 		0, 0, 1,
-		Family{
-			"base unit name",
-			"unit family description",
-		},
+		dfltFamily,
 		"u", "unit", "units", "unit notes",
 		"",
 	}
-	aliasUnit := Unit{
+	aliasUnit = Unit{
 		0, 0, 1,
-		Family{
-			"base unit name",
-			"unit family description",
-		},
+		dfltFamily,
 		"u", "unit", "units", "unit notes",
 		"alias",
 	}
+	unit1_2_3 = Unit{
+		1, 2, 3,
+		dfltFamily,
+		"u", "unit", "units", "unit notes",
+		"",
+	}
+	badUnit = Unit{
+		0, 0, 0,
+		dfltFamily,
+		"u", "unit", "units", "unit notes",
+		"",
+	}
+)
+
+func TestValWithUnit_String(t *testing.T) {
 	testCases := []struct {
 		testhelper.ID
 		vwu       ValWithUnit
@@ -34,7 +49,7 @@ func TestValWithUnit_String(t *testing.T) {
 			ID: testhelper.MkID("zero val, no alias"),
 			vwu: ValWithUnit{
 				Val: 0,
-				U:   dfltUnit,
+				U:   unit0_0_1,
 			},
 			expString: "0 units",
 		},
@@ -42,7 +57,7 @@ func TestValWithUnit_String(t *testing.T) {
 			ID: testhelper.MkID("almost zero val, no alias"),
 			vwu: ValWithUnit{
 				Val: 0.00000001,
-				U:   dfltUnit,
+				U:   unit0_0_1,
 			},
 			expString: "0 units",
 		},
@@ -50,7 +65,7 @@ func TestValWithUnit_String(t *testing.T) {
 			ID: testhelper.MkID("unit val, no alias"),
 			vwu: ValWithUnit{
 				Val: 1,
-				U:   dfltUnit,
+				U:   unit0_0_1,
 			},
 			expString: "1 unit",
 		},
@@ -58,7 +73,7 @@ func TestValWithUnit_String(t *testing.T) {
 			ID: testhelper.MkID("almost unit val (too big), no alias"),
 			vwu: ValWithUnit{
 				Val: 1.00000001,
-				U:   dfltUnit,
+				U:   unit0_0_1,
 			},
 			expString: "1 unit",
 		},
@@ -66,7 +81,7 @@ func TestValWithUnit_String(t *testing.T) {
 			ID: testhelper.MkID("almost unit val (too small), no alias"),
 			vwu: ValWithUnit{
 				Val: 0.9999999,
-				U:   dfltUnit,
+				U:   unit0_0_1,
 			},
 			expString: "1 unit",
 		},
@@ -74,7 +89,7 @@ func TestValWithUnit_String(t *testing.T) {
 			ID: testhelper.MkID("multi val, no alias"),
 			vwu: ValWithUnit{
 				Val: 42,
-				U:   dfltUnit,
+				U:   unit0_0_1,
 			},
 			expString: "42 units",
 		},
@@ -95,33 +110,6 @@ func TestValWithUnit_String(t *testing.T) {
 }
 
 func TestConvertToAndFromBaseUnits(t *testing.T) {
-	unit0_0_1 := Unit{
-		0, 0, 1,
-		Family{
-			"base unit name",
-			"unit family description",
-		},
-		"u", "unit", "units", "unit notes",
-		"",
-	}
-	unit1_2_3 := Unit{
-		1, 2, 3,
-		Family{
-			"base unit name",
-			"unit family description",
-		},
-		"u", "unit", "units", "unit notes",
-		"",
-	}
-	badUnit := Unit{
-		0, 0, 0,
-		Family{
-			"base unit name",
-			"unit family description",
-		},
-		"u", "unit", "units", "unit notes",
-		"",
-	}
 	testCases := []struct {
 		testhelper.ID
 		v float64
@@ -158,33 +146,6 @@ func TestConvertToAndFromBaseUnits(t *testing.T) {
 }
 
 func TestValWithUnit_Convert(t *testing.T) {
-	unit0_0_1 := Unit{
-		0, 0, 1,
-		Family{
-			"base unit name",
-			"unit family description",
-		},
-		"u", "unit", "units", "unit notes",
-		"",
-	}
-	unit1_2_3 := Unit{
-		1, 2, 3,
-		Family{
-			"base unit name",
-			"unit family description",
-		},
-		"u", "unit", "units", "unit notes",
-		"",
-	}
-	badUnit := Unit{
-		0, 0, 0,
-		Family{
-			"base unit name",
-			"unit family description",
-		},
-		"u", "unit", "units", "unit notes",
-		"",
-	}
 	testCases := []struct {
 		testhelper.ID
 		vwu    ValWithUnit

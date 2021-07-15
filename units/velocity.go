@@ -4,6 +4,7 @@ package units
 var UnitOfVelocity = Family{
 	BaseUnitName: "metrePerSecond",
 	Description:  "unit of velocity",
+	Name:         Velocity,
 }
 
 // MetrePerSecondUnit is a suitable default value for a UnitOfVelocity

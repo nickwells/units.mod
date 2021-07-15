@@ -8,6 +8,7 @@ const degreePerRadian = math.Pi / 180
 var UnitOfAngle = Family{
 	BaseUnitName: "radian",
 	Description:  "unit of angular measure",
+	Name:         Angle,
 }
 
 // AngularUnitRadian is a suitable default value for a UnitOfAngle

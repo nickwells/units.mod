@@ -145,3 +145,24 @@ func GetFamilyNames() []string {
 	sort.Strings(names)
 	return names
 }
+
+// GetUnit gets the named unit from the UnitDetails. A non-nil error is
+// returned if the name is not found.
+func (ud UnitDetails) GetUnit(name string) (Unit, error) {
+	u, ok := ud.AltU[name]
+	if !ok {
+		alias, ok := ud.Aliases[name]
+		if !ok {
+			return u, fmt.Errorf("there is no %s called %q",
+				ud.Fam.Description, name)
+		}
+
+		u, ok = ud.AltU[alias.UnitName]
+		if !ok {
+			return u, fmt.Errorf("there is no %s called %q",
+				ud.Fam.Description, name)
+		}
+		u.aliasName = name
+	}
+	return u, nil
+}

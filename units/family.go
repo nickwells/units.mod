@@ -132,8 +132,13 @@ func GetUnitDetailsOrPanic(name string) UnitDetails {
 // GetFamilyNames returns a sorted slice holding the allowed names of unit
 // types
 func GetFamilyNames() []string {
-	names := make([]string, 0, len(validUnits))
+	names := make([]string, 0, len(validUnits)+len(familyAlias))
+
 	for name := range validUnits {
+		names = append(names, name)
+	}
+
+	for name := range familyAlias {
 		names = append(names, name)
 	}
 

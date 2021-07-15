@@ -101,7 +101,7 @@ func TestGetUnitDetails(t *testing.T) {
 
 func TestGetFamilyNames(t *testing.T) {
 	fn := GetFamilyNames()
-	if len(fn) != len(validUnits) {
+	if len(fn) != (len(validUnits) + len(familyAlias)) {
 		t.Logf("Expected name count: %d\n", len(validUnits))
 		t.Logf("  Actual name count: %d\n", len(fn))
 		t.Errorf("GetFamilyNames() failed\n")

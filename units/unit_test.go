@@ -21,7 +21,8 @@ func TestGetUnit(t *testing.T) {
 	}
 
 	badFamilyNameErr := `no such unit type "` + badFamilyName + `"`
-	badUnitNameErr := `there is no ` + ud.Fam.Description + ` with a name of "` + badUnitName + `"`
+	badUnitNameErr := `there is no ` + ud.Fam.Description +
+		` called "` + badUnitName + `"`
 	testCases := []struct {
 		testhelper.ID
 		fName string

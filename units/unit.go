@@ -1,7 +1,6 @@
 package units
 
 import (
-	"fmt"
 	"math"
 )
 
@@ -62,20 +61,7 @@ func GetUnit(familyName, unitName string) (Unit, error) {
 		return Unit{}, err
 	}
 
-	alias, ok := ud.Aliases[unitName]
-	var aliasName string
-	if ok {
-		aliasName = unitName
-		unitName = alias.UnitName
-	}
-	u, ok := ud.AltU[unitName]
-	if !ok {
-		return u,
-			fmt.Errorf("there is no %s with a name of %q",
-				ud.Fam.Description, unitName)
-	}
-	u.aliasName = aliasName
-	return u, nil
+	return ud.GetUnit(unitName)
 }
 
 // GetUnitOrPanic will call GetUnit and check the error returned. If the

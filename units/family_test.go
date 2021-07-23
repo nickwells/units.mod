@@ -7,6 +7,58 @@ import (
 	"github.com/nickwells/testhelper.mod/testhelper"
 )
 
+// checkFamilyBaseUnit checks the Family Base unit for validity
+func checkFamilyBaseUnit(t *testing.T, fName string, f *Family) {
+	t.Helper()
+
+	if f.altUnits == nil {
+		return
+	}
+
+	if u, ok := f.altUnits[f.baseUnitName]; !ok {
+		t.Logf("Bad family: %q", fName)
+		t.Logf("\t: Base unit name: %q", f.baseUnitName)
+		t.Error("\t: The altUnits map does not contain the base unit\n")
+	} else if u.convFactor != 1.0 {
+		t.Logf("Bad family: %q", fName)
+		t.Logf("\t:    Base unit name: %q", f.baseUnitName)
+		t.Logf("\t: Conversion Factor: %g", u.convFactor)
+		t.Error("\t: The base unit conversion factor must be: 1.0\n")
+	} else if u.convPostAdd != 0.0 {
+		t.Logf("Bad family: %q", fName)
+		t.Logf("\t:      Base unit name: %q", f.baseUnitName)
+		t.Logf("\t: Conversion Post Add: %g", u.convPostAdd)
+		t.Error("\t: The base unit post-add value must be: 0.0\n")
+	} else if u.convPreAdd != 0.0 {
+		t.Logf("Bad family: %q", fName)
+		t.Logf("\t:     Base unit name: %q", f.baseUnitName)
+		t.Logf("\t: Conversion Pre Add: %g", u.convPreAdd)
+		t.Error("\t: The base unit pre-add value must be: 0.0\n")
+	}
+}
+
+// checkFamilyUnit checks that the given Unit is valid as a member of the
+// given Family.
+func checkFamilyUnit(t *testing.T, fName, uName string, f *Family, u Unit) {
+	t.Helper()
+
+	if u.f != f {
+		t.Logf("Bad family: %q", fName)
+		t.Log("\t: Bad entry in the altUnits map")
+		t.Logf("\t: Unit: %q\n", uName)
+		t.Logf("\t: Expected family: %q\n", f.name)
+		t.Logf("\t:   Actual family: %q\n", u.f.name)
+		t.Errorf("\t: wrong family\n")
+	}
+
+	if u.convFactor == 0 {
+		t.Logf("Bad family: %q", fName)
+		t.Log("\t: Bad entry in the altUnits map")
+		t.Logf("\t: Unit: %q\n", uName)
+		t.Errorf("\t: the conversion factor is zero\n")
+	}
+}
+
 func TestValidUnits(t *testing.T) {
 	for fName, f := range unitFamilies {
 		if f.altUnits == nil {
@@ -19,42 +71,10 @@ func TestValidUnits(t *testing.T) {
 			t.Error("\t: The unitAliases map is not initialised\n")
 		}
 
-		if u, ok := f.altUnits[f.baseUnitName]; !ok {
-			t.Logf("Bad family: %q", fName)
-			t.Logf("\t: Base unit name: %q", f.baseUnitName)
-			t.Error("\t: The altUnits map does not contain the base unit\n")
-		} else if u.convFactor != 1.0 {
-			t.Logf("Bad family: %q", fName)
-			t.Logf("\t:    Base unit name: %q", f.baseUnitName)
-			t.Logf("\t: Conversion Factor: %g", u.convFactor)
-			t.Error("\t: The base unit conversion factor must be: 1.0\n")
-		} else if u.convPostAdd != 0.0 {
-			t.Logf("Bad family: %q", fName)
-			t.Logf("\t:      Base unit name: %q", f.baseUnitName)
-			t.Logf("\t: Conversion Post Add: %g", u.convPostAdd)
-			t.Error("\t: The base unit post-add value must be: 0.0\n")
-		} else if u.convPreAdd != 0.0 {
-			t.Logf("Bad family: %q", fName)
-			t.Logf("\t:     Base unit name: %q", f.baseUnitName)
-			t.Logf("\t: Conversion Pre Add: %g", u.convPreAdd)
-			t.Error("\t: The base unit pre-add value must be: 0.0\n")
-		}
+		checkFamilyBaseUnit(t, fName, f)
 
 		for uName, u := range f.altUnits {
-			if u.f != f {
-				t.Logf("Bad family: %q", fName)
-				t.Log("\t: Bad entry in the altUnits map")
-				t.Logf("\t: %q has the wrong family\n", uName)
-				t.Logf("\t: Expected family: %q\n", f.description)
-				t.Logf("\t:   Actual family: %q\n", u.f.description)
-				t.Errorf("\t: wrong family")
-			}
-
-			if u.convFactor == 0 {
-				t.Log("Bad entry in the validUnits map")
-				t.Errorf("\t: %q: %q has a zero conversion factor",
-					fName, uName)
-			}
+			checkFamilyUnit(t, fName, uName, f, u)
 		}
 	}
 }

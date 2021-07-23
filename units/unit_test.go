@@ -211,12 +211,12 @@ func TestUnitInternal(t *testing.T) {
 
 	for _, tc := range testCases {
 		u, err := SampleFamily.GetUnit(tc.uName)
-
 		if err != nil {
 			t.Log(tc.IDStr())
 			t.Errorf("\t: Couldn't get the unit: %v\n", err)
 			continue
 		}
+
 		testhelper.DiffFloat64(t, tc.IDStr(), "ConvPreAdd",
 			u.ConvPreAdd(), tc.expPreAdd, epsilon)
 		testhelper.DiffFloat64(t, tc.IDStr(), "ConvPostAdd",

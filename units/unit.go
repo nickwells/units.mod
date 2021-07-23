@@ -127,9 +127,8 @@ func (u Unit) HasTag(t Tag) bool {
 // Tags returns a copy of the tags associated with this unit
 func (u Unit) Tags() []Tag {
 	rval := []Tag{}
-	for _, t := range u.tags {
-		rval = append(rval, t)
-	}
+	rval = append(rval, u.tags...)
+
 	return rval
 }
 

@@ -1,70 +1,102 @@
 package units
 
-// UnitOfTemperature represents the base unit of temperature
-var UnitOfTemperature = Family{
-	BaseUnitName: "C",
-	Description:  "unit of temperature",
-	Name:         Temperature,
+// bunTemp is the base unit name for temperature
+const bunTemp = "C"
+
+// temperatureFamily represents the base unit of temperature
+var temperatureFamily = &Family{
+	baseUnitName:  bunTemp,
+	description:   "unit of temperature",
+	name:          Temperature,
+	familyAliases: []string{"temp"},
 }
 
-const absZero = 273.15
-
-// DegCUnit is a suitable default value for a UnitOfTemperature
-var DegCUnit = Unit{
+// degCUnit is a suitable default value for a temperatureFamily
+var degCUnit = Unit{
 	0, 0, 1,
-	UnitOfTemperature,
-	"℃", UnitOfTemperature.BaseUnitName, "degrees Celsius",
+	temperatureFamily,
+	"°C", temperatureFamily.baseUnitName, "degrees Celsius",
 	"a measure of temperature." +
 		" It is named to honour the Swedish astronomer Anders Celsius." +
 		" It was formerly known as the Centigrade scale" +
 		" with units of 'centigrade'.",
-	"",
+	[]Tag{TagMetric},
+	map[string]string{
+		"Celsius":         "full name",
+		"degree Celsius":  "full name, with degree",
+		"degrees Celsius": "full name, with degree, plural",
+		"Centigrade":      "alternative name",
+		"c":               "lower-case",
+	},
+	"", "",
 }
 
-var DegKUnit = Unit{
+var degKUnit = Unit{
 	0, absZero, 1,
-	UnitOfTemperature,
-	"K", "kelvin", "kelvin",
+	temperatureFamily,
+	"K", "kelvin", "kelvin",
 	"a measure of temperature based on the Celsius scale but" +
 		" having zero at absolute zero (-273.15 on the Celsius" +
 		" scale)." +
 		" It is named to honour" +
 		" the Glasgow university engineer and physicist" +
 		" William Thomson, 1st Baron Kelvin.",
-	"",
+	[]Tag{TagSI, TagMetric},
+	map[string]string{
+		"Kelvin":         "full name",
+		"degree Kelvin":  "full name, with degree",
+		"degrees Kelvin": "full name, with degree, plural",
+	},
+	"", "",
 }
 
-var DegFUnit = Unit{
+var degFUnit = Unit{
 	0, 32, 5.0 / 9.0,
-	UnitOfTemperature,
-	"℉", "degree Fahrenheit", "degrees Fahrenheit",
+	temperatureFamily,
+	"°F", "degree Fahrenheit", "degrees Fahrenheit",
 	"a measure of temperature. It is named after the physicist" +
 		" Daniel Gabriel Fahrenheit." +
 		" It has the freezing point of water at 32 degrees" +
 		" and the boiling point of water at 212 degrees." +
-		" Both using pure water at sea level.",
-	"",
+		" Both using pure water at sea level." +
+		"\n\n" +
+		"It is only still used in the United States and its" +
+		" territories and a few small countries.",
+	[]Tag{TagUScustomary},
+	map[string]string{
+		"Fahrenheit":         "full name",
+		"degree Fahrenheit":  "full name, with degree",
+		"degrees Fahrenheit": "full name, with degree, plural",
+		"f":                  "lower-case",
+	},
+	"", "",
 }
 
 // The following are antique measures of historical interest only (like
 // Fahrenheit?)
 
-// DegRaUnit (Rankine) is the Fahrenheit equivalent of Kelvin
-var DegRaUnit = Unit{
+// degRaUnit (Rankine) is the Fahrenheit equivalent of Kelvin
+var degRaUnit = Unit{
 	absZero, 0, 5.0 / 9.0,
-	UnitOfTemperature,
+	temperatureFamily,
 	"°R", "degree Rankine", "degrees Rankine",
 	"a measure of temperature using degrees Fahrenheit but" +
 		" having zero at absolute zero." +
 		" It is named to honour" +
 		" the Glasgow university engineer and physicist" +
 		" William John Macquorn Rankine.",
-	"",
+	[]Tag{TagHist},
+	map[string]string{
+		"Rankine":         "full name",
+		"degree Rankine":  "full name, with degree",
+		"degrees Rankine": "full name, with degree, plural",
+	},
+	"", "",
 }
 
-var DegRoUnit = Unit{
+var degRoUnit = Unit{
 	0, 7.5, 40.0 / 21.0,
-	UnitOfTemperature,
+	temperatureFamily,
 	"°Rø", "degree Rømer", "degrees Rømer",
 	"a measure of temperature. It is named after the Danish astronomer" +
 		"  Ole Christensen Rømer." +
@@ -74,26 +106,43 @@ var DegRoUnit = Unit{
 		"It has the freezing point of water at 7.5 degrees" +
 		" and the boiling point of water at 60 degrees." +
 		" Both using pure water at sea level.",
-	"",
+	[]Tag{TagHist},
+	map[string]string{
+		"Romer":         "full name",
+		"degree Romer":  "full name, with degree",
+		"degrees Romer": "full name, with degree, plural",
+		"Rømer":         "full name, with correct spelling",
+		"Roemer":        "full name, with oe-spelling",
+	},
+	"", "",
 }
 
-var DegReUnit = Unit{
+var degReUnit = Unit{
 	0, 0, 4.0 / 5.0,
-	UnitOfTemperature,
+	temperatureFamily,
 	"°Ré", "degree Réaumur", "degrees Réaumur",
 	"a measure of temperature It is named after" +
 		" René Antoine Ferchault de Réaumur." +
+		" The Réaumur scale is also known as" +
+		" the octogesimal division." +
 		"\n\n" +
 		"No longer used." +
 		"\n\n" +
 		"It has the freezing point of water at 0 degrees" +
 		" and the boiling point of water at 80 degrees.",
-	"",
+	[]Tag{TagHist},
+	map[string]string{
+		"Réaumur":         "full name, with accent",
+		"Reaumur":         "full name",
+		"degree Reaumur":  "full name, with degree",
+		"degrees Reaumur": "full name, with degree, plural",
+	},
+	"", "",
 }
 
-var DegNUnit = Unit{
+var degNUnit = Unit{
 	0, 0, 100.0 / 33.0,
-	UnitOfTemperature,
+	temperatureFamily,
 	"°N", "degree Newton", "degrees Newton",
 	"a measure of temperature devised by Isaac Newton." +
 		"\n\n" +
@@ -104,14 +153,20 @@ var DegNUnit = Unit{
 		" It is poorly defined and no unambiguous" +
 		" conversion to other scales is possible but the" +
 		" figures used refer to points given by Newton.",
-	"",
+	[]Tag{TagHist},
+	map[string]string{
+		"Newton":         "full name",
+		"degree Newton":  "full name, with degree",
+		"degrees Newton": "full name, with degree, plural",
+	},
+	"", "",
 }
 
-// DegDUnit grows in the opposite direction to all the other units so that
+// degDUnit grows in the opposite direction to all the other units so that
 // the larger the value, the colder it is
-var DegDUnit = Unit{
+var degDUnit = Unit{
 	-100, 0, -2.0 / 3.0,
-	UnitOfTemperature,
+	temperatureFamily,
 	"°D", "degree Delisle", "degrees Delisle",
 	"a measure of temperature invented by Joseph-Nicolas Delisle." +
 		"\n\n" +
@@ -121,55 +176,23 @@ var DegDUnit = Unit{
 		" having a lower value than colder ones. It runs from 0" +
 		" at the boiling point of water to 150 at the freezing" +
 		" point.",
-	"",
+	[]Tag{TagHist},
+	map[string]string{
+		"Delisle":         "full name",
+		"degree Delisle":  "full name, with degree",
+		"degrees Delisle": "full name, with degree, plural",
+	},
+	"", "",
 }
 
 // TemperatureNames maps names to units of temperature
-var TemperatureNames = map[string]Unit{
-	"C":  DegCUnit,
-	"F":  DegFUnit,
-	"K":  DegKUnit,
-	"Ra": DegRaUnit,
-	"Ro": DegRoUnit,
-	"Re": DegReUnit,
-	"N":  DegNUnit,
-	"D":  DegDUnit,
-}
-
-var temperatureAliases = map[string]Alias{
-	"Celsius":         {"C", ""},
-	"degree Celsius":  {"C", ""},
-	"degrees Celsius": {"C", "plural"},
-	"Centigrade":      {"C", ""},
-
-	"Fahrenheit":         {"F", ""},
-	"degree Fahrenheit":  {"F", ""},
-	"degrees Fahrenheit": {"F", "plural"},
-
-	"Kelvin":         {"K", ""},
-	"degree Kelvin":  {"K", ""},
-	"degrees Kelvin": {"K", "plural"},
-
-	"Rankine":         {"Ra", ""},
-	"degree Rankine":  {"Ra", ""},
-	"degrees Rankine": {"Ra", "plural"},
-
-	"Romer":         {"Ro", ""},
-	"degree Romer":  {"Ro", ""},
-	"degrees Romer": {"Ro", "plural"},
-	"Rømer":         {"Ro", ""},
-	"Roemer":        {"Ro", ""},
-
-	"Réaumur":         {"Re", ""},
-	"Reaumur":         {"Re", ""},
-	"degree Reaumur":  {"Re", ""},
-	"degrees Reaumur": {"Re", "plural"},
-
-	"Newton":         {"N", ""},
-	"degree Newton":  {"N", ""},
-	"degrees Newton": {"N", "plural"},
-
-	"Delisle":         {"D", ""},
-	"degree Delisle":  {"D", ""},
-	"degrees Delisle": {"D", "plural"},
+var temperatureNames = map[string]Unit{
+	bunTemp: degCUnit,
+	"F":     degFUnit,
+	"K":     degKUnit,
+	"Ra":    degRaUnit,
+	"Ro":    degRoUnit,
+	"Re":    degReUnit,
+	"N":     degNUnit,
+	"D":     degDUnit,
 }

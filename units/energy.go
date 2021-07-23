@@ -1,303 +1,354 @@
 package units
 
-// UnitOfEnergy represents the base unit of energy
-var UnitOfEnergy = Family{
-	BaseUnitName: "joule",
-	Description:  "unit of energy",
-	Name:         Energy,
+const bunEnergy = "joule"
+
+// energyFamily represents the base unit of energy
+var energyFamily = &Family{
+	baseUnitName: bunEnergy,
+	description:  "unit of energy",
+	name:         Energy,
 }
-
-// JouleUnit is a suitable default value for a UnitOfEnergy
-var JouleUnit = Unit{
-	0, 0, 1,
-	UnitOfEnergy,
-	"J", UnitOfEnergy.BaseUnitName, "joules",
-	"a metric measure of energy.",
-	"",
-}
-
-const (
-	calorieToJoule     = 4.184
-	footPoundToJoule   = 1.3558179483314004
-	footPoundalToJoule = 0.0421401100938048
-
-	electronVoltToJoule = 1.602176634e-19
-
-	// Note that there are many different variants of the British thermal
-	// unit with conversion ratios to Joules varying between 1054.3503 (for
-	// the Thermochemical variant) and 1059.67 (using the calorie value of
-	// water at its maximum density, when it is at 3.9 ℃)
-	BtuToJoule = 1055.06 // International Standard ISO 31-4
-)
 
 // EnergyNames maps names to units of energy
-var EnergyNames = map[string]Unit{
+var energyNames = map[string]Unit{
+	bunEnergy: {
+		0, 0, 1,
+		energyFamily,
+		"J", bunEnergy, "joules",
+		"a metric measure of energy.",
+		[]Tag{TagSI, TagMetric},
+		map[string]string{
+			"J":      "abbreviation",
+			"joules": "plural",
+			"Joule":  "with initial capital",
+			"Joules": "with initial capital, plural",
+		},
+		"", "",
+	},
+
 	// SI
 	"yJ": {
 		0, 0, y,
-		UnitOfEnergy,
+		energyFamily,
 		"yJ", "yoctojoule", "yoctojoules",
 		"a metric measure of energy.",
-		"",
+		[]Tag{TagSI, TagMetric},
+		map[string]string{},
+		"", "",
 	},
 	"zJ": {
 		0, 0, z,
-		UnitOfEnergy,
+		energyFamily,
 		"zJ", "zeptojoule", "zeptojoules",
 		"a metric measure of energy.",
-		"",
+		[]Tag{TagSI, TagMetric},
+		map[string]string{},
+		"", "",
 	},
 	"aJ": {
 		0, 0, a,
-		UnitOfEnergy,
+		energyFamily,
 		"aJ", "attojoule", "attojoules",
 		"a metric measure of energy.",
-		"",
+		[]Tag{TagSI, TagMetric},
+		map[string]string{},
+		"", "",
 	},
 	"fJ": {
 		0, 0, f,
-		UnitOfEnergy,
+		energyFamily,
 		"fJ", "femtojoule", "femtojoules",
 		"a metric measure of energy.",
-		"",
+		[]Tag{TagSI, TagMetric},
+		map[string]string{},
+		"", "",
 	},
 	"pJ": {
 		0, 0, p,
-		UnitOfEnergy,
+		energyFamily,
 		"pJ", "picojoule", "picojoules",
 		"a metric measure of energy.",
-		"",
+		[]Tag{TagSI, TagMetric},
+		map[string]string{},
+		"", "",
 	},
 	"nJ": {
 		0, 0, n,
-		UnitOfEnergy,
+		energyFamily,
 		"nJ", "nanojoule", "nanojoules",
 		"a metric measure of energy.",
-		"",
+		[]Tag{TagSI, TagMetric},
+		map[string]string{},
+		"", "",
 	},
 	"uJ": {
 		0, 0, u,
-		UnitOfEnergy,
+		energyFamily,
 		"uJ", "microjoule", "microjoules",
 		"a metric measure of energy.",
-		"",
+		[]Tag{TagSI, TagMetric},
+		map[string]string{},
+		"", "",
 	},
 	"mJ": {
 		0, 0, m,
-		UnitOfEnergy,
+		energyFamily,
 		"mJ", "millijoule", "millijoules",
 		"a metric measure of energy.",
-		"",
+		[]Tag{TagSI, TagMetric},
+		map[string]string{},
+		"", "",
 	},
 	"cJ": {
 		0, 0, c,
-		UnitOfEnergy,
+		energyFamily,
 		"cJ", "centijoule", "centijoules",
 		"a metric measure of energy.",
-		"",
+		[]Tag{TagSI, TagMetric},
+		map[string]string{},
+		"", "",
 	},
 	"dJ": {
 		0, 0, d,
-		UnitOfEnergy,
+		energyFamily,
 		"dJ", "decijoule", "decijoules",
 		"a metric measure of energy.",
-		"",
+		[]Tag{TagSI, TagMetric},
+		map[string]string{},
+		"", "",
 	},
-	"joule": JouleUnit,
 	"daJ": {
 		0, 0, da,
-		UnitOfEnergy,
+		energyFamily,
 		"daJ", "decajoule", "decajoules",
 		"a metric measure of energy.",
-		"",
+		[]Tag{TagSI, TagMetric},
+		map[string]string{},
+		"", "",
 	},
 	"hJ": {
 		0, 0, h,
-		UnitOfEnergy,
+		energyFamily,
 		"hJ", "hectojoule", "hectojoules",
 		"a metric measure of energy.",
-		"",
+		[]Tag{TagSI, TagMetric},
+		map[string]string{},
+		"", "",
 	},
 	"kJ": {
 		0, 0, k,
-		UnitOfEnergy,
+		energyFamily,
 		"kJ", "kilojoule", "kilojoules",
 		"a metric measure of energy.",
-		"",
+		[]Tag{TagSI, TagMetric},
+		map[string]string{},
+		"", "",
 	},
 	"MJ": {
 		0, 0, _M,
-		UnitOfEnergy,
+		energyFamily,
 		"MJ", "megajoule", "megajoules",
 		"a metric measure of energy.",
-		"",
+		[]Tag{TagSI, TagMetric},
+		map[string]string{},
+		"", "",
 	},
 	"GJ": {
 		0, 0, _G,
-		UnitOfEnergy,
+		energyFamily,
 		"GJ", "gigajoule", "gigajoules",
 		"a metric measure of energy.",
-		"",
+		[]Tag{TagSI, TagMetric},
+		map[string]string{},
+		"", "",
 	},
 	"TJ": {
 		0, 0, _T,
-		UnitOfEnergy,
+		energyFamily,
 		"TJ", "terajoule", "terajoules",
 		"a metric measure of energy.",
-		"",
+		[]Tag{TagSI, TagMetric},
+		map[string]string{},
+		"", "",
 	},
 	"PJ": {
 		0, 0, _P,
-		UnitOfEnergy,
+		energyFamily,
 		"PJ", "petajoule", "petajoules",
 		"a metric measure of energy.",
-		"",
+		[]Tag{TagSI, TagMetric},
+		map[string]string{},
+		"", "",
 	},
 	"EJ": {
 		0, 0, _E,
-		UnitOfEnergy,
+		energyFamily,
 		"EJ", "exajoule", "exajoules",
 		"a metric measure of energy.",
-		"",
+		[]Tag{TagSI, TagMetric},
+		map[string]string{},
+		"", "",
 	},
 	"ZJ": {
 		0, 0, _Z,
-		UnitOfEnergy,
+		energyFamily,
 		"ZJ", "zettajoule", "zettajoules",
 		"a metric measure of energy.",
-		"",
+		[]Tag{TagSI, TagMetric},
+		map[string]string{},
+		"", "",
 	},
 	"YJ": {
 		0, 0, _Y,
-		UnitOfEnergy,
+		energyFamily,
 		"YJ", "yottajoule", "yottajoules",
 		"a metric measure of energy.",
-		"",
+		[]Tag{TagSI, TagMetric},
+		map[string]string{},
+		"", "",
 	},
 
 	"kWh": {
 		0, 0, 3.6e6,
-		UnitOfEnergy,
+		energyFamily,
 		"kW h", "kilowatt-hour", "killowatt-hours",
 		"a measure of energy commonly used as a billing unit" +
 			" for energy delivered to consumers by electric utilities.",
-		"",
+		[]Tag{TagMetric},
+		map[string]string{},
+		"", "",
 	},
 
 	"erg": {
 		0, 0, 1e-7,
-		UnitOfEnergy,
+		energyFamily,
 		"erg", "erg", "ergs",
 		"a measure of energy proposed by" +
 			" the German physicist and mathematician Rudolf Clausius.",
-		"",
+		[]Tag{TagMetric},
+		map[string]string{},
+		"", "",
 	},
 	"foe": {
 		0, 0, 1e44,
-		UnitOfEnergy,
+		energyFamily,
 		"foe", "foe", "foes",
 		"a measure of energy equivalent to 10^51 ergs," +
 			" the approximate energy released by a supernova." +
 			" It was introduced by Gerald E. Brown.",
-		"",
+		[]Tag{TagColloquial},
+		map[string]string{
+			"bethe": "An alternative proposed by Steven Weinberg," +
+				" after Hans Bethe",
+		},
+		"", "",
 	},
 
 	"cal": {
 		0, 0, calorieToJoule,
-		UnitOfEnergy,
+		energyFamily,
 		"cal", "calorie", "calories",
-		"a measure of energy (deprecated - use kcal).",
-		"",
+		"a measure of energy (deprecated - use kcal)." +
+			" It was introduced by Pierre Antoine Favre" +
+			" and Johann T. Silbermann in 1852",
+		nil,
+		map[string]string{
+			"calorie":       "",
+			"calories":      "plural",
+			"small calorie": "",
+		},
+		"", "",
 	},
 	"kcal": {
 		0, 0, calorieToJoule * 1000,
-		UnitOfEnergy,
+		energyFamily,
 		"kcal", "kilocalorie", "kilocalories",
 		"a measure of energy introduced by Nicolas Clément." +
 			" It is widely used in nutrition." +
 			" It is the amount of heat energy required to" +
 			" raise the temperature of a kilogram of water" +
 			" by one degree Celsius." +
-			" It is sometimes known as the large calorie.",
-		"",
+			" It is sometimes known as the large calorie." +
+			" It was introduced by Nicolas Clément",
+		nil,
+		map[string]string{
+			"kilocalorie":   "",
+			"kilocalories":  "plural",
+			"kilocal":       "",
+			"large calorie": "",
+		},
+		"", "",
 	},
 
 	// Physics
 	"electronvolt": {
 		0, 0, electronVoltToJoule,
-		UnitOfEnergy,
+		energyFamily,
 		"eV", "electron volt", "electron volts",
 		"The kinetic energy gained by a single electron" +
 			" accelerating from rest through" +
 			" an electric potential difference of one volt.",
-		"",
+		[]Tag{TagPhysics},
+		map[string]string{
+			"eV":             "abbreviation",
+			"electron-volt":  "",
+			"electron-volts": "plural",
+			"electron volt":  "",
+			"electron volts": "plural",
+		},
+		"", "",
 	},
 
 	// Imperial / US
 	"foot-pound": {
 		0, 0, footPoundToJoule,
-		UnitOfEnergy,
+		energyFamily,
 		"ft lb", "foot-pound", "foot-pounds",
 		"an imperial measure of energy.",
-		"",
+		[]Tag{TagImperial, TagUScustomary},
+		map[string]string{},
+		"", "",
 	},
 	"foot-poundal": {
 		0, 0, footPoundalToJoule,
-		UnitOfEnergy,
+		energyFamily,
 		"ft pdl", "foot-poundal", "foot-poundals",
 		"an imperial measure of energy.",
-		"",
+		[]Tag{TagImperial, TagUScustomary},
+		map[string]string{},
+		"", "",
 	},
 	"BTU": {
-		0, 0, BtuToJoule,
-		UnitOfEnergy,
+		0, 0, btuToJoule,
+		energyFamily,
 		"Btu", "British thermal unit", "British thermal units",
 		"an imperial measure of energy." +
 			" This uses the ISO 31-4 conversion to Joules",
-		"",
+		[]Tag{TagImperial, TagUScustomary},
+		map[string]string{
+			"Btu": "",
+		},
+		"", "",
 	},
 	"therm": {
-		0, 0, BtuToJoule * 1e5,
-		UnitOfEnergy,
+		0, 0, btuToJoule * 1e5,
+		energyFamily,
 		"therm", "therm", "therms",
 		"an imperial measure of energy.",
-		"",
+		[]Tag{TagImperial, TagUScustomary},
+		map[string]string{},
+		"", "",
 	},
 
 	// Coloquial
 	"tonOfTNT": {
 		0, 0, calorieToJoule * 1e9,
-		UnitOfEnergy,
+		energyFamily,
 		"ton of TNT", "ton of TNT", "tons of TNT",
 		"a coloquial measure of energy typically used to describe" +
 			" the yield of atomic weapons",
-		"",
+		[]Tag{TagColloquial},
+		map[string]string{},
+		"", "",
 	},
-}
-
-var energyAliases = map[string]Alias{
-	"calorie":       {"cal", ""},
-	"calories":      {"cal", "plural"},
-	"kilocalorie":   {"kcal", ""},
-	"kilocalories":  {"kcal", "plural"},
-	"kilocal":       {"kcal", ""},
-	"large calorie": {"kcal", ""},
-
-	"Btu": {"BTU", ""},
-
-	"bethe": {
-		"foe",
-		"An alternative proposed by Steven Weinberg, after Hans Bethe",
-	},
-
-	"J":      {"joule", "abbreviation"},
-	"joules": {"joule", "plural"},
-	"Joule":  {"joule", "with initial capital"},
-	"Joules": {"joule", "with initial capital, plural"},
-
-	"eV":             {"electronvolt", "abbreviation"},
-	"electron-volt":  {"electronvolt", ""},
-	"electron-volts": {"electronvolt", "plural"},
-	"electron volt":  {"electronvolt", ""},
-	"electron volts": {"electronvolt", "plural"},
 }

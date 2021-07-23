@@ -2,170 +2,276 @@ package units
 
 import (
 	"fmt"
-	"sort"
+	"strings"
 )
 
-// Family records details of a family of units such as units of area or units
-// of mass, it records the name of the base unit and a description.  The base
-// unit is the unit in terms of which any conversion factors are defined.
+// The Family type records details of a family of units such as units of area
+// or units of mass. It records the name of the base unit and a
+// description. It also records all the available units in the family. The
+// base unit is the unit in terms of which any conversion factors are
+// defined.
+//
+// To get a Family value you should use the GetFamily func (or
+// GetFamilyOrPanic) passing a Family name chosen ideally from the constant
+// values provided.
+//
+// For testing purposes the SampleFamily and BadStandardFamily values are
+// provided.
 type Family struct {
-	BaseUnitName string
-	Description  string
-	Name         string
-	aliasName    string
+	baseUnitName  string
+	description   string
+	name          string
+	altUnits      map[string]Unit
+	unitAliases   map[string]string
+	familyAliases []string
 }
 
-// String returns a string representation of the Family object
-func (f Family) String() string {
-	return f.BaseUnitName + " (a " + f.Description + ")"
+// BaseUnitName returns the name of the base unit for this family.
+func (f *Family) BaseUnitName() string {
+	return f.baseUnitName
 }
 
-// Alias records details about a particular Alias
-type Alias struct {
-	// UnitName is the name of the unit that this is aliasing
-	UnitName string
-	// Notes describes the alias itself
-	Notes string
+// Description returns the family description.
+func (f *Family) Description() string {
+	return f.description
 }
 
-// UnitDetails bundles together the Family and the associated collection of
-// named alternative units
-type UnitDetails struct {
-	Fam     Family
-	AltU    map[string]Unit
-	Aliases map[string]Alias
+// Name returns the family name (the value to pass to GetFamily to retrieve
+// this Family).
+func (f *Family) Name() string {
+	return f.name
 }
 
-// These constants should be used when retrieving unit details
+// String returns a string representation of the Family object.
+func (f *Family) String() string {
+	rval := fmt.Sprintf("%s: a %s. With %d units. Base unit: %s.",
+		f.name, f.description, len(f.altUnits), f.baseUnitName)
+	if len(f.familyAliases) > 0 {
+		rval += " Aliases: " + strings.Join(f.familyAliases, ", ")
+	}
+	return rval
+}
+
+// These Family name constants should be used when retrieving unit families
+// (using the GetFamily or GetFamilyOrPanic funcs).
 const (
 	Dimensionless = "dimensionless"
 	Time          = "time"
 	Data          = "data"
 	Distance      = "distance"
-	Length        = "distance" // synonym
 	Area          = "area"
 	Volume        = "volume"
 	Velocity      = "velocity"
-	Speed         = "velocity" // synonym
 	Mass          = "mass"
 	Temperature   = "temperature"
 	Angle         = "angle"
 	Energy        = "energy"
 )
 
-var validUnits = map[string]UnitDetails{
-	Dimensionless: {Numeric, DimensionlessNames, dimensionlessAliases},
-	Time:          {UnitOfTime, TimeNames, timeAliases},
-	Data:          {UnitOfData, DataNames, dataAliases},
-	Distance:      {UnitOfDistance, DistanceNames, distanceAliases},
-	Area:          {UnitOfArea, AreaNames, areaAliases},
-	Volume:        {UnitOfVolume, VolumeNames, volumeAliases},
-	Velocity:      {UnitOfVelocity, VelocityNames, velocityAliases},
-	Mass:          {UnitOfMass, MassNames, massAliases},
-	Temperature:   {UnitOfTemperature, TemperatureNames, temperatureAliases},
-	Angle:         {UnitOfAngle, AngleNames, angleAliases},
-	Energy:        {UnitOfEnergy, EnergyNames, energyAliases},
+var unitFamilies = map[string]*Family{
+	numericFamily.name:     numericFamily,
+	timeFamily.name:        timeFamily,
+	dataFamily.name:        dataFamily,
+	distanceFamily.name:    distanceFamily,
+	areaFamily.name:        areaFamily,
+	volumeFamily.name:      volumeFamily,
+	velocityFamily.name:    velocityFamily,
+	massFamily.name:        massFamily,
+	temperatureFamily.name: temperatureFamily,
+	angleFamily.name:       angleFamily,
+	energyFamily.name:      energyFamily,
 }
 
-var familyAlias = map[string]string{
-	"length": Distance,
-	"len":    Distance,
-	"speed":  Velocity,
-	"temp":   Temperature,
+// familyAlias is populated from the familyAliases values in the entries in
+// unitFamilies.
+var familyAlias = map[string]string{}
+
+// populateFamilyAliases sets up the family aliases entries for this Family.
+func (f *Family) populateFamilyAliases() {
+	for _, a := range f.familyAliases {
+		if a == f.name {
+			panic(
+				fmt.Errorf(
+					"The alias %q on Family %q is redundant",
+					a, f.name))
+		}
+		if _, ok := unitFamilies[a]; ok {
+			panic(
+				fmt.Errorf(
+					"The alias %q on Family %q"+
+						" is the name of an existing Family",
+					a, f.name))
+		}
+		if fa, ok := familyAlias[a]; ok && fa != f.name {
+			panic(
+				fmt.Errorf(
+					"There is a duplicate alias:"+
+						" Family %q has an alias %q and so does Family %q",
+					f.name, a, fa))
+		}
+		familyAlias[a] = f.name
+	}
 }
 
-// reverseAlias holds a list of aliases for the family/unit entry
-var reverseAlias = make(map[string]map[string][]string)
+// populateUnitAliases sets up the aliases table for the Family from the aliases
+// on each Unit.
+func (f *Family) populateUnitAliases() {
+	if f.unitAliases == nil {
+		f.unitAliases = make(map[string]string)
+	}
+	for uName, u := range f.altUnits {
+		for a := range u.aliases {
+			if aliasVal, ok := f.unitAliases[a]; ok && aliasVal != uName {
+				panic(
+					fmt.Errorf(
+						"There is a duplicate alias:"+
+							" Unit %q has an alias %q and so does Unit %q",
+						uName, a, aliasVal))
+			}
+			f.unitAliases[a] = uName
+		}
+	}
+}
 
 func init() {
-	for f, ud := range validUnits {
-		reverseAlias[f] = make(map[string][]string)
-		for aliasName, alias := range ud.Aliases {
-			uName := alias.UnitName
-			reverseAlias[f][uName] = append(reverseAlias[f][uName], aliasName)
-		}
+	numericFamily.altUnits = dimensionlessNames
+	timeFamily.altUnits = timeNames
+	dataFamily.altUnits = dataNames
+	distanceFamily.altUnits = distanceNames
+	areaFamily.altUnits = areaNames
+	volumeFamily.altUnits = volumeNames
+	velocityFamily.altUnits = velocityNames
+	massFamily.altUnits = massNames
+	temperatureFamily.altUnits = temperatureNames
+	angleFamily.altUnits = angleNames
+	energyFamily.altUnits = energyNames
+
+	for _, f := range unitFamilies {
+		f.populateUnitAliases()
+		f.populateFamilyAliases()
 	}
 }
 
-// GetAliases returns all the aliases for the given family/unit
-func GetAliases(fName, uName string) []string {
-	ua, ok := reverseAlias[fName]
+// GetFamily returns the named Family. It returns a non-nil error if the
+// Family name is not found.
+//
+// You are advised to use the constant Family names provided.
+func GetFamily(name string) (*Family, error) {
+	f, ok := unitFamilies[name]
 	if !ok {
-		alias, ok := familyAlias[fName]
+		alias, ok := familyAlias[name]
 		if !ok {
-			return []string{}
+			return nil, fmt.Errorf("There is no unit family called %q", name)
 		}
-		ua, ok = reverseAlias[alias]
+		f, ok = unitFamilies[alias]
 		if !ok {
-			return []string{}
+			return nil,
+				fmt.Errorf("There is no unit family called %q (alias: %q)",
+					name, alias)
 		}
 	}
-	return ua[uName]
+	return f, nil
 }
 
-// GetUnitDetails retrieves the unit details. The error value will be non-nil
-// if the name is not recognised.
-func GetUnitDetails(name string) (UnitDetails, error) {
-	ud, ok := validUnits[name]
-	if !ok {
-		fName, ok := familyAlias[name]
-		if !ok {
-			return ud, fmt.Errorf("no such unit type %q", name)
-		}
-		ud, ok = validUnits[fName]
-		if !ok {
-			return ud, fmt.Errorf("no such unit type %q (alias for %q)",
-				name, fName)
-		}
-		ud.Fam.aliasName = name
-	}
-	return ud, nil
-}
-
-// GetUnitDetailsOrPanic retrieves the unit details. It will panic if the
-// name is not recognised.
-func GetUnitDetailsOrPanic(name string) UnitDetails {
-	ud, err := GetUnitDetails(name)
+// GetFamilyOrPanic returns the named Family. It panics if the Family name is
+// not found.
+func GetFamilyOrPanic(name string) *Family {
+	f, err := GetFamily(name)
 	if err != nil {
 		panic(err)
 	}
-	return ud
+	return f
 }
 
-// GetFamilyNames returns a sorted slice holding the allowed names of unit
-// types
-func GetFamilyNames() []string {
-	names := make([]string, 0, len(validUnits)+len(familyAlias))
-
-	for name := range validUnits {
-		names = append(names, name)
-	}
+// GetFamilyAliases returns a slice holding the names of aliases to unit
+// types. Note that the slice is not sorted and the order of elements may
+// vary.
+func GetFamilyAliases() []string {
+	names := make([]string, 0, len(familyAlias))
 
 	for name := range familyAlias {
 		names = append(names, name)
 	}
 
-	sort.Strings(names)
+	return names
+}
+
+// GetFamilyNames returns a slice holding the canonical names (ie not
+// aliases) of unit types. Note that the slice is not sorted and the order of
+// elements may vary.
+func GetFamilyNames() []string {
+	names := make([]string, 0, len(unitFamilies))
+
+	for name := range unitFamilies {
+		names = append(names, name)
+	}
+
 	return names
 }
 
 // GetUnit gets the named unit from the UnitDetails. A non-nil error is
 // returned if the name is not found.
-func (ud UnitDetails) GetUnit(name string) (Unit, error) {
-	u, ok := ud.AltU[name]
-	if !ok {
-		alias, ok := ud.Aliases[name]
-		if !ok {
-			return u, fmt.Errorf("there is no %s called %q",
-				ud.Fam.Description, name)
-		}
-
-		u, ok = ud.AltU[alias.UnitName]
-		if !ok {
-			return u, fmt.Errorf("there is no %s called %q",
-				ud.Fam.Description, name)
-		}
-		u.aliasName = name
+func (f *Family) GetUnit(name string) (Unit, error) {
+	u, ok := f.altUnits[name]
+	if ok {
+		u.id = name
+		return u, nil
 	}
+
+	alias := name
+	name, ok = f.unitAliases[alias]
+	if !ok {
+		return u, fmt.Errorf("there is no %s called %q",
+			f.description, alias)
+	}
+
+	u, ok = f.altUnits[name]
+	if !ok {
+		return u, fmt.Errorf("there is no %s called %q (%q)",
+			f.description, alias, name)
+	}
+
+	u.alias = alias
+	u.id = name
 	return u, nil
+}
+
+// GetUnitOrPanic will call GetUnit and check the error returned. If the
+// error is non-nil it will panic, otherwise it will return the Unit.
+func (f *Family) GetUnitOrPanic(name string) Unit {
+	u, err := f.GetUnit(name)
+	if err != nil {
+		panic(err)
+	}
+	return u
+}
+
+// GetUnitNames returns a slice containing all the valid unit names (but not any
+// aliases) in this family. Note that it is not sorted and so will have a
+// random order which may vary between calls to this function.
+func (f *Family) GetUnitNames() []string {
+	names := make([]string, 0, len(f.altUnits))
+
+	for n := range f.altUnits {
+		names = append(names, n)
+	}
+	return names
+}
+
+// GetUnitAliases returns a slice containing all the valid unit aliases in
+// this family. Note that it is not sorted and so will have a random order
+// which may vary between calls to this function.
+func (f *Family) GetUnitAliases() []string {
+	names := make([]string, 0, len(f.unitAliases))
+
+	for n := range f.unitAliases {
+		names = append(names, n)
+	}
+	return names
+}
+
+// FamilyAliases returns all the aliases that can be used to retrieve this
+// Family.
+func (f *Family) FamilyAliases() []string {
+	return f.familyAliases
 }

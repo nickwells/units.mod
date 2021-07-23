@@ -6,54 +6,54 @@ import (
 	"github.com/nickwells/mathutil.mod/mathutil"
 )
 
-// ValWithUnit associates a value with a unit, it is expected that the value
+// ValUnit associates a value with a unit, it is expected that the value
 // is a measure expressed in the given units
-type ValWithUnit struct {
-	Val float64
-	U   Unit
+type ValUnit struct {
+	V float64
+	U Unit
 }
 
-// String returns a string form of the ValWithUnit
-func (v ValWithUnit) String() string {
-	singularName := v.U.Name
-	pluralName := v.U.NamePlural
-	if v.U.aliasName != "" {
-		singularName += " (" + v.U.aliasName + ")"
-		pluralName += " (" + v.U.aliasName + ")"
+// String returns a string form of the ValUnit
+func (v ValUnit) String() string {
+	singularName := v.U.name
+	pluralName := v.U.namePlural
+	if v.U.alias != "" {
+		singularName += " (" + v.U.alias + ")"
+		pluralName += " (" + v.U.alias + ")"
 	}
 
 	epsilon := 0.0000001
 
-	if mathutil.AlmostEqual(v.Val, 1.0, epsilon) {
+	if mathutil.AlmostEqual(v.V, 1.0, epsilon) {
 		return "1 " + singularName
 	}
-	if mathutil.AlmostEqual(v.Val, 0.0, epsilon) {
+	if mathutil.AlmostEqual(v.V, 0.0, epsilon) {
 		return "0 " + pluralName
 	}
-	return fmt.Sprintf("%.5g %s", v.Val, pluralName)
+	return fmt.Sprintf("%.5g %s", v.V, pluralName)
 }
 
-// ConvertFromBaseUnits converts a value expressed in the base Units into
+// convertFromBaseUnits converts a value expressed in the base Units into
 // 'to' Units. It will return a non-nil error if the Units are invalid (have
-// a zero ConvFactor)
-func ConvertFromBaseUnits(v float64, to Unit) (float64, error) {
-	if to.ConvFactor == 0 {
+// a zero conversion factor). See also the ValUnit.Convert method.
+func convertFromBaseUnits(v float64, to Unit) (float64, error) {
+	if to.convFactor == 0 {
 		return v,
 			fmt.Errorf("Bad units - a zero conversion factor")
 	}
-	return ((v + to.ConvPreAdd) / to.ConvFactor) + to.ConvPostAdd,
+	return ((v + to.convPreAdd) / to.convFactor) + to.convPostAdd,
 		nil
 }
 
-// ConvertToBaseUnits converts a value expressed in the 'from' Units into
+// convertToBaseUnits converts a value expressed in the 'from' Units into
 // base Units. It will return a non-nil error if the Units are invalid (have
-// a zero ConvFactor)
-func ConvertToBaseUnits(v float64, from Unit) (float64, error) {
-	if from.ConvFactor == 0 {
+// a zero conversion factor). See also the ValUnit.Convert method.
+func convertToBaseUnits(v float64, from Unit) (float64, error) {
+	if from.convFactor == 0 {
 		return v,
 			fmt.Errorf("Bad units - a zero conversion factor")
 	}
-	return ((v - from.ConvPostAdd) * from.ConvFactor) - from.ConvPreAdd,
+	return ((v - from.convPostAdd) * from.convFactor) - from.convPreAdd,
 		nil
 }
 
@@ -61,31 +61,27 @@ func ConvertToBaseUnits(v float64, from Unit) (float64, error) {
 // the new units are not in the same unit family as the existing units or are
 // otherwise invalid (have a zero ConvFactor) the value is unchanged and a
 // non-nil error is returned.
-func (v ValWithUnit) Convert(u Unit) (ValWithUnit, error) {
-	if v.U.Fam != u.Fam {
-		return v,
+func (v ValUnit) Convert(u Unit) (ValUnit, error) {
+	rval := ValUnit{U: u}
+	if v.U.f != u.f {
+		return rval,
 			fmt.Errorf(
 				"Mismatched unit families. Cannot convert units from %s to %s",
-				v.U.Fam, u.Fam)
+				v.U.f.name, u.f.name)
 	}
 
-	newVal, err := ConvertToBaseUnits(v.Val, v.U)
+	baseVal, err := convertToBaseUnits(v.V, v.U)
 	if err != nil {
-		return v, err
+		return rval, err
 	}
-	newVal, err = ConvertFromBaseUnits(newVal, u)
-	if err != nil {
-		return v, err
-	}
-	return ValWithUnit{
-		Val: newVal,
-		U:   u,
-	}, nil
+	rval.V, err = convertFromBaseUnits(baseVal, u)
+
+	return rval, err
 }
 
 // ConvertOrPanic will call Convert and if the error returned is not nil it
-// will panic, otherwise it will return the ValWithUnit value
-func (v ValWithUnit) ConvertOrPanic(u Unit) ValWithUnit {
+// will panic, otherwise it will return the ValUnit value
+func (v ValUnit) ConvertOrPanic(u Unit) ValUnit {
 	convertedVal, err := v.Convert(u)
 	if err != nil {
 		panic(err)

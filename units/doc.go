@@ -3,11 +3,12 @@
 Package units represents valid units of measure (the Unit type) and families
 of related units (the Family type).
 
-The Unit type can be used to convert between a value expressed in the base
-unit and some other chosen unit. The Unit values show how many of the base
-unit are in the alternative unit. To convert a value held in the base units
-into a value expressed in the alternative units you should call the
-ConvertFromBaseUnits func.
+The Unit type holds descriptive and category information about a unit of
+measure and also records details needed in order to convert between units of
+the same family.
+
+The ValUnit type associates a value with a unit. This can be used to convert
+to other units of the same family. See the Convert method on this type.
 
 */
 package units

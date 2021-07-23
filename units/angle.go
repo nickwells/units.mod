@@ -1,59 +1,63 @@
 package units
 
-import "math"
+const bunAngle = "radian"
 
-const degreePerRadian = math.Pi / 180
-
-// UnitOfAngle represents the base unit of angular measure
-var UnitOfAngle = Family{
-	BaseUnitName: "radian",
-	Description:  "unit of angular measure",
-	Name:         Angle,
-}
-
-// AngularUnitRadian is a suitable default value for a UnitOfAngle
-var AngularUnitRadian = Unit{
-	0, 0, 1,
-	UnitOfAngle,
-	"rad", UnitOfAngle.BaseUnitName, "radians",
-	"a unit in which angles are measured.",
-	"",
+// angleFamily represents the collection of units of angular measure
+var angleFamily = &Family{
+	baseUnitName: bunAngle,
+	description:  "unit of angular measure",
+	name:         Angle,
 }
 
 // AngleNames maps names to units of anglular measure
-var AngleNames = map[string]Unit{
+var angleNames = map[string]Unit{
 	// SI
-	"radian": AngularUnitRadian,
+	bunAngle: {
+		0, 0, 1,
+		angleFamily,
+		"rad", bunAngle, "radians",
+		"a unit in which angles are measured.",
+		nil,
+		map[string]string{},
+		"", "",
+	},
+
 	"milliradian": {
 		0, 0, m,
-		UnitOfAngle,
+		angleFamily,
 		"mrad", "milliradian", "milliradians",
 		"a unit in which angles are measured.",
-		"",
+		nil,
+		map[string]string{},
+		"", "",
 	},
 
 	// degrees
 	"degree": {
 		0, 0, degreePerRadian,
-		UnitOfAngle,
+		angleFamily,
 		"°", "degree", "degrees",
 		"a unit in which angles are measured.",
-		"",
+		nil,
+		map[string]string{},
+		"", "",
 	},
 	"minute": {
 		0, 0, degreePerRadian / 60,
-		UnitOfAngle,
+		angleFamily,
 		"′", "arc minute", "arc minutes",
 		"a unit in which angles are measured.",
-		"",
+		nil,
+		map[string]string{},
+		"", "",
 	},
 	"second": {
 		0, 0, degreePerRadian / 3600,
-		UnitOfAngle,
+		angleFamily,
 		"″", "arc second", "arc seconds",
 		"a unit in which angles are measured.",
-		"",
+		nil,
+		map[string]string{},
+		"", "",
 	},
 }
-
-var angleAliases = map[string]Alias{}

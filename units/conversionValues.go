@@ -34,6 +34,7 @@ var (
 // angles
 
 const degreePerRadian = math.Pi / 180
+const degreePerGradian = math.Pi / 200
 
 // area
 

@@ -132,7 +132,7 @@ var volumeNames = map[string]Unit{
 		"l", "litre", "litres",
 		"a metric measure of volume." +
 			" It is not an SI unit but may be used alongside them",
-		[]Tag{TagSI, TagMetric},
+		[]Tag{TagMetric},
 		map[string]string{
 			"l":      "abbreviation",
 			"litres": "plural",

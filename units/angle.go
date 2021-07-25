@@ -17,8 +17,12 @@ var angleNames = map[string]Unit{
 		angleFamily,
 		"rad", bunAngle, "radians",
 		"a unit in which angles are measured.",
-		nil,
-		map[string]string{},
+		[]Tag{TagTrig, TagSI},
+		map[string]string{
+			"radians": "plural",
+			"rad":     "abbreviation",
+			"rads":    "abbreviation, plural",
+		},
 		"", "",
 	},
 
@@ -27,8 +31,29 @@ var angleNames = map[string]Unit{
 		angleFamily,
 		"mrad", "milliradian", "milliradians",
 		"a unit in which angles are measured.",
-		nil,
+		[]Tag{TagTrig, TagSI},
 		map[string]string{},
+		"", "",
+	},
+
+	// gradians
+	"gradian": {
+		0, 0, degreePerGradian,
+		angleFamily,
+		"gon", "gradian", "gradians",
+		"The gradian originated during the French Revolution" +
+			" along with the metric system." +
+			" It has 100 degrees to the right angle rather than 90." +
+			" It is a legal unit of measurement in the European Union" +
+			" and in Switzerland. principally used in surveying.",
+		[]Tag{TagTrig, TagMetric},
+		map[string]string{
+			"gradians": "plural",
+			"gon":      "abbreviation",
+			"gons":     "abbreviation, plural",
+			"grad":     "abbreviation",
+			"grads":    "abbreviation, plural",
+		},
 		"", "",
 	},
 
@@ -38,7 +63,7 @@ var angleNames = map[string]Unit{
 		angleFamily,
 		"°", "degree", "degrees",
 		"a unit in which angles are measured.",
-		nil,
+		[]Tag{TagTrig},
 		map[string]string{},
 		"", "",
 	},
@@ -47,7 +72,7 @@ var angleNames = map[string]Unit{
 		angleFamily,
 		"′", "arc minute", "arc minutes",
 		"a unit in which angles are measured.",
-		nil,
+		[]Tag{TagTrig},
 		map[string]string{},
 		"", "",
 	},
@@ -56,7 +81,7 @@ var angleNames = map[string]Unit{
 		angleFamily,
 		"″", "arc second", "arc seconds",
 		"a unit in which angles are measured.",
-		nil,
+		[]Tag{TagTrig},
 		map[string]string{},
 		"", "",
 	},

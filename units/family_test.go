@@ -43,19 +43,28 @@ func checkFamilyUnit(t *testing.T, fName, uName string, f *Family, u Unit) {
 	t.Helper()
 
 	if u.f != f {
-		t.Logf("Bad family: %q", fName)
-		t.Log("\t: Bad entry in the altUnits map")
-		t.Logf("\t: Unit: %q\n", uName)
+		t.Logf("Bad family / unit: %q / %q", fName, uName)
 		t.Logf("\t: Expected family: %q\n", f.name)
 		t.Logf("\t:   Actual family: %q\n", u.f.name)
 		t.Errorf("\t: wrong family\n")
 	}
 
 	if u.convFactor == 0 {
-		t.Logf("Bad family: %q", fName)
-		t.Log("\t: Bad entry in the altUnits map")
-		t.Logf("\t: Unit: %q\n", uName)
+		t.Logf("Bad family / unit: %q / %q", fName, uName)
 		t.Errorf("\t: the conversion factor is zero\n")
+	}
+
+	if len(u.tags) == 0 {
+		t.Logf("Bad family / unit: %q / %q", fName, uName)
+		t.Errorf("\t: the unit has no tags\n")
+	}
+
+	for _, k := range u.tags {
+		if !k.IsValid() {
+			t.Logf("Bad family / unit: %q / %q", fName, uName)
+			t.Logf("\t:  Tag: %q\n", k)
+			t.Errorf("\t: the tag is not in the global tags map\n")
+		}
 	}
 }
 

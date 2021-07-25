@@ -323,7 +323,7 @@ var distanceNames = map[string]Unit{
 		distanceFamily,
 		"ft", "foot", "feet",
 		"an Indian unit of length.",
-		nil,
+		[]Tag{TagHist},
 		map[string]string{},
 		"", "",
 	},

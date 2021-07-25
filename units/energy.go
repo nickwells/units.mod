@@ -248,10 +248,10 @@ var energyNames = map[string]Unit{
 		0, 0, calorieToJoule,
 		energyFamily,
 		"cal", "calorie", "calories",
-		"a measure of energy (deprecated - use kcal)." +
+		"a measure of energy (deprecated in 1948 - use kcal)." +
 			" It was introduced by Pierre Antoine Favre" +
 			" and Johann T. Silbermann in 1852",
-		nil,
+		[]Tag{TagMetric, TagHist},
 		map[string]string{
 			"calorie":       "",
 			"calories":      "plural",
@@ -268,12 +268,16 @@ var energyNames = map[string]Unit{
 			" It is the amount of heat energy required to" +
 			" raise the temperature of a kilogram of water" +
 			" by one degree Celsius." +
+			" This is dependent on atmopspheric pressure and the" +
+			" starting temperature, The value used is that for" +
+			" the Thermochemical calorie," +
+			"\n\n" +
 			" It is sometimes known as the large calorie." +
 			" It was introduced by Nicolas Clément",
-		nil,
+		[]Tag{TagMetric},
 		map[string]string{
-			"kilocalorie":   "",
-			"kilocalories":  "plural",
+			"kilocalorie":   "full name",
+			"kilocalories":  "full name, plural",
 			"kilocal":       "",
 			"large calorie": "",
 		},

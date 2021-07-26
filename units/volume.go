@@ -32,7 +32,7 @@ var volumeNames = map[string]Unit{
 	},
 
 	"yl": {
-		0, 0, y * 1e-3,
+		0, 0, y * litreToCubicMetre,
 		volumeFamily,
 		"yl", "yoctolitre", "yoctolitres", "a metric measure of volume.",
 		[]Tag{TagSI, TagMetric},
@@ -40,7 +40,7 @@ var volumeNames = map[string]Unit{
 		"", "",
 	},
 	"zl": {
-		0, 0, z * 1e-3,
+		0, 0, z * litreToCubicMetre,
 		volumeFamily,
 		"zl", "zeptolitre", "zeptolitres", "a metric measure of volume.",
 		[]Tag{TagSI, TagMetric},
@@ -48,7 +48,7 @@ var volumeNames = map[string]Unit{
 		"", "",
 	},
 	"al": {
-		0, 0, a * 1e-3,
+		0, 0, a * litreToCubicMetre,
 		volumeFamily,
 		"al", "attolitre", "attolitres", "a metric measure of volume.",
 		[]Tag{TagSI, TagMetric},
@@ -56,7 +56,7 @@ var volumeNames = map[string]Unit{
 		"", "",
 	},
 	"fl": {
-		0, 0, f * 1e-3,
+		0, 0, f * litreToCubicMetre,
 		volumeFamily,
 		"fl", "femtolitre", "femtolitres", "a metric measure of volume.",
 		[]Tag{TagSI, TagMetric},
@@ -64,7 +64,7 @@ var volumeNames = map[string]Unit{
 		"", "",
 	},
 	"pl": {
-		0, 0, p * 1e-3,
+		0, 0, p * litreToCubicMetre,
 		volumeFamily,
 		"pl", "picolitre", "picolitres", "a metric measure of volume.",
 		[]Tag{TagSI, TagMetric},
@@ -72,7 +72,7 @@ var volumeNames = map[string]Unit{
 		"", "",
 	},
 	"nl": {
-		0, 0, n * 1e-3,
+		0, 0, n * litreToCubicMetre,
 		volumeFamily,
 		"nl", "nanolitre", "nanolitres", "a metric measure of volume.",
 		[]Tag{TagSI, TagMetric},
@@ -80,7 +80,7 @@ var volumeNames = map[string]Unit{
 		"", "",
 	},
 	"ul": {
-		0, 0, u * 1e-3,
+		0, 0, u * litreToCubicMetre,
 		volumeFamily,
 		"ul", "microlitre", "microlitres", "a metric measure of volume.",
 		[]Tag{TagSI, TagMetric},
@@ -88,7 +88,7 @@ var volumeNames = map[string]Unit{
 		"", "",
 	},
 	"ml": {
-		0, 0, m * 1e-3,
+		0, 0, m * litreToCubicMetre,
 		volumeFamily,
 		"ml", "millilitre", "millilitres", "a metric measure of volume.",
 		[]Tag{TagSI, TagMetric},
@@ -111,7 +111,7 @@ var volumeNames = map[string]Unit{
 		"", "",
 	},
 	"cl": {
-		0, 0, c * 1e-3,
+		0, 0, c * litreToCubicMetre,
 		volumeFamily,
 		"cl", "centilitre", "centilitres", "a metric measure of volume.",
 		[]Tag{TagSI, TagMetric},
@@ -119,7 +119,7 @@ var volumeNames = map[string]Unit{
 		"", "",
 	},
 	"dl": {
-		0, 0, d * 1e-3,
+		0, 0, d * litreToCubicMetre,
 		volumeFamily,
 		"dl", "decilitre", "decilitres", "a metric measure of volume.",
 		[]Tag{TagSI, TagMetric},
@@ -127,7 +127,7 @@ var volumeNames = map[string]Unit{
 		"", "",
 	},
 	"litre": {
-		0, 0, 1e-3,
+		0, 0, litreToCubicMetre,
 		volumeFamily,
 		"l", "litre", "litres",
 		"a metric measure of volume." +
@@ -142,7 +142,7 @@ var volumeNames = map[string]Unit{
 		"", "",
 	},
 	"dal": {
-		0, 0, da * 1e-3,
+		0, 0, da * litreToCubicMetre,
 		volumeFamily,
 		"dal", "decalitre", "decalitres", "a metric measure of volume.",
 		[]Tag{TagSI, TagMetric},
@@ -150,7 +150,7 @@ var volumeNames = map[string]Unit{
 		"", "",
 	},
 	"hl": {
-		0, 0, h * 1e-3,
+		0, 0, h * litreToCubicMetre,
 		volumeFamily,
 		"hl", "hectolitre", "hectolitres", "a metric measure of volume.",
 		[]Tag{TagSI, TagMetric},
@@ -158,7 +158,7 @@ var volumeNames = map[string]Unit{
 		"", "",
 	},
 	"kl": {
-		0, 0, k * 1e-3,
+		0, 0, k * litreToCubicMetre,
 		volumeFamily,
 		"kl", "kilolitre", "kilolitres", "a metric measure of volume.",
 		[]Tag{TagSI, TagMetric},
@@ -166,7 +166,7 @@ var volumeNames = map[string]Unit{
 		"", "",
 	},
 	"Ml": {
-		0, 0, _M * 1e-3,
+		0, 0, _M * litreToCubicMetre,
 		volumeFamily,
 		"Ml", "megalitre", "megalitres", "a metric measure of volume.",
 		[]Tag{TagSI, TagMetric},
@@ -174,7 +174,7 @@ var volumeNames = map[string]Unit{
 		"", "",
 	},
 	"Gl": {
-		0, 0, _G * 1e-3,
+		0, 0, _G * litreToCubicMetre,
 		volumeFamily,
 		"Gl", "gigalitre", "gigalitres", "a metric measure of volume.",
 		[]Tag{TagSI, TagMetric},
@@ -182,7 +182,7 @@ var volumeNames = map[string]Unit{
 		"", "",
 	},
 	"Tl": {
-		0, 0, _T * 1e-3,
+		0, 0, _T * litreToCubicMetre,
 		volumeFamily,
 		"Tl", "teralitre", "teralitres", "a metric measure of volume.",
 		[]Tag{TagSI, TagMetric},
@@ -199,7 +199,7 @@ var volumeNames = map[string]Unit{
 		"", "",
 	},
 	"Pl": {
-		0, 0, _P * 1e-3,
+		0, 0, _P * litreToCubicMetre,
 		volumeFamily,
 		"Pl", "petalitre", "petalitres", "a metric measure of volume.",
 		[]Tag{TagSI, TagMetric},
@@ -207,7 +207,7 @@ var volumeNames = map[string]Unit{
 		"", "",
 	},
 	"El": {
-		0, 0, _E * 1e-3,
+		0, 0, _E * litreToCubicMetre,
 		volumeFamily,
 		"El", "exalitre", "exalitres", "a metric measure of volume.",
 		[]Tag{TagSI, TagMetric},
@@ -215,7 +215,7 @@ var volumeNames = map[string]Unit{
 		"", "",
 	},
 	"Zl": {
-		0, 0, _Z * 1e-3,
+		0, 0, _Z * litreToCubicMetre,
 		volumeFamily,
 		"Zl", "zettalitre", "zettalitres", "a metric measure of volume.",
 		[]Tag{TagSI, TagMetric},
@@ -223,7 +223,7 @@ var volumeNames = map[string]Unit{
 		"", "",
 	},
 	"Yl": {
-		0, 0, _Y * 1e-3,
+		0, 0, _Y * litreToCubicMetre,
 		volumeFamily,
 		"Yl", "yottalitre", "yottalitres", "a metric measure of volume.",
 		[]Tag{TagSI, TagMetric},
@@ -550,23 +550,79 @@ var volumeNames = map[string]Unit{
 	},
 
 	"teaspoon": {
+		0, 0, 5 * m * litreToCubicMetre,
+		volumeFamily,
+		"tsp", "teaspoon", "teaspoons",
+		"used for cooking, nutritional labelling or medical measures.",
+		[]Tag{TagMetric},
+		map[string]string{
+			"tsp":              "abbreviation",
+			"teaspoons":        "plural",
+			"metric teaspoon":  "alternative",
+			"metric teaspoons": "alternative, plural",
+		},
+		"", "",
+	},
+
+	"tablespoon": {
+		0, 0, 15 * m * litreToCubicMetre,
+		volumeFamily,
+		"Tbsp", "tablespoon", "tablespoons",
+		"used for cooking or nutritional labelling.",
+		[]Tag{TagMetric},
+		map[string]string{
+			"Tbsp":               "abbreviation",
+			"tbsp":               "abbreviation, all lower-case",
+			"tablespoons":        "plural",
+			"metric tablespoon":  "alternative",
+			"metric tablespoons": "alternative, plural",
+		},
+		"", "",
+	},
+
+	"Australian tablespoon": {
+		0, 0, 20 * m * litreToCubicMetre,
+		volumeFamily,
+		"Tbsp", "tablespoon", "tablespoons",
+		"A slightly larger Australian version.",
+		[]Tag{TagMetric, TagColloquial},
+		map[string]string{},
+		"", "",
+	},
+
+	"US teaspoon": {
 		0, 0, usFluidOzToCubicMetre * 0.5 / 3.0,
 		volumeFamily,
 		"tsp", "teaspoon", "teaspoons",
-		"a US Customary measure of volume.",
+		"a US measure of volume," +
+			" not used for nutritional labelling" +
+			" or for measuring medicines" +
+			" for which the metric variant is used.",
 		[]Tag{TagUScustomary},
-		map[string]string{},
+		map[string]string{
+			"US-teaspoon":  "hyphenated",
+			"US-teaspoons": "hyphenated, plural",
+			"US teaspoon":  "plural",
+		},
 		"", "",
 	},
-	"tablespoon": {
+
+	"US tablespoon": {
 		0, 0, usFluidOzToCubicMetre * 0.5,
 		volumeFamily,
 		"Tbsp", "tablespoon", "tablespoons",
-		"a US Customary measure of volume.",
+		"a US measure of volume," +
+			" not used for nutritional labelling" +
+			" for which the metric variant is used.",
 		[]Tag{TagUScustomary},
-		map[string]string{},
+		map[string]string{
+			"US-tablespoon":  "hyphenated",
+			"US-tablespoons": "hyphenated, plural",
+			"US tablespoon":  "plural",
+		},
 		"", "",
 	},
+
 	"US-fluid-ounce": {
 		0, 0, usFluidOzToCubicMetre,
 		volumeFamily,
@@ -583,7 +639,7 @@ var volumeNames = map[string]Unit{
 		0, 0, usFluidOzToCubicMetre * 1.5,
 		volumeFamily,
 		"shot", "US shot", "US shots",
-		"a US Customary measure of volume.",
+		"one and a half US fluid ounces.",
 		[]Tag{TagUScustomary},
 		map[string]string{},
 		"", "",
@@ -592,7 +648,7 @@ var volumeNames = map[string]Unit{
 		0, 0, usFluidOzToCubicMetre * 4,
 		volumeFamily,
 		"US gi", "US gill", "US gills",
-		"a US Customary measure of volume.",
+		"four US fluid ounces.",
 		[]Tag{TagUScustomary},
 		map[string]string{},
 		"", "",
@@ -601,7 +657,7 @@ var volumeNames = map[string]Unit{
 		0, 0, usFluidOzToCubicMetre * 8,
 		volumeFamily,
 		"US cp", "US cup", "US cups",
-		"a US Customary measure of volume.",
+		"eight US fluid ounces.",
 		[]Tag{TagUScustomary},
 		map[string]string{
 			"cup":  "",
@@ -613,7 +669,7 @@ var volumeNames = map[string]Unit{
 		0, 0, usFluidOzToCubicMetre * 16,
 		volumeFamily,
 		"US pt", "US pint", "US pints",
-		"a US Customary measure of volume.",
+		"16 US fluid ounces.",
 		[]Tag{TagUScustomary},
 		map[string]string{},
 		"", "",
@@ -622,7 +678,7 @@ var volumeNames = map[string]Unit{
 		0, 0, usFluidOzToCubicMetre * 32,
 		volumeFamily,
 		"US qt", "US quart", "US quarts",
-		"a US Customary measure of volume.",
+		"32 US fluid ounces.",
 		[]Tag{TagUScustomary},
 		map[string]string{},
 		"", "",
@@ -631,7 +687,7 @@ var volumeNames = map[string]Unit{
 		0, 0, usFluidOzToCubicMetre * 128,
 		volumeFamily,
 		"US gal", "US gallon", "US gallons",
-		"a US Customary measure of volume.",
+		"128 US fluid ounces.",
 		[]Tag{TagUScustomary},
 		map[string]string{
 			"US-wet-gallon": "",
@@ -643,7 +699,7 @@ var volumeNames = map[string]Unit{
 		0, 0, usFluidOzToCubicMetre * 128 * 42,
 		volumeFamily,
 		"bbl(oil)", "oil barrel", "oil barrels",
-		"a US Customary measure of volume.",
+		"42 US gallons.",
 		[]Tag{TagUScustomary},
 		map[string]string{},
 		"", "",

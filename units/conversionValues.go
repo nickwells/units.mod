@@ -118,6 +118,7 @@ const (
 // volume
 
 const (
+	litreToCubicMetre       = 1e-3
 	cubicInchToCubicMetre   = (inchToMetre * inchToMetre * inchToMetre)
 	cubicFootToCubicMetre   = (footToMetre * footToMetre * footToMetre)
 	cubicYardToCubicMetre   = (yardToMetre * yardToMetre * yardToMetre)

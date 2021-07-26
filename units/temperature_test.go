@@ -19,6 +19,7 @@ func TestTemperature(t *testing.T) {
 			degC: 0,
 			vals: []ValUnit{
 				{U: degFUnit, V: 32},
+				{U: degReUnit, V: 0},
 				{U: degRaUnit, V: 491.67},
 				{U: degRoUnit, V: 7.5},
 				{U: degKUnit, V: 273.15},
@@ -32,6 +33,7 @@ func TestTemperature(t *testing.T) {
 			vals: []ValUnit{
 				{U: degFUnit, V: 212},
 				{U: degRaUnit, V: 671.67},
+				{U: degReUnit, V: 80},
 				{U: degRoUnit, V: 60},
 				{U: degKUnit, V: 373.15},
 				{U: degNUnit, V: 33.0},
@@ -44,6 +46,7 @@ func TestTemperature(t *testing.T) {
 			vals: []ValUnit{
 				{U: degFUnit, V: -459.67},
 				{U: degRaUnit, V: 0},
+				{U: degReUnit, V: -218.52},
 				{U: degRoUnit, V: -135.90375},
 				{U: degKUnit, V: 0},
 				{U: degNUnit, V: -90.1395},

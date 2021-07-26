@@ -118,7 +118,7 @@ var degRoUnit = Unit{
 }
 
 var degReUnit = Unit{
-	0, 0, 4.0 / 5.0,
+	0, 0, 5.0 / 4.0,
 	temperatureFamily,
 	"°Ré", "degree Réaumur", "degrees Réaumur",
 	"a measure of temperature It is named after" +

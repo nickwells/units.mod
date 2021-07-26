@@ -189,10 +189,37 @@ var areaNames = map[string]Unit{
 		areaFamily,
 		"Wales",
 		"times the size of Wales", "times the size of Wales",
-		"a colloquial measure of area, used primarily to" +
-			" give an impression of size.",
+		"Wales is a mountainous country that is part of the United Kingdom" +
+			" lying west of the greater part of England." +
+			" In the Welsh language it is called Cymru.",
 		[]Tag{TagColloquial},
 		map[string]string{},
+		"", "",
+	},
+
+	"football pitch": {
+		0, 0, 7140,
+		areaFamily,
+		"football pitch", "football pitch", "football pitches",
+		"the size of a football pitch can vary considerably but" +
+			" the preferred size for many professional teams' stadiums" +
+			" is 105m x 68m giving the figure used here.",
+		[]Tag{TagColloquial},
+		map[string]string{
+			"soccer pitch": "alternative",
+		},
+		"", "",
+	},
+
+	"American football pitch": {
+		0, 0, 6400 * yard2ToMetre2,
+		areaFamily,
+		"football pitch", "football pitch", "football pitches",
+		"120 x 53 1/3 yards.",
+		[]Tag{TagColloquial},
+		map[string]string{
+			"US football pitch": "alternative",
+		},
 		"", "",
 	},
 }

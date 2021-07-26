@@ -19,7 +19,13 @@ var degCUnit = Unit{
 	"a measure of temperature." +
 		" It is named to honour the Swedish astronomer Anders Celsius." +
 		" It was formerly known as the Centigrade scale" +
-		" with units of 'centigrade'.",
+		" with units of 'centigrade'." +
+		"\n\n" +
+		"When Celsius created the scale in 1742 he had" +
+		" 0 degrees as the boiling point of water and" +
+		" 100 degrees as the freezing point (like the Delisle scale)." +
+		" It was inverted to the more familiar modern scale" +
+		" by Jean-Pierre Christin in 1743.", // nolint:misspell
 	[]Tag{TagMetric},
 	map[string]string{
 		"Celsius":         "full name",
@@ -129,7 +135,11 @@ var degReUnit = Unit{
 		"No longer used." +
 		"\n\n" +
 		"It has the freezing point of water at 0 degrees" +
-		" and the boiling point of water at 80 degrees.",
+		" and the boiling point of water at 80 degrees." +
+		"\n\n" +
+		"It was used by Charles Joseph Minard in his famous" +
+		" infographic depicting Napoleon's disastrous 1812 Russian campaign" +
+		" despite France having adopted the Celsius scale in the 1790s.",
 	[]Tag{TagHist},
 	map[string]string{
 		"Réaumur":         "full name, with accent",

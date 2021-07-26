@@ -247,8 +247,7 @@ var volumeNames = map[string]Unit{
 		0, 0, bottleToCubicMetre * 2,
 		volumeFamily,
 		"Magnum", "Magnum (wine)", "Magnums (wine)",
-		"a measure of volume typically used in the wine and spirits" +
-			" trade.",
+		"two bottles.",
 		[]Tag{TagDrinks},
 		map[string]string{},
 		"", "",
@@ -257,40 +256,21 @@ var volumeNames = map[string]Unit{
 		0, 0, bottleToCubicMetre * 3,
 		volumeFamily,
 		"Marie Jeanne", "Marie Jeanne (wine)", "Marie Jeannes (wine)",
-		"a measure of volume typically used in the wine and spirits" +
-			" trade.",
+		"three bottles.",
 		[]Tag{TagDrinks},
-		map[string]string{},
-		"", "",
-	},
-	"tappit-hen": {
-		0, 0, bottleToCubicMetre * 3,
-		volumeFamily,
-		"Tappit Hen", "Tappit Hen (port)", "Tappit Hens (port)",
-		"a measure of volume typically used in the wine and spirits" +
-			" trade. This is specifically for port. The name" +
-			" derives from the shape of the bottle which is said to" +
-			" resemble a hen.",
-		[]Tag{TagDrinks},
-		map[string]string{},
-		"", "",
-	},
-	"tregnum": {
-		0, 0, bottleToCubicMetre * 3,
-		volumeFamily,
-		"Tregnum", "Tregnum (port)", "Tregnums (port)",
-		"a measure of volume typically used in the wine and spirits" +
-			" trade, specifically for port.",
-		[]Tag{TagDrinks},
-		map[string]string{},
+		map[string]string{
+			"tappit-hen": "specifically for port, the name" +
+				" derives from the shape of the bottle which is said to" +
+				" resemble a hen.",
+			"tregnum": "specifically for port.",
+		},
 		"", "",
 	},
 	"jeroboam": {
 		0, 0, bottleToCubicMetre * 4,
 		volumeFamily,
 		"Jeroboam", "Jeroboam (wine)", "Jeroboams (wine)",
-		"a measure of volume typically used in the wine and spirits" +
-			" trade.",
+		"four bottles.",
 		[]Tag{TagDrinks},
 		map[string]string{},
 		"", "",
@@ -299,8 +279,7 @@ var volumeNames = map[string]Unit{
 		0, 0, bottleToCubicMetre * 6,
 		volumeFamily,
 		"Rehoboam", "Rehoboam (wine)", "Rehoboams (wine)",
-		"a measure of volume typically used in the wine and spirits" +
-			" trade.",
+		"6 bottles.",
 		[]Tag{TagDrinks},
 		map[string]string{},
 		"", "",
@@ -319,8 +298,7 @@ var volumeNames = map[string]Unit{
 		0, 0, bottleToCubicMetre * 12,
 		volumeFamily,
 		"Salmanazar", "Salmanazar (wine)", "Salmanazars (wine)",
-		"a measure of volume typically used in the wine and spirits" +
-			" trade.",
+		"12 bottles.",
 		[]Tag{TagDrinks},
 		map[string]string{},
 		"", "",
@@ -329,8 +307,7 @@ var volumeNames = map[string]Unit{
 		0, 0, bottleToCubicMetre * 16,
 		volumeFamily,
 		"Balthazar", "Balthazar (wine)", "Balthazars (wine)",
-		"a measure of volume typically used in the wine and spirits" +
-			" trade.",
+		"16 bottles.",
 		[]Tag{TagDrinks},
 		map[string]string{},
 		"", "",
@@ -339,8 +316,7 @@ var volumeNames = map[string]Unit{
 		0, 0, bottleToCubicMetre * 20,
 		volumeFamily,
 		"Nebuchadnezzar", "Nebuchadnezzar (wine)", "Nebuchadnezzars (wine)",
-		"a measure of volume typically used in the wine and spirits" +
-			" trade.",
+		"20 bottles.",
 		[]Tag{TagDrinks},
 		map[string]string{},
 		"", "",
@@ -351,7 +327,7 @@ var volumeNames = map[string]Unit{
 		0, 0, cubicInchToCubicMetre,
 		volumeFamily,
 		"in\u00B3", "cubic inch", "cubic inches",
-		"an imperial measure of volume.",
+		"",
 		[]Tag{TagImperial, TagUScustomary},
 		map[string]string{
 			"cubic-inch":   "hyphenated",
@@ -364,7 +340,7 @@ var volumeNames = map[string]Unit{
 		0, 0, cubicFootToCubicMetre,
 		volumeFamily,
 		"ft\u00B3", "cubic foot", "cubic feet",
-		"an imperial measure of volume.",
+		"",
 		[]Tag{TagImperial, TagUScustomary},
 		map[string]string{
 			"cubic-foot": "hyphenated",
@@ -377,7 +353,7 @@ var volumeNames = map[string]Unit{
 		0, 0, cubicYardToCubicMetre,
 		volumeFamily,
 		"yd\u00B3", "cubic yard", "cubic yards",
-		"an imperial measure of volume.",
+		"",
 		[]Tag{TagImperial, TagUScustomary},
 		map[string]string{
 			"cubic-yard":  "hyphenated",
@@ -407,7 +383,7 @@ var volumeNames = map[string]Unit{
 		0, 0, fluidOzToCubicMetre / 480,
 		volumeFamily,
 		"min", "minim", "minims",
-		"an imperial measure of volume (an apothecaries' measure).",
+		"an apothecaries' measure.",
 		[]Tag{TagImperial},
 		map[string]string{},
 		"", "",
@@ -416,7 +392,7 @@ var volumeNames = map[string]Unit{
 		0, 0, fluidOzToCubicMetre / 24,
 		volumeFamily,
 		"fl s", "fluid scruple", "fluid scruples",
-		"an imperial measure of volume (an apothecaries' measure).",
+		"an apothecaries' measure.",
 		[]Tag{TagImperial},
 		map[string]string{},
 		"", "",
@@ -425,7 +401,7 @@ var volumeNames = map[string]Unit{
 		0, 0, fluidOzToCubicMetre / 8,
 		volumeFamily,
 		"fl dr", "fluid drachm", "fluid drachms",
-		"an imperial measure of volume (an apothecaries' measure).",
+		"an apothecaries' measure.",
 		[]Tag{TagImperial},
 		map[string]string{},
 		"", "",
@@ -435,7 +411,11 @@ var volumeNames = map[string]Unit{
 		0, 0, fluidOzToCubicMetre,
 		volumeFamily,
 		"fl oz", "fluid ounce", "fluid ounces",
-		"an imperial measure of volume.",
+		"this is an imperial fluid ounce." +
+			" It is 1/160th of an imperial gallon" +
+			" which was defined as the volume of" +
+			" 10 pounds of water at 62°F" +
+			" meaning that a fluid ounce weighed an ounce.",
 		[]Tag{TagImperial},
 		map[string]string{},
 		"", "",
@@ -444,7 +424,7 @@ var volumeNames = map[string]Unit{
 		0, 0, fluidOzToCubicMetre * 5,
 		volumeFamily,
 		"gi", "gill", "gills",
-		"an imperial measure of volume.",
+		"5 imperial fluid ounces.",
 		[]Tag{TagImperial},
 		map[string]string{},
 		"", "",
@@ -453,18 +433,19 @@ var volumeNames = map[string]Unit{
 		0, 0, fluidOzToCubicMetre * 20,
 		volumeFamily,
 		"pt", "pint", "pints",
-		"an imperial measure of volume. Note that this refers to" +
-			" the British pint of 20 fluid ounces." +
+		"20 imperial fluid ounces (4 gills)." +
 			" See also the US pint.",
 		[]Tag{TagImperial},
-		map[string]string{},
+		map[string]string{
+			"pints": "plural",
+		},
 		"", "",
 	},
 	"quart": {
 		0, 0, fluidOzToCubicMetre * 40,
 		volumeFamily,
 		"qt", "quart", "quarts",
-		"an imperial measure of volume.",
+		"40 imperial fluid ounces (2 pints).",
 		[]Tag{TagImperial},
 		map[string]string{},
 		"", "",
@@ -473,7 +454,7 @@ var volumeNames = map[string]Unit{
 		0, 0, gallonToCubicMetre,
 		volumeFamily,
 		"gal", "gallon", "gallons",
-		"an imperial measure of volume.",
+		"160 imperial fluid ounces (4 quarts).",
 		[]Tag{TagImperial},
 		map[string]string{},
 		"", "",
@@ -483,8 +464,7 @@ var volumeNames = map[string]Unit{
 		0, 0, gallonToCubicMetre * 4.5,
 		volumeFamily,
 		"pin", "pin", "pins",
-		"an imperial measure of volume, used in the brewing industry" +
-			" for large quantities of beer.",
+		"4.5 imperial gallons (36 imperial pints).",
 		[]Tag{TagDrinks},
 		map[string]string{},
 		"", "",
@@ -493,8 +473,7 @@ var volumeNames = map[string]Unit{
 		0, 0, gallonToCubicMetre * 9,
 		volumeFamily,
 		"firkin", "firkin", "firkins",
-		"an imperial measure of volume, used in the brewing industry" +
-			" for large quantities of beer.",
+		"9 imperial gallons (72 imperial pints).",
 		[]Tag{TagDrinks},
 		map[string]string{},
 		"", "",
@@ -503,8 +482,7 @@ var volumeNames = map[string]Unit{
 		0, 0, gallonToCubicMetre * 18,
 		volumeFamily,
 		"kilderkin", "kilderkin", "kilderkins",
-		"an imperial measure of volume, used in the brewing industry" +
-			" for large quantities of beer.",
+		"18 imperial gallons (144 imperial pints).",
 		[]Tag{TagDrinks},
 		map[string]string{},
 		"", "",
@@ -513,8 +491,7 @@ var volumeNames = map[string]Unit{
 		0, 0, gallonToCubicMetre * 36,
 		volumeFamily,
 		"barrel", "barrel", "barrels",
-		"an imperial measure of volume, used in the brewing industry" +
-			" for large quantities of beer.",
+		"36 imperial gallons (288 imperial pints).",
 		[]Tag{TagDrinks},
 		map[string]string{},
 		"", "",
@@ -523,8 +500,7 @@ var volumeNames = map[string]Unit{
 		0, 0, gallonToCubicMetre * 54,
 		volumeFamily,
 		"hogshead", "hogshead", "hogsheads",
-		"an imperial measure of volume, used in the brewing industry" +
-			" for large quantities of beer.",
+		"54 imperial gallons (432 imperial pints).",
 		[]Tag{TagDrinks},
 		map[string]string{},
 		"", "",
@@ -639,7 +615,7 @@ var volumeNames = map[string]Unit{
 		0, 0, usFluidOzToCubicMetre * 1.5,
 		volumeFamily,
 		"shot", "US shot", "US shots",
-		"one and a half US fluid ounces.",
+		"1.5 US fluid ounces.",
 		[]Tag{TagUScustomary},
 		map[string]string{},
 		"", "",
@@ -648,7 +624,7 @@ var volumeNames = map[string]Unit{
 		0, 0, usFluidOzToCubicMetre * 4,
 		volumeFamily,
 		"US gi", "US gill", "US gills",
-		"four US fluid ounces.",
+		"4 US fluid ounces.",
 		[]Tag{TagUScustomary},
 		map[string]string{},
 		"", "",
@@ -657,7 +633,7 @@ var volumeNames = map[string]Unit{
 		0, 0, usFluidOzToCubicMetre * 8,
 		volumeFamily,
 		"US cp", "US cup", "US cups",
-		"eight US fluid ounces.",
+		"8 US fluid ounces.",
 		[]Tag{TagUScustomary},
 		map[string]string{
 			"cup":  "",
@@ -691,7 +667,7 @@ var volumeNames = map[string]Unit{
 		[]Tag{TagUScustomary},
 		map[string]string{
 			"US-wet-gallon": "",
-			"US gallon":     "",
+			"US gallon":     "no hyphen",
 		},
 		"", "",
 	},
@@ -735,7 +711,7 @@ var volumeNames = map[string]Unit{
 		0, 0, cubicInchToCubicMetre * 231,
 		volumeFamily,
 		"wine gallon", "wine gallon", "wine gallons",
-		"a  measure of volume in the UK, customarily from the 16th century" +
+		"a measure of volume in the UK, customarily from the 16th century" +
 			" and by law since 1707 during the reign of Queen Anne." +
 			" It is of interest principally because" +
 			" it is the basis of US fluid measures",

@@ -140,6 +140,22 @@ var dimensionlessNames = map[string]Unit{
 		},
 		"", "",
 	},
+	"score": {
+		0, 0, 20,
+		numericFamily,
+		"score", "score", "score",
+		"Possibly derived from the practice of making a mark" +
+			" in a stick when counting things." +
+			" 20 is the base of the vigesimal numbering system" +
+			" of which some relics can still be seen in English usage" +
+			" such as 20 shillings in a pre-decimalisation English pound or" +
+			" 20 hundredweight in an imperial ton." +
+			" Some languages still have base 20 names for numbers" +
+			" such as quatre-vingt for 80 in modern French",
+		[]Tag{TagDimensionless},
+		map[string]string{},
+		"", "",
+	},
 	"h": {
 		0, 0, h,
 		numericFamily,
@@ -279,7 +295,9 @@ var dimensionlessNames = map[string]Unit{
 		"milliard", "milliard", "milliard",
 		"an English (UK) term for a thousand million," +
 			" now obsolete, it has been superseded by" +
-			" the US meaning of billion.",
+			" the US meaning of billion." +
+			"\n\n" +
+			"Milliard is still used in modern French to mean 10^9",
 		[]Tag{TagDimensionless, TagHist},
 		map[string]string{
 			"yard": "milliard",

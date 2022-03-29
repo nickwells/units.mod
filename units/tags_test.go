@@ -3,7 +3,7 @@ package units_test
 import (
 	"testing"
 
-	"github.com/nickwells/testhelper.mod/testhelper"
+	"github.com/nickwells/testhelper.mod/v2/testhelper"
 	"github.com/nickwells/units.mod/v2/units"
 )
 

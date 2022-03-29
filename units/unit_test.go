@@ -4,7 +4,7 @@ import (
 	"sort"
 	"testing"
 
-	"github.com/nickwells/testhelper.mod/testhelper"
+	"github.com/nickwells/testhelper.mod/v2/testhelper"
 )
 
 func TestGetUnit(t *testing.T) {
@@ -217,16 +217,16 @@ func TestUnitInternal(t *testing.T) {
 			continue
 		}
 
-		testhelper.DiffFloat64(t, tc.IDStr(), "ConvPreAdd",
+		testhelper.DiffFloat(t, tc.IDStr(), "ConvPreAdd",
 			u.ConvPreAdd(), tc.expPreAdd, epsilon)
-		testhelper.DiffFloat64(t, tc.IDStr(), "ConvPostAdd",
+		testhelper.DiffFloat(t, tc.IDStr(), "ConvPostAdd",
 			u.ConvPostAdd(), tc.expPostAdd, epsilon)
-		testhelper.DiffFloat64(t, tc.IDStr(), "ConvFactor",
+		testhelper.DiffFloat(t, tc.IDStr(), "ConvFactor",
 			u.ConvFactor(), tc.expFactor, epsilon)
 		testhelper.DiffString(t, tc.IDStr(), "ConversionFormula",
 			u.ConversionFormula(), tc.expFormula)
 		convResult := ValUnit{V: tc.testVal, U: baseUnit}.ConvertOrPanic(u)
-		testhelper.DiffFloat64(t, tc.IDStr(), "Conversion",
+		testhelper.DiffFloat(t, tc.IDStr(), "Conversion",
 			convResult.V, tc.expConvVal, epsilon)
 		testhelper.DiffString(t, tc.IDStr(), "Family",
 			u.Family().Name(), tc.expFamily.name)

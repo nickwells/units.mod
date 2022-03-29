@@ -4,7 +4,7 @@ import (
 	"sort"
 	"testing"
 
-	"github.com/nickwells/testhelper.mod/testhelper"
+	"github.com/nickwells/testhelper.mod/v2/testhelper"
 )
 
 // checkFamilyBaseUnit checks the Family Base unit for validity

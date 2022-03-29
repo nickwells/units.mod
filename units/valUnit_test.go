@@ -3,7 +3,7 @@ package units
 import (
 	"testing"
 
-	"github.com/nickwells/testhelper.mod/testhelper"
+	"github.com/nickwells/testhelper.mod/v2/testhelper"
 )
 
 func TestValUnit_String(t *testing.T) {
@@ -108,7 +108,7 @@ func TestConvertToAndFromBaseUnits(t *testing.T) {
 		v, err = convertFromBaseUnits(v, tc.u)
 		testhelper.CheckExpErr(t, err, tc)
 
-		testhelper.DiffFloat64(t, tc.IDStr(), "", v, tc.v, 0.0000001)
+		testhelper.DiffFloat(t, tc.IDStr(), "", v, tc.v, 0.0000001)
 	}
 }
 
@@ -154,6 +154,6 @@ func TestValUnit_Convert(t *testing.T) {
 	for _, tc := range testCases {
 		v, err := tc.vwu.Convert(tc.toUnit)
 		testhelper.CheckExpErr(t, err, tc)
-		testhelper.DiffFloat64(t, tc.IDStr(), "", v.V, tc.expVal, 0.0000001)
+		testhelper.DiffFloat(t, tc.IDStr(), "", v.V, tc.expVal, 0.0000001)
 	}
 }

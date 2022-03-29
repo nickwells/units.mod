@@ -3,7 +3,7 @@ package units
 import (
 	"fmt"
 
-	"github.com/nickwells/mathutil.mod/mathutil"
+	"github.com/nickwells/mathutil.mod/v2/mathutil"
 )
 
 // ValUnit associates a value with a unit, it is expected that the value

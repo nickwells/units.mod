@@ -1,5 +1,4 @@
 /*
-
 Package units represents valid units of measure (the Unit type) and families
 of related units (the Family type).
 
@@ -9,6 +8,5 @@ the same family.
 
 The ValUnit type associates a value with a unit. This can be used to convert
 to other units of the same family. See the Convert method on this type.
-
 */
 package units

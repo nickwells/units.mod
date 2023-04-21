@@ -1,6 +1,6 @@
-github.com/nickwells/mathutil.mod/v2 v2.0.5 h1:8jtTf9Oh6XYxb8t+YIxgexR9iXzUAlPQ0s9vuPyZ3Wg=
-github.com/nickwells/mathutil.mod/v2 v2.0.5/go.mod h1:B5DGbNF2opvtSXREqmmYE4zC8Ijwu4g1HoWEFkTF8Tg=
+github.com/nickwells/mathutil.mod/v2 v2.2.0 h1:+RcU3tUYmV57eujR1OZfezlvRHPWht3harXpHCv8nmQ=
+github.com/nickwells/mathutil.mod/v2 v2.2.0/go.mod h1:B5DGbNF2opvtSXREqmmYE4zC8Ijwu4g1HoWEFkTF8Tg=
 github.com/nickwells/testhelper.mod/v2 v2.1.2 h1:GU0QzKvOJZ3nKPtSSyegao4Jw2IyjDysgi5zeKobm1w=
 github.com/nickwells/testhelper.mod/v2 v2.1.2/go.mod h1:pdhf+XHRINEUH6a0OcwC98ETD3ZluAXKA5xOhC2I2Qk=
-golang.org/x/exp v0.0.0-20230321023759-10a507213a29 h1:ooxPy7fPvB4kwsA2h+iBNHkAbp/4JxTSwCmvdjEYmug=
-golang.org/x/exp v0.0.0-20230321023759-10a507213a29/go.mod h1:CxIveKay+FTh1D0yPZemJVgC/95VzuuOLq5Qi4xnoYc=
+golang.org/x/exp v0.0.0-20230420155640-133eef4313cb h1:rhjz/8Mbfa8xROFiH+MQphmAmgqRM0bOMnytznhWEXk=
+golang.org/x/exp v0.0.0-20230420155640-133eef4313cb/go.mod h1:V1LtkGg67GoY2N1AnLN78QLrzxkLyJw7RJb1gzOOz9w=

@@ -132,7 +132,7 @@ var timeNames = map[string]Unit{
 	"fortnight": {
 		0, 0, dayToSec * 14,
 		timeFamily,
-		"fortnight", "fortnight", "fortnights", "",
+		"fortnight", "fortnight", "fortnights", "two weeks",
 		[]Tag{TagColloquial},
 		map[string]string{
 			"fortnights": "plural",
@@ -161,12 +161,25 @@ var timeNames = map[string]Unit{
 		},
 		"", "",
 	},
-	"Siderial year": {
+	"Sidereal year": {
 		0, 0, 365.256363004 * dayToSec,
 		timeFamily,
-		"Siderial Year", "Siderial Year", "Siderial Years",
+		"Sidereal Year", "Sidereal Year", "Sidereal Years",
 		"The time taken for the Earth to orbit the Sun" +
-			" with respect to the fixed stars",
+			" with respect to the fixed stars. Note that this is" +
+			" different from the time taken for the Earth to" +
+			" complete a full cycle of seasons (the Tropical year)",
+		[]Tag{TagAstro},
+		map[string]string{},
+		"", "",
+	},
+	"Tropical year": {
+		0, 0, 365.24219 * dayToSec,
+		timeFamily,
+		"Tropical Year", "Tropical Year", "Tropical Years",
+		"The time taken for the Earth to complete a full cycle of seasons." +
+			" This is the target that the Julian and Gregorian years are" +
+			" trying to hit with increasing degrees of accuracy",
 		[]Tag{TagAstro},
 		map[string]string{},
 		"", "",

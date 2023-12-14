@@ -299,6 +299,30 @@ var distanceNames = map[string]Unit{
 		map[string]string{},
 		"", "",
 	},
+	"foot (Amsterdam)": {
+		0, 0, 0.283133,
+		distanceFamily,
+		"ft (Amsterdam)",
+		"Amsterdamse voet", "Amsterdamse voeten",
+		"a measure of distance used in Amsterdam, no longer" +
+			" commonly used. Note that the Amsterdam foot" +
+			" had 11 inches (duimen) rather than the more usual 12",
+		[]Tag{TagHist},
+		map[string]string{},
+		"", "",
+	},
+	"foot (Rijnland)": {
+		0, 0, 0.314,
+		distanceFamily,
+		"ft (Rijnland)",
+		"Rijnlandse voet", "Rijnlandse voeten",
+		"a measure of distance used in the Netherlands, no longer" +
+			" commonly used. Note that, unlike the Amsterdam foot," +
+			" the Rijnland foot had 12 inches (duimen)",
+		[]Tag{TagHist},
+		map[string]string{},
+		"", "",
+	},
 	"foot (metric)": {
 		0, 0, 0.3,
 		distanceFamily,

@@ -51,7 +51,9 @@ var tags = map[Tag]string{
 		" The units are derived from the English units" +
 		" used in the British Empire before American independence" +
 		" but there are significant differences from the imperial units" +
-		" particularly in units of volume and fluid measures.",
+		" particularly in units of volume and fluid measures." +
+		" It is now (2024) only used in" +
+		" the United States, Myanmar and Liberia.",
 	TagColloquial: "a colloquial unit." +
 		" Not formally defined but sometimes used in conversation.",
 	TagAstro:     "a unit sometimes used in astronomical calculations.",

@@ -8,6 +8,7 @@ const (
 	TagSI            = Tag("SI")
 	TagMetric        = Tag("metric")
 	TagHist          = Tag("historic")
+	TagApothecary    = Tag("apothecary")
 	TagImperial      = Tag("imperial")
 	TagUScustomary   = Tag("US customary")
 	TagColloquial    = Tag("colloquial")
@@ -28,6 +29,16 @@ var tags = map[Tag]string{
 		" It is like the SI and is a forerunner of it" +
 		" but includes some non-standard units.",
 	TagHist: "a historical unit. No longer in common usage.",
+	TagApothecary: "an apothecary's unit." +
+		" This system of units is based on" +
+		" the grain as the unit of mass and" +
+		" the fluid ounce as the unit of volume." +
+		" Apothecary is a historic term for" +
+		" someone who would prepare and sell medicine," +
+		" the precursor of today's pharmacist." +
+		" It was the standard for the practice of pharmacy" +
+		" in the United States until 1971" +
+		" when it was replaced by the metric system.",
 	TagImperial: "an imperial unit." +
 		" This system of units was" +
 		" originally in use in the United Kingdom" +

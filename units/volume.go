@@ -745,7 +745,9 @@ var volumeNames = map[string]Unit{
 			" when they are joined the connecting twistlock is three inches" +
 			" wide allowing a forty-foot unit to fit precisely on top.",
 		[]Tag{TagColloquial},
-		map[string]string{},
+		map[string]string{
+			"TEU": "abbreviation",
+		},
 		"", "",
 	},
 }

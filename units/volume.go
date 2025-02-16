@@ -722,15 +722,28 @@ var volumeNames = map[string]Unit{
 
 	// Colloquial
 	"20ft shipping container": {
-		0, 0, 33.14,
+		0, 0, 6.058 * 2.44 * 2.59,
 		volumeFamily,
 		"vol. of a TEU",
 		"volume of a 20ft shipping container",
 		"volumes of a 20ft shipping container",
 		"a colloquial term referencing the volume of a standard 20 foot" +
-			" shipping container" +
+			" shipping (or intermodal) container" +
 			" presumably to give an impression of scale." +
-			" The TEU abbreviation stands for Twenty foot Equivalent Unit.",
+			" The TEU abbreviation stands for Twenty foot Equivalent Unit." +
+			"\n\n" +
+			"The standard intermodal container is 19 feet 10.5 inches long" +
+			" by 8 feet wide and, most commonly, 8 feet 6 inches high." +
+			"\n\n" +
+			"The volume used in this definition is based on this most common" +
+			" height though the height ranges between 4 feet 3 inches and" +
+			" 9 feet 6 inches." +
+			" Note that the internal volume is smaller at" +
+			" only 1172 cubic feet or 33.2 cubic metres." +
+			"\n\n" +
+			"The reason for the 1.5 inch difference in length is because" +
+			" when they are joined the connecting twistlock is three inches" +
+			" wide allowing a forty-foot unit to fit precisely on top.",
 		[]Tag{TagColloquial},
 		map[string]string{},
 		"", "",

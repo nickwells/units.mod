@@ -17,6 +17,7 @@ type ValUnit struct {
 func (v ValUnit) String() string {
 	singularName := v.U.name
 	pluralName := v.U.namePlural
+
 	if v.U.alias != "" {
 		singularName += " (" + v.U.alias + ")"
 		pluralName += " (" + v.U.alias + ")"
@@ -27,9 +28,11 @@ func (v ValUnit) String() string {
 	if mathutil.AlmostEqual(v.V, 1.0, epsilon) {
 		return "1 " + singularName
 	}
+
 	if mathutil.AlmostEqual(v.V, 0.0, epsilon) {
 		return "0 " + pluralName
 	}
+
 	return fmt.Sprintf("%.5g %s", v.V, pluralName)
 }
 
@@ -38,11 +41,10 @@ func (v ValUnit) String() string {
 // a zero conversion factor). See also the ValUnit.Convert method.
 func convertFromBaseUnits(v float64, to Unit) (float64, error) {
 	if to.convFactor == 0 {
-		return v,
-			fmt.Errorf("Bad units - a zero conversion factor")
+		return v, fmt.Errorf("Bad units - a zero conversion factor")
 	}
-	return ((v + to.convPreAdd) / to.convFactor) + to.convPostAdd,
-		nil
+
+	return ((v + to.convPreAdd) / to.convFactor) + to.convPostAdd, nil
 }
 
 // convertToBaseUnits converts a value expressed in the 'from' Units into
@@ -50,11 +52,10 @@ func convertFromBaseUnits(v float64, to Unit) (float64, error) {
 // a zero conversion factor). See also the ValUnit.Convert method.
 func convertToBaseUnits(v float64, from Unit) (float64, error) {
 	if from.convFactor == 0 {
-		return v,
-			fmt.Errorf("Bad units - a zero conversion factor")
+		return v, fmt.Errorf("Bad units - a zero conversion factor")
 	}
-	return ((v - from.convPostAdd) * from.convFactor) - from.convPreAdd,
-		nil
+
+	return ((v - from.convPostAdd) * from.convFactor) - from.convPreAdd, nil
 }
 
 // Convert will convert the value from its current units to the new units. If
@@ -74,6 +75,7 @@ func (v ValUnit) Convert(u Unit) (ValUnit, error) {
 	if err != nil {
 		return rval, err
 	}
+
 	rval.V, err = convertFromBaseUnits(baseVal, u)
 
 	return rval, err
@@ -86,5 +88,6 @@ func (v ValUnit) ConvertOrPanic(u Unit) ValUnit {
 	if err != nil {
 		panic(err)
 	}
+
 	return convertedVal
 }

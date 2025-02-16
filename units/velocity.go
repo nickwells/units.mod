@@ -1,3 +1,4 @@
+//nolint:mnd
 package units
 
 // bunVelocity is the base unit name for velocity

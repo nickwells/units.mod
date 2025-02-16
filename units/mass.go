@@ -1,3 +1,4 @@
+//nolint:mnd
 package units
 
 // bunMass is the base unit name for mass

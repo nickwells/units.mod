@@ -37,6 +37,7 @@ type Unit struct {
 // to convert a value expressed in base units into these units.
 func (u Unit) ConversionFormula() string {
 	formula := ""
+
 	if u.convPreAdd != 0 {
 		if u.convPreAdd > 0 {
 			formula += fmt.Sprintf(" add %g", u.convPreAdd)
@@ -44,9 +45,11 @@ func (u Unit) ConversionFormula() string {
 			formula += fmt.Sprintf(" subtract %g", -u.convPreAdd)
 		}
 	}
+
 	if u.convFactor != 1.0 {
 		formula += fmt.Sprintf(" divide by %g", u.convFactor)
 	}
+
 	if u.convPostAdd != 0 {
 		if u.convPostAdd > 0 {
 			formula += fmt.Sprintf(" add %g", u.convPostAdd)
@@ -54,12 +57,14 @@ func (u Unit) ConversionFormula() string {
 			formula += fmt.Sprintf(" subtract %g", -u.convPostAdd)
 		}
 	}
+
 	if formula == "" {
 		formula = "no conversion needed"
 		if u.id == u.f.baseUnitName {
 			formula += " (already in the base units)"
 		}
 	}
+
 	return strings.TrimSpace(formula)
 }
 
@@ -121,6 +126,7 @@ func (u Unit) HasTag(t Tag) bool {
 			return true
 		}
 	}
+
 	return false
 }
 
@@ -140,5 +146,6 @@ func (u Unit) Aliases() map[string]string {
 	for k, v := range u.aliases {
 		rval[k] = v
 	}
+
 	return rval
 }

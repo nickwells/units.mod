@@ -49,6 +49,7 @@ func (f *Family) String() string {
 	if len(f.familyAliases) > 0 {
 		rval += " Aliases: " + strings.Join(f.familyAliases, ", ")
 	}
+
 	return rval
 }
 
@@ -95,6 +96,7 @@ func (f *Family) populateFamilyAliases() {
 					"The alias %q on Family %q is redundant",
 					a, f.name))
 		}
+
 		if _, ok := unitFamilies[a]; ok {
 			panic(
 				fmt.Errorf(
@@ -102,6 +104,7 @@ func (f *Family) populateFamilyAliases() {
 						" is the name of an existing Family",
 					a, f.name))
 		}
+
 		if fa, ok := familyAlias[a]; ok && fa != f.name {
 			panic(
 				fmt.Errorf(
@@ -109,6 +112,7 @@ func (f *Family) populateFamilyAliases() {
 						" Family %q has an alias %q and so does Family %q",
 					f.name, a, fa))
 		}
+
 		familyAlias[a] = f.name
 	}
 }
@@ -119,6 +123,7 @@ func (f *Family) populateUnitAliases() {
 	if f.unitAliases == nil {
 		f.unitAliases = make(map[string]string)
 	}
+
 	for uName, u := range f.altUnits {
 		for a := range u.aliases {
 			if aliasVal, ok := f.unitAliases[a]; ok && aliasVal != uName {
@@ -128,6 +133,7 @@ func (f *Family) populateUnitAliases() {
 							" Unit %q has an alias %q and so does Unit %q",
 						uName, a, aliasVal))
 			}
+
 			f.unitAliases[a] = uName
 		}
 	}
@@ -163,6 +169,7 @@ func GetFamily(name string) (*Family, error) {
 		if !ok {
 			return nil, fmt.Errorf("There is no unit family called %q", name)
 		}
+
 		f, ok = unitFamilies[alias]
 		if !ok {
 			return nil,
@@ -170,6 +177,7 @@ func GetFamily(name string) (*Family, error) {
 					name, alias)
 		}
 	}
+
 	return f, nil
 }
 
@@ -180,6 +188,7 @@ func GetFamilyOrPanic(name string) *Family {
 	if err != nil {
 		panic(err)
 	}
+
 	return f
 }
 
@@ -219,6 +228,7 @@ func (f *Family) GetUnit(name string) (Unit, error) {
 	}
 
 	alias := name
+
 	name, ok = f.unitAliases[alias]
 	if !ok {
 		return u, fmt.Errorf("there is no %s called %q",
@@ -233,6 +243,7 @@ func (f *Family) GetUnit(name string) (Unit, error) {
 
 	u.alias = alias
 	u.id = name
+
 	return u, nil
 }
 
@@ -243,6 +254,7 @@ func (f *Family) GetUnitOrPanic(name string) Unit {
 	if err != nil {
 		panic(err)
 	}
+
 	return u
 }
 
@@ -255,6 +267,7 @@ func (f *Family) GetUnitNames() []string {
 	for n := range f.altUnits {
 		names = append(names, n)
 	}
+
 	return names
 }
 
@@ -267,6 +280,7 @@ func (f *Family) GetUnitAliases() []string {
 	for n := range f.unitAliases {
 		names = append(names, n)
 	}
+
 	return names
 }
 

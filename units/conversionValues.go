@@ -1,3 +1,4 @@
+//nolint:mnd
 package units
 
 import "math"

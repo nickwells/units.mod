@@ -71,9 +71,11 @@ func TestTemperature(t *testing.T) {
 		for _, v := range tc.vals {
 			unitVal, err := vc.Convert(v.U)
 			testhelper.CheckExpErr(t, err, tc)
+
 			if err != nil {
 				continue
 			}
+
 			if !mathutil.AlmostEqual(unitVal.V, v.V, 0.000001) {
 				t.Log(tc.IDStr())
 				t.Logf("\t:    Given %6.2f℃\n", tc.degC)
@@ -85,9 +87,11 @@ func TestTemperature(t *testing.T) {
 
 			vCelsius, err := v.Convert(degCUnit)
 			testhelper.CheckExpErr(t, err, tc)
+
 			if err != nil {
 				continue
 			}
+
 			if !mathutil.AlmostEqual(vCelsius.V, tc.degC, 0.000001) {
 				t.Log(tc.IDStr())
 				t.Logf("\t:    Given %6.2f%s\n", v.V, v.U.abbrev)

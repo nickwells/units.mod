@@ -60,12 +60,16 @@ func TestGetUnit(t *testing.T) {
 
 	for _, tc := range testCases {
 		var err error
+
 		var f *Family
+
 		var u Unit
+
 		f, err = GetFamily(tc.fName)
 		if err == nil {
 			u, err = f.GetUnit(tc.uName)
 		}
+
 		testhelper.CheckExpErr(t, err, tc)
 		testhelper.DiffString(t, tc.IDStr(), "", u.alias, tc.expAlias)
 
@@ -79,6 +83,7 @@ func TestGetUnit(t *testing.T) {
 
 func TestUnitInternal(t *testing.T) {
 	baseUnit := SampleFamily.GetUnitOrPanic(SampleFamily.baseUnitName)
+
 	const epsilon = 0.000001
 
 	testCases := []struct {
@@ -214,6 +219,7 @@ func TestUnitInternal(t *testing.T) {
 		if err != nil {
 			t.Log(tc.IDStr())
 			t.Errorf("\t: Couldn't get the unit: %v\n", err)
+
 			continue
 		}
 
@@ -225,7 +231,9 @@ func TestUnitInternal(t *testing.T) {
 			u.ConvFactor(), tc.expFactor, epsilon)
 		testhelper.DiffString(t, tc.IDStr(), "ConversionFormula",
 			u.ConversionFormula(), tc.expFormula)
+
 		convResult := ValUnit{V: tc.testVal, U: baseUnit}.ConvertOrPanic(u)
+
 		testhelper.DiffFloat(t, tc.IDStr(), "Conversion",
 			convResult.V, tc.expConvVal, epsilon)
 		testhelper.DiffString(t, tc.IDStr(), "Family",
@@ -240,21 +248,27 @@ func TestUnitInternal(t *testing.T) {
 			u.Notes(), tc.expNotes)
 		testhelper.DiffString(t, tc.IDStr(), "ID",
 			u.ID(), tc.expID)
-		aliasMap := u.Aliases()
+
 		aliases := []string{}
+
+		aliasMap := u.Aliases()
 		for a := range aliasMap {
 			aliases = append(aliases, a)
 		}
+
 		sort.Strings(aliases)
 		testhelper.DiffStringSlice(t, tc.IDStr(), "Aliases",
 			aliases, tc.expAliases)
 		testhelper.DiffString(t, tc.IDStr(), "AliasName",
 			u.AliasName(), tc.expAliasName)
-		tags := u.Tags()
+
 		strTags := []string{}
+
+		tags := u.Tags()
 		for _, t := range tags {
 			strTags = append(strTags, string(t))
 		}
+
 		testhelper.DiffStringSlice(t, tc.IDStr(), "Tags", strTags, tc.expTags)
 		testhelper.DiffBool(t, tc.IDStr(), "HasTag",
 			u.HasTag(tc.testTag), tc.expHasTag)

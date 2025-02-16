@@ -1,3 +1,4 @@
+//nolint:mnd
 package units
 
 // bunTime is the base unit name for time

@@ -1,3 +1,4 @@
+//nolint:mnd
 package units
 
 // bunTemp is the base unit name for temperature

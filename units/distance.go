@@ -1,3 +1,4 @@
+//nolint:mnd
 package units
 
 // bunDistance is the base unit name for distance

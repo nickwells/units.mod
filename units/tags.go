@@ -89,5 +89,6 @@ func GetTagNames() []string {
 	for t := range tags {
 		rval = append(rval, string(t))
 	}
+
 	return rval
 }

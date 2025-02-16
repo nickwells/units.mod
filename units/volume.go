@@ -1,3 +1,4 @@
+//nolint:mnd
 package units
 
 // bunVolume is the base unit name for volume

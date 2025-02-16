@@ -524,14 +524,16 @@ var distanceNames = map[string]Unit{
 
 	// astronomical
 	"astro-unit": {
-		0, 0, 1.49597871e11,
+		0, 0, 1.495978707e11,
 		distanceFamily,
 		"AU", "Astronomical Unit", "Astronomical Units",
 		"the mean distance from the centre of the Earth" +
-			" to the centre of the sun.",
+			" to the centre of the sun. In 2012 it was" +
+			" defined to have the value given here",
 		[]Tag{TagAstro},
 		map[string]string{
 			"AU":                 "abbreviation",
+			"au":                 "abbreviation",
 			"astronomical-unit":  "full name",
 			"astronomical-units": "full name, plural",
 			"astronomical unit":  "full name, no hyphen",

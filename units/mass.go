@@ -3,6 +3,8 @@ package units
 // bunMass is the base unit name for mass
 const bunMass = "gram"
 
+const daltonToGram = 1.660_539_068_92e-24
+
 // massFamily represents the collection of units of mass
 var massFamily = &Family{
 	baseUnitName: bunMass,
@@ -304,6 +306,53 @@ var massNames = map[string]Unit{
 			"giga-electron-volts": "hyphenated, plural",
 			"giga electron volt":  "",
 			"giga electron volts": "plural",
+		},
+		"", "",
+	},
+	"dalton": {
+		0, 0, daltonToGram,
+		massFamily,
+		"Da", "dalton", "daltons",
+		"One twelfth of the mass of an unbound neutral atom of" +
+			" carbon-12 in its nuclear and electronic ground" +
+			" state and at rest." +
+			" It is commonly used in physics and chemistry to" +
+			" express the mass of atomic scale objects such as" +
+			" atoms, molecules and elementary particles." +
+			" The mass in daltons of an atom is numerically close" +
+			" but not exactly equal to the number of nucleons in its nucleus." +
+			" It is named for John Dalton (1766-1844), an English chemist," +
+			" physicist and meteorologist." +
+			" It is a non-SI unit accepted for use with SI.",
+		[]Tag{TagMetric},
+		map[string]string{
+			"Da":                       "abbreviation",
+			"unified atomic mass unit": "",
+			"daltons":                  "plural",
+		},
+		"", "",
+	},
+	"kilodalton": {
+		0, 0, k * daltonToGram,
+		massFamily,
+		"kDa", "kilodalton", "kilodaltons",
+		"see the description of the dalton as a unit of mass.",
+		[]Tag{TagMetric},
+		map[string]string{
+			"kDa":         "abbreviation",
+			"kilodaltons": "plural",
+		},
+		"", "",
+	},
+	"megadalton": {
+		0, 0, _M * daltonToGram,
+		massFamily,
+		"MDa", "megadalton", "megadaltons",
+		"see the description of the dalton as a unit of mass.",
+		[]Tag{TagMetric},
+		map[string]string{
+			"MDa":         "abbreviation",
+			"megadaltons": "plural",
 		},
 		"", "",
 	},

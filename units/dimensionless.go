@@ -401,4 +401,15 @@ var dimensionlessNames = map[string]Unit{
 		map[string]string{},
 		"", "",
 	},
+	"Avogadro number": {
+		0, 0, 6.022_140_76e23,
+		numericFamily,
+		"Avogadro number", "Avogadro number", "Avogadro number",
+		"The number of constituent particles in a mole. It is named" +
+			" after the Italian physicist and chemist" +
+			" Amedeo Avogadro (1776–1856).",
+		[]Tag{TagDimensionless},
+		map[string]string{},
+		"", "",
+	},
 }

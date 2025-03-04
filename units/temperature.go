@@ -26,7 +26,7 @@ var degCUnit = Unit{
 		" 0 degrees as the boiling point of water and" +
 		" 100 degrees as the freezing point (like the Delisle scale)." +
 		" It was inverted to the more familiar modern scale" +
-		" by Jean-Pierre Christin in 1743.", // nolint:misspell
+		" by Jean-Pierre Christin in 1743.", //nolint:misspell
 	[]Tag{TagMetric},
 	map[string]string{
 		"Celsius":         "full name",

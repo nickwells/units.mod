@@ -1,5 +1,6 @@
 package units
 
+// Tag is the type of a descriptive tag that can be attached to a unit
 type Tag string
 
 // These Tag name constants should be used when setting tags on a new unit or

@@ -5,30 +5,30 @@ import "math"
 // common to all units
 
 // Powers of 1000
-var (
-	k  = 1000.0
-	_M = math.Pow(1000, 2)
-	_G = math.Pow(1000, 3)
-	_T = math.Pow(1000, 4)
-	_P = math.Pow(1000, 5)
-	_E = math.Pow(1000, 6)
-	_Z = math.Pow(1000, 7)
-	_Y = math.Pow(1000, 8)
+const (
+	k  = 1000.0                             // kilo
+	_M = 1000_000.0                         // mega
+	_G = 1000_000_000.0                     // giga
+	_T = 1000_000_000_000.0                 // tera
+	_P = 1000_000_000_000_000.0             // peta
+	_E = 1000_000_000_000_000_000.0         // exa
+	_Z = 1000_000_000_000_000_000_000.0     // zetta
+	_Y = 1000_000_000_000_000_000_000_000.0 // yotta
 
-	h  = 100.0
-	da = 10.0
+	h  = 100.0 // hecto
+	da = 10.0  // deca
 
-	d = 0.1
-	c = 0.01
+	d = 0.1  // deci
+	c = 0.01 // centi
 
-	m = 1.0 / math.Pow(1000, 1)
-	u = 1.0 / math.Pow(1000, 2)
-	n = 1.0 / math.Pow(1000, 3)
-	p = 1.0 / math.Pow(1000, 4)
-	f = 1.0 / math.Pow(1000, 5)
-	a = 1.0 / math.Pow(1000, 6)
-	z = 1.0 / math.Pow(1000, 7)
-	y = 1.0 / math.Pow(1000, 8)
+	m = 1.0 / k  // milli
+	u = 1.0 / _M // micro
+	n = 1.0 / _G // nano
+	p = 1.0 / _T // pico
+	f = 1.0 / _P // femto
+	a = 1.0 / _E // atto
+	z = 1.0 / _Z // zepto
+	y = 1.0 / _Y // yocto
 )
 
 // angles
@@ -48,6 +48,8 @@ const (
 // data
 
 // powers of 1024, the names are from the standard ISO/IEC 80000
+//
+//nolint:mnd
 const (
 	_  = 1 << (10 * iota)
 	ki // kibi
@@ -77,6 +79,11 @@ const (
 	speedOfLight = lightSecond  // metres / second
 
 	pointToMetre = 0.0003528
+
+	// Note that the length of a TEU (a Twenty-foot Equivalent Unit or
+	// Shipping Container) is not twenty feet. See the unit declaration for
+	// an explanation.
+	teuLength = (19 * footToMetre) + (10.5 * inchToMetre) //nolint:mnd
 )
 
 // energy

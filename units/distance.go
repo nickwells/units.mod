@@ -610,7 +610,7 @@ var distanceNames = map[string]Unit{
 
 	// Colloquial
 	"20ft shipping container": {
-		0, 0, (19 * footToMetre) + (10.5 * inchToMetre),
+		0, 0, teuLength,
 		distanceFamily,
 		"TEU",
 		"length of a 20ft shipping container",
@@ -622,7 +622,10 @@ var distanceNames = map[string]Unit{
 			" Note that a 20 foot shipping container is not 20 feet long" +
 			" (but a 40 foot container is 40 feet long).",
 		[]Tag{TagColloquial},
-		map[string]string{},
+		map[string]string{
+			"TEU": "20ft equivalent unit",
+			"teu": "lowercase",
+		},
 		"", "",
 	},
 	"bus": {

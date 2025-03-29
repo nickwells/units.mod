@@ -56,7 +56,7 @@ func TestTemperature(t *testing.T) {
 		{
 			ID: testhelper.MkID("bad unit family"),
 			ExpErr: testhelper.MkExpErr(
-				"Mismatched unit families." +
+				"mismatched unit families." +
 					" Cannot convert units from" +
 					" temperature to sample-family"),
 			degC: 99,

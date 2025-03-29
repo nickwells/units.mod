@@ -97,7 +97,7 @@ func TestConvertToAndFromBaseUnits(t *testing.T) {
 			ID:     testhelper.MkID("bad unit"),
 			v:      41,
 			u:      SampleFamily.GetUnitOrPanic(SampleUnitBad),
-			ExpErr: testhelper.MkExpErr("Bad units - a zero conversion factor"),
+			ExpErr: testhelper.MkExpErr("bad units - a zero conversion factor"),
 		},
 	}
 
@@ -137,7 +137,7 @@ func TestValUnit_Convert(t *testing.T) {
 			},
 			toUnit: SampleFamily.GetUnitOrPanic(SampleUnitBase),
 			expVal: 0,
-			ExpErr: testhelper.MkExpErr("Bad units - a zero conversion factor"),
+			ExpErr: testhelper.MkExpErr("bad units - a zero conversion factor"),
 		},
 		{
 			ID: testhelper.MkID("convert-bad-to-unit"),
@@ -147,7 +147,7 @@ func TestValUnit_Convert(t *testing.T) {
 			},
 			toUnit: SampleFamily.GetUnitOrPanic(SampleUnitBad),
 			expVal: 0,
-			ExpErr: testhelper.MkExpErr("Bad units - a zero conversion factor"),
+			ExpErr: testhelper.MkExpErr("bad units - a zero conversion factor"),
 		},
 	}
 

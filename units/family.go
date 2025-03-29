@@ -93,14 +93,14 @@ func (f *Family) populateFamilyAliases() {
 		if a == f.name {
 			panic(
 				fmt.Errorf(
-					"The alias %q on Family %q is redundant",
+					"the alias %q on Family %q is redundant",
 					a, f.name))
 		}
 
 		if _, ok := unitFamilies[a]; ok {
 			panic(
 				fmt.Errorf(
-					"The alias %q on Family %q"+
+					"the alias %q on Family %q"+
 						" is the name of an existing Family",
 					a, f.name))
 		}
@@ -108,7 +108,7 @@ func (f *Family) populateFamilyAliases() {
 		if fa, ok := familyAlias[a]; ok && fa != f.name {
 			panic(
 				fmt.Errorf(
-					"There is a duplicate alias:"+
+					"there is a duplicate alias:"+
 						" Family %q has an alias %q and so does Family %q",
 					f.name, a, fa))
 		}
@@ -129,7 +129,7 @@ func (f *Family) populateUnitAliases() {
 			if aliasVal, ok := f.unitAliases[a]; ok && aliasVal != uName {
 				panic(
 					fmt.Errorf(
-						"There is a duplicate alias:"+
+						"there is a duplicate alias:"+
 							" Unit %q has an alias %q and so does Unit %q",
 						uName, a, aliasVal))
 			}
@@ -167,13 +167,13 @@ func GetFamily(name string) (*Family, error) {
 	if !ok {
 		alias, ok := familyAlias[name]
 		if !ok {
-			return nil, fmt.Errorf("There is no unit family called %q", name)
+			return nil, fmt.Errorf("there is no unit family called %q", name)
 		}
 
 		f, ok = unitFamilies[alias]
 		if !ok {
 			return nil,
-				fmt.Errorf("There is no unit family called %q (alias: %q)",
+				fmt.Errorf("there is no unit family called %q (alias: %q)",
 					name, alias)
 		}
 	}

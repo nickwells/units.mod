@@ -21,7 +21,7 @@ func TestGetUnit(t *testing.T) {
 		t.Fatalf("Cannot get the unit details for %q: %v", goodFamilyName, err)
 	}
 
-	badFamilyNameErr := `There is no unit family called "` + badFamilyName + `"`
+	badFamilyNameErr := `there is no unit family called "` + badFamilyName + `"`
 	badUnitNameErr := `there is no ` + f.description +
 		` called "` + badUnitName + `"`
 	testCases := []struct {

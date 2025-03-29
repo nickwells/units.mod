@@ -41,7 +41,7 @@ func (v ValUnit) String() string {
 // a zero conversion factor). See also the ValUnit.Convert method.
 func convertFromBaseUnits(v float64, to Unit) (float64, error) {
 	if to.convFactor == 0 {
-		return v, fmt.Errorf("Bad units - a zero conversion factor")
+		return v, fmt.Errorf("bad units - a zero conversion factor")
 	}
 
 	return ((v + to.convPreAdd) / to.convFactor) + to.convPostAdd, nil
@@ -52,7 +52,7 @@ func convertFromBaseUnits(v float64, to Unit) (float64, error) {
 // a zero conversion factor). See also the ValUnit.Convert method.
 func convertToBaseUnits(v float64, from Unit) (float64, error) {
 	if from.convFactor == 0 {
-		return v, fmt.Errorf("Bad units - a zero conversion factor")
+		return v, fmt.Errorf("bad units - a zero conversion factor")
 	}
 
 	return ((v - from.convPostAdd) * from.convFactor) - from.convPreAdd, nil
@@ -67,7 +67,7 @@ func (v ValUnit) Convert(u Unit) (ValUnit, error) {
 	if v.U.f != u.f {
 		return rval,
 			fmt.Errorf(
-				"Mismatched unit families. Cannot convert units from %s to %s",
+				"mismatched unit families. Cannot convert units from %s to %s",
 				v.U.f.name, u.f.name)
 	}
 

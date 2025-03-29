@@ -145,7 +145,9 @@ var timeNames = map[string]Unit{
 		"Julian Year", "Julian Year", "Julian Years",
 		"365.25 days. A non-SI unit for use in astronomy",
 		[]Tag{TagAstro},
-		map[string]string{},
+		map[string]string{
+			"Julian Year": "capital year",
+		},
 		"", "",
 	},
 	"Gregorian year": {
@@ -156,8 +158,9 @@ var timeNames = map[string]Unit{
 			" Commonly used as the basis of the Gregorian calendar.",
 		[]Tag{TagColloquial},
 		map[string]string{
-			"year":  "",
-			"years": "plural",
+			"year":           "",
+			"years":          "plural",
+			"Gregorian Year": "capital year",
 		},
 		"", "",
 	},
@@ -170,7 +173,9 @@ var timeNames = map[string]Unit{
 			" different from the time taken for the Earth to" +
 			" complete a full cycle of seasons (the Tropical year)",
 		[]Tag{TagAstro},
-		map[string]string{},
+		map[string]string{
+			"Sidereal Year": "capital year",
+		},
 		"", "",
 	},
 	"Tropical year": {
@@ -181,7 +186,9 @@ var timeNames = map[string]Unit{
 			" This is the target that the Julian and Gregorian years are" +
 			" trying to hit with increasing degrees of accuracy",
 		[]Tag{TagAstro},
-		map[string]string{},
+		map[string]string{
+			"Tropical Year": "capital year",
+		},
 		"", "",
 	},
 	"dasec": {

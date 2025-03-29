@@ -1,4 +1,3 @@
-//nolint:mnd
 package units
 
 const bunAngle = "radian"

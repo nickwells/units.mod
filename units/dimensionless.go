@@ -1,4 +1,3 @@
-//nolint:mnd
 package units
 
 // bunNumeric is the base unit name for dimensionless units

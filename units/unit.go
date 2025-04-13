@@ -2,6 +2,8 @@ package units
 
 import (
 	"fmt"
+	"maps"
+	"slices"
 	"strings"
 )
 
@@ -121,13 +123,7 @@ func (u Unit) ID() string {
 
 // HasTag returns true if the unit has the given tag, false otherwise
 func (u Unit) HasTag(t Tag) bool {
-	for _, ut := range u.tags {
-		if ut == t {
-			return true
-		}
-	}
-
-	return false
+	return slices.Contains(u.tags, t)
 }
 
 // Tags returns a copy of the tags associated with this unit
@@ -143,9 +139,7 @@ func (u Unit) Tags() []Tag {
 // of the alias.
 func (u Unit) Aliases() map[string]string {
 	rval := map[string]string{}
-	for k, v := range u.aliases {
-		rval[k] = v
-	}
+	maps.Copy(rval, u.aliases)
 
 	return rval
 }

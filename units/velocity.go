@@ -22,8 +22,8 @@ var velocityNames = map[string]Unit{
 		[]Tag{TagSI, TagMetric},
 		map[string]string{
 			"metres/second": "plural",
-			"meters/second": "US spelling, plural",
-			"meter/second":  "US spelling",
+			"meters/second": "US spelling, plural", //nolint:misspell
+			"meter/second":  "US spelling",         //nolint:misspell
 		},
 		"", "",
 	},
@@ -38,8 +38,8 @@ var velocityNames = map[string]Unit{
 			"kmph":            "abbreviation",
 			"km/h":            "abbreviation",
 			"kilometres/hour": "plural",
-			"kilometers/hour": "US spelling, plural",
-			"kilometer/hour":  "US spelling",
+			"kilometers/hour": "US spelling, plural", //nolint:misspell
+			"kilometer/hour":  "US spelling",         //nolint:misspell
 		},
 		"", "",
 	},

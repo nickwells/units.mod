@@ -22,8 +22,8 @@ var distanceNames = map[string]Unit{
 		map[string]string{
 			"m":      "",
 			"metres": "plural",
-			"meter":  "US spelling",
-			"meters": "US spelling, plural",
+			"meter":  "US spelling",         //nolint:misspell
+			"meters": "US spelling, plural", //nolint:misspell
 		},
 		"", "",
 	},
@@ -91,9 +91,9 @@ var distanceNames = map[string]Unit{
 		[]Tag{TagSI, TagMetric},
 		map[string]string{
 			"millimetre":  "",
-			"millimeter":  "US spelling",
+			"millimeter":  "US spelling", //nolint:misspell
 			"millimetres": "plural",
-			"millimeters": "US spelling, plural",
+			"millimeters": "US spelling, plural", //nolint:misspell
 		},
 		"", "",
 	},
@@ -104,9 +104,9 @@ var distanceNames = map[string]Unit{
 		[]Tag{TagSI, TagMetric},
 		map[string]string{
 			"centimetre":  "",
-			"centimeter":  "US spelling",
+			"centimeter":  "US spelling", //nolint:misspell
 			"centimetres": "plural",
-			"centimeters": "US spelling, plural",
+			"centimeters": "US spelling, plural", //nolint:misspell
 		},
 		"", "",
 	},
@@ -142,8 +142,8 @@ var distanceNames = map[string]Unit{
 		map[string]string{
 			"kilometre":  "",
 			"kilometres": "plural",
-			"kilometer":  "US spelling",
-			"kilometers": "US spelling, plural",
+			"kilometer":  "US spelling",         //nolint:misspell
+			"kilometers": "US spelling, plural", //nolint:misspell
 			"klick":      "US Army term for kilometre",
 			"klicks":     "US Army term for kilometre, plural",
 		},

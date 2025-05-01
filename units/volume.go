@@ -23,10 +23,10 @@ var volumeNames = map[string]Unit{
 			"cubic-metre":  "hyphenated",
 			"cubic-metres": "hyphenated, plural",
 			"cubic metres": "plural",
-			"cubic-meter":  "US spelling, hyphenated",
-			"cubic-meters": "US spelling, hyphenated, plural",
-			"cubic meter":  "US spelling",
-			"cubic meters": "US spelling, plural",
+			"cubic-meter":  "US spelling, hyphenated",         //nolint:misspell
+			"cubic-meters": "US spelling, hyphenated, plural", //nolint:misspell
+			"cubic meter":  "US spelling",                     //nolint:misspell
+			"cubic meters": "US spelling, plural",             //nolint:misspell
 		},
 		"", "",
 	},
@@ -98,15 +98,15 @@ var volumeNames = map[string]Unit{
 			"cubic-centimetres": "hyphenated, plural",
 			"cubic centimetre":  "full name",
 			"cubic centimetres": "full name, plural",
-			"cubic-centimeter":  "full name, US spelling, hyphenated",
-			"cubic-centimeters": "full name, US spelling, hyphenated, plural",
-			"cubic centimeter":  "full name, US spelling",
-			"cubic centimeters": "full name, US spelling, plural",
+			"cubic-centimeter":  "full name, US spelling, hyphenated",         //nolint:misspell
+			"cubic-centimeters": "full name, US spelling, hyphenated, plural", //nolint:misspell
+			"cubic centimeter":  "full name, US spelling",                     //nolint:misspell
+			"cubic centimeters": "full name, US spelling, plural",             //nolint:misspell
 
 			"millilitre":  "full name",
 			"millilitres": "full name, plural",
-			"milliliter":  "full name, US spelling",
-			"milliliters": "full name, US spelling, plural",
+			"milliliter":  "full name, US spelling",         //nolint:misspell
+			"milliliters": "full name, US spelling, plural", //nolint:misspell
 		},
 		"", "",
 	},
@@ -136,8 +136,8 @@ var volumeNames = map[string]Unit{
 		map[string]string{
 			"l":      "abbreviation",
 			"litres": "plural",
-			"liter":  "US spelling",
-			"liters": "US spelling, plural",
+			"liter":  "US spelling",         //nolint:misspell
+			"liters": "US spelling, plural", //nolint:misspell
 		},
 		"", "",
 	},
@@ -191,10 +191,10 @@ var volumeNames = map[string]Unit{
 			"cubic kilometres": "plural",
 			"cubic-kilometre":  "hyphenated",
 			"cubic-kilometres": "hyphenated, plural",
-			"cubic-kilometer":  "US spelling, hyphenated",
-			"cubic-kilometers": "US spelling, hyphenated, plural",
-			"cubic kilometer":  "US spelling",
-			"cubic kilometers": "US spelling, plural",
+			"cubic-kilometer":  "US spelling, hyphenated",         //nolint:misspell
+			"cubic-kilometers": "US spelling, hyphenated, plural", //nolint:misspell
+			"cubic kilometer":  "US spelling",                     //nolint:misspell
+			"cubic kilometers": "US spelling, plural",             //nolint:misspell
 		},
 		"", "",
 	},

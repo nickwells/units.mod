@@ -22,10 +22,10 @@ var areaNames = map[string]Unit{
 			"square metres": "plural",
 			"square-metre":  "hyphenated",
 			"square-metres": "hyphenated, plural",
-			"square-meter":  "US spelling, hyphenated",
-			"square meter":  "US spelling",
-			"square-meters": "US spelling, hyphenated, plural",
-			"square meters": "US spelling, plural",
+			"square-meter":  "US spelling, hyphenated",         //nolint:misspell
+			"square meter":  "US spelling",                     //nolint:misspell
+			"square-meters": "US spelling, hyphenated, plural", //nolint:misspell
+			"square meters": "US spelling, plural",             //nolint:misspell
 		},
 		"", "",
 	},
@@ -73,11 +73,11 @@ var areaNames = map[string]Unit{
 		map[string]string{
 			"square kilometres": "plural",
 			"square-kilometre":  "hyphenated",
-			"square-kilometer":  "US spelling, hyphenated",
-			"square kilometer":  "US spelling",
+			"square-kilometer":  "US spelling, hyphenated", //nolint:misspell
+			"square kilometer":  "US spelling",             //nolint:misspell
 			"square-kilometres": "hyphenated, plural",
-			"square-kilometers": "US spelling, hyphenated, plural",
-			"square kilometers": "US spelling, plural",
+			"square-kilometers": "US spelling, hyphenated, plural", //nolint:misspell
+			"square kilometers": "US spelling, plural",             //nolint:misspell
 		},
 		"", "",
 	},

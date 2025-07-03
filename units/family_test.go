@@ -90,6 +90,7 @@ func TestValidUnits(t *testing.T) {
 
 func TestGetFamily(t *testing.T) {
 	const badFamilyName = "no-such-family"
+
 	badFamilyNameErr := `there is no unit family called "` + badFamilyName + `"`
 	testCases := []struct {
 		testhelper.ID

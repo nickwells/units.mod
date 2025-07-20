@@ -654,4 +654,28 @@ var distanceNames = map[string]Unit{
 		map[string]string{},
 		"", "",
 	},
+	"smoot": {
+		0, 0, 1.7018,
+		distanceFamily,
+		"smoot",
+		"smoot",
+		"smoots",
+		"a colloquial term referencing the height of Oliver Smoot." +
+			" Smoot was a freshman at MIT (a university in Boston, USA)" +
+			" and in October 1958, as an initiation challenge for the" +
+			" Lambda Chi Alpha fraternity he was tasked with measuring" +
+			" the Harvard Bridge using his own height. A plaque on the" +
+			" bridge's north side commemorates the event and the Smoot" +
+			" markings are periodically repainted." +
+			"\n\n" +
+			"After leaving university he went on" +
+			" to work in standards within the technology sector. He" +
+			" served as chairman of the American National Standards" +
+			" Institute (ANSI) from 2001 to 2002 and as president of the" +
+			" International Organisation for Standards (OSI) from 2003 to" +
+			" 2005.",
+		[]Tag{TagColloquial},
+		map[string]string{},
+		"", "",
+	},
 }

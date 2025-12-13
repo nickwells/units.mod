@@ -46,8 +46,11 @@ var tags = map[Tag]string{
 		" and other Commonwealth countries." +
 		" It is now mostly replaced by the metric system." +
 		" It is similar to the system used in the United States" +
-		" though it differs in some values." +
-		" It was first defined in the British Weights and Measures Act 1824.",
+		" though it differs in some values, particularly units of volume." +
+		" It was first defined in the British Weights and Measures Act 1824." +
+		" This came into official use across the British Empire in 1826." +
+		" It replaced the Winchester Standards which were in effect from" +
+		" 1588 to 1825.",
 	TagUScustomary: "a United States customary unit." +
 		" The units are derived from the English units" +
 		" used in the British Empire before American independence" +

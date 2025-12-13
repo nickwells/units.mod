@@ -231,6 +231,21 @@ var volumeNames = map[string]Unit{
 		"", "",
 	},
 
+	"anker": {
+		0, 0, 0.03785411784,
+		volumeFamily,
+		"anker", "anker", "ankers",
+		"a measure of volume for wine or brandy. Originally a Dutch unit" +
+			" it was equal to 10 US gallons and was used in Colonial era" +
+			" New York and New Jersey thanks to the Dutch settlement of" +
+			" New Amsterdam which was later renamed New York. Note that" +
+			" other European countries had their own equivalents of this" +
+			" unit varying between 34 and 42 litres.",
+		[]Tag{TagDrinks, TagHist},
+		map[string]string{},
+		"", "",
+	},
+
 	// bottle
 	"bottle-wine": {
 		0, 0, bottleToCubicMetre,
@@ -417,7 +432,11 @@ var volumeNames = map[string]Unit{
 			" 10 pounds of water at 62°F" +
 			" meaning that a fluid ounce weighed an ounce.",
 		[]Tag{TagImperial, TagApothecary},
-		map[string]string{},
+		map[string]string{
+			"fluid ounce":  "without the hyphen",
+			"fluid-ounces": "plural",
+			"fluid ounces": "plural, without the hyphen",
+		},
 		"", "",
 	},
 	"gill": {
@@ -447,7 +466,9 @@ var volumeNames = map[string]Unit{
 		"qt", "quart", "quarts",
 		"40 imperial fluid ounces (2 pints).",
 		[]Tag{TagImperial},
-		map[string]string{},
+		map[string]string{
+			"quarts": "plural",
+		},
 		"", "",
 	},
 	"gallon": {
@@ -456,7 +477,9 @@ var volumeNames = map[string]Unit{
 		"gal", "gallon", "gallons",
 		"160 imperial fluid ounces (4 quarts).",
 		[]Tag{TagImperial},
-		map[string]string{},
+		map[string]string{
+			"gallons": "plural",
+		},
 		"", "",
 	},
 
@@ -493,7 +516,9 @@ var volumeNames = map[string]Unit{
 		"barrel", "barrel", "barrels",
 		"36 imperial gallons (288 imperial pints).",
 		[]Tag{TagDrinks},
-		map[string]string{},
+		map[string]string{
+			"barrels": "plural",
+		},
 		"", "",
 	},
 	"hogshead": {
@@ -560,7 +585,7 @@ var volumeNames = map[string]Unit{
 		0, 0, 20 * m * litreToCubicMetre,
 		volumeFamily,
 		"Tbsp", "tablespoon", "tablespoons",
-		"A slightly larger Australian version.",
+		"A slightly (33%) larger Australian version.",
 		[]Tag{TagMetric, TagColloquial},
 		map[string]string{},
 		"", "",
@@ -579,6 +604,9 @@ var volumeNames = map[string]Unit{
 			"US-teaspoon":  "hyphenated",
 			"US-teaspoons": "hyphenated, plural",
 			"US teaspoon":  "plural",
+			"us-teaspoon":  "hyphenated, lower-case",
+			"us-teaspoons": "hyphenated, plural, lower-case",
+			"us teaspoon":  "plural, lower-case",
 		},
 		"", "",
 	},
@@ -594,7 +622,10 @@ var volumeNames = map[string]Unit{
 		map[string]string{
 			"US-tablespoon":  "hyphenated",
 			"US-tablespoons": "hyphenated, plural",
-			"US tablespoon":  "plural",
+			"us-tablespoon":  "hyphenated, lower-case",
+			"us-tablespoons": "hyphenated, plural, lower-case",
+			"us tablespoon":  "lower-case",
+			"us tablespoons": "plural, lower-case",
 		},
 		"", "",
 	},
@@ -605,10 +636,19 @@ var volumeNames = map[string]Unit{
 		"US fl oz", "US fluid ounce", "US fluid ounces",
 		"The US fluid ounce is defined as 1/128 of a US gallon" +
 			" which is based on the wine gallon of 231 cubic inches" +
-			" which was used in the UK prior to the adoption of" +
-			" the imperial system after 1824.",
+			" which was used in the UK prior to the" +
+			" Weights and Measures Act 1824. The system came into" +
+			" official use across the British Empire in 1826,",
 		[]Tag{TagUScustomary},
-		map[string]string{},
+		map[string]string{
+			"US fluid ounce":  "unhyphenated",
+			"US-fluid-ounces": "plural",
+			"US fluid ounces": "unhyphenated, plural",
+			"us-fluid-ounce":  "hyphenated, lower-case",
+			"us-fluid-ounces": "hyphenated, plural, lower-case",
+			"us fluid ounce":  "unhyphenated, lower-case",
+			"us fluid ounces": "unhyphenated, plural, lower-case",
+		},
 		"", "",
 	},
 	"US-shot": {
@@ -647,7 +687,15 @@ var volumeNames = map[string]Unit{
 		"US pt", "US pint", "US pints",
 		"16 US fluid ounces.",
 		[]Tag{TagUScustomary},
-		map[string]string{},
+		map[string]string{
+			"US pint":  "unhyphenated",
+			"us-pint":  "lowercase",
+			"us pint":  "lowercase, unhyphenated",
+			"US-pints": "plural",
+			"US pints": "plural, unhyphenated",
+			"us-pints": "plural, lowercase",
+			"us pints": "plural, lowercase, unhyphenated",
+		},
 		"", "",
 	},
 	"US-quart": {
@@ -656,7 +704,15 @@ var volumeNames = map[string]Unit{
 		"US qt", "US quart", "US quarts",
 		"32 US fluid ounces.",
 		[]Tag{TagUScustomary},
-		map[string]string{},
+		map[string]string{
+			"US quart":  "unhyphenated",
+			"us-quart":  "lowercase",
+			"us quart":  "lowercase, unhyphenated",
+			"US-quarts": "plural",
+			"US quarts": "plural, unhyphenated",
+			"us-quarts": "plural, lowercase",
+			"us quarts": "plural, lowercase, unhyphenated",
+		},
 		"", "",
 	},
 	"US-gallon": {
@@ -667,7 +723,13 @@ var volumeNames = map[string]Unit{
 		[]Tag{TagUScustomary},
 		map[string]string{
 			"US-wet-gallon": "",
-			"US gallon":     "no hyphen",
+			"US gallon":     "unhyphenated",
+			"us-gallon":     "lowercase",
+			"us gallon":     "lowercase, unhyphenated",
+			"US-gallons":    "plural",
+			"US gallons":    "plural, unhyphenated",
+			"us-gallons":    "plural, lowercase",
+			"us gallons":    "plural, lowercase, unhyphenated",
 		},
 		"", "",
 	},

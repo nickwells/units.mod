@@ -33,6 +33,7 @@ var degCUnit = Unit{
 		"degrees Celsius": "full name, with degree, plural",
 		"Centigrade":      "alternative name",
 		"c":               "lower-case",
+		"celsius":         "full name, lower-case",
 	},
 	"", "",
 }
@@ -52,6 +53,8 @@ var degKUnit = Unit{
 		"Kelvin":         "full name",
 		"degree Kelvin":  "full name, with degree",
 		"degrees Kelvin": "full name, with degree, plural",
+		"kelvin":         "full name, lower-case",
+		"k":              "lower-case",
 	},
 	"", "",
 }
@@ -73,6 +76,9 @@ var degFUnit = Unit{
 		"Fahrenheit":         "full name",
 		"degree Fahrenheit":  "full name, with degree",
 		"degrees Fahrenheit": "full name, with degree, plural",
+		"farenheit":          "name, misspelt, lower-case", //nolint:misspell
+		"Farenheit":          "name, misspelt",             //nolint:misspell
+		"fahrenheit":         "full name, lower-case",
 		"f":                  "lower-case",
 	},
 	"", "",

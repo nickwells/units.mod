@@ -450,7 +450,23 @@ var distanceNames = map[string]Unit{
 		"ftm", "fathom", "fathoms",
 		"an imperial measure of distance equal to two yards.",
 		[]Tag{TagImperial, TagNautical},
-		map[string]string{},
+		map[string]string{
+			"fathoms": "plural",
+		},
+		"", "",
+	},
+	"cable": {
+		0, 0, nauticalMileToMetre / 10,
+		distanceFamily,
+		"cable", "cable", "cables",
+		"an imperial measure of distance equal to" +
+			" one tenth of a nautical mile." +
+			" Historically it derives from the length of" +
+			" a ship's anchor cable.",
+		[]Tag{TagImperial, TagNautical},
+		map[string]string{
+			"cables": "plural",
+		},
 		"", "",
 	},
 	"nautical-mile": {

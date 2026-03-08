@@ -542,10 +542,13 @@ var distanceNames = map[string]Unit{
 	"astro-unit": {
 		0, 0, 1.495978707e11,
 		distanceFamily,
-		"AU", "Astronomical Unit", "Astronomical Units",
+		"au", "Astronomical Unit", "Astronomical Units",
 		"the mean distance from the centre of the Earth" +
 			" to the centre of the sun. In 2012 it was" +
-			" defined to have the value given here",
+			" defined to have the value given here." +
+			" The abbreviation used here is as recommended" +
+			" by the International Astronomical Union at" +
+			" their XXVII General Assembly",
 		[]Tag{TagAstro},
 		map[string]string{
 			"AU":                 "abbreviation",
@@ -601,7 +604,7 @@ var distanceNames = map[string]Unit{
 			" in one nanosecond. Also known as Mermin's foot.",
 		[]Tag{TagColloquial},
 		map[string]string{},
-		"", "",
+		"Mermin's foot", "",
 	},
 
 	// printing

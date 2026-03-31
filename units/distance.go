@@ -260,9 +260,7 @@ var distanceNames = map[string]Unit{
 		distanceFamily,
 		"lnk", "link", "links",
 		"an imperial measure of length, derived from Gunter's chain" +
-			" - a metal chain 66 feet long with 100 links." +
-			" Edmund Gunter (1581-1626) was an English clergyman," +
-			" mathematician, geometer and astronomer.",
+			" there being 100 links in the chain.",
 		[]Tag{TagHist},
 		map[string]string{},
 		"", "",
@@ -390,7 +388,12 @@ var distanceNames = map[string]Unit{
 		0, 0, rodToMetre * 4,
 		distanceFamily,
 		"ch", "chain", "chains",
-		"an imperial measure of length - four rods.",
+		"an imperial measure of length - four rods." +
+			"\n\n" +
+			"Gunter's chain was" +
+			" a metal chain 66 feet long with 100 links." +
+			" Edmund Gunter (1581-1626) was an English clergyman," +
+			" mathematician, geometer and astronomer.",
 		[]Tag{TagImperial},
 		map[string]string{},
 		"", "",

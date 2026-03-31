@@ -1,7 +1,14 @@
 package units
 
+import "math"
+
 // bunDistance is the base unit name for distance
 const bunDistance = "metre"
+
+const (
+	astronomicalUnitMetres = 1.495_978_707e11
+	parsecMetres           = 648_000 * astronomicalUnitMetres / math.Pi
+)
 
 // distanceFamily represents the base unit of distance
 var distanceFamily = &Family{
@@ -540,7 +547,7 @@ var distanceNames = map[string]Unit{
 
 	// astronomical
 	"astro-unit": {
-		0, 0, 1.495978707e11,
+		0, 0, astronomicalUnitMetres,
 		distanceFamily,
 		"au", "Astronomical Unit", "Astronomical Units",
 		"the mean distance from the centre of the Earth" +
@@ -561,14 +568,62 @@ var distanceNames = map[string]Unit{
 		"", "",
 	},
 	"parsec": {
-		0, 0, 3.08567758767931e16,
+		0, 0, parsecMetres,
 		distanceFamily,
 		"pc", "parsec", "parsecs",
 		"the distance at which one astronomical unit" +
-			" subtends an angle of one second of arc.",
+			" subtends an angle of one second of arc." +
+			"\n\n" +
+			"The term was coined in 1913 by the British astronomer" +
+			" Herbert Hall Turner as a contraction of" +
+			` "parallax of one arc second".` +
+			"\n\n" +
+			" In 2015, the International Astronomical Union" +
+			" passed resolution B2 which explicitly defined" +
+			" the parsec in terms of the astronomical unit." +
+			" The definition gave it as being precisely" +
+			"\n" +
+			"648000/π au",
 		[]Tag{TagAstro},
 		map[string]string{
 			"parsecs": "plural",
+			"pc":      "abbreviation",
+		},
+		"", "",
+	},
+	"kiloparsec": {
+		0, 0, parsecMetres * k,
+		distanceFamily,
+		"kpc", "kiloparsec", "kiloparsecs",
+		"a thousand parsecs",
+		[]Tag{TagAstro},
+		map[string]string{
+			"kiloparsecs": "plural",
+			"kpc":         "abbreviation",
+		},
+		"", "",
+	},
+	"megaparsec": {
+		0, 0, parsecMetres * _M,
+		distanceFamily,
+		"Mpc", "megaparsec", "megaparsecs",
+		"a million (10^6) parsecs",
+		[]Tag{TagAstro},
+		map[string]string{
+			"megaparsecs": "plural",
+			"Mpc":         "abbreviation",
+		},
+		"", "",
+	},
+	"gigaparsec": {
+		0, 0, parsecMetres * _G,
+		distanceFamily,
+		"Gpc", "gigaparsec", "gigaparsecs",
+		"a billion (10^9) parsecs",
+		[]Tag{TagAstro},
+		map[string]string{
+			"gigaparsecs": "plural",
+			"Gpc":         "abbreviation",
 		},
 		"", "",
 	},

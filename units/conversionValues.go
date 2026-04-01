@@ -65,6 +65,7 @@ const (
 // distance
 
 const (
+	// Imperial conversions
 	inchToMetre = 0.0254
 	footToMetre = inchToMetre * 12
 	yardToMetre = footToMetre * 3
@@ -79,6 +80,10 @@ const (
 	speedOfLight = lightSecond  // metres / second
 
 	pointToMetre = 0.0003528
+
+	// astronomical conversions
+	astronomicalUnitToMetre = 1.495_978_707e11
+	parsecToMetre           = 180 * 60 * 60 * astronomicalUnitToMetre / math.Pi
 
 	// Note that the length of a TEU (a Twenty-foot Equivalent Unit or
 	// Shipping Container) is not twenty feet. See the unit declaration for

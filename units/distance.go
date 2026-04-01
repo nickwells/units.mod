@@ -1,14 +1,7 @@
 package units
 
-import "math"
-
 // bunDistance is the base unit name for distance
 const bunDistance = "metre"
-
-const (
-	astronomicalUnitMetres = 1.495_978_707e11
-	parsecMetres           = 648_000 * astronomicalUnitMetres / math.Pi
-)
 
 // distanceFamily represents the base unit of distance
 var distanceFamily = &Family{
@@ -550,7 +543,7 @@ var distanceNames = map[string]Unit{
 
 	// astronomical
 	"astro-unit": {
-		0, 0, astronomicalUnitMetres,
+		0, 0, astronomicalUnitToMetre,
 		distanceFamily,
 		"au", "Astronomical Unit", "Astronomical Units",
 		"the mean distance from the centre of the Earth" +
@@ -571,7 +564,7 @@ var distanceNames = map[string]Unit{
 		"", "",
 	},
 	"parsec": {
-		0, 0, parsecMetres,
+		0, 0, parsecToMetre,
 		distanceFamily,
 		"pc", "parsec", "parsecs",
 		"the distance at which one astronomical unit" +
@@ -595,7 +588,7 @@ var distanceNames = map[string]Unit{
 		"", "",
 	},
 	"kiloparsec": {
-		0, 0, parsecMetres * k,
+		0, 0, parsecToMetre * k,
 		distanceFamily,
 		"kpc", "kiloparsec", "kiloparsecs",
 		"a thousand parsecs",
@@ -607,7 +600,7 @@ var distanceNames = map[string]Unit{
 		"", "",
 	},
 	"megaparsec": {
-		0, 0, parsecMetres * _M,
+		0, 0, parsecToMetre * _M,
 		distanceFamily,
 		"Mpc", "megaparsec", "megaparsecs",
 		"a million (10^6) parsecs",
@@ -619,7 +612,7 @@ var distanceNames = map[string]Unit{
 		"", "",
 	},
 	"gigaparsec": {
-		0, 0, parsecMetres * _G,
+		0, 0, parsecToMetre * _G,
 		distanceFamily,
 		"Gpc", "gigaparsec", "gigaparsecs",
 		"a billion (10^9) parsecs",

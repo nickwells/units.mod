@@ -11,11 +11,11 @@ import (
 // base unit is the unit in terms of which any conversion factors are
 // defined.
 //
-// To get a Family value you should use the GetFamily func (or
-// GetFamilyOrPanic) passing a Family name chosen ideally from the constant
+// To get a Family value you should use the [GetFamily] func (or
+// [GetFamilyOrPanic]) passing a Family name chosen ideally from the constant
 // values provided.
 //
-// For testing purposes the SampleFamily and BadStandardFamily values are
+// For testing purposes the [SampleFamily] and [BadStandardFamily] values are
 // provided.
 type Family struct {
 	baseUnitName  string
@@ -162,19 +162,19 @@ func init() {
 // Family name is not found.
 //
 // You are advised to use the constant Family names provided.
-func GetFamily(name string) (*Family, error) {
-	f, ok := unitFamilies[name]
+func GetFamily(fName string) (*Family, error) {
+	f, ok := unitFamilies[fName]
 	if !ok {
-		alias, ok := familyAlias[name]
+		alias, ok := familyAlias[fName]
 		if !ok {
-			return nil, fmt.Errorf("there is no unit family called %q", name)
+			return nil, fmt.Errorf("there is no unit family called %q", fName)
 		}
 
 		f, ok = unitFamilies[alias]
 		if !ok {
 			return nil,
 				fmt.Errorf("there is no unit family called %q (alias: %q)",
-					name, alias)
+					fName, alias)
 		}
 	}
 
@@ -183,8 +183,8 @@ func GetFamily(name string) (*Family, error) {
 
 // GetFamilyOrPanic returns the named Family. It panics if the Family name is
 // not found.
-func GetFamilyOrPanic(name string) *Family {
-	f, err := GetFamily(name)
+func GetFamilyOrPanic(fName string) *Family {
+	f, err := GetFamily(fName)
 	if err != nil {
 		panic(err)
 	}
@@ -220,37 +220,37 @@ func GetFamilyNames() []string {
 
 // GetUnit gets the named unit from the UnitDetails. A non-nil error is
 // returned if the name is not found.
-func (f *Family) GetUnit(name string) (Unit, error) {
-	u, ok := f.altUnits[name]
+func (f *Family) GetUnit(uName string) (Unit, error) {
+	u, ok := f.altUnits[uName]
 	if ok {
-		u.id = name
+		u.id = uName
 		return u, nil
 	}
 
-	alias := name
+	alias := uName
 
-	name, ok = f.unitAliases[alias]
+	uName, ok = f.unitAliases[alias]
 	if !ok {
 		return u, fmt.Errorf("there is no %s called %q",
 			f.description, alias)
 	}
 
-	u, ok = f.altUnits[name]
+	u, ok = f.altUnits[uName]
 	if !ok {
 		return u, fmt.Errorf("there is no %s called %q (%q)",
-			f.description, alias, name)
+			f.description, alias, uName)
 	}
 
 	u.alias = alias
-	u.id = name
+	u.id = uName
 
 	return u, nil
 }
 
 // GetUnitOrPanic will call GetUnit and check the error returned. If the
 // error is non-nil it will panic, otherwise it will return the Unit.
-func (f *Family) GetUnitOrPanic(name string) Unit {
-	u, err := f.GetUnit(name)
+func (f *Family) GetUnitOrPanic(uName string) Unit {
+	u, err := f.GetUnit(uName)
 	if err != nil {
 		panic(err)
 	}
@@ -288,4 +288,28 @@ func (f *Family) GetUnitAliases() []string {
 // Family.
 func (f *Family) FamilyAliases() []string {
 	return f.familyAliases
+}
+
+// Get returns the [Unit] with the given uName from the [Family] with the
+// given fName. It returns an appropriate error if either the [Family] or the
+// [Unit] are not found.
+func Get(fName, uName string) (Unit, error) {
+	f, err := GetFamily(fName)
+	if err != nil {
+		return Unit{}, err
+	}
+
+	return f.GetUnit(uName)
+}
+
+// GetOrPanic returns the [Unit] with the given uName from the [Family] with the
+// given fName. It panics if either the [Family] or the
+// [Unit] are not found.
+func GetOrPanic(fName, uName string) Unit {
+	u, err := Get(fName, uName)
+	if err != nil {
+		panic(err)
+	}
+
+	return u
 }

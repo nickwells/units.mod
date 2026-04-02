@@ -228,7 +228,7 @@ var distanceNames = map[string]Unit{
 	"barleycorn": {
 		0, 0, inchToMetre / 3.0,
 		distanceFamily,
-		"in", "inch", "inches",
+		"barleycorn", "barleycorn", "barleycorns",
 		"a non-metric UK measure of distance. This was defined in" +
 			" the 'Composition of Yards and Perches' an English" +
 			" statute from between 1266-1303.",

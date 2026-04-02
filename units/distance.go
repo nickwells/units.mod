@@ -82,7 +82,12 @@ var distanceNames = map[string]Unit{
 		distanceFamily,
 		"nm", "nanometre", "nanometres", "a metric measure of distance.",
 		[]Tag{TagSI, TagMetric},
-		map[string]string{},
+		map[string]string{
+			"nanometre":  "",
+			"nanometres": "plural",
+			"nanometer":  "US spelling",         //nolint:misspell
+			"nanometers": "US spelling, plural", //nolint:misspell
+		},
 		"", "",
 	},
 	"um": {
@@ -90,7 +95,12 @@ var distanceNames = map[string]Unit{
 		distanceFamily,
 		"µm", "micrometre", "micrometres", "a metric measure of distance.",
 		[]Tag{TagSI, TagMetric},
-		map[string]string{},
+		map[string]string{
+			"micrometre":  "",
+			"micrometres": "plural",
+			"micrometer":  "US spelling",         //nolint:misspell
+			"micrometers": "US spelling, plural", //nolint:misspell
+		},
 		"", "",
 	},
 	"mm": {
@@ -100,8 +110,8 @@ var distanceNames = map[string]Unit{
 		[]Tag{TagSI, TagMetric},
 		map[string]string{
 			"millimetre":  "",
-			"millimeter":  "US spelling", //nolint:misspell
 			"millimetres": "plural",
+			"millimeter":  "US spelling",         //nolint:misspell
 			"millimeters": "US spelling, plural", //nolint:misspell
 		},
 		"", "",
@@ -113,8 +123,8 @@ var distanceNames = map[string]Unit{
 		[]Tag{TagSI, TagMetric},
 		map[string]string{
 			"centimetre":  "",
-			"centimeter":  "US spelling", //nolint:misspell
 			"centimetres": "plural",
+			"centimeter":  "US spelling",         //nolint:misspell
 			"centimeters": "US spelling, plural", //nolint:misspell
 		},
 		"", "",
@@ -164,7 +174,10 @@ var distanceNames = map[string]Unit{
 		"mym", "myriametre", "myriametres",
 		"an obsolete metric measure of distance.",
 		[]Tag{TagSI, TagMetric, TagHist},
-		map[string]string{},
+		map[string]string{
+			"myriametre":  "",
+			"myriametres": "plural",
+		},
 		"", "",
 	},
 	"Mm": {
@@ -453,6 +466,8 @@ var distanceNames = map[string]Unit{
 		},
 		"", "",
 	},
+
+	// nautical
 	"nautical league": {
 		0, 0, nauticalMileToMetre * 3,
 		distanceFamily,

@@ -95,7 +95,11 @@ var velocityNames = map[string]Unit{
 			" less than 0.02% (presumably much less than any errors in" +
 			" the measurements).",
 		[]Tag{TagImperial, TagUScustomary, TagNautical},
-		map[string]string{},
+		map[string]string{
+			"kt":    "an alternative abbreviation",
+			"knot":  "",
+			"knots": "plural",
+		},
 		"", "",
 	},
 }

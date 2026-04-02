@@ -17,7 +17,16 @@ var distanceNames = map[string]Unit{
 		0, 0, 1,
 		distanceFamily,
 		"m", bunDistance, "metres",
-		"The base unit of distance in the SI (metric) system.",
+		"The base unit of distance in the SI (metric) system." +
+			" It was originally defined in 1791 by the" +
+			" French National Assembly to be one ten millionth" +
+			" of the distance from the equator to the" +
+			" North Pole along a great circle passing through Paris." +
+			"\n\n" +
+			"Since 2019 it has been" +
+			" defined in terms of the speed of light meaning" +
+			" that the metre is measured in terms of the" +
+			" speed of light not the other way round.",
 		[]Tag{TagSI, TagMetric},
 		map[string]string{
 			"m":      "",
@@ -367,13 +376,20 @@ var distanceNames = map[string]Unit{
 		"an imperial measure of length, originally equal to 5 yards" +
 			" it was redefined as 5.5 yards when England moved from" +
 			" the North German to the shorter standard foot in the" +
-			" late 13th century" +
-			" Note that a rod can also be a measure of area" +
+			" late 13th century. It was standardised as a survey measure" +
+			" by Edmund Gunter in 1607 as a quarter of a chain." +
+			"\n\n" +
+			"It is also known as a perch or pole and in some English" +
+			" dialects as a lug." +
+			"\n\n" +
+			"Note that a rod can also be a measure of area" +
 			" under certain circumstances.",
 		[]Tag{TagImperial},
 		map[string]string{
 			"perch": "sometimes also a unit of area or volume",
 			"pole":  "",
+			"poles": "plural",
+			"rods":  "plural",
 		},
 		"", "",
 	},
@@ -477,10 +493,19 @@ var distanceNames = map[string]Unit{
 		distanceFamily,
 		"M", "nautical mile", "nautical miles",
 		"formerly one minute (1/60th of a degree) of latitude" +
-			" around any line of latitude, now formally defined" +
+			" around any line of latitude. The metre was originally" +
+			" defined (in 1791) to be one ten-millionth of" +
+			" a quarter meridian." +
+			" This gave a value for a nautical mile of" +
+			" 10,000,000/(90*60) or 1851.85 metres." +
+			" In 1929 it was formally defined at the" +
+			" First International Extraordinary Hydrographic Conference" +
 			" to have the value given here.",
 		[]Tag{TagImperial, TagNautical},
-		map[string]string{},
+		map[string]string{
+			"nautical mile":  "",
+			"nautical miles": "",
+		},
 		"", "",
 	},
 	"nautical-mile (US)": {

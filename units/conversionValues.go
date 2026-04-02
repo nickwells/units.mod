@@ -122,9 +122,9 @@ const absZero = 273.15
 // time
 
 const (
-	minToSec  = 60
-	hourToSec = minToSec * 60
-	dayToSec  = hourToSec * 24
+	minToSec  = 60.0
+	hourToSec = minToSec * 60.0
+	dayToSec  = hourToSec * 24.0
 )
 
 // volume

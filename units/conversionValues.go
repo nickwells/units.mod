@@ -140,3 +140,13 @@ const (
 	usFluidOzToCubicMetre   = 29.5735295625e-6
 	usDryGallonToCubicMetre = 4.40488377086e-3
 )
+
+// pressure
+
+const (
+	atmosphereToPascal = 101_325
+	barToPascal        = 100_000
+	psiToPascal        = 6_894.757_293
+	mmHgToPascal       = 133.322_387_415
+	torrToPascal       = atmosphereToPascal / 760.0
+)

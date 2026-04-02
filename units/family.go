@@ -60,10 +60,13 @@ const (
 	Time          = "time"
 	Data          = "data"
 	Distance      = "distance"
+	Length        = "distance"
 	Area          = "area"
 	Volume        = "volume"
 	Velocity      = "velocity"
+	Speed         = "velocity" // a synonym (ish)
 	Mass          = "mass"
+	Pressure      = "pressure"
 	Temperature   = "temperature"
 	Angle         = "angle"
 	Energy        = "energy"
@@ -78,6 +81,7 @@ var unitFamilies = map[string]*Family{
 	volumeFamily.name:      volumeFamily,
 	velocityFamily.name:    velocityFamily,
 	massFamily.name:        massFamily,
+	pressureFamily.name:    pressureFamily,
 	temperatureFamily.name: temperatureFamily,
 	angleFamily.name:       angleFamily,
 	energyFamily.name:      energyFamily,
@@ -148,6 +152,7 @@ func init() {
 	volumeFamily.altUnits = volumeNames
 	velocityFamily.altUnits = velocityNames
 	massFamily.altUnits = massNames
+	pressureFamily.altUnits = pressureNames
 	temperatureFamily.altUnits = temperatureNames
 	angleFamily.altUnits = angleNames
 	energyFamily.altUnits = energyNames

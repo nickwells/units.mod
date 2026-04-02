@@ -29,7 +29,7 @@ var velocityNames = map[string]Unit{
 	},
 
 	"kilometre/hour": {
-		0, 0, 1000.0 / 3600.0,
+		0, 0, k / hourToSec,
 		velocityFamily,
 		"km/h", "kilometre/hour", "kilometres/hour",
 		"a metric measure of velocity.",
@@ -57,7 +57,7 @@ var velocityNames = map[string]Unit{
 		"", "",
 	},
 	"mile/hour": {
-		0, 0, mileToMetre / 3600.0,
+		0, 0, mileToMetre / hourToSec,
 		velocityFamily,
 		"mph", "mile/hour", "miles/hour",
 		"an imperial measure of velocity.",
@@ -79,7 +79,7 @@ var velocityNames = map[string]Unit{
 		"", "",
 	},
 	"knot": {
-		0, 0, nauticalMileToMetre / 3600.0,
+		0, 0, nauticalMileToMetre / hourToSec,
 		velocityFamily,
 		"kn", "knot", "knots",
 		"an imperial measure of velocity." +

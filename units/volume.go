@@ -733,11 +733,46 @@ var volumeNames = map[string]Unit{
 		},
 		"", "",
 	},
-	"barrel-oil": {
+	"bbl": {
 		0, 0, usFluidOzToCubicMetre * 128 * 42,
 		volumeFamily,
-		"bbl(oil)", "oil barrel", "oil barrels",
-		"42 US gallons.",
+		"bbl", "barrel of oil", "barrels of oil",
+		"42 US gallons. The abbreviation (bbl) stands for \"blue barrel\"." +
+			" This is so named because in the 19th century" +
+			" the American company. Standard Oil," +
+			" shipped their oil in blue barrels",
+		[]Tag{TagUScustomary},
+		map[string]string{
+			"barrel-oil": "alternative",
+			"barrel oil": "alternative, unhyphenated",
+			"oil-barrel": "alternative",
+			"oil barrel": "alternative, unhyphenated",
+		},
+		"", "",
+	},
+	"Mbbl": {
+		0, 0, usFluidOzToCubicMetre * 128 * 42 * 1000,
+		volumeFamily,
+		"Mbbl", "thousand barrels of oil", "thousands of barrels of oil",
+		"Here the M stands for mille (a thousand)",
+		[]Tag{TagUScustomary},
+		map[string]string{},
+		"", "",
+	},
+	"MMbbl": {
+		0, 0, usFluidOzToCubicMetre * 128 * 42 * 1000 * 1000,
+		volumeFamily,
+		"MMbbl", "million barrels of oil", "millions of barrels of oil",
+		"Here the MM stands for mille-mille (1000x1000, a million)",
+		[]Tag{TagUScustomary},
+		map[string]string{},
+		"", "",
+	},
+	"Gbbl": {
+		0, 0, usFluidOzToCubicMetre * 128 * 42 * 1000 * 1000 * 1000,
+		volumeFamily,
+		"Gbbl", "billion barrels of oil", "billions of barrels of oil",
+		"Here the G represents the standard Giga prefix",
 		[]Tag{TagUScustomary},
 		map[string]string{},
 		"", "",

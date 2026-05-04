@@ -125,6 +125,8 @@ const (
 	minToSec  = 60.0
 	hourToSec = minToSec * 60.0
 	dayToSec  = hourToSec * 24.0
+
+	daysPerGregorianYear = 365.2425
 )
 
 // volume

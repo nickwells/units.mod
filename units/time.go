@@ -151,7 +151,7 @@ var timeNames = map[string]Unit{
 		"", "",
 	},
 	"Gregorian year": {
-		0, 0, 365.2425 * dayToSec,
+		0, 0, daysPerGregorianYear * dayToSec,
 		timeFamily,
 		"year", "Gregorian Year", "Gregorian Years",
 		"Introduced by Pope Gregory XIII in October 1582." +

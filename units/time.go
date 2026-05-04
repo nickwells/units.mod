@@ -191,6 +191,31 @@ var timeNames = map[string]Unit{
 		},
 		"", "",
 	},
+	"century": {
+		0, 0, 100 * daysPerGregorianYear * dayToSec,
+		timeFamily,
+		"century", "century", "centuries",
+		"one hundred Gregorian years." +
+			" The name derives from the Latin word for a hundred",
+		[]Tag{TagColloquial},
+		map[string]string{
+			"centuries": "plural",
+		},
+		"", "",
+	},
+	"millennium": {
+		0, 0, 1000 * daysPerGregorianYear * dayToSec,
+		timeFamily,
+		"millennium", "millennium", "millennia",
+		"one thousand Gregorian years." +
+			" The name derives from the Latin words" +
+			` "mille" (a thousand) and "annum" (a year)`,
+		[]Tag{TagColloquial},
+		map[string]string{
+			"millennia": "plural",
+		},
+		"", "",
+	},
 	"dasec": {
 		0, 0, da, timeFamily, "dasec", "decasecond", "decaseconds", "",
 		[]Tag{TagSI, TagMetric},

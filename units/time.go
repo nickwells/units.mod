@@ -19,9 +19,9 @@ var timeNames = map[string]Unit{
 		"",
 		[]Tag{TagSI},
 		map[string]string{
-			"sec":     "",
+			"sec":     "abbreviated",
 			"seconds": "plural",
-			"secs":    "plural",
+			"secs":    "abbreviated plural",
 		},
 		"", "",
 	},
@@ -29,70 +29,100 @@ var timeNames = map[string]Unit{
 	"ysec": {
 		0, 0, y, timeFamily, "ysec", "yoctosecond", "yoctoseconds", "",
 		[]Tag{TagSI, TagMetric},
-		map[string]string{},
+		map[string]string{
+			"yoctosecond":  "unabbreviated",
+			"yoctoseconds": "unabbreviated plural",
+		},
 		"", "",
 	},
 	"zsec": {
 		0, 0, z, timeFamily, "zsec", "zeptosecond", "zeptoseconds", "",
 		[]Tag{TagSI, TagMetric},
-		map[string]string{},
+		map[string]string{
+			"zeptosecond":  "unabbreviated",
+			"zeptoseconds": "unabbreviated plural",
+		},
 		"", "",
 	},
 	"asec": {
 		0, 0, a, timeFamily, "asec", "attosecond", "attoseconds", "",
 		[]Tag{TagSI, TagMetric},
-		map[string]string{},
+		map[string]string{
+			"attosecond":  "unabbreviated",
+			"attoseconds": "unabbreviated plural",
+		},
 		"", "",
 	},
 	"fsec": {
 		0, 0, f, timeFamily, "fsec", "femtosecond", "femtoseconds", "",
 		[]Tag{TagSI, TagMetric},
-		map[string]string{},
+		map[string]string{
+			"femtosecond":  "unabbreviated",
+			"femtoseconds": "unabbreviated plural",
+		},
 		"", "",
 	},
 	"psec": {
 		0, 0, p, timeFamily, "psec", "picosecond", "picoseconds", "",
 		[]Tag{TagSI, TagMetric},
-		map[string]string{},
+		map[string]string{
+			"picosecond":  "unabbreviated",
+			"picoseconds": "unabbreviated plural",
+		},
 		"", "",
 	},
 	"nsec": {
 		0, 0, n, timeFamily, "nsec", "nanosecond", "nanoseconds", "",
 		[]Tag{TagSI, TagMetric},
-		map[string]string{},
+		map[string]string{
+			"nanosecond":  "unabbreviated",
+			"nanoseconds": "unabbreviated plural",
+		},
 		"", "",
 	},
 	"usec": {
 		0, 0, u, timeFamily, "μsec", "microsecond", "microseconds", "",
 		[]Tag{TagSI, TagMetric},
-		map[string]string{},
+		map[string]string{
+			"microsecond":  "unabbreviated",
+			"microseconds": "unabbreviated plural",
+		},
 		"", "",
 	},
 	"msec": {
 		0, 0, m, timeFamily, "msec", "millisecond", "milliseconds", "",
 		[]Tag{TagSI, TagMetric},
-		map[string]string{},
+		map[string]string{
+			"millisecond":  "unabbreviated",
+			"milliseconds": "unabbreviated plural",
+		},
 		"", "",
 	},
 	"csec": {
 		0, 0, c, timeFamily, "csec", "centisecond", "centiseconds", "",
 		[]Tag{TagSI, TagMetric},
-		map[string]string{},
+		map[string]string{
+			"centisecond":  "unabbreviated",
+			"centiseconds": "unabbreviated plural",
+		},
 		"", "",
 	},
 	"dsec": {
 		0, 0, d, timeFamily, "dsec", "decisecond", "deciseconds", "",
 		[]Tag{TagSI, TagMetric},
-		map[string]string{},
+		map[string]string{
+			"decisecond":  "unabbreviated",
+			"deciseconds": "unabbreviated plural",
+		},
 		"", "",
 	},
 	"minute": {
 		0, 0, minToSec, timeFamily, "min", "minute", "minutes", "",
 		[]Tag{TagSI, TagMetric},
 		map[string]string{
-			"min":     "",
+			"min":     "abbreviated",
 			"minutes": "plural",
-			"mins":    "plural",
+			"mins":    "abbreviated plural",
 		},
 		"", "",
 	},
@@ -100,9 +130,9 @@ var timeNames = map[string]Unit{
 		0, 0, hourToSec, timeFamily, "hr", "hour", "hours", "",
 		[]Tag{TagSI, TagMetric},
 		map[string]string{
-			"hr":    "",
+			"hr":    "abbreviated",
 			"hours": "plural",
-			"hrs":   "plural",
+			"hrs":   "abbreviated plural",
 		},
 		"", "",
 	},
@@ -160,6 +190,7 @@ var timeNames = map[string]Unit{
 		map[string]string{
 			"year":           "",
 			"years":          "plural",
+			"calendar year":  "",
 			"Gregorian Year": "capital year",
 		},
 		"", "",
@@ -219,61 +250,91 @@ var timeNames = map[string]Unit{
 	"dasec": {
 		0, 0, da, timeFamily, "dasec", "decasecond", "decaseconds", "",
 		[]Tag{TagSI, TagMetric},
-		map[string]string{},
+		map[string]string{
+			"decasecond":  "unabbreviated",
+			"decaseconds": "unabbreviated plural",
+		},
 		"", "",
 	},
 	"hsec": {
 		0, 0, h, timeFamily, "hsec", "hectosecond", "hectoseconds", "",
 		[]Tag{TagSI, TagMetric},
-		map[string]string{},
+		map[string]string{
+			"hectosecond":  "unabbreviated",
+			"hectoseconds": "unabbreviated plural",
+		},
 		"", "",
 	},
 	"ksec": {
 		0, 0, k, timeFamily, "ksec", "kilosecond", "kiloseconds", "",
 		[]Tag{TagSI, TagMetric},
-		map[string]string{},
+		map[string]string{
+			"kilosecond":  "unabbreviated",
+			"kiloseconds": "unabbreviated plural",
+		},
 		"", "",
 	},
 	"Msec": {
 		0, 0, _M, timeFamily, "Msec", "megasecond", "megaseconds", "",
 		[]Tag{TagSI, TagMetric},
-		map[string]string{},
+		map[string]string{
+			"megasecond":  "unabbreviated",
+			"megaseconds": "unabbreviated plural",
+		},
 		"", "",
 	},
 	"Gsec": {
 		0, 0, _G, timeFamily, "Gsec", "gigasecond", "gigaseconds", "",
 		[]Tag{TagSI, TagMetric},
-		map[string]string{},
+		map[string]string{
+			"gigasecond":  "unabbreviated",
+			"gigaseconds": "unabbreviated plural",
+		},
 		"", "",
 	},
 	"Tsec": {
 		0, 0, _T, timeFamily, "Tsec", "terasecond", "teraseconds", "",
 		[]Tag{TagSI, TagMetric},
-		map[string]string{},
+		map[string]string{
+			"terasecond":  "unabbreviated",
+			"teraseconds": "unabbreviated plural",
+		},
 		"", "",
 	},
 	"Psec": {
 		0, 0, _P, timeFamily, "Psec", "petasecond", "petaseconds", "",
 		[]Tag{TagSI, TagMetric},
-		map[string]string{},
+		map[string]string{
+			"petasecond":  "unabbreviated",
+			"petaseconds": "unabbreviated plural",
+		},
 		"", "",
 	},
 	"Esec": {
 		0, 0, _E, timeFamily, "Esec", "exasecond", "exaseconds", "",
 		[]Tag{TagSI, TagMetric},
-		map[string]string{},
+		map[string]string{
+			"exasecond":  "unabbreviated",
+			"exaseconds": "unabbreviated plural",
+		},
 		"", "",
 	},
 	"Zsec": {
 		0, 0, _Z, timeFamily, "Zsec", "zettasecond", "zettaseconds", "",
 		[]Tag{TagSI, TagMetric},
-		map[string]string{},
+		map[string]string{
+			"zettasecond":  "unabbreviated",
+			"zettaseconds": "unabbreviated plural",
+		},
 		"", "",
 	},
 	"Ysec": {
 		0, 0, _Y, timeFamily, "Ysec", "yottasecond", "yottaseconds", "",
 		[]Tag{TagSI, TagMetric},
-		map[string]string{},
+		map[string]string{
+			"yottasecond":  "unabbreviated",
+			"yottaseconds": "unabbreviated plural",
+		},
 		"", "",
 	},
 }

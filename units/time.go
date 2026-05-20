@@ -247,6 +247,23 @@ var timeNames = map[string]Unit{
 		},
 		"", "",
 	},
+	"aeon": {
+		0, 0, 1e9 * daysPerGregorianYear * dayToSec,
+		timeFamily,
+		"aeon", "aeon", "aeons",
+		"one billion Gregorian years." +
+			" The name comes from the Greek where it means" +
+			" one hundred years but in astronomy (or geology or cosmology)" +
+			" it has the meaning used here." +
+			" Colloquially it just means a very long time",
+		[]Tag{TagAstro},
+		map[string]string{
+			"aeons": "plural",
+			"eon":   "US or Australian",
+			"eons":  "US or Australian plural",
+		},
+		"", "",
+	},
 	"dasec": {
 		0, 0, da, timeFamily, "dasec", "decasecond", "decaseconds", "",
 		[]Tag{TagSI, TagMetric},

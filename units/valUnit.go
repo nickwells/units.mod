@@ -60,8 +60,7 @@ func convertToBaseUnits(v float64, from Unit) (float64, error) {
 
 // Convert will convert the value from its current units to the new units. If
 // the new units are not in the same unit family as the existing units or are
-// otherwise invalid (have a zero ConvFactor) the value is unchanged and a
-// non-nil error is returned.
+// otherwise invalid (have a zero ConvFactor) a non-nil error is returned.
 func (v ValUnit) Convert(u Unit) (ValUnit, error) {
 	rval := ValUnit{U: u}
 	if v.U.f != u.f {

@@ -32,6 +32,8 @@ var timeNames = map[string]Unit{
 		map[string]string{
 			"yoctosecond":  "unabbreviated",
 			"yoctoseconds": "unabbreviated plural",
+			"yoctosec":     "abbreviated",
+			"yoctosecs":    "abbreviated plural",
 		},
 		"", "",
 	},
@@ -41,6 +43,8 @@ var timeNames = map[string]Unit{
 		map[string]string{
 			"zeptosecond":  "unabbreviated",
 			"zeptoseconds": "unabbreviated plural",
+			"zeptosec":     "abbreviated",
+			"zeptosecs":    "abbreviated plural",
 		},
 		"", "",
 	},
@@ -50,6 +54,8 @@ var timeNames = map[string]Unit{
 		map[string]string{
 			"attosecond":  "unabbreviated",
 			"attoseconds": "unabbreviated plural",
+			"attosec":     "abbreviated",
+			"attosecs":    "abbreviated plural",
 		},
 		"", "",
 	},
@@ -59,6 +65,8 @@ var timeNames = map[string]Unit{
 		map[string]string{
 			"femtosecond":  "unabbreviated",
 			"femtoseconds": "unabbreviated plural",
+			"femtosec":     "abbreviated",
+			"femtosecs":    "abbreviated plural",
 		},
 		"", "",
 	},
@@ -68,6 +76,8 @@ var timeNames = map[string]Unit{
 		map[string]string{
 			"picosecond":  "unabbreviated",
 			"picoseconds": "unabbreviated plural",
+			"picosec":     "abbreviated",
+			"picosecs":    "abbreviated plural",
 		},
 		"", "",
 	},
@@ -77,6 +87,8 @@ var timeNames = map[string]Unit{
 		map[string]string{
 			"nanosecond":  "unabbreviated",
 			"nanoseconds": "unabbreviated plural",
+			"nanosec":     "abbreviated",
+			"nanosecs":    "abbreviated plural",
 		},
 		"", "",
 	},
@@ -86,6 +98,8 @@ var timeNames = map[string]Unit{
 		map[string]string{
 			"microsecond":  "unabbreviated",
 			"microseconds": "unabbreviated plural",
+			"microsec":     "abbreviated",
+			"microsecs":    "abbreviated plural",
 		},
 		"", "",
 	},
@@ -95,6 +109,8 @@ var timeNames = map[string]Unit{
 		map[string]string{
 			"millisecond":  "unabbreviated",
 			"milliseconds": "unabbreviated plural",
+			"millisec":     "abbreviated",
+			"millisecs":    "abbreviated plural",
 		},
 		"", "",
 	},
@@ -104,6 +120,8 @@ var timeNames = map[string]Unit{
 		map[string]string{
 			"centisecond":  "unabbreviated",
 			"centiseconds": "unabbreviated plural",
+			"centisec":     "abbreviated",
+			"centisecs":    "abbreviated plural",
 		},
 		"", "",
 	},
@@ -113,6 +131,8 @@ var timeNames = map[string]Unit{
 		map[string]string{
 			"decisecond":  "unabbreviated",
 			"deciseconds": "unabbreviated plural",
+			"decisec":     "abbreviated",
+			"decisecs":    "abbreviated plural",
 		},
 		"", "",
 	},
@@ -166,6 +186,58 @@ var timeNames = map[string]Unit{
 		[]Tag{TagColloquial},
 		map[string]string{
 			"fortnights": "plural",
+		},
+		"", "",
+	},
+	"lunar month": {
+		0, 0, dayToSec * 28,
+		timeFamily,
+		"lunar month", "lunar month", "lunar months",
+		"Four weeks." +
+			" In English common law a lunar month was taken to be" +
+			" precisely 28 days." +
+			"\n\n" +
+			"For the average time between syzygies of" +
+			" the Earth, Moon and Sun, see 'lunation'.",
+		[]Tag{TagColloquial},
+		map[string]string{
+			"lunar months": "plural",
+			"lunar-month":  "hyphenated",
+			"lunar-months": "hyphenated, plural",
+		},
+		"", "",
+	},
+	"lunation": {
+		0, 0, dayToSec*29 + hourToSec*12 + minToSec*44 + 2.9,
+		timeFamily,
+		"lunation", "lunation", "lunations",
+		"The average time between successive syzygies of the" +
+			" Earth, Moon and Sun. Note that this is the average value;" +
+			" the observed value can vary by as much as several hours." +
+			" There can be up to seven hours variation around the mean" +
+			" in any given year.",
+		[]Tag{TagColloquial},
+		map[string]string{
+			"lunations":      "plural",
+			"synodic month":  "alternative name",
+			"synodic months": "alternative name, plural",
+			"synodic-month":  "alternative name, hyphenated",
+			"synodic-months": "alternative name, hyphenated, plural",
+		},
+		"", "",
+	},
+	"siderial month": {
+		0, 0, dayToSec*27 + hourToSec*7 + minToSec*43 + 11.6,
+		timeFamily,
+		"siderial month", "siderial month", "siderial months",
+		"The period of the Moon's orbit as defined with respect to the" +
+			" apparently fixed stars. It is the time it takes for the Moon" +
+			" to return to a similar position among the stars.",
+		[]Tag{TagColloquial},
+		map[string]string{
+			"siderial months": "plural",
+			"siderial-month":  "hyphenated",
+			"siderial-months": "hyphenated, plural",
 		},
 		"", "",
 	},
@@ -270,6 +342,8 @@ var timeNames = map[string]Unit{
 		map[string]string{
 			"decasecond":  "unabbreviated",
 			"decaseconds": "unabbreviated plural",
+			"decasec":     "abbreviated",
+			"decasecs":    "abbreviated plural",
 		},
 		"", "",
 	},
@@ -279,6 +353,8 @@ var timeNames = map[string]Unit{
 		map[string]string{
 			"hectosecond":  "unabbreviated",
 			"hectoseconds": "unabbreviated plural",
+			"hectosec":     "abbreviated",
+			"hectosecs":    "abbreviated plural",
 		},
 		"", "",
 	},
@@ -288,6 +364,8 @@ var timeNames = map[string]Unit{
 		map[string]string{
 			"kilosecond":  "unabbreviated",
 			"kiloseconds": "unabbreviated plural",
+			"kilosec":     "abbreviated",
+			"kilosecs":    "abbreviated plural",
 		},
 		"", "",
 	},
@@ -297,6 +375,8 @@ var timeNames = map[string]Unit{
 		map[string]string{
 			"megasecond":  "unabbreviated",
 			"megaseconds": "unabbreviated plural",
+			"megasec":     "abbreviated",
+			"megasecs":    "abbreviated plural",
 		},
 		"", "",
 	},
@@ -306,6 +386,8 @@ var timeNames = map[string]Unit{
 		map[string]string{
 			"gigasecond":  "unabbreviated",
 			"gigaseconds": "unabbreviated plural",
+			"gigasec":     "abbreviated",
+			"gigasecs":    "abbreviated plural",
 		},
 		"", "",
 	},
@@ -315,6 +397,8 @@ var timeNames = map[string]Unit{
 		map[string]string{
 			"terasecond":  "unabbreviated",
 			"teraseconds": "unabbreviated plural",
+			"terasec":     "abbreviated",
+			"terasecs":    "abbreviated plural",
 		},
 		"", "",
 	},
@@ -324,6 +408,8 @@ var timeNames = map[string]Unit{
 		map[string]string{
 			"petasecond":  "unabbreviated",
 			"petaseconds": "unabbreviated plural",
+			"petasec":     "abbreviated",
+			"petasecs":    "abbreviated plural",
 		},
 		"", "",
 	},
@@ -333,6 +419,8 @@ var timeNames = map[string]Unit{
 		map[string]string{
 			"exasecond":  "unabbreviated",
 			"exaseconds": "unabbreviated plural",
+			"exasec":     "abbreviated",
+			"exasecs":    "abbreviated plural",
 		},
 		"", "",
 	},
@@ -342,6 +430,8 @@ var timeNames = map[string]Unit{
 		map[string]string{
 			"zettasecond":  "unabbreviated",
 			"zettaseconds": "unabbreviated plural",
+			"zettasec":     "abbreviated",
+			"zettasecs":    "abbreviated plural",
 		},
 		"", "",
 	},
@@ -351,6 +441,8 @@ var timeNames = map[string]Unit{
 		map[string]string{
 			"yottasecond":  "unabbreviated",
 			"yottaseconds": "unabbreviated plural",
+			"yottasec":     "abbreviated",
+			"yottasecs":    "abbreviated plural",
 		},
 		"", "",
 	},

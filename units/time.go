@@ -226,18 +226,18 @@ var timeNames = map[string]Unit{
 		},
 		"", "",
 	},
-	"siderial month": {
+	"sidereal month": {
 		0, 0, dayToSec*27 + hourToSec*7 + minToSec*43 + 11.6,
 		timeFamily,
-		"siderial month", "siderial month", "siderial months",
+		"sidereal month", "sidereal month", "sidereal months",
 		"The period of the Moon's orbit as defined with respect to the" +
 			" apparently fixed stars. It is the time it takes for the Moon" +
 			" to return to a similar position among the stars.",
 		[]Tag{TagColloquial},
 		map[string]string{
-			"siderial months": "plural",
-			"siderial-month":  "hyphenated",
-			"siderial-months": "hyphenated, plural",
+			"sidereal months": "plural",
+			"sidereal-month":  "hyphenated",
+			"sidereal-months": "hyphenated, plural",
 		},
 		"", "",
 	},

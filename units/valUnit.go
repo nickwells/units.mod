@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"math"
 	"strconv"
+	"strings"
 
 	"github.com/nickwells/mathutil.mod/v2/mathutil"
 )
@@ -19,12 +20,15 @@ type ValUnit struct {
 func (v ValUnit) unitNames() (string, string) {
 	singularName := v.U.name
 	pluralName := v.U.namePlural
+	alias := v.U.alias
+	singularNameHyphenated := strings.ReplaceAll(singularName, " ", "-")
+	pluralNameHyphenated := strings.ReplaceAll(pluralName, " ", "-")
 
-	if v.U.alias != "" &&
-		v.U.alias != singularName &&
-		v.U.alias != pluralName {
-		singularName += " (" + v.U.alias + ")"
-		pluralName += " (" + v.U.alias + ")"
+	if alias != "" &&
+		alias != singularName && alias != pluralName &&
+		alias != singularNameHyphenated && alias != pluralNameHyphenated {
+		singularName += " (" + alias + ")"
+		pluralName += " (" + alias + ")"
 	}
 
 	return singularName, pluralName

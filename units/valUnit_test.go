@@ -1,6 +1,8 @@
 package units
 
 import (
+	"fmt"
+	"regexp"
 	"testing"
 
 	"github.com/nickwells/testhelper.mod/v2/testhelper"
@@ -9,70 +11,196 @@ import (
 func TestValUnit_String(t *testing.T) {
 	testCases := []struct {
 		testhelper.ID
-		vwu       ValUnit
-		expString string
+		vu     ValUnit
+		expStr string
 	}{
 		{
 			ID: testhelper.MkID("zero val, no alias"),
-			vwu: ValUnit{
+			vu: ValUnit{
 				V: 0,
 				U: SampleFamily.GetUnitOrPanic(SampleUnitBase),
 			},
-			expString: "0 samples",
+			expStr: "0 samples",
 		},
 		{
 			ID: testhelper.MkID("almost zero val, no alias"),
-			vwu: ValUnit{
+			vu: ValUnit{
 				V: 0.00000001,
 				U: SampleFamily.GetUnitOrPanic(SampleUnitBase),
 			},
-			expString: "0 samples",
+			expStr: "0 samples",
 		},
 		{
 			ID: testhelper.MkID("unit val, no alias"),
-			vwu: ValUnit{
+			vu: ValUnit{
 				V: 1,
 				U: SampleFamily.GetUnitOrPanic(SampleUnitBase),
 			},
-			expString: "1 sample",
+			expStr: "1 sample",
 		},
 		{
 			ID: testhelper.MkID("almost unit val (too big), no alias"),
-			vwu: ValUnit{
+			vu: ValUnit{
 				V: 1.00000001,
 				U: SampleFamily.GetUnitOrPanic(SampleUnitBase),
 			},
-			expString: "1 sample",
+			expStr: "1 sample",
 		},
 		{
 			ID: testhelper.MkID("almost unit val (too small), no alias"),
-			vwu: ValUnit{
+			vu: ValUnit{
 				V: 0.9999999,
 				U: SampleFamily.GetUnitOrPanic(SampleUnitBase),
 			},
-			expString: "1 sample",
+			expStr: "1 sample",
 		},
 		{
 			ID: testhelper.MkID("multi val, no alias"),
-			vwu: ValUnit{
+			vu: ValUnit{
 				V: 42,
 				U: SampleFamily.GetUnitOrPanic(SampleUnitBase),
 			},
-			expString: "42 samples",
+			expStr: "42 samples",
 		},
 		{
 			ID: testhelper.MkID("multi val, with alias"),
-			vwu: ValUnit{
+			vu: ValUnit{
 				V: 42,
 				U: SampleFamily.GetUnitOrPanic(SampleUnitBaseAlias),
 			},
-			expString: "42 samples (smpl)",
+			expStr: "42 samples (smpl)",
 		},
 	}
 
 	for _, tc := range testCases {
-		s := tc.vwu.String()
-		testhelper.DiffString(t, tc.IDStr(), "", s, tc.expString)
+		s := tc.vu.String()
+		testhelper.DiffString(t, tc.IDStr(), "", s, tc.expStr)
+	}
+}
+
+// hexEdit replaces hex values in the string with a constant value. The
+// intention is to allow pointer values represented in a string to be
+// compared when we don't care about the actual value.
+func hexEdit(s string) string {
+	re := regexp.MustCompile(`\b0[xX][0-9a-fA-F]+\b`)
+
+	return re.ReplaceAllString(s, "<HEX>")
+}
+
+func TestValUnit_Format(t *testing.T) {
+	testCases := []struct {
+		testhelper.ID
+		vu     ValUnit
+		format string
+		expStr string
+	}{
+		{
+			ID: testhelper.MkID("zero-val-s"),
+			vu: ValUnit{
+				V: 0,
+				U: SampleFamily.GetUnitOrPanic(SampleUnitBase),
+			},
+			format: "%s",
+			expStr: "0 samples",
+		},
+		{
+			ID: testhelper.MkID("zero-val-q"),
+			vu: ValUnit{
+				V: 0,
+				U: SampleFamily.GetUnitOrPanic(SampleUnitBase),
+			},
+			format: "%q",
+			expStr: `"0 samples"`,
+		},
+		{
+			ID: testhelper.MkID("zero-val-T"),
+			vu: ValUnit{
+				V: 0,
+				U: SampleFamily.GetUnitOrPanic(SampleUnitBase),
+			},
+			format: "%T",
+			expStr: `units.ValUnit`,
+		},
+		{
+			ID: testhelper.MkID("zero-val-u"),
+			vu: ValUnit{
+				V: 0,
+				U: SampleFamily.GetUnitOrPanic(SampleUnitBase),
+			},
+			format: "%u",
+			expStr: `0.000000 samples`,
+		},
+		{
+			ID: testhelper.MkID("one-val-u"),
+			vu: ValUnit{
+				V: 1,
+				U: SampleFamily.GetUnitOrPanic(SampleUnitBase),
+			},
+			format: "%u",
+			expStr: `1.000000  sample`,
+		},
+		{
+			ID: testhelper.MkID("zero-val-u.0"),
+			vu: ValUnit{
+				V: 0,
+				U: SampleFamily.GetUnitOrPanic(SampleUnitBase),
+			},
+			format: "%.0u",
+			expStr: `0 samples`,
+		},
+		{
+			ID: testhelper.MkID("zero-val-u.3"),
+			vu: ValUnit{
+				V: 0,
+				U: SampleFamily.GetUnitOrPanic(SampleUnitBase),
+			},
+			format: "%.3u",
+			expStr: `0.000 samples`,
+		},
+		{
+			ID: testhelper.MkID("zero-val-v"),
+			vu: ValUnit{
+				V: 0,
+				U: SampleFamily.GetUnitOrPanic(SampleUnitBase),
+			},
+			format: "%v",
+			expStr: `{0.000000 {0 0 1 <HEX> s sample samples some brief notes about the base unit [SampleTag] map[smpl:Alias]  sample}}`,
+		},
+		{
+			ID: testhelper.MkID("zero-val-+v"),
+			vu: ValUnit{
+				V: 0,
+				U: SampleFamily.GetUnitOrPanic(SampleUnitBase),
+			},
+			format: "%+v",
+			expStr: `{V:+0.000000 U:{convPreAdd:0 convPostAdd:0 convFactor:1 f:<HEX> abbrev:s name:sample namePlural:samples notes:some brief notes about the base unit tags:[SampleTag] aliases:map[smpl:Alias] alias: id:sample}}`,
+		},
+		{
+			ID: testhelper.MkID("zero-val-#v"),
+			vu: ValUnit{
+				V: 0,
+				U: SampleFamily.GetUnitOrPanic(SampleUnitBase),
+			},
+			format: "%#v",
+			expStr: `units.ValUnit{V:0.000000, U:units.Unit{convPreAdd:0, convPostAdd:0, convFactor:1, f:(*units.Family)(<HEX>), abbrev:"s", name:"sample", namePlural:"samples", notes:"some brief notes about the base unit", tags:[]units.Tag{"SampleTag"}, aliases:map[string]string{"smpl":"Alias"}, alias:"", id:"sample"}}`,
+		},
+		{
+			ID: testhelper.MkID("zero-val-d"),
+			vu: ValUnit{
+				V: 0,
+				U: SampleFamily.GetUnitOrPanic(SampleUnitBase),
+			},
+			format: "%d",
+			expStr: `%!d(ValUnit=0 samples)`,
+		},
+	}
+
+	for _, tc := range testCases {
+		t.Run(tc.Name, func(t *testing.T) {
+			s := hexEdit(fmt.Sprintf(tc.format, tc.vu))
+
+			testhelper.DiffString(t, tc.IDStr(), tc.format, s, tc.expStr)
+		})
 	}
 }
 

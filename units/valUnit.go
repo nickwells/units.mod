@@ -62,12 +62,19 @@ func (v ValUnit) String() string {
 
 // makeFmtStart translates the fmt.State into the start of a format
 // string. This can then have the verb character added at the end to generate
-// the appropriate formatting string.
-func makeFmtStart(f fmt.State) string {
+// the appropriate formatting string. Two such strings are returned, one for
+// strings and one for non-strings. This is to avoid formats of strings with
+// zero maximum length being generated when the intention was only to limit
+// or suppress decimal precision.
+func makeFmtStart(f fmt.State) (string, string) {
 	fmtStart := "%"
 
 	if f.Flag('+') {
 		fmtStart += "+"
+	}
+
+	if f.Flag(' ') {
+		fmtStart += " "
 	}
 
 	if f.Flag('0') {
@@ -82,23 +89,27 @@ func makeFmtStart(f fmt.State) string {
 		fmtStart += strconv.Itoa(wid)
 	}
 
+	fmtStrStart := fmtStart
 	if prec, ok := f.Precision(); ok {
 		fmtStart += "." + strconv.Itoa(prec)
 	}
 
-	return fmtStart
+	return fmtStrStart, fmtStart
 }
 
 // Format provides a custom formatter for a ValUnit
 func (v ValUnit) Format(f fmt.State, verb rune) {
-	fmtStrStart := makeFmtStart(f)
+	fmtStrStart, fmtNonStrStart := makeFmtStart(f)
 	stringFmt := fmtStrStart + "s"
-	numFmt := fmtStrStart + "f"
-	valFmt := fmtStrStart + "v"
+	quotedFmt := fmtStrStart + "q"
+	numFmt := fmtNonStrStart + "f"
+	valFmt := fmtNonStrStart + "v"
 
 	switch verb {
 	case 's':
 		fmt.Fprintf(f, stringFmt, v.String())
+	case 'q':
+		fmt.Fprintf(f, quotedFmt, v.String())
 	case 'u':
 		singularName, name := v.unitNames()
 		nameWidth := max(len(singularName), len(name))
@@ -113,8 +124,6 @@ func (v ValUnit) Format(f fmt.State, verb rune) {
 		}
 
 		fmt.Fprintf(f, numFmt+" "+nameFmt, eVal, name)
-	case 'T':
-		fmt.Fprintf(f, stringFmt, "units.ValUnit")
 	case 'v':
 		if f.Flag('#') {
 			fmt.Fprint(f, "units.ValUnit")

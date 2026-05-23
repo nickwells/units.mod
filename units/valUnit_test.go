@@ -191,7 +191,7 @@ func TestValUnit_Format(t *testing.T) {
 				U: SampleFamily.GetUnitOrPanic(SampleUnitBase),
 			},
 			format: "%d",
-			expStr: `%!d(ValUnit=0 samples)`,
+			expStr: `%!d(units.ValUnit=0 samples)`,
 		},
 	}
 

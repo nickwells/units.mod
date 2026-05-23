@@ -97,63 +97,77 @@ func makeFmtStart(f fmt.State) (string, string) {
 	return fmtStrStart, fmtStart
 }
 
-// Format provides a custom formatter for a ValUnit
-func (v ValUnit) Format(f fmt.State, verb rune) {
-	fmtStrStart, fmtNonStrStart := makeFmtStart(f)
-	stringFmt := fmtStrStart + "s"
-	quotedFmt := fmtStrStart + "q"
+// uFormat performs the formatting for the 'u' verb
+func (v ValUnit) uFormat(f fmt.State) {
+	_, fmtNonStrStart := makeFmtStart(f)
+	numFmt := fmtNonStrStart + "f"
+	singularName, name := v.unitNames()
+	nameWidth := max(len(singularName), len(name))
+	nameFmt := "%" +
+		strconv.Itoa(nameWidth) +
+		"." + strconv.Itoa(nameWidth) +
+		"s"
+
+	prec, _ := f.Precision()
+
+	eVal := v.effectiveVal(prec)
+	if eVal == 1.0 {
+		name = singularName
+	}
+
+	fmt.Fprintf(f, numFmt+" "+nameFmt, eVal, name)
+}
+
+// vFormat performs the formatting for the 'v' verb
+func (v ValUnit) vFormat(f fmt.State) {
+	_, fmtNonStrStart := makeFmtStart(f)
 	numFmt := fmtNonStrStart + "f"
 	valFmt := fmtNonStrStart + "v"
 
+	if f.Flag('#') {
+		fmt.Fprint(f, "units.ValUnit")
+	}
+
+	fmt.Fprint(f, "{")
+
+	if f.Flag('#') || f.Flag('+') {
+		fmt.Fprint(f, "V:")
+	}
+
+	fmt.Fprintf(f, numFmt, v.V)
+
+	if f.Flag('#') {
+		fmt.Fprint(f, ", ")
+	} else {
+		fmt.Fprint(f, " ")
+	}
+
+	if f.Flag('#') || f.Flag('+') {
+		fmt.Fprint(f, "U:")
+	}
+
+	fmt.Fprintf(f, valFmt, v.U)
+
+	fmt.Fprint(f, "}")
+}
+
+// Format provides a custom formatter for a ValUnit
+func (v ValUnit) Format(f fmt.State, verb rune) {
 	switch verb {
 	case 's':
-		fmt.Fprintf(f, stringFmt, v.String())
+		fmtStrStart, _ := makeFmtStart(f)
+		fmt.Fprintf(f, fmtStrStart+"s", v.String())
 	case 'q':
-		fmt.Fprintf(f, quotedFmt, v.String())
+		fmtStrStart, _ := makeFmtStart(f)
+		fmt.Fprintf(f, fmtStrStart+"q", v.String())
 	case 'u':
-		singularName, name := v.unitNames()
-		nameWidth := max(len(singularName), len(name))
-		nameFmt := "%" +
-			strconv.Itoa(nameWidth) +
-			"." + strconv.Itoa(nameWidth) +
-			"s"
-		prec, _ := f.Precision()
-		eVal := v.effectiveVal(prec)
-		if eVal == 1.0 {
-			name = singularName
-		}
-
-		fmt.Fprintf(f, numFmt+" "+nameFmt, eVal, name)
+		v.uFormat(f)
 	case 'v':
-		if f.Flag('#') {
-			fmt.Fprint(f, "units.ValUnit")
-		}
-
-		fmt.Fprint(f, "{")
-
-		if f.Flag('#') || f.Flag('+') {
-			fmt.Fprint(f, "V:")
-		}
-
-		fmt.Fprintf(f, numFmt, v.V)
-
-		if f.Flag('#') {
-			fmt.Fprint(f, ", ")
-		} else {
-			fmt.Fprint(f, " ")
-		}
-
-		if f.Flag('#') || f.Flag('+') {
-			fmt.Fprint(f, "U:")
-		}
-
-		fmt.Fprintf(f, valFmt, v.U)
-
-		fmt.Fprint(f, "}")
+		v.vFormat(f)
 	default:
 		_, _ = f.Write([]byte("%!" +
 			string(verb) +
-			"(ValUnit=" + v.String() + ")"))
+			"(units.ValUnit=" + v.String() + ")"))
 	}
 }
 

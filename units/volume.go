@@ -40,8 +40,8 @@ var volumeNames = map[string]Unit{
 		map[string]string{
 			"yoctolitre":  "expanded",
 			"yoctolitres": "expanded, plural",
-			"yoctoliter":  "expanded, US spelling",
-			"yoctoliters": "expanded, US spelling, plural",
+			"yoctoliter":  "expanded, US spelling",         //nolint:misspell
+			"yoctoliters": "expanded, US spelling, plural", //nolint:misspell
 		},
 		"", "",
 	},
@@ -54,8 +54,8 @@ var volumeNames = map[string]Unit{
 		map[string]string{
 			"zeptolitre":  "expanded",
 			"zeptolitres": "expanded, plural",
-			"zeptoliter":  "expanded, US spelling",
-			"zeptoliters": "expanded, US spelling, plural",
+			"zeptoliter":  "expanded, US spelling",         //nolint:misspell
+			"zeptoliters": "expanded, US spelling, plural", //nolint:misspell
 		},
 		"", "",
 	},
@@ -68,8 +68,8 @@ var volumeNames = map[string]Unit{
 		map[string]string{
 			"attolitre":  "expanded",
 			"attolitres": "expanded, plural",
-			"attoliter":  "expanded, US spelling",
-			"attoliters": "expanded, US spelling, plural",
+			"attoliter":  "expanded, US spelling",         //nolint:misspell
+			"attoliters": "expanded, US spelling, plural", //nolint:misspell
 		},
 		"", "",
 	},
@@ -82,8 +82,8 @@ var volumeNames = map[string]Unit{
 		map[string]string{
 			"femtolitre":  "expanded",
 			"femtolitres": "expanded, plural",
-			"femtoliter":  "expanded, US spelling",
-			"femtoliters": "expanded, US spelling, plural",
+			"femtoliter":  "expanded, US spelling",         //nolint:misspell
+			"femtoliters": "expanded, US spelling, plural", //nolint:misspell
 		},
 		"", "",
 	},
@@ -96,8 +96,8 @@ var volumeNames = map[string]Unit{
 		map[string]string{
 			"picolitre":  "expanded",
 			"picolitres": "expanded, plural",
-			"picoliter":  "expanded, US spelling",
-			"picoliters": "expanded, US spelling, plural",
+			"picoliter":  "expanded, US spelling",         //nolint:misspell
+			"picoliters": "expanded, US spelling, plural", //nolint:misspell
 		},
 		"", "",
 	},
@@ -110,8 +110,8 @@ var volumeNames = map[string]Unit{
 		map[string]string{
 			"nanolitre":  "expanded",
 			"nanolitres": "expanded, plural",
-			"nanoliter":  "expanded, US spelling",
-			"nanoliters": "expanded, US spelling, plural",
+			"nanoliter":  "expanded, US spelling",         //nolint:misspell
+			"nanoliters": "expanded, US spelling, plural", //nolint:misspell
 		},
 		"", "",
 	},
@@ -124,8 +124,8 @@ var volumeNames = map[string]Unit{
 		map[string]string{
 			"microlitre":  "expanded",
 			"microlitres": "expanded, plural",
-			"microliter":  "expanded, US spelling",
-			"microliters": "expanded, US spelling, plural",
+			"microliter":  "expanded, US spelling",         //nolint:misspell
+			"microliters": "expanded, US spelling, plural", //nolint:misspell
 		},
 		"", "",
 	},
@@ -162,8 +162,8 @@ var volumeNames = map[string]Unit{
 		map[string]string{
 			"centilitre":  "expanded",
 			"centilitres": "expanded, plural",
-			"centiliter":  "expanded, US spelling",
-			"centiliters": "expanded, US spelling, plural",
+			"centiliter":  "expanded, US spelling",         //nolint:misspell
+			"centiliters": "expanded, US spelling, plural", //nolint:misspell
 		},
 		"", "",
 	},
@@ -176,8 +176,8 @@ var volumeNames = map[string]Unit{
 		map[string]string{
 			"decilitre":  "expanded",
 			"decilitres": "expanded, plural",
-			"deciliter":  "expanded, US spelling",
-			"deciliters": "expanded, US spelling, plural",
+			"deciliter":  "expanded, US spelling",         //nolint:misspell
+			"deciliters": "expanded, US spelling, plural", //nolint:misspell
 		},
 		"", "",
 	},
@@ -205,8 +205,8 @@ var volumeNames = map[string]Unit{
 		map[string]string{
 			"decalitre":  "expanded",
 			"decalitres": "expanded, plural",
-			"decaliter":  "expanded, US spelling",
-			"decaliters": "expanded, US spelling, plural",
+			"decaliter":  "expanded, US spelling",         //nolint:misspell
+			"decaliters": "expanded, US spelling, plural", //nolint:misspell
 		},
 		"", "",
 	},
@@ -219,8 +219,8 @@ var volumeNames = map[string]Unit{
 		map[string]string{
 			"hectolitre":  "expanded",
 			"hectolitres": "expanded, plural",
-			"hectoliter":  "expanded, US spelling",
-			"hectoliters": "expanded, US spelling, plural",
+			"hectoliter":  "expanded, US spelling",         //nolint:misspell
+			"hectoliters": "expanded, US spelling, plural", //nolint:misspell
 		},
 		"", "",
 	},
@@ -233,8 +233,8 @@ var volumeNames = map[string]Unit{
 		map[string]string{
 			"kilolitre":  "expanded",
 			"kilolitres": "expanded, plural",
-			"kiloliter":  "expanded, US spelling",
-			"kiloliters": "expanded, US spelling, plural",
+			"kiloliter":  "expanded, US spelling",         //nolint:misspell
+			"kiloliters": "expanded, US spelling, plural", //nolint:misspell
 		},
 		"", "",
 	},
@@ -247,8 +247,8 @@ var volumeNames = map[string]Unit{
 		map[string]string{
 			"megalitre":  "expanded",
 			"megalitres": "expanded, plural",
-			"megaliter":  "expanded, US spelling",
-			"megaliters": "expanded, US spelling, plural",
+			"megaliter":  "expanded, US spelling",         //nolint:misspell
+			"megaliters": "expanded, US spelling, plural", //nolint:misspell
 		},
 		"", "",
 	},
@@ -261,8 +261,8 @@ var volumeNames = map[string]Unit{
 		map[string]string{
 			"gigalitre":  "expanded",
 			"gigalitres": "expanded, plural",
-			"gigaliter":  "expanded, US spelling",
-			"gigaliters": "expanded, US spelling, plural",
+			"gigaliter":  "expanded, US spelling",         //nolint:misspell
+			"gigaliters": "expanded, US spelling, plural", //nolint:misspell
 		},
 		"", "",
 	},
@@ -579,7 +579,9 @@ var volumeNames = map[string]Unit{
 		"pin", "pin", "pins",
 		"4.5 imperial gallons (36 imperial pints).",
 		[]Tag{TagDrinks},
-		map[string]string{},
+		map[string]string{
+			"pins": "plural",
+		},
 		"", "",
 	},
 	"firkin": {
@@ -588,7 +590,9 @@ var volumeNames = map[string]Unit{
 		"firkin", "firkin", "firkins",
 		"9 imperial gallons (72 imperial pints).",
 		[]Tag{TagDrinks},
-		map[string]string{},
+		map[string]string{
+			"firkins": "plural",
+		},
 		"", "",
 	},
 	"kilderkin": {
@@ -597,7 +601,9 @@ var volumeNames = map[string]Unit{
 		"kilderkin", "kilderkin", "kilderkins",
 		"18 imperial gallons (144 imperial pints).",
 		[]Tag{TagDrinks},
-		map[string]string{},
+		map[string]string{
+			"kilderkins": "plural",
+		},
 		"", "",
 	},
 	"barrel": {
@@ -617,7 +623,9 @@ var volumeNames = map[string]Unit{
 		"hogshead", "hogshead", "hogsheads",
 		"54 imperial gallons (432 imperial pints).",
 		[]Tag{TagDrinks},
-		map[string]string{},
+		map[string]string{
+			"hogsheads": "plural",
+		},
 		"", "",
 	},
 
@@ -627,7 +635,9 @@ var volumeNames = map[string]Unit{
 		"peck", "peck", "pecks",
 		"an imperial measure of volume, typically for dry goods.",
 		[]Tag{TagImperial},
-		map[string]string{},
+		map[string]string{
+			"pecks": "plural",
+		},
 		"", "",
 	},
 	"bushel": {
@@ -636,7 +646,9 @@ var volumeNames = map[string]Unit{
 		"bushel", "bushel", "bushels",
 		"an imperial measure of volume, typically for dry goods.",
 		[]Tag{TagImperial},
-		map[string]string{},
+		map[string]string{
+			"bushels": "plural",
+		},
 		"", "",
 	},
 
@@ -693,10 +705,11 @@ var volumeNames = map[string]Unit{
 		map[string]string{
 			"US-teaspoon":  "hyphenated",
 			"US-teaspoons": "hyphenated, plural",
-			"US teaspoon":  "plural",
+			"US teaspoons": "plural",
 			"us-teaspoon":  "hyphenated, lower-case",
 			"us-teaspoons": "hyphenated, plural, lower-case",
-			"us teaspoon":  "plural, lower-case",
+			"us teaspoon":  "lower-case",
+			"us teaspoons": "plural, lower-case",
 		},
 		"", "",
 	},
@@ -710,6 +723,7 @@ var volumeNames = map[string]Unit{
 			" for which the metric variant is used.",
 		[]Tag{TagUScustomary},
 		map[string]string{
+			"US tablespoon":  "plural",
 			"US-tablespoon":  "hyphenated",
 			"US-tablespoons": "hyphenated, plural",
 			"us-tablespoon":  "hyphenated, lower-case",
@@ -747,7 +761,17 @@ var volumeNames = map[string]Unit{
 		"shot", "US shot", "US shots",
 		"1.5 US fluid ounces.",
 		[]Tag{TagUScustomary},
-		map[string]string{},
+		map[string]string{
+			"US-shots": "plural",
+			"us-shot":  "lowercase",
+			"us-shots": "lowercase, plural",
+			"US shot":  "unhyphenated",
+			"US shots": "unhyphenated, plural",
+			"us shot":  "lowercase, unhyphenated",
+			"us shots": "lowercase, unhyphenated, plural",
+			"shot":     "simplified",
+			"shots":    "simplified, plural",
+		},
 		"", "",
 	},
 	"US-gill": {
@@ -756,7 +780,15 @@ var volumeNames = map[string]Unit{
 		"US gi", "US gill", "US gills",
 		"4 US fluid ounces.",
 		[]Tag{TagUScustomary},
-		map[string]string{},
+		map[string]string{
+			"US-gills": "plural",
+			"us-gill":  "lowercase",
+			"us-gills": "lowercase, plural",
+			"US gill":  "unhyphenated",
+			"US gills": "unhyphenated, plural",
+			"us gill":  "lowercase, unhyphenated",
+			"us gills": "lowercase, unhyphenated, plural",
+		},
 		"", "",
 	},
 	"US-cup": {

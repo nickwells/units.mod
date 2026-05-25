@@ -22,7 +22,9 @@ var dataNames = map[string]Unit{
 		"B", bunData, "bytes",
 		"eight bits",
 		[]Tag{TagComputing},
-		map[string]string{},
+		map[string]string{
+			"bytes": "plural",
+		},
 		"", "",
 	},
 
@@ -33,7 +35,9 @@ var dataNames = map[string]Unit{
 		"a bit is a single binary digit taking a value of either 0 or 1." +
 			" It is one eighth of a byte and is indivisible.",
 		[]Tag{TagComputing},
-		map[string]string{},
+		map[string]string{
+			"bits": "plural",
+		},
 		"", "",
 	},
 	"nibble": {
@@ -52,7 +56,11 @@ var dataNames = map[string]Unit{
 		"KB", "kilobyte", "kilobytes",
 		"a metric value (in powers of 10^3).",
 		[]Tag{TagComputing},
-		map[string]string{},
+		map[string]string{
+			"kB":        "lowercase",
+			"kilobyte":  "expanded",
+			"kilobytes": "expanded, plural",
+		},
 		"", "",
 	},
 	"MB": {
@@ -61,7 +69,10 @@ var dataNames = map[string]Unit{
 		"MB", "megabyte", "megabytes",
 		"a metric value (in powers of 10^3).",
 		[]Tag{TagComputing},
-		map[string]string{},
+		map[string]string{
+			"megabyte":  "expanded",
+			"megabytes": "expanded, plural",
+		},
 		"", "",
 	},
 	"GB": {
@@ -70,7 +81,10 @@ var dataNames = map[string]Unit{
 		"GB", "gigabyte", "gigabytes",
 		"a metric value (in powers of 10^3).",
 		[]Tag{TagComputing},
-		map[string]string{},
+		map[string]string{
+			"gigabyte":  "expanded",
+			"gigabytes": "expanded, plural",
+		},
 		"", "",
 	},
 	"TB": {
@@ -79,7 +93,10 @@ var dataNames = map[string]Unit{
 		"TB", "terabyte", "terabytes",
 		"a metric value (in powers of 10^3).",
 		[]Tag{TagComputing},
-		map[string]string{},
+		map[string]string{
+			"terabyte":  "expanded",
+			"terabytes": "expanded, plural",
+		},
 		"", "",
 	},
 	"PB": {
@@ -88,7 +105,10 @@ var dataNames = map[string]Unit{
 		"PB", "petabyte", "petabytes",
 		"a metric value (in powers of 10^3).",
 		[]Tag{TagComputing},
-		map[string]string{},
+		map[string]string{
+			"petabyte":  "expanded",
+			"petabytes": "expanded, plural",
+		},
 		"", "",
 	},
 	"EB": {
@@ -97,7 +117,10 @@ var dataNames = map[string]Unit{
 		"EB", "exabyte", "exabytes",
 		"a metric value (in powers of 10^3).",
 		[]Tag{TagComputing},
-		map[string]string{},
+		map[string]string{
+			"exabyte":  "expanded",
+			"exabytes": "expanded, plural",
+		},
 		"", "",
 	},
 	"ZB": {
@@ -106,7 +129,10 @@ var dataNames = map[string]Unit{
 		"ZB", "zettabyte", "zettabytes",
 		"a metric value (in powers of 10^3).",
 		[]Tag{TagComputing},
-		map[string]string{},
+		map[string]string{
+			"zettabyte":  "expanded",
+			"zettabytes": "expanded, plural",
+		},
 		"", "",
 	},
 	"YB": {
@@ -115,7 +141,10 @@ var dataNames = map[string]Unit{
 		"YB", "yottabyte", "yottabytes",
 		"a metric value (in powers of 10^3).",
 		[]Tag{TagComputing},
-		map[string]string{},
+		map[string]string{
+			"yottabyte":  "expanded",
+			"yottabytes": "expanded, plural",
+		},
 		"", "",
 	},
 
@@ -129,7 +158,10 @@ var dataNames = map[string]Unit{
 			" supersedes the traditional name which is" +
 			" now reserved for the power of 1000",
 		[]Tag{TagComputing},
-		map[string]string{},
+		map[string]string{
+			"kibibyte":  "expanded",
+			"kibibytes": "expanded, plural",
+		},
 		"", "",
 	},
 	"MiB": {
@@ -141,7 +173,10 @@ var dataNames = map[string]Unit{
 			" supersedes the traditional name which is" +
 			" now reserved for the power of 1000",
 		[]Tag{TagComputing},
-		map[string]string{},
+		map[string]string{
+			"mebibyte":  "expanded",
+			"mebibytes": "expanded, plural",
+		},
 		"", "",
 	},
 	"GiB": {
@@ -153,7 +188,10 @@ var dataNames = map[string]Unit{
 			" supersedes the traditional name which is" +
 			" now reserved for the power of 1000",
 		[]Tag{TagComputing},
-		map[string]string{},
+		map[string]string{
+			"gibibyte":  "expanded",
+			"gibibytes": "expanded, plural",
+		},
 		"", "",
 	},
 	"TiB": {
@@ -165,7 +203,10 @@ var dataNames = map[string]Unit{
 			" supersedes the traditional name which is" +
 			" now reserved for the power of 1000",
 		[]Tag{TagComputing},
-		map[string]string{},
+		map[string]string{
+			"tebibyte":  "expanded",
+			"tebibytes": "expanded, plural",
+		},
 		"", "",
 	},
 	"PiB": {
@@ -177,7 +218,10 @@ var dataNames = map[string]Unit{
 			" supersedes the traditional name which is" +
 			" now reserved for the power of 1000",
 		[]Tag{TagComputing},
-		map[string]string{},
+		map[string]string{
+			"pebibyte":  "expanded",
+			"pebibytes": "expanded, plural",
+		},
 		"", "",
 	},
 	"EiB": {
@@ -189,7 +233,10 @@ var dataNames = map[string]Unit{
 			" supersedes the traditional name which is" +
 			" now reserved for the power of 1000",
 		[]Tag{TagComputing},
-		map[string]string{},
+		map[string]string{
+			"exbibyte":  "expanded",
+			"exbibytes": "expanded, plural",
+		},
 		"", "",
 	},
 	"ZiB": {
@@ -201,7 +248,10 @@ var dataNames = map[string]Unit{
 			" supersedes the traditional name which is" +
 			" now reserved for the power of 1000",
 		[]Tag{TagComputing},
-		map[string]string{},
+		map[string]string{
+			"zebibyte":  "expanded",
+			"zebibytes": "expanded, plural",
+		},
 		"", "",
 	},
 	"YiB": {
@@ -213,7 +263,10 @@ var dataNames = map[string]Unit{
 			" supersedes the traditional name which is" +
 			" now reserved for the power of 1000",
 		[]Tag{TagComputing},
-		map[string]string{},
+		map[string]string{
+			"yobibyte":  "expanded",
+			"yobibytes": "expanded, plural",
+		},
 		"", "",
 	},
 }

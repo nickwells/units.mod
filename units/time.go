@@ -204,18 +204,28 @@ var timeNames = map[string]Unit{
 			"lunar months": "plural",
 			"lunar-month":  "hyphenated",
 			"lunar-months": "hyphenated, plural",
+			"Lunar month":  "capitalised",
+			"Lunar months": "capitalised, plural",
 		},
 		"", "",
 	},
 	"lunation": {
-		0, 0, dayToSec*29 + hourToSec*12 + minToSec*44 + 2.9,
+		0, 0, dayToSec * 29.530_588_861,
 		timeFamily,
 		"lunation", "lunation", "lunations",
-		"The average time between successive syzygies of the" +
-			" Earth, Moon and Sun. Note that this is the average value;" +
-			" the observed value can vary by as much as several hours." +
-			" There can be up to seven hours variation around the mean" +
-			" in any given year.",
+		"The average time between successive syzygies (alignments) of the" +
+			" Earth, Moon and Sun." +
+			" This is the time between phases of the Moon," +
+			" for example full moon to full moon." +
+			" Because the appearance of the Moon depends on its position" +
+			" with respect to the Sun, a lunation (or synodic month)" +
+			" is longer by just over two days than the sidereal month" +
+			"\n\n" +
+			"Note that this is the average value;" +
+			" there can be up to seven hours variation around the mean" +
+			" in any given year." +
+			" Note also that this value will drift" +
+			" over time, lengthening by about a 50th of a second per century.",
 		[]Tag{TagColloquial},
 		map[string]string{
 			"lunations":      "plural",
@@ -223,21 +233,80 @@ var timeNames = map[string]Unit{
 			"synodic months": "alternative name, plural",
 			"synodic-month":  "alternative name, hyphenated",
 			"synodic-months": "alternative name, hyphenated, plural",
+			"Lunation":       "capitalised",
+			"Lunations":      "capitalised, plural",
+			"Synodic month":  "capitalised, alternative name",
+			"Synodic months": "capitalised, alternative name, plural",
 		},
 		"", "",
 	},
 	"sidereal month": {
-		0, 0, dayToSec*27 + hourToSec*7 + minToSec*43 + 11.6,
+		0, 0, dayToSec * 27.321_661_554,
 		timeFamily,
 		"sidereal month", "sidereal month", "sidereal months",
 		"The period of the Moon's orbit as defined with respect to the" +
 			" apparently fixed stars. It is the time it takes for the Moon" +
-			" to return to a similar position among the stars.",
+			" to return to a similar position among the stars." +
+			"\n\n" +
+			"Note that this value will drift over time," +
+			" lengthening by about a 50th of a second per century.",
 		[]Tag{TagColloquial},
 		map[string]string{
 			"sidereal months": "plural",
 			"sidereal-month":  "hyphenated",
 			"sidereal-months": "hyphenated, plural",
+			"Sidereal month":  "capitalised",
+			"Sidereal months": "capitalised plural",
+		},
+		"", "",
+	},
+	"draconic month": {
+		0, 0, dayToSec * 27.212_220_815,
+		timeFamily,
+		"draconic month", "draconic month", "draconic months",
+		"The period of the Moon's orbit as defined with respect to the" +
+			" transitions of the ecliptic plane." +
+			"\n\n" +
+			"The orbit of the Moon lies in a plane inclined by about 5.14°" +
+			" to the ecliptic plane." +
+			" This orbit crosses the ecliptic plane at two points" +
+			" called lunar nodes (the ascending and descending nodes)" +
+			"\n\n" +
+			"A draconic month is the average of the time between" +
+			" two successive transits of the ecliptic plane" +
+			" through the same node." +
+			"\n\n" +
+			"The name 'draconic' refers to a mythical dragon," +
+			" said to live at the lunar nodes" +
+			" and eat the Sun or Moon during an eclipse." +
+			" Note that an eclipse is only possible" +
+			" when the Moon is at one of these nodes as" +
+			" only then can the Earth, Sun and Moon be in direct line" +
+			" and able to eclipse one another." +
+			"\n\n" +
+			"Note that this value will drift over time," +
+			" lengthening by about a third of a second per century.",
+		[]Tag{TagColloquial},
+		map[string]string{
+			"draconic months":   "plural",
+			"draconic-month":    "hyphenated",
+			"draconic-months":   "hyphenated, plural",
+			"Draconic month":    "capitalised",
+			"Draconic months":   "capitalised plural",
+			"draconitic month":  "alternative",
+			"draconitic months": "alternative,plural",
+			"draconitic-month":  "alternative,hyphenated",
+			"draconitic-months": "alternative,hyphenated, plural",
+			"Draconitic month":  "alternative,capitalised",
+			"Draconitic months": "alternative,capitalised plural",
+			"nodal month":       "alternative",
+			"nodal months":      "alternative,plural",
+			"nodal-month":       "alternative,hyphenated",
+			"nodal-months":      "alternative,hyphenated,plural",
+			"nodical month":     "alternative",
+			"nodical months":    "alternative,plural",
+			"nodical-month":     "alternative,hyphenated",
+			"nodical-months":    "alternative,hyphenated,plural",
 		},
 		"", "",
 	},
@@ -248,7 +317,14 @@ var timeNames = map[string]Unit{
 		"365.25 days. A non-SI unit for use in astronomy",
 		[]Tag{TagAstro},
 		map[string]string{
-			"Julian Year": "capital year",
+			"Julian years": "plural",
+			"Julian Year":  "capital year",
+			"Julian-year":  "hyphenated",
+			"Julian-years": "hyphenated, plural",
+			"julian year":  "lowercase",
+			"julian years": "lowercase, plural",
+			"julian-year":  "lowercase, hyphenated",
+			"julian-years": "lowercase, hyphenated, plural",
 		},
 		"", "",
 	},
@@ -262,13 +338,16 @@ var timeNames = map[string]Unit{
 		map[string]string{
 			"year":           "",
 			"years":          "plural",
-			"calendar year":  "",
+			"calendar year":  "alternative",
+			"calendar years": "alternative, plural",
+			"calendar-year":  "alternative, hyphenated",
+			"calendar-years": "alternative, hyphenated, plural",
 			"Gregorian Year": "capital year",
 		},
 		"", "",
 	},
 	"Sidereal year": {
-		0, 0, 365.256363004 * dayToSec,
+		0, 0, 365.256_363_004 * dayToSec,
 		timeFamily,
 		"Sidereal Year", "Sidereal Year", "Sidereal Years",
 		"The time taken for the Earth to orbit the Sun" +
@@ -277,12 +356,17 @@ var timeNames = map[string]Unit{
 			" complete a full cycle of seasons (the Tropical year)",
 		[]Tag{TagAstro},
 		map[string]string{
-			"Sidereal Year": "capital year",
+			"Sidereal years": "plural",
+			"Sidereal Year":  "capital year",
+			"sidereal year":  "lowercase",
+			"sidereal years": "lowercase, plural",
+			"sidereal-year":  "lowercase, hyphenated",
+			"sidereal-years": "lowercase, hyphenated, plural",
 		},
 		"", "",
 	},
 	"Tropical year": {
-		0, 0, 365.24219 * dayToSec,
+		0, 0, 365.242_19 * dayToSec,
 		timeFamily,
 		"Tropical Year", "Tropical Year", "Tropical Years",
 		"The time taken for the Earth to complete a full cycle of seasons." +
@@ -290,7 +374,12 @@ var timeNames = map[string]Unit{
 			" trying to hit with increasing degrees of accuracy",
 		[]Tag{TagAstro},
 		map[string]string{
-			"Tropical Year": "capital year",
+			"Tropical years": "plural",
+			"Tropical Year":  "capital year",
+			"tropical year":  "lowercase",
+			"tropical years": "lowercase, plural",
+			"tropical-year":  "lowercase, hyphenated",
+			"tropical-years": "lowercase, hyphenated, plural",
 		},
 		"", "",
 	},

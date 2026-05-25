@@ -297,7 +297,10 @@ var distanceNames = map[string]Unit{
 		"ft (North German)", "foot (North German)", "feet (North German)",
 		"a medieval measure of length slightly longer than a standard foot.",
 		[]Tag{TagHist},
-		map[string]string{},
+		map[string]string{
+			"North German foot": "expanded",
+			"North German feet": "expanded, plural",
+		},
 		"", "",
 	},
 	"foot (Roman)": {
@@ -307,7 +310,10 @@ var distanceNames = map[string]Unit{
 		"a Roman measure of length. There are several alternative lengths" +
 			" but the one used here is a popular value.",
 		[]Tag{TagHist},
-		map[string]string{},
+		map[string]string{
+			"Roman foot": "expanded",
+			"Roman feet": "expanded, plural",
+		},
 		"", "",
 	},
 	"foot (Parisian)": {
@@ -316,7 +322,10 @@ var distanceNames = map[string]Unit{
 		"ft (Parisian)", "foot (Parisian)", "feet (Parisian)",
 		"a French measure of length.",
 		[]Tag{TagHist},
-		map[string]string{},
+		map[string]string{
+			"Parisian foot": "expanded",
+			"Parisian feet": "expanded, plural",
+		},
 		"", "",
 	},
 	"foot (Amsterdam)": {
@@ -328,7 +337,10 @@ var distanceNames = map[string]Unit{
 			" commonly used. Note that the Amsterdam foot" +
 			" had 11 inches (duimen) rather than the more usual 12",
 		[]Tag{TagHist},
-		map[string]string{},
+		map[string]string{
+			"Amsterdam foot": "expanded",
+			"Amsterdam feet": "expanded, plural",
+		},
 		"", "",
 	},
 	"foot (Rijnland)": {
@@ -340,7 +352,10 @@ var distanceNames = map[string]Unit{
 			" commonly used. Note that, unlike the Amsterdam foot," +
 			" the Rijnland foot had 12 inches (duimen)",
 		[]Tag{TagHist},
-		map[string]string{},
+		map[string]string{
+			"Rijnland foot": "expanded",
+			"Rijnland feet": "expanded, plural",
+		},
 		"", "",
 	},
 	"foot (metric)": {
@@ -349,7 +364,12 @@ var distanceNames = map[string]Unit{
 		"ft (metric)", "foot (metric)", "feet (metric)",
 		"a measure of length - ISO 2848.",
 		[]Tag{TagColloquial, TagMetric},
-		map[string]string{},
+		map[string]string{
+			"metric foot": "expanded",
+			"metric feet": "expanded, plural",
+			"metric-foot": "expanded, hyphenated",
+			"metric-feet": "expanded, hyphenated, plural",
+		},
 		"", "",
 	},
 	"US survey foot": {
@@ -417,7 +437,16 @@ var distanceNames = map[string]Unit{
 			" Edmund Gunter (1581-1626) was an English clergyman," +
 			" mathematician, geometer and astronomer.",
 		[]Tag{TagImperial},
-		map[string]string{},
+		map[string]string{
+			"Gunters chain":  "alternative",
+			"Gunters chains": "alternative, plural",
+			"gunters chain":  "alternative, lowercase",
+			"gunters chains": "alternative, lowercase, plural",
+			"Gunters-chain":  "alternative, hyphenated",
+			"Gunters-chains": "alternative, hyphenated, plural",
+			"gunters-chain":  "alternative, hyphenated, lowercase",
+			"gunters-chains": "alternative, hyphenated, lowercase, plural",
+		},
 		"", "",
 	},
 	"furlong": {
@@ -692,10 +721,26 @@ var distanceNames = map[string]Unit{
 		distanceFamily,
 		"phoot", "phoot", "pheet",
 		"the distance travelled by light in a vacuum" +
-			" in one nanosecond. Also known as Mermin's foot.",
+			" in one nanosecond. Also known as Mermin's foot." +
+			" It differs from an imperial foot by about 5mm." +
+			" It was proposed in 2005 by" +
+			" professor Nathaniel David Mermin (born 30 March 1935)," +
+			" a solid state physicist",
 		[]Tag{TagColloquial},
-		map[string]string{},
-		"Mermin's foot", "",
+		map[string]string{
+			"pheet":            "plural",
+			"Mermins foot":     "alternative",
+			"Mermins feet":     "alternative, plural",
+			"Mermin's foot":    "alternative",
+			"Mermin's feet":    "alternative, plural",
+			"mermins foot":     "alternative, lowercase",
+			"mermins feet":     "alternative, lowercase, plural",
+			"mermins-foot":     "alternative, hyphenated, lowercase",
+			"mermins-feet":     "alternative, hyphenated, lowercase, plural",
+			"light nanosecond": "alternative",
+			"light foot":       "alternative",
+		},
+		"", "",
 	},
 
 	// printing
@@ -705,7 +750,9 @@ var distanceNames = map[string]Unit{
 		"pt", "point", "points",
 		"a printing term.",
 		[]Tag{TagPrint},
-		map[string]string{},
+		map[string]string{
+			"points": "plural",
+		},
 		"", "",
 	},
 	"pica": {
@@ -742,8 +789,7 @@ var distanceNames = map[string]Unit{
 		0, 0, 8.38,
 		distanceFamily,
 		"bus",
-		"length of a bus",
-		"lengths of a bus",
+		"length of a bus", "lengths of a bus",
 		"a colloquial term referencing the length of a bus." +
 			" The bus used for this value is" +
 			" an AEC Routemaster standard, double-decker bus" +
@@ -756,8 +802,7 @@ var distanceNames = map[string]Unit{
 		0, 0, 324,
 		distanceFamily,
 		"Eiffel",
-		"Eiffel Tower",
-		"Eiffel Towers",
+		"Eiffel Tower", "Eiffel Towers",
 		"a colloquial term referencing the height of the Eiffel Tower." +
 			" The value given is to the tip of the tower.",
 		[]Tag{TagColloquial},
@@ -768,8 +813,7 @@ var distanceNames = map[string]Unit{
 		0, 0, 1.7018,
 		distanceFamily,
 		"smoot",
-		"smoot",
-		"smoots",
+		"smoot", "smoots",
 		"a colloquial term referencing the height of Oliver Smoot." +
 			" Smoot was a freshman at MIT (a university in Boston, USA)" +
 			" and in October 1958, as an initiation challenge for the" +

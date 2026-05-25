@@ -83,6 +83,19 @@ var areaNames = map[string]Unit{
 	},
 
 	// Imperial / US
+	"square foot": {
+		0, 0, footToMetre * footToMetre,
+		areaFamily,
+		"yd\u00B2", "square foot", "square feet",
+		"an imperial measure of area.",
+		[]Tag{TagImperial, TagUScustomary},
+		map[string]string{
+			"square feet": "plural",
+			"square-foot": "hyphenated",
+			"square-feet": "hyphenated, plural",
+		},
+		"", "",
+	},
 	"square yard": {
 		0, 0, yard2ToMetre2,
 		areaFamily,
@@ -144,6 +157,7 @@ var areaNames = map[string]Unit{
 		"", "",
 	},
 
+	// Historical
 	"oxgang": {
 		0, 0, acreToMetre2 * 15,
 		areaFamily,
@@ -155,7 +169,10 @@ var areaNames = map[string]Unit{
 			" Sometimes given as 20 acres." +
 			" See also 'virgate' and 'carucate'.",
 		[]Tag{TagImperial, TagHist},
-		map[string]string{},
+		map[string]string{
+			"oxgangs": "plural",
+			"bovate":  "alternative",
+		},
 		"", "",
 	},
 	"virgate": {
@@ -214,7 +231,8 @@ var areaNames = map[string]Unit{
 	"American football pitch": {
 		0, 0, 6400 * yard2ToMetre2,
 		areaFamily,
-		"football pitch", "football pitch", "football pitches",
+		"football pitch (US)",
+		"football pitch (US)", "football pitches (US)",
 		"120 x 53 1/3 yards.",
 		[]Tag{TagColloquial},
 		map[string]string{

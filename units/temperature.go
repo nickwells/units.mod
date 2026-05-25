@@ -31,7 +31,10 @@ var degCUnit = Unit{
 		"Celsius":         "full name",
 		"degree Celsius":  "full name, with degree",
 		"degrees Celsius": "full name, with degree, plural",
+		"degree-Celsius":  "full name, hyphenated",
+		"degrees-Celsius": "full name, hyphenated, plural",
 		"Centigrade":      "alternative name",
+		"centigrade":      "alternative name, lower case",
 		"c":               "lower-case",
 		"celsius":         "full name, lower-case",
 	},
@@ -53,6 +56,8 @@ var degKUnit = Unit{
 		"Kelvin":         "full name",
 		"degree Kelvin":  "full name, with degree",
 		"degrees Kelvin": "full name, with degree, plural",
+		"degree-Kelvin":  "full name, hyphenated",
+		"degrees-Kelvin": "full name, hyphenated, plural",
 		"kelvin":         "full name, lower-case",
 		"k":              "lower-case",
 	},
@@ -76,6 +81,8 @@ var degFUnit = Unit{
 		"Fahrenheit":         "full name",
 		"degree Fahrenheit":  "full name, with degree",
 		"degrees Fahrenheit": "full name, with degree, plural",
+		"degree-Fahrenheit":  "full name, hyphenated",
+		"degrees-Fahrenheit": "full name, hyphenated, plural",
 		"farenheit":          "name, misspelt, lower-case", //nolint:misspell
 		"Farenheit":          "name, misspelt",             //nolint:misspell
 		"fahrenheit":         "full name, lower-case",
@@ -102,6 +109,8 @@ var degRaUnit = Unit{
 		"Rankine":         "full name",
 		"degree Rankine":  "full name, with degree",
 		"degrees Rankine": "full name, with degree, plural",
+		"degree-Rankine":  "full name, hyphenated",
+		"degrees-Rankine": "full name, hyphenated, plural",
 	},
 	"", "",
 }
@@ -123,6 +132,8 @@ var degRoUnit = Unit{
 		"Romer":         "full name",
 		"degree Romer":  "full name, with degree",
 		"degrees Romer": "full name, with degree, plural",
+		"degree-Romer":  "full name, hyphenated",
+		"degrees-Romer": "full name, hyphenated, plural",
 		"Rømer":         "full name, with correct spelling",
 		"Roemer":        "full name, with oe-spelling",
 	},
@@ -152,6 +163,8 @@ var degReUnit = Unit{
 		"Reaumur":         "full name",
 		"degree Reaumur":  "full name, with degree",
 		"degrees Reaumur": "full name, with degree, plural",
+		"degree-Reaumur":  "full name, hyphenated",
+		"degrees-Reaumur": "full name, hyphenated, plural",
 	},
 	"", "",
 }
@@ -174,6 +187,8 @@ var degNUnit = Unit{
 		"Newton":         "full name",
 		"degree Newton":  "full name, with degree",
 		"degrees Newton": "full name, with degree, plural",
+		"degree-Newton":  "full name, hyphenated",
+		"degrees-Newton": "full name, hyphenated, plural",
 	},
 	"", "",
 }
@@ -197,6 +212,8 @@ var degDUnit = Unit{
 		"Delisle":         "full name",
 		"degree Delisle":  "full name, with degree",
 		"degrees Delisle": "full name, with degree, plural",
+		"degree-Delisle":  "full name, hyphenated",
+		"degrees-Delisle": "full name, hyphenated, plural",
 	},
 	"", "",
 }

@@ -21,9 +21,17 @@ var velocityNames = map[string]Unit{
 		"The base unit of velocity in the metric system.",
 		[]Tag{TagSI, TagMetric},
 		map[string]string{
-			"metres/second": "plural",
-			"meters/second": "US spelling, plural", //nolint:misspell
-			"meter/second":  "US spelling",         //nolint:misspell
+			"metres/second":     "plural",
+			"meters/second":     "US spelling, plural", //nolint:misspell
+			"meter/second":      "US spelling",         //nolint:misspell
+			"metre per second":  "expanded",
+			"metres per second": "expanded, plural",
+			"meters per second": "expanded, US, plural", //nolint:misspell
+			"meter per second":  "expanded, US",         //nolint:misspell
+			"metre-per-second":  "hyphenated",
+			"metres-per-second": "hyphenated, plural",
+			"meters-per-second": "hyphenated, US, plural", //nolint:misspell
+			"meter-per-second":  "hyphenated, US",         //nolint:misspell
 		},
 		"", "",
 	},
@@ -72,7 +80,7 @@ var velocityNames = map[string]Unit{
 	"percentOfSpeedOfLight": {
 		0, 0, lightSecond / 100,
 		velocityFamily,
-		"%c", "%c", "%c",
+		"%c", "percent of the speed of light", "percent of the speed of light",
 		"as a percentage of the speed of light.",
 		[]Tag{TagPhysics},
 		map[string]string{},

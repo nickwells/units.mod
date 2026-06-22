@@ -223,6 +223,18 @@ func GetFamilyNames() []string {
 	return names
 }
 
+// GetFamilies returns a slice holding all the unit Families. Note that the
+// slice is not sorted and the order of elements may vary.
+func GetFamilies() []*Family {
+	families := make([]*Family, 0, len(unitFamilies))
+
+	for _, f := range unitFamilies {
+		families = append(families, f)
+	}
+
+	return families
+}
+
 // GetUnit gets the named unit from the UnitDetails. A non-nil error is
 // returned if the name is not found.
 func (f *Family) GetUnit(uName string) (Unit, error) {
@@ -250,6 +262,18 @@ func (f *Family) GetUnit(uName string) (Unit, error) {
 	u.id = uName
 
 	return u, nil
+}
+
+// GetUnits returns a slice of all the units in the family.  Note that the
+// slice is not sorted and the order of elements may vary.
+func (f *Family) GetUnits() []Unit {
+	units := make([]Unit, 0, len(f.altUnits))
+	for id, u := range f.altUnits {
+		u.id = id
+		units = append(units, u)
+	}
+
+	return units
 }
 
 // GetUnitOrPanic will call GetUnit and check the error returned. If the

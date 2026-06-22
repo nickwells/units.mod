@@ -155,6 +155,14 @@ func (v ValUnit) vFormat(f fmt.State) {
 	fmt.Fprint(f, "}")
 }
 
+// fFormat performs the formatting for the 'f' verb
+func (v ValUnit) fFormat(f fmt.State) {
+	_, fmtNonStrStart := makeFmtStart(f)
+	numFmt := fmtNonStrStart + "f"
+
+	fmt.Fprintf(f, numFmt, v.V)
+}
+
 // Format provides a custom formatter for a ValUnit
 func (v ValUnit) Format(f fmt.State, verb rune) {
 	switch verb {
@@ -168,6 +176,8 @@ func (v ValUnit) Format(f fmt.State, verb rune) {
 		v.uFormat(f)
 	case 'v':
 		v.vFormat(f)
+	case 'f':
+		v.fFormat(f)
 	default:
 		_, _ = f.Write([]byte("%!" +
 			string(verb) +

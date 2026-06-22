@@ -220,7 +220,15 @@ var areaNames = map[string]Unit{
 		"football pitch", "football pitch", "football pitches",
 		"the size of a football pitch can vary considerably but" +
 			" the preferred size for many professional teams' stadiums" +
-			" is 105m x 68m giving the figure used here.",
+			" is 105m x 68m giving the figure used here." +
+			"\n\n" +
+			" For a stadium to be classed as" +
+			" a UEFA class 3 or 4 (the top two classes)" +
+			" the pitch must have precisely these dimensions." +
+			" Wembley stadium's pitch has these dimensions." +
+			" UEFA stadiums of class 1 or 2 can have pitches with" +
+			" dimensions of 100-105m long and 64-68m wide giving" +
+			" a range of areas between 6400 and 7140 square metres.",
 		[]Tag{TagColloquial},
 		map[string]string{
 			"soccer pitch": "alternative",

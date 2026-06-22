@@ -296,19 +296,29 @@ var distanceNames = map[string]Unit{
 		"an imperial measure of length, 12 inches.",
 		[]Tag{TagImperial, TagUScustomary},
 		map[string]string{
-			"feet": "plural",
+			"feet":               "plural",
+			"international foot": "alternative",
+			"statute foot":       "alternative",
 		},
 		"", "",
 	},
 	"foot (North German)": {
-		0, 0, footToMetre * 11.0 / 10.0,
+		0, 0, footToMetre * 1.1,
 		distanceFamily,
 		"ft (North German)", "foot (North German)", "feet (North German)",
-		"a medieval measure of length slightly longer than a standard foot.",
+		"a medieval measure of length 10% longer than a standard foot." +
+			" The English c.1300 act. 'Composition of Yards and Perches'" +
+			" (tradionally credited to Edward I or Edward II)" +
+			" defined the statute foot to be precisely 10/11 of the" +
+			" North German (or Belgic) foot. The barleycorn, inch, ell" +
+			" and yard were adjusted accordingly while the rod and furlong" +
+			" were left unadjusted,",
 		[]Tag{TagHist},
 		map[string]string{
 			"North German foot": "expanded",
 			"North German feet": "expanded, plural",
+			"Belgic foot":       "alternative",
+			"Belgic feet":       "alternative, plural",
 		},
 		"", "",
 	},
@@ -386,16 +396,24 @@ var distanceNames = map[string]Unit{
 		distanceFamily,
 		"ft", "foot", "feet",
 		"a US Customary unit of length, longer than a standard foot" +
-			" by approximately 2 parts in a million.",
+			" by approximately 2 parts in a million or" +
+			" one hundredth of a foot per mile.",
 		[]Tag{TagUScustomary},
 		map[string]string{},
 		"", "",
 	},
 	"Indian survey foot": {
-		0, 0, 0.3047996,
+		0, 0, 0.3047995,
 		distanceFamily,
 		"ft", "foot", "feet",
-		"an Indian unit of length.",
+		"an Indian unit of length." +
+			" The value used here is the 1975 value." +
+			" The 1962 value was greater by one part in ten million." +
+			" The 1937 value was 0.30479841." +
+			"\n\n" +
+			"The value comes from the Great Trigonometrical Survey" +
+			" of India, a project lasting 69 years and begun under" +
+			" the East India Company.",
 		[]Tag{TagHist},
 		map[string]string{},
 		"", "",
@@ -479,7 +497,9 @@ var distanceNames = map[string]Unit{
 		"an imperial measure of length.",
 		[]Tag{TagImperial, TagUScustomary},
 		map[string]string{
-			"miles": "plural",
+			"miles":         "plural",
+			"statute mile":  "alternative",
+			"statute miles": "alternative, plural",
 		},
 		"", "",
 	},
@@ -497,13 +517,20 @@ var distanceNames = map[string]Unit{
 		"", "",
 	},
 	"swimming-mile": {
-		0, 0, yardToMetre * 1650,
+		0, 0, 1600,
 		distanceFamily,
 		"swim-mi", "swimming mile", "swimming miles",
-		"a coloquial and ill-defined distance used by swimmers," +
-			" sometimes taken to be 1500 metres.",
+		"a coloquial distance used by swimmers," +
+			" it is the distance covered if you swim 64 lengths" +
+			" in a 25 metre pool." +
+			"\n\n" +
+			"It differs from a statute mile by a little over 10 yards.",
 		[]Tag{TagColloquial},
-		map[string]string{},
+		map[string]string{
+			"swimming-miles": "plural",
+			"swimming mile":  "unhyphenated",
+			"swimming miles": "unhyphenated, plural",
+		},
 		"", "",
 	},
 	"league": {
@@ -821,12 +848,16 @@ var distanceNames = map[string]Unit{
 		"", "",
 	},
 	"Eiffel Tower": {
-		0, 0, 324,
+		0, 0, 300,
 		distanceFamily,
 		"Eiffel",
 		"Eiffel Tower", "Eiffel Towers",
 		"a colloquial term referencing the height of the Eiffel Tower." +
-			" The value given is to the tip of the tower.",
+			" The value given is the architectural height" +
+			" (excluding the antenna)." +
+			"\n\n" +
+			"The various flagpoles and antennas which have been added" +
+			" have extended the height by between 12 and 30 metres.",
 		[]Tag{TagColloquial},
 		map[string]string{},
 		"", "",

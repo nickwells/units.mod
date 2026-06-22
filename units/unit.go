@@ -16,8 +16,8 @@ import (
 // The tags provide extra detail about the unit. For instance a unit might be
 // tagged as an SI unit or of historical use only.
 //
-// The aliasName will only be set when the unit has been found through an
-// alias rather than the canonical name.
+// The alias will only be set when the unit has been found through an alias
+// rather than the canonical name.
 type Unit struct {
 	convPreAdd  float64
 	convPostAdd float64
@@ -33,6 +33,47 @@ type Unit struct {
 
 	alias string
 	id    string
+}
+
+// Equals returns true if the two Units are equal.
+func Equals(a, b Unit) bool {
+	if a.convFactor != b.convFactor {
+		return false
+	}
+
+	if a.convPreAdd != b.convPreAdd {
+		return false
+	}
+
+	if a.convPostAdd != b.convPostAdd {
+		return false
+	}
+
+	if a.f != b.f {
+		return false
+	}
+
+	if a.abbrev != b.abbrev {
+		return false
+	}
+
+	if a.name != b.name {
+		return false
+	}
+
+	if a.namePlural != b.namePlural {
+		return false
+	}
+
+	if a.notes != b.notes {
+		return false
+	}
+
+	if !slices.Equal(a.tags, b.tags) {
+		return false
+	}
+
+	return true
 }
 
 // ConversionFormula returns a string describing the formula this Unit uses

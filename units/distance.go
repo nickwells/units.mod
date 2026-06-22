@@ -280,6 +280,15 @@ var distanceNames = map[string]Unit{
 		map[string]string{},
 		"", "",
 	},
+	"ell": {
+		0, 0, inchToMetre * 45,
+		distanceFamily,
+		"ell", "ell", "ells",
+		"one and a quarter yards.",
+		[]Tag{TagHist},
+		map[string]string{},
+		"", "",
+	},
 	"foot": {
 		0, 0, footToMetre,
 		distanceFamily,
@@ -471,6 +480,19 @@ var distanceNames = map[string]Unit{
 		[]Tag{TagImperial, TagUScustomary},
 		map[string]string{
 			"miles": "plural",
+		},
+		"", "",
+	},
+	"metric-mile": {
+		0, 0, 1500,
+		distanceFamily,
+		"metric mile", "metric mile", "metric miles",
+		"",
+		[]Tag{TagColloquial},
+		map[string]string{
+			"metric-miles": "plural",
+			"metric mile":  "unhyphenated",
+			"metric miles": "unhyphenated, plural",
 		},
 		"", "",
 	},
@@ -828,6 +850,34 @@ var distanceNames = map[string]Unit{
 			" Institute (ANSI) from 2001 to 2002 and as president of the" +
 			" International Organisation for Standards (OSI) from 2003 to" +
 			" 2005.",
+		[]Tag{TagColloquial},
+		map[string]string{},
+		"", "",
+	},
+	"marathon": {
+		0, 0, 42195,
+		distanceFamily,
+		"marathon",
+		"marathon", "marathons",
+		"the length of a long-distance foot race." +
+			"\n\n" +
+			" The name derives from the legend of Pheidippides," +
+			" an Athenian messenger. According to the legend he first" +
+			" ran from Athens to Sparta then ran back again." +
+			" He then fought in the battle of Marathon (490 BCE)" +
+			" against the Persians which the Athenians won." +
+			" As it was ending he ran back to Athens, told the" +
+			" assembly that they had won, collapsed and died." +
+			" The distance between Marathon and Athens is about" +
+			" 40 kilometres which the race distance derives from." +
+			"\n\n" +
+			"The distance was set at the 1908 London Olympics" +
+			" where the race was run from Windsor castle to the" +
+			" White City Stadium and then a partial lap was added" +
+			" so that the race would finish in front of the Royal" +
+			" Box. The modern, metric, distance was set in 1921" +
+			" by the International Ameteur Athletics Federation" +
+			" from the length used at tbe 1908 London Olympics.",
 		[]Tag{TagColloquial},
 		map[string]string{},
 		"", "",

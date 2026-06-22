@@ -308,7 +308,7 @@ var distanceNames = map[string]Unit{
 		"ft (North German)", "foot (North German)", "feet (North German)",
 		"a medieval measure of length 10% longer than a standard foot." +
 			" The English c.1300 act. 'Composition of Yards and Perches'" +
-			" (tradionally credited to Edward I or Edward II)" +
+			" (traditionally credited to Edward I or Edward II)" +
 			" defined the statute foot to be precisely 10/11 of the" +
 			" North German (or Belgic) foot. The barleycorn, inch, ell" +
 			" and yard were adjusted accordingly while the rod and furlong" +

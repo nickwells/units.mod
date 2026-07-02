@@ -3,6 +3,43 @@ package units
 // bunNumeric is the base unit name for dimensionless units
 const bunNumeric = "1"
 
+const longAndShortScales = "There are two powers-of-ten naming" +
+	" systems:" +
+	" long scale and short scale." +
+	" In the long scale naming system" +
+	" numbers grow by multiples of a million;" +
+	" in the short scale" +
+	" they grow by multiples of a thousand." +
+	" So in the long scale naming a billion is 10^12" +
+	" and in the short scale it is 10^9." +
+	"\n\n" +
+	"The powers of ten in the long scale are given by" +
+	" 6*n where the word prefix gives the value of n." +
+	" In the short scale the powers of ten are given by" +
+	" 3+(3*n)" +
+	"\n\n" +
+	"The long scale system has names for the interleaved" +
+	" values formed by replacing the 'ion' suffix with 'iard'." +
+	" This gives" +
+	" 'million', 'milliard', 'billion', 'billiard' etc.." +
+	" The short form equivalents are" +
+	" 'million', 'billion', 'trillion', 'quadrillion' etc.." +
+	"\n\n" +
+	"The short scale system was never in widespread use before" +
+	" the United States started teaching it in schools in the early" +
+	" 1800s." +
+	" The UK switched officially to the short scale" +
+	" in 1974 when the Prime Minister," +
+	" Harold Wilson, said that Government ministers" +
+	" would thenceforth use this meaning of the word" +
+	" so as to follow the United States meaning." +
+	"\n\n" +
+	"Nowadays, most English speaking countries use the short scale." +
+	" Most continental European countries and" +
+	" Latin America (with the exception of Brazil, Guyana and Belize)" +
+	" use the long scale. Other countries have a variety of different" +
+	" naming conventions; Canada and South Africa use both."
+
 // numericFamily represents a dimensionless value
 var numericFamily = &Family{
 	baseUnitName: bunNumeric,

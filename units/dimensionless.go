@@ -194,6 +194,58 @@ var dimensionlessNames = map[string]Unit{
 		map[string]string{},
 		"", "",
 	},
+	"gross": {
+		0, 0, 144,
+		numericFamily,
+		"gr", "gross", "gross",
+		"Twelve dozen",
+		[]Tag{TagDimensionless, TagHist},
+		map[string]string{},
+		"", "",
+	},
+	"eleventy": {
+		0, 0, 110,
+		numericFamily,
+		"eleventy", "eleventy", "eleventy",
+		"A term popularised by J.R.R.Tolkien in The Lord Of The Rings.",
+		[]Tag{TagDimensionless, TagHist},
+		map[string]string{},
+		"", "",
+	},
+	"small gross": {
+		0, 0, 120,
+		numericFamily,
+		"small gross", "small gross", "small gross",
+		"Ten dozen. Early (pre 15th century) Germanic languages" +
+			" used hundred to mean 120 and the qualifier 'long' was" +
+			" added to distinguish it from the, now ubiquious, meaning" +
+			" of 100.",
+		[]Tag{TagDimensionless, TagHist},
+		map[string]string{
+			"great hundred": "",
+			"long hundred":  "",
+			"twelfty":       "",
+		},
+		"", "",
+	},
+	"long thousand": {
+		0, 0, 1_200,
+		numericFamily,
+		"long thousand", "long thousand", "long thousand",
+		"Ten long hundreds",
+		[]Tag{TagDimensionless, TagHist},
+		map[string]string{},
+		"", "",
+	},
+	"great gross": {
+		0, 0, 1_728,
+		numericFamily,
+		"great gross", "great gross", "great gross",
+		"Twelve gross, 12x12x12",
+		[]Tag{TagDimensionless, TagHist},
+		map[string]string{},
+		"", "",
+	},
 	"h": {
 		0, 0, h,
 		numericFamily,

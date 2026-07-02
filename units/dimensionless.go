@@ -42,9 +42,10 @@ const longAndShortScales = "There are two powers-of-ten naming" +
 
 // numericFamily represents a dimensionless value
 var numericFamily = &Family{
-	baseUnitName: bunNumeric,
-	description:  "dimensionless value",
-	name:         Dimensionless,
+	baseUnitName:  bunNumeric,
+	description:   "dimensionless value",
+	name:          Dimensionless,
+	familyAliases: []string{"number", "num"},
 }
 
 // DimensionlessNames maps names to numeric (dimensionless) units

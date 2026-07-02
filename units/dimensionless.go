@@ -157,6 +157,7 @@ var dimensionlessNames = map[string]Unit{
 		[]Tag{TagDimensionless},
 		map[string]string{
 			"dozens": "plural",
+			"doz":    "",
 		},
 		"", "",
 	},
@@ -167,7 +168,7 @@ var dimensionlessNames = map[string]Unit{
 		"The name may have originated from a practice of" +
 			" bakers adding an extra item to an order of 12" +
 			" to ensure that the items sold met a standard weight." +
-			" This was to avoid a fine",
+			" This was to avoid a fine.",
 		[]Tag{TagDimensionless, TagColloquial},
 		map[string]string{
 			"devils dozen":  "",
@@ -320,7 +321,7 @@ var dimensionlessNames = map[string]Unit{
 	},
 
 	"myriad": {
-		0, 0, 10000,
+		0, 0, 10_000,
 		numericFamily,
 		"myriad", "myriad", "myriads",
 		"historically, ten thousand but latterly meaning" +
@@ -342,41 +343,53 @@ var dimensionlessNames = map[string]Unit{
 		0, 0, _G,
 		numericFamily,
 		"B", "billion", "billion",
-		"Note that this reflects the, now universal, meaning of" +
+		"Note that this reflects the meaning of" +
 			" 1000 million." +
 			" Be aware that some older texts, especially in the UK" +
 			" might use this to mean a million squared which was the" +
 			" original usage in England. If the text also uses" +
 			" milliard then this is most likely to mean a million" +
-			" million (what is now generally referred to as a trillion).",
+			" million (what is now generally referred to as a trillion)." +
+			"\n\n" + longAndShortScales,
 		[]Tag{TagDimensionless},
-		map[string]string{},
+		map[string]string{
+			"short-scale billion": "",
+			"US billion":          "",
+		},
 		"", "",
 	},
 	"trillion": {
 		0, 0, _T,
 		numericFamily,
 		"Tr", "trillion", "trillion",
-		"Note that this reflects the, now universal, meaning of" +
+		"Note that this reflects the meaning of" +
 			" 1000 billion." +
 			" Be aware that some older texts, especially in the UK" +
 			" might use this to mean a million cubed which was the" +
-			" original usage in England.",
+			" original usage in England." +
+			"\n\n" + longAndShortScales,
 		[]Tag{TagDimensionless},
-		map[string]string{},
+		map[string]string{
+			"short-scale trillion": "",
+			"US trillion":          "",
+		},
 		"", "",
 	},
 	"quadrillion": {
 		0, 0, _P,
 		numericFamily,
 		"Qu", "quadrillion", "quadrillion",
-		"Note that this reflects the, now universal, meaning of" +
+		"Note that this reflects the meaning of" +
 			" 1000 trillion." +
 			" Be aware that some older texts, especially in the UK" +
 			" might use this to mean a million to the power of four" +
-			" which was the original usage in England.",
+			" which was the original usage in England." +
+			"\n\n" + longAndShortScales,
 		[]Tag{TagDimensionless},
-		map[string]string{},
+		map[string]string{
+			"short-scale quadrillion": "",
+			"US quadrillion":          "",
+		},
 		"", "",
 	},
 	"milliard": {
@@ -386,11 +399,10 @@ var dimensionlessNames = map[string]Unit{
 		"an English (UK) term for a thousand million," +
 			" now obsolete, it has been superseded by" +
 			" the US meaning of billion." +
-			"\n\n" +
-			"Milliard is still used in modern French to mean 10^9",
+			"\n\n" + longAndShortScales,
 		[]Tag{TagDimensionless, TagHist},
 		map[string]string{
-			"yard": "milliard",
+			"yard": "milliard, a financial usage",
 		},
 		"", "",
 	},
@@ -404,9 +416,13 @@ var dimensionlessNames = map[string]Unit{
 			" might use this to mean a million squared which was the" +
 			" original usage in England. You will need to judge by" +
 			" context whether the original or inflated meaning is" +
-			" intended.",
+			" intended." +
+			"\n\n" + longAndShortScales,
 		[]Tag{TagDimensionless, TagHist},
-		map[string]string{},
+		map[string]string{
+			"long-scale billion": "",
+			"UK billion":         "",
+		},
 		"", "",
 	},
 	"billiard": {
@@ -429,9 +445,13 @@ var dimensionlessNames = map[string]Unit{
 			" Be aware that some older texts, especially in the UK" +
 			" might use trillion to mean a million cubed which was the" +
 			" original usage in the UK. You will need to judge by" +
-			" context whether the original or inflated meaning is intended.",
+			" context whether the original or inflated meaning is intended." +
+			"\n\n" + longAndShortScales,
 		[]Tag{TagDimensionless, TagHist},
-		map[string]string{},
+		map[string]string{
+			"long-scale trillion": "",
+			"UK trillion":         "",
+		},
 		"", "",
 	},
 	"trilliard": {
@@ -458,7 +478,7 @@ var dimensionlessNames = map[string]Unit{
 		0, 0, 1e7,
 		numericFamily,
 		"crore", "crore", "crore",
-		"Indian: 1,00,00,000.",
+		"Indian: 1,00,00,000. One hundred lakh.",
 		[]Tag{TagDimensionless},
 		map[string]string{},
 		"", "",

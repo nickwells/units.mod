@@ -5,9 +5,10 @@ const bunVolume = "cubic metre"
 
 // volumeFamily represents the collection of units of volume
 var volumeFamily = &Family{
-	baseUnitName: bunVolume,
-	description:  "unit of volume",
-	name:         Volume,
+	baseUnitName:  bunVolume,
+	description:   "unit of volume",
+	name:          Volume,
+	familyAliases: []string{"vol"},
 }
 
 // VolumeNames maps names to units of volume

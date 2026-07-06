@@ -7,17 +7,17 @@ import (
 	"strings"
 )
 
-// Unit represents a unit of measure
+// Unit represents a unit of measure.
 //
 // There are conversion details that allow you to convert to and from the
 // base units for the unit family. There are descriptive strings for display
 // giving abbreviated and full names of the unit.
 //
 // The tags provide extra detail about the unit. For instance a unit might be
-// tagged as an SI unit or of historical use only.
+// tagged as an SI unit or of historical use only. See [Unit.Tags].
 //
 // The alias will only be set when the unit has been found through an alias
-// rather than the canonical name.
+// rather than the canonical name. See [Unit.AliasName].
 type Unit struct {
 	convPreAdd  float64
 	convPostAdd float64

@@ -323,15 +323,16 @@ var distanceNames = map[string]Unit{
 		"", "",
 	},
 	"foot (Roman)": {
-		0, 0, 0.296,
+		0, 0, romanFootToMetre,
 		distanceFamily,
 		"ft (Roman)", "foot (Roman)", "feet (Roman)",
 		"a Roman measure of length. There are several alternative lengths" +
 			" but the one used here is a popular value.",
 		[]Tag{TagHist},
 		map[string]string{
-			"Roman foot": "expanded",
-			"Roman feet": "expanded, plural",
+			"Roman foot": "alternative",
+			"Roman feet": "alternative, plural",
+			"pes":        "Latin name",
 		},
 		"", "",
 	},
@@ -533,14 +534,59 @@ var distanceNames = map[string]Unit{
 		},
 		"", "",
 	},
+	"mile (Roman)": {
+		0, 0, romanMileToMetre,
+		distanceFamily,
+		"mile (Roman)", "Roman mile", "Roman miles",
+		".",
+		[]Tag{TagHist},
+		map[string]string{
+			"Roman mile":  "alternative",
+			"Roman miles": "alternative, plural",
+			"Roman-mile":  "alternative, hyphenated",
+			"Roman-miles": "alternative, plural, hyphenated",
+		},
+		"", "",
+	},
 	"league": {
 		0, 0, mileToMetre * 3,
 		distanceFamily,
 		"lea", "league", "leagues",
-		"3 miles (perhaps the distance a person could walk in an hour).",
-		[]Tag{TagImperial},
+		"3 miles (it may have represented the distance a person" +
+			" could walk in an hour)." +
+			" It had inconsistent definitions and" +
+			" is no longer an official" +
+			" unit in any nation.",
+		[]Tag{TagImperial, TagHist},
 		map[string]string{
 			"leagues": "plural",
+		},
+		"", "",
+	},
+	"league (Roman)": {
+		0, 0, romanLeagueToMetre,
+		distanceFamily,
+		"lea (Roman)", "Roman league", "Roman leagues",
+		"",
+		[]Tag{TagHist},
+		map[string]string{
+			"Roman league":  "alternative",
+			"Roman leagues": "alternative, plural",
+		},
+		"", "",
+	},
+	"metric league": {
+		0, 0, 4_000,
+		distanceFamily,
+		"metric league", "metric league", "metric leagues",
+		"Used in France between 1812 and 1840." +
+			" The metric league is the league used by Jules Verne" +
+			" in his novel of 1870," +
+			" Twenty Thousand Leagues Under the Seas.",
+		[]Tag{TagMetric, TagHist},
+		map[string]string{
+			"lieue":          "alternative",
+			"metric leagues": "plural",
 		},
 		"", "",
 	},
@@ -551,7 +597,7 @@ var distanceNames = map[string]Unit{
 		distanceFamily,
 		"lea", "nautical league", "nautical leagues",
 		"3 nautical miles.",
-		[]Tag{TagImperial, TagNautical},
+		[]Tag{TagImperial, TagNautical, TagHist},
 		map[string]string{},
 		"", "",
 	},

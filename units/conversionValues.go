@@ -69,7 +69,7 @@ const (
 	inchToMetre = 0.0254
 	footToMetre = inchToMetre * 12
 	yardToMetre = footToMetre * 3
-	mileToMetre = yardToMetre * 1760
+	mileToMetre = yardToMetre * 1_760
 	rodToMetre  = yardToMetre * 5.5
 
 	nauticalMileToMetre = 1852
@@ -89,6 +89,11 @@ const (
 	// Shipping Container) is not twenty feet. See the unit declaration for
 	// an explanation.
 	teuLength = (19 * footToMetre) + (10.5 * inchToMetre) //nolint:mnd
+
+	// Roman conversions
+	romanFootToMetre   = 0.295_7
+	romanMileToMetre   = 7_500 * romanFootToMetre
+	romanLeagueToMetre = 1.5 * romanMileToMetre
 )
 
 // energy

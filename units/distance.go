@@ -169,7 +169,7 @@ var distanceNames = map[string]Unit{
 		"", "",
 	},
 	"mym": {
-		0, 0, 10000,
+		0, 0, 10_000,
 		distanceFamily,
 		"mym", "myriametre", "myriametres",
 		"an obsolete metric measure of distance.",
@@ -333,18 +333,6 @@ var distanceNames = map[string]Unit{
 			"Roman foot": "alternative",
 			"Roman feet": "alternative, plural",
 			"pes":        "Latin name",
-		},
-		"", "",
-	},
-	"foot (Parisian)": {
-		0, 0, 0.325,
-		distanceFamily,
-		"ft (Parisian)", "foot (Parisian)", "feet (Parisian)",
-		"a French measure of length.",
-		[]Tag{TagHist},
-		map[string]string{
-			"Parisian foot": "expanded",
-			"Parisian feet": "expanded, plural",
 		},
 		"", "",
 	},
@@ -588,6 +576,150 @@ var distanceNames = map[string]Unit{
 			"lieue":          "alternative",
 			"metric leagues": "plural",
 		},
+		"", "",
+	},
+
+	// French units
+	"foot (Parisian)": {
+		0, 0, frenchFootToMetre,
+		distanceFamily,
+		"pied", "foot (Parisian)", "feet (Parisian)",
+		"a French measure of length." +
+			" It was formally defined from the metre" +
+			" in the 'loi du 19 frimaire an VIII'" +
+			" (Law of 10 December 1799)" +
+			" with a metre set to 443.296 lines (144th of a French foot).",
+		[]Tag{TagHist},
+		map[string]string{
+			"Parisian foot": "expanded",
+			"Parisian feet": "expanded, plural",
+			"French foot":   "alternative",
+			"French feet":   "alternative, plural",
+			"pied du roi":   "alternative",
+			"pieds du roi":  "alternative, plural",
+		},
+		"", "",
+	},
+	"pouce": {
+		0, 0, frenchInchToMetre,
+		distanceFamily,
+		"pouce", "French inch", "French inches",
+		"a French measure of length, 12th of a French foot.",
+		[]Tag{TagHist},
+		map[string]string{
+			"French inch":   "alternative",
+			"French inches": "alternative, plural",
+		},
+		"", "",
+	},
+	"ligne": {
+		0, 0, frenchLigneToMetre,
+		distanceFamily,
+		"ligne", "French line", "French line",
+		"a French measure of length, 12th of a French inch.",
+		[]Tag{TagHist},
+		map[string]string{
+			"French line":  "alternative",
+			"French lines": "alternative, plural",
+		},
+		"", "",
+	},
+	"toise": {
+		0, 0, frenchToiseToMetre,
+		distanceFamily,
+		"toise", "French fathom", "French fathons",
+		"a French measure of length, 6 French feet.",
+		[]Tag{TagHist},
+		map[string]string{
+			"toises":         "plural",
+			"French fathom":  "alternative",
+			"French fathoms": "alternative, plural",
+		},
+		"", "",
+	},
+	"perche": {
+		0, 0, frenchFootToMetre * 22,
+		distanceFamily,
+		"perche", "perche d'arpent", "perches d'arpent",
+		"a French measure of length, 22 French feet." +
+			" It is related to the English perch though that is" +
+			" considerably shorter",
+		[]Tag{TagHist},
+		map[string]string{
+			"perche d'arpent": "alternative",
+		},
+		"", "",
+	},
+	"perche du roi": {
+		0, 0, frenchFootToMetre * 18,
+		distanceFamily,
+		"perche du roi", "perche du roi", "perches du roi",
+		"a French measure of length, 18 French feet." +
+			" It was used in Quebec and Louisiana",
+		[]Tag{TagHist},
+		map[string]string{},
+		"", "",
+	},
+	"arpent": {
+		0, 0, frenchFootToMetre * 220,
+		distanceFamily,
+		"arpent", "arpent", "arpents",
+		"a French measure of length, 10 perches.",
+		[]Tag{TagHist},
+		map[string]string{},
+		"", "",
+	},
+	"arpent du roi": {
+		0, 0, frenchFootToMetre * 180,
+		distanceFamily,
+		"arpent du roi", "arpent du roi", "arpents du roi",
+		"a French measure of length, 10 perche du roi." +
+			" It was used in Quebec and Louisiana",
+		[]Tag{TagHist},
+		map[string]string{},
+		"", "",
+	},
+	"lieue ancienne": {
+		0, 0, frenchFootToMetre * 10_000,
+		distanceFamily,
+		"lieue ancienne", "lieue ancienne", "lieues ancienne",
+		"a French measure of length, 10,000 (a myriad) French feet." +
+			" It was the official league in parts of France until 1674.",
+		[]Tag{TagHist},
+		map[string]string{},
+		"", "",
+	},
+	"lieue de Paris": {
+		0, 0, frenchFootToMetre * 12_000,
+		distanceFamily,
+		"lieue de Paris", "lieue de Paris", "lieues de Paris",
+		"a French measure of length, 2000 toises." +
+			" It was defined officially in 1674." +
+			" After 1737 it was also known as the" +
+			" league of bridges and roads" +
+			" (lieue des Ponts et des Chaussées).",
+		[]Tag{TagHist},
+		map[string]string{},
+		"", "",
+	},
+	"lieue des Postes": {
+		0, 0, frenchFootToMetre * 13_200,
+		distanceFamily,
+		"lieue des Postes", "lieue des Postes", "lieues des Postes",
+		"a French measure of length, 2200 toises or 60 arpents." +
+			" It was defined officially in 1737.",
+		[]Tag{TagHist},
+		map[string]string{},
+		"", "",
+	},
+	"lieue tarifaire": {
+		0, 0, frenchFootToMetre * 14_400,
+		distanceFamily,
+		"lieue tarifaire", "lieue tarifaire", "lieues tarifaire",
+		"a French measure of length, 2400 toises." +
+			" It was defined officially in 1737.",
+		[]Tag{TagHist},
+		map[string]string{},
 		"", "",
 	},
 

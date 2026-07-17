@@ -94,6 +94,14 @@ const (
 	romanFootToMetre   = 0.295_7
 	romanMileToMetre   = 7_500 * romanFootToMetre
 	romanLeagueToMetre = 1.5 * romanMileToMetre
+
+	// French conversions
+
+	// by statute - the 'loi du 19 frimaire an VIII'
+	frenchLigneToMetre = 1 / 443.296
+	frenchInchToMetre  = frenchLigneToMetre * 12
+	frenchFootToMetre  = frenchInchToMetre * 12
+	frenchToiseToMetre = frenchFootToMetre * 6
 )
 
 // energy

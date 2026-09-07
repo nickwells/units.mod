@@ -1,6 +1,6 @@
 module github.com/nickwells/units.mod/v2
 
-go 1.26.0
+go 1.27.0
 
 require (
 	github.com/nickwells/mathutil.mod/v2 v2.5.13
